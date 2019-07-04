@@ -2,10 +2,7 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+  - php
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -25,98 +22,113 @@ We have language bindings in Shell, Ruby, Python, and JavaScript! You can view c
 
 This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
-# Authentication
+# Installing the Library
 
-> To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```php
+~ composer require inspetor/inspetor-php:[version]
 ```
 
-```python
-import kittn
+> Make sure to replace `[version]` with the most recent library
 
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+Our libraries can be found in all the package managers of our supported languages.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You can find the last version of our libraries <a href="https://localhost:4567">here</a>.
 </aside>
 
-# Kittens
 
-## Get All Kittens
+# Library Setup
 
-```ruby
-require 'kittn'
+```php
+<?php
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+use Inspetor;
+
+$inspetor_config = [
+  "appId"       => [your appId] (e.g. company.api),
+  "trackerName" => [your trackerName] (e.g. 30cdfed3-9f7f-4aaa-b9f1-033c4dbfef58)
+];
+
+$inspetor = new Inspetor($inspetor_config);
+
+?>
 ```
 
-```python
-import kittn
+To setup an Inspetor Library in any language you first need to set some configuration. 
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+You will need to pass to the library your "AppId" and a "TrackerName", both will be provided to you by the Inspetor Team.
+
+<aside class="notice">
+You can find language specific details <a href="localhost:4567">here</a>.
+</aside>
+
+
+# Trackers
+
+The Inspetor Library provides a set of functions that are used to track activities that happen in your application. 
+
+All the information that is collected will help our models indentify frauds. Because of that is super important that they are will cofigured.
+
+## Tracking Account Activities
+
+These are the functions that will be used to track the user inside your application. The main activities that we track for user are the followings:
+
+- Account Creation
+- Account Updates
+- Account Deletion
+
+### Tracking Account Creation
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackAccountCreation($account);
+
+?>
 ```
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+This function is used to send information to Inspetor everytime a new account(e.g user) is created in your plataform.
+
+This function takes an [Account]() object as argument and will return true if everything goes right. If we get any problem it will throw an exception of one of the following types:
+
+- **AccountException** (Meaning that your Account object was not valid)
+
+- **AddressException** (Meaning that your Address object inside the Account object was not valid)
+
+- **TrackException**   (Meaning that we had an internal error. *Hopefully this never happen*)
+
+
+### Tracking Account Update
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackAccountUpdate($account);
+
+?>
 ```
 
-```javascript
-const kittn = require('kittn');
+This function is used to send information to Inspetor everytime an account(e.g user) updates an 
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
+This function takes an [Account]() object as argument and will return true if everything goes right. If we get any problem it will throw an exception of one of the following types:
 
-> The above command returns JSON structured like this:
+- **AccountException** (Meaning that your Account object was not valid)
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+- **AddressException** (Meaning that your Address object inside the Account object was not valid)
 
-This endpoint retrieves all kittens.
+- **TrackException**   (Meaning that we had an internal error. *Hopefully this never happen*)
+
 
 ### HTTP Request
 
