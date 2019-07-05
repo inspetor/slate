@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Inspetor Docs</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;php&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,10 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="php">php</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -225,28 +222,284 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#installing-the-library" class="toc-h1 toc-link" data-title="Installing the Library">Installing the Library</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#library-setup" class="toc-h1 toc-link" data-title="Library Setup">Library Setup</a>
+          </li>
+          <li>
+            <a href="#trackers" class="toc-h1 toc-link" data-title="Trackers">Trackers</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#tracking-account-activities" class="toc-h2 toc-link" data-title="Tracking Account Activities">Tracking Account Activities</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#tracking-account-creation" class="toc-h3 toc-link" data-title="Tracking Account Creation">Tracking Account Creation</a>
+                          </li>
+                          <li>
+                            <a href="#tracking-account-update" class="toc-h3 toc-link" data-title="Tracking Account Update">Tracking Account Update</a>
+                          </li>
+                          <li>
+                            <a href="#tracking-account-deletion" class="toc-h3 toc-link" data-title="Tracking Account Deletion">Tracking Account Deletion</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#tracking-authetication-activities" class="toc-h2 toc-link" data-title="Tracking Authetication Activities">Tracking Authetication Activities</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#tracking-login" class="toc-h3 toc-link" data-title="Tracking Login">Tracking Login</a>
+                          </li>
+                          <li>
+                            <a href="#tracking-logout" class="toc-h3 toc-link" data-title="Tracking Logout">Tracking Logout</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#tracking-password-activities" class="toc-h2 toc-link" data-title="Tracking Password Activities">Tracking Password Activities</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#tracking-password-reset" class="toc-h3 toc-link" data-title="Tracking Password Reset">Tracking Password Reset</a>
+                          </li>
+                          <li>
+                            <a href="#tracking-password-recovery" class="toc-h3 toc-link" data-title="Tracking Password Recovery">Tracking Password Recovery</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#tracking-event-activities" class="toc-h2 toc-link" data-title="Tracking Event Activities">Tracking Event Activities</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#tracking-event-creation" class="toc-h3 toc-link" data-title="Tracking Event Creation">Tracking Event Creation</a>
+                          </li>
+                          <li>
+                            <a href="#tracking-event-update" class="toc-h3 toc-link" data-title="Tracking Event Update">Tracking Event Update</a>
+                          </li>
+                          <li>
+                            <a href="#tracking-event-update-2" class="toc-h3 toc-link" data-title="Tracking Event Update">Tracking Event Update</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#tracking-sale-activities" class="toc-h2 toc-link" data-title="Tracking Sale Activities">Tracking Sale Activities</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#tracking-sale-creation" class="toc-h3 toc-link" data-title="Tracking Sale Creation">Tracking Sale Creation</a>
+                          </li>
+                          <li>
+                            <a href="#tracking-sale-update" class="toc-h3 toc-link" data-title="Tracking Sale Update">Tracking Sale Update</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#tracking-items-transfers-activities" class="toc-h2 toc-link" data-title="Tracking Items Transfers Activities">Tracking Items Transfers Activities</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#tracking-transfer-creation" class="toc-h3 toc-link" data-title="Tracking Transfer Creation">Tracking Transfer Creation</a>
+                          </li>
+                          <li>
+                            <a href="#tracking-transfer-update" class="toc-h3 toc-link" data-title="Tracking Transfer Update">Tracking Transfer Update</a>
+                          </li>
+                      </ul>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#models" class="toc-h1 toc-link" data-title="Models">Models</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#account" class="toc-h2 toc-link" data-title="Account">Account</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#address" class="toc-h2 toc-link" data-title="Address">Address</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#properties-2" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#auth" class="toc-h2 toc-link" data-title="Auth">Auth</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#properties-3" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#creditcard" class="toc-h2 toc-link" data-title="CreditCard">CreditCard</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#properties-4" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#event" class="toc-h2 toc-link" data-title="Event">Event</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#properties-5" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#item" class="toc-h2 toc-link" data-title="Item">Item</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#properties-6" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#passrecovery" class="toc-h2 toc-link" data-title="PassRecovery">PassRecovery</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#properties-7" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#payment" class="toc-h2 toc-link" data-title="Payment">Payment</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#properties-8" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#sale" class="toc-h2 toc-link" data-title="Sale">Sale</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#properties-9" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#transfer" class="toc-h2 toc-link" data-title="Transfer">Transfer</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#properties-10" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#language-specific" class="toc-h1 toc-link" data-title="Language Specific">Language Specific</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#php" class="toc-h2 toc-link" data-title="PHP">PHP</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#exceptions" class="toc-h1 toc-link" data-title="Exceptions">Exceptions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#trackerexception" class="toc-h2 toc-link" data-title="TrackerException">TrackerException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#abstractexception" class="toc-h2 toc-link" data-title="AbstractException">AbstractException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-2" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#accountexception" class="toc-h2 toc-link" data-title="AccountException">AccountException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-3" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#addressexception" class="toc-h2 toc-link" data-title="AddressException">AddressException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-4" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#authexception" class="toc-h2 toc-link" data-title="AuthException">AuthException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-5" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#creditcardexception" class="toc-h2 toc-link" data-title="CreditCardException">CreditCardException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-6" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#eventexception" class="toc-h2 toc-link" data-title="EventException">EventException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-7" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#itemexception" class="toc-h2 toc-link" data-title="ItemException">ItemException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-8" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#passrecoveryexception" class="toc-h2 toc-link" data-title="PassRecoveryException">PassRecoveryException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-9" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#paymentexception" class="toc-h2 toc-link" data-title="PaymentException">PaymentException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-10" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#saleexception" class="toc-h2 toc-link" data-title="SaleException">SaleException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-11" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#transferexception" class="toc-h2 toc-link" data-title="TransferException">TransferException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-12" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -254,185 +507,1360 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<p>Inspetor is a product developed to help your company avoid fraudulent transactions. </p>
+<h1 id='installing-the-library'>Installing the Library</h1><pre class="highlight php tab-php"><code>~ composer require inspetor/inspetor-php:[version]
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Make sure to replace <code>[version]</code> with the most recent library</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+<p>Our libraries can be found in all the package managers of our supported languages.</p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You can find language specific details <a href="#language-specific">here</a>.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h1 id='library-setup'>Library Setup</h1><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<span class="nv">$inspetor_config</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s2">"appId"</span>       <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">your</span> <span class="nx">appId</span><span class="p">]</span> <span class="p">(</span><span class="nx">e</span><span class="o">.</span><span class="nx">g</span><span class="o">.</span> <span class="nx">company</span><span class="o">.</span><span class="nx">api</span><span class="p">),</span>
+  <span class="s2">"trackerName"</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">your</span> <span class="nx">trackerName</span><span class="p">]</span> <span class="p">(</span><span class="nx">e</span><span class="o">.</span><span class="nx">g</span><span class="o">.</span> <span class="mi">30</span><span class="nx">cdfed3</span><span class="o">-</span><span class="mi">9</span><span class="nx">f7f</span><span class="o">-</span><span class="mi">4</span><span class="nx">aaa</span><span class="o">-</span><span class="nx">b9f1</span><span class="o">-</span><span class="mo">033</span><span class="nx">c4dbfef58</span><span class="p">)</span>
+<span class="p">];</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InspetorClient</span><span class="p">(</span><span class="nv">$inspetor_config</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<p>To setup an Inspetor Library in any language you first need to set some configuration. </p>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<p>You will need to pass to the library your <strong>&quot;AppId&quot;</strong> and a <strong>&quot;TrackerName&quot;</strong>, both will be provided to you by the Inspetor Team.</p>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h1 id='trackers'>Trackers</h1>
+<p>The Inspetor Library provides a set of functions that are used to track activities that happen in your application. </p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p><strong>To access all the trackers you will need an instance of the InspetorClient class</strong>, since they are all available there.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p>All the information that is collected will help our models indentify frauds. Because of that is super important that they are will cofigured.</p>
+<h2 id='tracking-account-activities'>Tracking Account Activities</h2>
+<p>These are the functions that will be used to track the user (<em>e.g. account</em>) inside your application. The main activities that will be tracked are the followings:</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<ul>
+<li><strong>Account Creation</strong> (<em>trackAccountCreation</em>)</li>
+<li><strong>Account Updates</strong> (<em>trackAccountUpdate</em>)</li>
+<li><strong>Account Deletion</strong> (<em>trackAccountDeletion</em>)</li>
+</ul>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<p>All the functions for tracking accounts (<em>e.g. user</em>) <strong>will receive an <a href="#account">Account</a> object as argument</strong> and will <em>return true</em> if everything goes right. Otherwise they will throw one of the following exceptions:</p>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Exception</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td><strong><a href="#accountexception">AccountException</a></strong></td>
+<td>The Account object provided is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#addressexception">AddressException</a></strong></td>
+<td>The Address object provided in the Account object is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#abstractexception">AbstractException</a></strong></td>
+<td>The timestamps that you passed on the objects are not valid ones</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occured. <em>Hopefully this never happen</em></td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h3 id='tracking-account-creation'>Tracking Account Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountCreation</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<p>This function is used to send information to Inspetor everytime a new account (<em>e.g. user</em>) is created on your plataform.</p>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Argument</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>account</td>
+<td>Inspetor/Model/<a href="#account">Account</a></td>
+<td>The Account that is being created</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
+<h3 id='tracking-account-update'>Tracking Account Update</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountUpdate</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime an account (<em>e.g. user</em>) updates it&#39;s informations (email, address, name...) on your application.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account</td>
+<td>Inspetor/Model/<a href="#account">Account</a></td>
+<td>The Account that is being updated</td>
+</tr>
+</tbody></table>
+<h3 id='tracking-account-deletion'>Tracking Account Deletion</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountDeletion</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime an account (<em>e.g. user</em>)  it&#39;s deleted on your platform.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account</td>
+<td>Inspetor/Model/<a href="#account">Account</a></td>
+<td>The Account that is being deleted</td>
+</tr>
+</tbody></table>
+<h2 id='tracking-authetication-activities'>Tracking Authetication Activities</h2>
+<p>These are the functions that will be used to track authentications (<em>e.g. logins and logouts</em>) that happen in your platform. The main activities that we track are the following:</p>
+
+<ul>
+<li><strong>Login</strong> (<em>trackLogin</em>)</li>
+<li><strong>Logout</strong> (<em>trackLogout</em>)</li>
+</ul>
+
+<p>All the functions for tracking authentications will <strong>receive an <a href="#auth">Auth</a> object as argument</strong> and will <em>return true</em> if everything goes right. Otherwise they will throw one of the following exceptions:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#authexception">AuthException</a></strong></td>
+<td>The Auth object provided is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#abstractexception">AbstractException</a></strong></td>
+<td>The timestamps that you passed on the objects are not valid ones</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occured. <em>Hopefully this never happen</em></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h3 id='tracking-login'>Tracking Login</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackLogin</span><span class="p">(</span><span class="nv">$auth</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime an account (<em>e.g. user</em>)  tries log in .</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>auth</td>
+<td>Inspetor/Model/<a href="#auth">Auth</a></td>
+<td>The Auth that is logging in</td>
+</tr>
+</tbody></table>
+<h3 id='tracking-logout'>Tracking Logout</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackLogout</span><span class="p">(</span><span class="nv">$auth</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime an account (<em>e.g. user</em>) tries log out.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>auth</td>
+<td>Inspetor/Model/<a href="#auth">Auth</a></td>
+<td>The Auth that is logging out</td>
+</tr>
+</tbody></table>
+<h2 id='tracking-password-activities'>Tracking Password Activities</h2>
+<p>These are the functions that will be used to track all password changes initiated by the users that happen in your platform, independing if the user is logged in or not. The main activities that we track are the following:</p>
+
+<ul>
+<li><strong>Password Reset</strong> (<em>trackPasswordReset</em>)</li>
+<li><strong>Password Recovery</strong> (<em>trackPasswordRecovery</em>)</li>
+</ul>
+
+<p>All the functions for tracking authentications will <strong>receive an <a href="#passrecovery">PassRecovery</a> object as argument</strong> and will <em>return true</em> if everything goes right. Otherwise they will throw one of the following exceptions:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#passrecoveryexception">PassRecoveryException</a></strong></td>
+<td>The PassRecovery object provided is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#abstractexception">AbstractException</a></strong></td>
+<td>The timestamps that you passed on the objects are not valid ones</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occured. <em>Hopefully this never happen</em></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h3 id='tracking-password-reset'>Tracking Password Reset</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordReset</span><span class="p">(</span><span class="nv">$pass_recovery</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime an account (<em>e.g. user</em>) tries to reset it&#39;s password.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pass_recovery</td>
+<td>Inspetor/Model/<a href="#passrecovery">PassRecovery</a></td>
+<td>The PassRecovery that is being reseted</td>
+</tr>
+</tbody></table>
+<h3 id='tracking-password-recovery'>Tracking Password Recovery</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordRecovery</span><span class="p">(</span><span class="nv">$pass_recovery</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime an account (<em>e.g. user</em>) tries to recover it&#39;s password.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pass_recovery</td>
+<td>Inspetor/Model/<a href="#passrecovery">PassRecovery</a></td>
+<td>The PassRecovery that is being recovered</td>
+</tr>
+</tbody></table>
+<h2 id='tracking-event-activities'>Tracking Event Activities</h2>
+<p>These are the functions that will be used to track the events (<em>e.g. parties, shows...</em>) that happen in your platform. The main activities that we track are the following:</p>
+
+<ul>
+<li><strong>Event Creation</strong> (<em>trackEventCreation</em>)</li>
+<li><strong>Event Update</strong>   (<em>trackEventUpdate</em>)</li>
+<li><strong>Event Deletion</strong> (<em>trackEventDeletion</em>)</li>
+</ul>
+
+<p>All the functions for tracking authentications will <strong>receive an <a href="#event">Event</a> object as argument</strong> and will <em>return true</em> if everything goes right. Otherwise they will throw one of the following exceptions:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#eventexception">EventException</a></strong></td>
+<td>The Event object provided is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#addressexception">AddressException</a></strong></td>
+<td>The Address object provided in the Event object is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#abstractexception">AbstractException</a></strong></td>
+<td>The timestamps that you passed on the objects are not valid ones</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occured. <em>Hopefully this never happen</em></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h3 id='tracking-event-creation'>Tracking Event Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventCreation</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime a new event (<em>e.g. parties, shows...</em>) is created in your plataform.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>Inspetor/Model/<a href="#event">Event</a></td>
+<td>The Event that is being created</td>
+</tr>
+</tbody></table>
+<h3 id='tracking-event-update'>Tracking Event Update</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventUpdate</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime an event (<em>e.g. parties, shows...</em>) updates one of it&#39;s informations (<em>e.g. name, location...</em>).</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>Inspetor/Model/<a href="#event">Event</a></td>
+<td>The Event that is being updated</td>
+</tr>
+</tbody></table>
+<h3 id='tracking-event-update-2'>Tracking Event Update</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventDeletion</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime an event (<em>e.g. parties, shows...</em>) it&#39;s deleted on your platform.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>Inspetor/Model/<a href="#event">Event</a></td>
+<td>The Event that is being deleted</td>
+</tr>
+</tbody></table>
+<h2 id='tracking-sale-activities'>Tracking Sale Activities</h2>
+<p>These are the functions that will be used to track sales that happen in your platform. The main activities that we track are the following:</p>
+
+<ul>
+<li><strong>Sale Creation</strong> (<em>trackSaleCreation</em>)</li>
+<li><strong>Sale Update</strong> (<em>trackSaleUpdate</em>)</li>
+</ul>
+
+<p>All the functions for tracking authentications will <strong>receive an <a href="#sale">Sale</a> object as argument</strong> and will <em>return true</em> if everything goes right. Otherwise they will throw one of the following exceptions:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#saleexception">SaleException</a></strong></td>
+<td>The Transfer object provided is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#itemexception">ItemException</a></strong></td>
+<td>The Item object provided on the Sale is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#paymentexception">PaymentException</a></strong></td>
+<td>The Payment object provided on the Sale is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#abstractexception">AbstractException</a></strong></td>
+<td>The timestamps that you passed on the objects are not valid ones</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occured. <em>Hopefully this never happen</em></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h3 id='tracking-sale-creation'>Tracking Sale Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleCreation</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime a new sale it&#39;s created on your platform.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sale</td>
+<td>Inspetor/Model/<a href="#sale">Sale</a></td>
+<td>The Sale that is being created</td>
+</tr>
+</tbody></table>
+<h3 id='tracking-sale-update'>Tracking Sale Update</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleUpdate</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime a sale updates it&#39;s status.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sale</td>
+<td>Inspetor/Model/<a href="#sale">Sale</a></td>
+<td>The Sale that is being updated</td>
+</tr>
+</tbody></table>
+<h2 id='tracking-items-transfers-activities'>Tracking Items Transfers Activities</h2>
+<p>These are the functions that will be used to track item (<em>e.g. ticket</em>) transfers between users (<em>e.g. accounts</em>) that happen in your platform. The main activities that we track are the following:</p>
+
+<ul>
+<li><strong>Item Transfer Creation</strong> (<em>trackItemTransferCreation</em>)</li>
+<li><strong>Item Transfer Update</strong> (<em>trackItemTransferUpdate</em>)</li>
+</ul>
+
+<p>All the functions for tracking authentications will <strong>receive an <a href="#transfer">Transfer</a> object as argument</strong> and will <em>return true</em> if everything goes right. Otherwise they will throw one of the following exceptions:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#transferexception">TransferException</a></strong></td>
+<td>The Transfer object provided is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#abstractexception">AbstractException</a></strong></td>
+<td>The timestamps that you passed on the objects are not valid ones</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occured. <em>Hopefully this never happen</em></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h3 id='tracking-transfer-creation'>Tracking Transfer Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferCreation</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime a new item (<em>e.g. ticket</em>) transfer is created on your platform.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transfer</td>
+<td>Inspetor/Model/<a href="#transfer">Transfer</a></td>
+<td>The Transfer that is being created</td>
+</tr>
+</tbody></table>
+<h3 id='tracking-transfer-update'>Tracking Transfer Update</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="c1">//Using the Inspetor instace that is already configured
+</span><span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferUpdate</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime a item (<em>e.g. ticket</em>) transfer has it&#39;s status updated. </p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transfer</td>
+<td>Inspetor/Model/<a href="#transfer">Transfer</a></td>
+<td>The Transfer that is being updated</td>
+</tr>
+</tbody></table>
+<h1 id='models'>Models</h1>
+<p>The Inspetor Library provides a set of classes (<em>e.g. models</em>) that are used to help you collect the information that we need.</p>
+
+<p>To get new instances of which model we suggest that you use the pre-built &quot;gets&quot; that are available in the InspetorClient class. They are an easy way to have access to every model without having to import every class.</p>
+
+<p>All the models have some optional properties, but it&#39;s important that you try to send us as much information as you can. Since this helps our machine learning models make better decisions.</p>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h2 id='account'>Account</h2>
+<p>The Account Model will contain information about an user. </p>
+<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_account</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorAuth</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getId()
+</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s2">"Test Name"</span><span class="p">);</span> <span class="c1">//getName()
+</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getEmail()
+</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setDocument</span><span class="p">(</span><span class="s2">"07206094880"</span><span class="p">);</span> <span class="c1">//getDocument()
+</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setPhoneNumber</span><span class="p">(</span><span class="s2">"11953891736"</span><span class="p">);</span> <span class="c1">//getPhoneNumber()
+</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setAddress</span><span class="p">(</span><span class="nv">$inspetor_address</span><span class="p">);</span> <span class="c1">//getAddress()
+</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setBillingAddress</span><span class="p">(</span><span class="nv">$inspetor_billing_address</span><span class="p">);</span> <span class="c1">//getBillingAddress()
+</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setCreationTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getCreationTimestamp()
+</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setUpdateTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getUpdateTimestamp()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All the properties can be defined and accessed through <strong>gets</strong> and <strong>sets</strong></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>An unique indentifier of this user in your platform</td>
+</tr>
+<tr>
+<td><strong>email</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The email of the user</td>
+</tr>
+<tr>
+<td><strong>update_timestamp</strong></td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The unix format of the time and date that the action happend</td>
+</tr>
+<tr>
+<td>name</td>
+<td>No</td>
+<td>String</td>
+<td>The name of the user</td>
+</tr>
+<tr>
+<td>document</td>
+<td>No</td>
+<td>String</td>
+<td>The user CPF</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>No</td>
+<td>String</td>
+<td>The user phone number</td>
+</tr>
+<tr>
+<td>address</td>
+<td>No</td>
+<td><a href="#address">Address</a></td>
+<td>The address of the user</td>
+</tr>
+<tr>
+<td>billing_address</td>
+<td>No</td>
+<td><a href="#address">Address</a></td>
+<td>The billing address of the user</td>
+</tr>
+<tr>
+<td>creation_timestamp</td>
+<td>No</td>
+<td>Integer</td>
+<td>The unix format of the time and date that the user account was created</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h2 id='address'>Address</h2>
+<p>The Address Model will contain information address that are used in other models (Account and Event). </p>
+<h3 id='properties-2'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_address</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorAddress</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setStreet</span><span class="p">(</span><span class="s2">"Street Security"</span><span class="p">);</span>  <span class="c1">//getStreet()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setNumber</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getNumber()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setZipCode</span><span class="p">(</span><span class="s2">"05511010"</span><span class="p">);</span> <span class="c1">//getZipCode()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setCity</span><span class="p">(</span><span class="s2">"Test City"</span><span class="p">);</span> <span class="c1">//getCity()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setState</span><span class="p">(</span><span class="s2">"Test State"</span><span class="p">);</span> <span class="c1">//getState()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setCountry</span><span class="p">(</span><span class="s2">"Test Country"</span><span class="p">);</span> <span class="c1">//getCountry()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setLatitude</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getLatitude()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setLongitude</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getLongitude()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All the properties can be defined and accessed through <strong>gets</strong> and <strong>sets</strong></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>street</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The street of the address</td>
+</tr>
+<tr>
+<td><strong>number</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The street number of the address</td>
+</tr>
+<tr>
+<td><strong>zip_code</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The zip code (<em>e.g. cep</em>) of the address</td>
+</tr>
+<tr>
+<td><strong>city</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The city on which the address is located</td>
+</tr>
+<tr>
+<td><strong>state</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The state on which the address is located</td>
+</tr>
+<tr>
+<td><strong>country</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The country on which the address is located</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>No</td>
+<td>String</td>
+<td>The exact latitude of the address</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>No</td>
+<td>String</td>
+<td>The exact longitude of the address</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h2 id='auth'>Auth</h2>
+<p>The Auth Model will contain information about log ins and log outs in your platform. </p>
+<h3 id='properties-3'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_auth</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorAuth</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setAccountId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getAccountId()
+</span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setAccountEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getAccountEmail()
+</span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All the properties can be defined and accessed through <strong>gets</strong> and <strong>sets</strong></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>account_id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The id of the user that is making the login or logout</td>
+</tr>
+<tr>
+<td><strong>timestamp</strong></td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The unix format of the time and date that the authentication happend</td>
+</tr>
+<tr>
+<td>account_email</td>
+<td>No</td>
+<td>String</td>
+<td>The email that is being used to log in or log out</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h2 id='creditcard'>CreditCard</h2>
+<p>The Credit Card Model will contain information about credit cards that are used in <a href="#sale">sales</a>. </p>
+<h3 id='properties-4'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_cc</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorCreditCard</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setFirstSixDigits</span><span class="p">(</span><span class="s2">"123456"</span><span class="p">);</span> <span class="c1">//getFirstSixDigits()
+</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setLastFourDigits</span><span class="p">(</span><span class="s2">"1234"</span><span class="p">);</span> <span class="c1">//getLastFourDigits()
+</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setHolderName</span><span class="p">(</span><span class="s2">"Holder Name"</span><span class="p">);</span> <span class="c1">//getHolderName()
+</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setHolderCpf</span><span class="p">(</span><span class="s2">"07206094880"</span><span class="p">);</span> <span class="c1">//getHolderCpf()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All the properties can be defined and accessed through <strong>gets</strong> and <strong>sets</strong></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>first_six_digits</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The first six digits of the credit card number</td>
+</tr>
+<tr>
+<td><strong>last_four_digits</strong></td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The last four digits of the credit card number</td>
+</tr>
+<tr>
+<td><strong>holder_name</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The name of the owner of the credit card</td>
+</tr>
+<tr>
+<td><strong>holder_cpf</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The cpf of the owner of the credit card</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h2 id='event'>Event</h2>
+<p>The Event Model will contain information about parties, shows... that are registered in your platform</p>
+<h3 id='properties-5'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_event</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorEvent</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"8000"</span><span class="p">);</span> <span class="c1">//getId()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s2">"Name Test"</span><span class="p">);</span> <span class="c1">//getName()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setDescription</span><span class="p">(</span><span class="s2">"Description Test"</span><span class="p">);</span> <span class="c1">//getDescription()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setCreationTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getCreationTimestamp()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setUpdateTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getUpdateTimestamp()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setSessions</span><span class="p">([</span>
+    <span class="p">[</span>
+        <span class="s2">"id"</span>        <span class="o">=&gt;</span> <span class="s2">"123"</span><span class="p">,</span>
+        <span class="s2">"timestamp"</span> <span class="o">=&gt;</span> <span class="nv">$event_session_date1</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="s2">"id"</span>        <span class="o">=&gt;</span> <span class="s2">"124"</span><span class="p">,</span>
+        <span class="s2">"timestamp"</span> <span class="o">=&gt;</span> <span class="nv">$event_session_date2</span>
+    <span class="p">]</span>
+<span class="p">]);</span> <span class="c1">//getSession()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setStatus</span><span class="p">(</span><span class="s2">"private"</span><span class="p">);</span> <span class="c1">//getStatus()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setCategories</span><span class="p">([</span><span class="s2">"Category1"</span><span class="p">,</span> <span class="s2">"Category2"</span><span class="p">]);</span> <span class="c1">//getCategories()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setAddress</span><span class="p">(</span><span class="nv">$inspetor_event_address</span><span class="p">);</span> <span class="c1">//getAddress()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s2">"cool-company-event"</span><span class="p">);</span> <span class="c1">//getUrl()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setProducerId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getProducerId()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setAdminsId</span><span class="p">([</span><span class="s2">"123"</span><span class="p">,</span> <span class="s2">"234"</span><span class="p">]);</span> <span class="c1">//getAdminsId()
+</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setSeatingOptions</span><span class="p">([</span><span class="s2">"Pista"</span><span class="p">,</span> <span class="s2">"VIP"</span><span class="p">]);</span> <span class="c1">//getSeatingOptions()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All the properties can be defined and accessed through <strong>gets</strong> and <strong>sets</strong></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>An unique indentifier of this event in your platform</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The name of the event</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The status of the event. <em>We have some pre-built status (draft, private and published) but you can use others if you want</em></td>
+</tr>
+<tr>
+<td><strong>address</strong></td>
+<td>Yes</td>
+<td><a href="#address">Address</a></td>
+<td>The address of where the event is happening</td>
+</tr>
+<tr>
+<td><strong>sessions</strong></td>
+<td>Yes</td>
+<td>Array</td>
+<td>All the dates that the event happens (if it has more than one) and the id of which date.</td>
+</tr>
+<tr>
+<td><strong>producer_id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The id of the user who created the event</td>
+</tr>
+<tr>
+<td><strong>admins_id</strong></td>
+<td>Yes</td>
+<td>Array</td>
+<td>An array containing the id of all the users who can make changes to the event</td>
+</tr>
+<tr>
+<td><strong>update_timestamp</strong></td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The unix format of the time and date that the action happend</td>
+</tr>
+<tr>
+<td>description</td>
+<td>No</td>
+<td>String</td>
+<td>The description of the event</td>
+</tr>
+<tr>
+<td>creation_timestamp</td>
+<td>No</td>
+<td>Integer</td>
+<td>The unix format of the time and date that the event was created</td>
+</tr>
+<tr>
+<td>seating_options</td>
+<td>No</td>
+<td>Array</td>
+<td>An array containing all names of the different ticket types that can be bought for this event</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>No</td>
+<td>Array</td>
+<td>An array containing the names of the categories of the event</td>
+</tr>
+<tr>
+<td>url</td>
+<td>No</td>
+<td>String</td>
+<td>The url where the event is being sold</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h2 id='item'>Item</h2>
+<p>The Item Model will contain information about the ticket that is being sold in a <a href="#sale">sale</a>. </p>
+<h3 id='properties-6'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_item</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorItem</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"9000"</span><span class="p">);</span> <span class="c1">//getId()
+</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setEventId</span><span class="p">(</span><span class="s2">"8000"</span><span class="p">);</span> <span class="c1">//getEventId()
+</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setSessionId</span><span class="p">(</span><span class="s2">"124"</span><span class="p">);</span> <span class="c1">//getSessionId()
+</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setPrice</span><span class="p">(</span><span class="s2">"50.00"</span><span class="p">);</span> <span class="c1">//getPrice()
+</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setSeatingOption</span><span class="p">(</span><span class="s2">"PISTA"</span><span class="p">);</span> <span class="c1">//getSeatingOption()
+</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setQuantity</span><span class="p">(</span><span class="s2">"2"</span><span class="p">);</span> <span class="c1">//getQuantity()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All the properties can be defined and accessed through <strong>gets</strong> and <strong>sets</strong></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>An unique indentifier of this item (<em>e.g. ticket</em>) in your platform</td>
+</tr>
+<tr>
+<td><strong>event_id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The unique indentifier of the event that the ticket is tied too</td>
+</tr>
+<tr>
+<td><strong>session_id</strong></td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The unique indentifier of the event session (date and time) that the ticket is tied too</td>
+</tr>
+<tr>
+<td><strong>price</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The price of the ticket. <em>It should only contain number, dots and commas</em></td>
+</tr>
+<tr>
+<td><strong>quantity</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The number of this type of tickets that are being bought.</td>
+</tr>
+<tr>
+<td>seating_option</td>
+<td>No</td>
+<td>String</td>
+<td>The name of the type of ticket that is being bought</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h2 id='passrecovery'>PassRecovery</h2>
+<p>The PassRecovery Model will contain information about all the password changes initiated by the user.</p>
+<h3 id='properties-7'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_pass</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorPassRecovery</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_pass</span><span class="o">-&gt;</span><span class="na">setRecoveryEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getRecoveryEmail()
+</span><span class="nv">$inspetor_pass</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All the properties can be defined and accessed through <strong>gets</strong> and <strong>sets</strong></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>recovery_email</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The email that is being used to recovery or reset the password</td>
+</tr>
+<tr>
+<td><strong>timestamp</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The unix format of the time and date that the action happend</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h2 id='payment'>Payment</h2>
+<p>The Payment Model will contain information about the payment that happens in a sale.</p>
+<h3 id='properties-8'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_payment</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorPayment</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"12345"</span><span class="p">);</span> <span class="c1">//getId()
+</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="s2">"credit_card"</span><span class="p">);</span> <span class="c1">//getMethod()
+</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setInstallments</span><span class="p">(</span><span class="s2">"1"</span><span class="p">);</span> <span class="c1">//getInstallments()
+</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setCreditCard</span><span class="p">(</span><span class="nv">$inspetor_cc</span><span class="p">);</span> <span class="c1">//getCreditCard()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All the properties can be defined and accessed through <strong>gets</strong> and <strong>sets</strong></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The id of the payment. This id is the on eyou send to the bank</td>
+</tr>
+<tr>
+<td><strong>method</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The method of payment being used. <em>The allowed values are credit_card, boleto, other</em></td>
+</tr>
+<tr>
+<td><strong>installments</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The number of &quot;<em>parcelas</em>&quot; that the user will pay</td>
+</tr>
+<tr>
+<td>credit_card</td>
+<td>No</td>
+<td><a href="#creditcard">CreditCard</a></td>
+<td>If the method is <em>credit_card</em> it should contains a credit card object</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h2 id='sale'>Sale</h2>
+<p>The Sale Model will contain information about a sale that happens in your platform.</p>
+<h3 id='properties-9'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_sale</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorSale</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"1234"</span><span class="p">);</span> <span class="c1">//getId()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setAccountId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getAccountId()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setStatus</span><span class="p">(</span><span class="s2">"pending"</span><span class="p">);</span> <span class="c1">//getStatus()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setIsFraud</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span> <span class="c1">//getIsFraud()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setCreationTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getCreationTimestamp()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setUpdateTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getUpdateTimestamp()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setItems</span><span class="p">([</span><span class="nv">$inspetor_item1</span><span class="p">,</span> <span class="nv">$inspetor_item2</span><span class="p">]);</span> <span class="c1">//getItems()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setPayment</span><span class="p">(</span><span class="nv">$inspetor_payment</span><span class="p">);</span> <span class="c1">//getPayment()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All the properties can be defined and accessed through <strong>gets</strong> and <strong>sets</strong></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>An unique indentifier of the sale in your platform</td>
+</tr>
+<tr>
+<td><strong>account_id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The id of the user who is making the purchase</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The status of the sale. <em>The allowed values are: accepted, declined, pending, refunded, manual_analysis</em></td>
+</tr>
+<tr>
+<td><strong>is_fraud</strong></td>
+<td>Yes</td>
+<td>Boolean</td>
+<td>Indicates if the sale was fradulent. This should be false by default and should only be true when you get the confirmation of the cashback</td>
+</tr>
+<tr>
+<td><strong>update_timestamp</strong></td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The unix format of the time and date that the action happend</td>
+</tr>
+<tr>
+<td><strong>items</strong></td>
+<td>Yes</td>
+<td>Array of <a href="#item">Item</a></td>
+<td>The items (<em>e.g. tickets</em>) that are being bought</td>
+</tr>
+<tr>
+<td><strong>payment</strong></td>
+<td>Yes</td>
+<td><a href="#payment">Payment</a></td>
+<td>The payment used in this purchase</td>
+</tr>
+<tr>
+<td>creation_timestamp</td>
+<td>No</td>
+<td>Integer</td>
+<td>The unix format of the time and date that the sale was created</td>
+</tr>
+<tr>
+<td>total_value</td>
+<td>No</td>
+<td>Integer</td>
+<td>The value of all items. <em>This value is not set by you!</em></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h2 id='transfer'>Transfer</h2>
+<p>The Transfer Model will contain information transfer of <a href="#item">items</a> (<em>e.g. tickets</em>) that happen in your platform</p>
+<h3 id='properties-10'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_transfer</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorTransfer</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getId()
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setCreationTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getCreationTimestamp()
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setUpdateTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getUpdateTimestamp()
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setItemId</span><span class="p">(</span><span class="s2">"9000"</span><span class="p">);</span> <span class="c1">//getItemId()
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setSenderAccountId</span><span class="p">(</span><span class="s2">"124"</span><span class="p">);</span> <span class="c1">//getSenderAccountId()
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setReceiverEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getReceiverEmail()
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setStatus</span><span class="p">(</span><span class="s2">"pending"</span><span class="p">);</span> <span class="c1">//getStatus()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All the properties can be defined and accessed through <strong>gets</strong> and <strong>sets</strong></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>An unique indentifier of the transfer</td>
+</tr>
+<tr>
+<td><strong>item_id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The id of the <a href="#item">item</a> (<em>e.g. ticket</em>) that is being transfered</td>
+</tr>
+<tr>
+<td><strong>sender_account_id</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The id of the user who is sending the item (<em>e.g. ticket</em>)</td>
+</tr>
+<tr>
+<td><strong>receiver_email</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The email of the person who is receiving the item (<em>e.g. ticket</em>)</td>
+</tr>
+<tr>
+<td><strong>update_timestamp</strong></td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The unix format of the time and date that the action happend</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td>Yes</td>
+<td>String</td>
+<td>The status of the transfer. <em>The allowed values are: accepted, rejected, pending (should be pending when created)</em></td>
+</tr>
+<tr>
+<td>creation_timestamp</td>
+<td>No</td>
+<td>Integer</td>
+<td>The unix format of the time and date that the transfer was created</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can find language specific details <a href="#language-specific">here</a>.
+</aside>
+<h1 id='language-specific'>Language Specific</h1><h2 id='php'>PHP</h2>
+<p>You can find more php specific documents <a href="https://github.com/inspetor/inspetor-php/blob/master/README.md">here</a></p>
+<h1 id='exceptions'>Exceptions</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
@@ -441,63 +1869,416 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#trackerexception">TrackerException</a></td>
+<td>An error occured when sending information to our trackers</td>
+</tr>
+<tr>
+<td><a href="#abstractexception">AbstractException</a></td>
+<td>An timestamp that was given in one of the models wasn&#39;t in unix format</td>
+</tr>
+<tr>
+<td><a href="#accountexception">AccountException</a></td>
+<td>The <a href="#account">Account</a> object given was not a valid one</td>
+</tr>
+<tr>
+<td><a href="#addressexception">AddressException</a></td>
+<td>The <a href="#address">Address</a> object given was not a valid one</td>
+</tr>
+<tr>
+<td><a href="#authexception">AuthException</a></td>
+<td>The <a href="#auth">Auth</a> object given was not a valid one</td>
+</tr>
+<tr>
+<td><a href="#creditcardexception">CreditCardException</a></td>
+<td>The <a href="#creditcard">CreditCard</a> object given was not a valid one</td>
+</tr>
+<tr>
+<td><a href="#eventexception">EventException</a></td>
+<td>The <a href="#event">Event</a> object given was not a valid one</td>
+</tr>
+<tr>
+<td><a href="#itemexception">ItemException</a></td>
+<td>The <a href="#item">Item</a> object given was not a valid one</td>
+</tr>
+<tr>
+<td><a href="#passrecoveryexception">PassRecoveryException</a></td>
+<td>The <a href="#passrecovery">PassRecovery</a> object given was not a valid one</td>
+</tr>
+<tr>
+<td><a href="#paymentexception">PaymentException</a></td>
+<td>The <a href="#payment">Payment</a> object given was not a valid one</td>
+</tr>
+<tr>
+<td><a href="#saleexception">SaleException</a></td>
+<td>The <a href="#sale">Sale</a> object given was not a valid one</td>
+</tr>
+<tr>
+<td><a href="#transferexception">TransferException</a></td>
+<td>The <a href="#transfer">Transfer</a> object given was not a valid one</td>
+</tr>
+</tbody></table>
+<h2 id='trackerexception'>TrackerException</h2>
+<p>This exceptions are thrown when an error occured when sending information to our trackers</p>
+<h3 id='types'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>9001</td>
+<td>AppId and trackerName are required parameters</td>
+</tr>
+</tbody></table>
+<h2 id='abstractexception'>AbstractException</h2>
+<p>This exceptions are thrown when you you provide a date not in unix format to a timestamp property</p>
+<h3 id='types-2'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>The timestamp should be an integer</td>
+</tr>
+</tbody></table>
+<h2 id='accountexception'>AccountException</h2>
+<p>This exceptions are thrown when you you provide an <a href="#account">Account</a> object with invalid properties or missing required properties</p>
+<h3 id='types-3'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>7002</td>
+<td>email is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>7003</td>
+<td>update_timestamp is a required property. It can&#39;t be null</td>
+</tr>
+</tbody></table>
+<h2 id='addressexception'>AddressException</h2>
+<p>This exceptions are thrown when you you provide an <a href="#address">Address</a> object with invalid properties or missing required properties</p>
+<h3 id='types-4'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>street is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>7002</td>
+<td>number is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>7003</td>
+<td>zip_code is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>7004</td>
+<td>city is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>7005</td>
+<td>state is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>7006</td>
+<td>country is a required property. It can&#39;t be null</td>
+</tr>
+</tbody></table>
+<h2 id='authexception'>AuthException</h2>
+<p>This exceptions are thrown when you you provide an <a href="#auth">Auth</a> object with invalid properties or missing required properties</p>
+<h3 id='types-5'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>account_id is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>7002</td>
+<td>timestamp is a required property. It can&#39;t be null</td>
+</tr>
+</tbody></table>
+<h2 id='creditcardexception'>CreditCardException</h2>
+<p>This exceptions are thrown when you you provide an <a href="#creditcard">CreditCard</a> object with invalid properties or missing required properties</p>
+<h3 id='types-6'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>first_six_digits is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>7002</td>
+<td>last_four_digits is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>7003</td>
+<td>holder_name is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7004</td>
+<td>holder_cpf is a required property. It can&#39;t be null</td>
+</tr>
+</tbody></table>
+<h2 id='eventexception'>EventException</h2>
+<p>This exceptions are thrown when you you provide an <a href="#event">Event</a> object with invalid properties or missing required properties</p>
+<h3 id='types-7'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>name is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7003</td>
+<td>update_timestamp is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7004</td>
+<td>producer_id is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7005</td>
+<td>address is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7006</td>
+<td>sessions is a required property. It can&#39;t be null neither an empty array</td>
+</tr>
+<tr>
+<td>7007</td>
+<td>seating_options should be null or an array of strings</td>
+</tr>
+<tr>
+<td>7008</td>
+<td>categories should be null or an array of strings</td>
+</tr>
+<tr>
+<td>7009</td>
+<td>The status is not a valid one</td>
+</tr>
+<tr>
+<td>7010</td>
+<td>sessions should be an array of one or more sessions</td>
+</tr>
+<tr>
+<td>7011</td>
+<td>id and timestamp are required properties of a session</td>
+</tr>
+<tr>
+<td>7012</td>
+<td>admins_id should be an array of one or more users</td>
+</tr>
+</tbody></table>
+<h2 id='itemexception'>ItemException</h2>
+<p>This exceptions are thrown when you you provide an <a href="#item">Item</a> object with invalid properties or missing required properties</p>
+<h3 id='types-8'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>event_id is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7003</td>
+<td>session_id is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7004</td>
+<td>price is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7005</td>
+<td>seating_option is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7006</td>
+<td>price is not valid</td>
+</tr>
+<tr>
+<td>7007</td>
+<td>quantity is a required property. It can&#39;t be null</td>
+</tr>
+</tbody></table>
+<h2 id='passrecoveryexception'>PassRecoveryException</h2>
+<p>This exceptions are thrown when you you provide an <a href="#passrecovery">PassRecovery</a> object with invalid properties or missing required properties</p>
+<h3 id='types-9'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>recovery_email is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>timestamp is a required property. It can&#39;t be null</td>
+</tr>
+</tbody></table>
+<h2 id='paymentexception'>PaymentException</h2>
+<p>This exceptions are thrown when you you provide an <a href="#payment">Payment</a> object with invalid properties or missing required properties</p>
+<h3 id='types-10'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>method is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7003</td>
+<td>installments is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7004</td>
+<td>This payment method is not a valid one</td>
+</tr>
+<tr>
+<td>7005</td>
+<td>Credit card can&#39;t be null when method is credit_card</td>
+</tr>
+</tbody></table>
+<h2 id='saleexception'>SaleException</h2>
+<p>This exceptions are thrown when you you provide an <a href="#sale">Sale</a> object with invalid properties or missing required properties</p>
+<h3 id='types-11'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>account_id is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7003</td>
+<td>status is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7004</td>
+<td>is_fraud is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7005</td>
+<td>update_timestamp is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7006</td>
+<td>items is a required property. It can&#39;t be null neither an empty array</td>
+</tr>
+<tr>
+<td>7007</td>
+<td>payment is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7008</td>
+<td>The status is not a valid one</td>
+</tr>
+<tr>
+<td>7009</td>
+<td>One or more items have invalid price</td>
+</tr>
+</tbody></table>
+<h2 id='transferexception'>TransferException</h2>
+<p>This exceptions are thrown when you you provide an <a href="#transfer">Transfer</a> object with invalid properties or missing required properties</p>
+<h3 id='types-12'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>update_timestamp is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7003</td>
+<td>item_id is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7004</td>
+<td>sender_account_id is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7005</td>
+<td>receiver_email is a required property. It can&#39;t be null</td>
+</tr>
+<tr>
+<td>7006</td>
+<td>That&#39;s an invalid status</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="php">php</a>
           </div>
       </div>
     </div>
