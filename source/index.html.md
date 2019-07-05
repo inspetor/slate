@@ -63,7 +63,6 @@ You will need to pass to the library your "AppId" and a "TrackerName", both will
 You can find language specific details <a href="localhost:4567">here</a>.
 </aside>
 
-
 # Trackers
 
 The Inspetor Library provides a set of functions that are used to track activities that happen in your application. 
@@ -72,11 +71,25 @@ All the information that is collected will help our models indentify frauds. Bec
 
 ## Tracking Account Activities
 
-These are the functions that will be used to track the user inside your application. The main activities that we track for user are the followings:
+These are the functions that will be used to track the user (*e.g. account*) inside your application. The main activities that will be tracked are the followings:
 
-- Account Creation
-- Account Updates
-- Account Deletion
+- **Account Creation** (*trackAccountCreation*)
+- **Account Updates** (*trackAccountUpdate*)
+- **Account Deletion** (*trackAccountDeletion*)
+
+All the functions for tracking accounts (*e.g. user*) **will receive an [Account]() object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
+
+Exception | Description
+--------- | -----------
+**AccountException**   | The Account object provided is not a valid one
+**AddressException**   | The Address object provided in the Account object is not a valid one
+**AbstractException**  | The timestamps that you passed on the objects are not valid ones
+**TrackerException**   | An internal error occured. *Hopefully this never happen*
+
+<aside class="notice">
+You can find language specific details <a href="localhost:4567">here</a>.
+</aside>
+
 
 ### Tracking Account Creation
 
@@ -93,15 +106,11 @@ $inspetor->trackAccountCreation($account);
 ?>
 ```
 
-This function is used to send information to Inspetor everytime a new account(e.g user) is created in your plataform.
+This function is used to send information to Inspetor everytime a new account (*e.g. user*) is created on your plataform.
 
-This function takes an [Account]() object as argument and will return true if everything goes right. If we get any problem it will throw an exception of one of the following types:
-
-- **AccountException** (Meaning that your Account object was not valid)
-
-- **AddressException** (Meaning that your Address object inside the Account object was not valid)
-
-- **TrackException**   (Meaning that we had an internal error. *Hopefully this never happen*)
+Argument | Type | Description
+-------- | ---- | -----------
+account  | Inspetor/Model/[Account]() | The Account that is being created
 
 
 ### Tracking Account Update
@@ -119,133 +128,362 @@ $inspetor->trackAccountUpdate($account);
 ?>
 ```
 
-This function is used to send information to Inspetor everytime an account(e.g user) updates an 
+This function is used to send information to Inspetor everytime an account (*e.g. user*) updates it's informations (email, address, name...) on your application.
 
-This function takes an [Account]() object as argument and will return true if everything goes right. If we get any problem it will throw an exception of one of the following types:
-
-- **AccountException** (Meaning that your Account object was not valid)
-
-- **AddressException** (Meaning that your Address object inside the Account object was not valid)
-
-- **TrackException**   (Meaning that we had an internal error. *Hopefully this never happen*)
+Argument | Type | Description
+-------- | ---- | -----------
+account  | Inspetor/Model/[Account]() | The Account that is being updated
 
 
-### HTTP Request
+### Tracking Account Deletion
 
-`GET http://example.com/api/kittens`
+```php
+<?php
 
-### Query Parameters
+use Inspetor;
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+$inspetor = $this->getConfiguredInspetor();
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+//Using the Inspetor instace that is already configured
+$inspetor->trackAccountDeletion($account);
+
+?>
+```
+
+This function is used to send information to Inspetor everytime an account (*e.g. user*)  it's deleted on your platform.
+
+Argument | Type | Description
+-------- | ---- | -----------
+account  | Inspetor/Model/[Account]() | The Account that is being deleted
+
+## Tracking Authetication Activities
+
+These are the functions that will be used to track authentications (*e.g. logins and logouts*) that happen in your platform. The main activities that we track are the following:
+
+- **Login** (*trackLogin*)
+- **Logout** (*trackLogout*)
+
+All the functions for tracking authentications will **receive an [Auth]() object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
+
+Exception | Description
+--------- | -----------
+**AuthException**      | The Auth object provided is not a valid one
+**AbstractException**  | The timestamps that you passed on the objects are not valid ones
+**TrackerException**   | An internal error occured. *Hopefully this never happen*
+
+<aside class="notice">
+You can find language specific details <a href="localhost:4567">here</a>.
 </aside>
 
-## Get a Specific Kitten
+### Tracking Login
 
-```ruby
-require 'kittn'
+```php
+<?php
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackLogin($auth);
+
+?>
 ```
 
-```python
-import kittn
+This function is used to send information to Inspetor everytime an account (*e.g. user*)  tries log in .
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
+Argument | Type | Description
+-------- | ---- | -----------
+auth  | Inspetor/Model/[Auth]() | The Auth that is logging in
+
+
+### Tracking Logout
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackLogout($auth);
+
+?>
 ```
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
+This function is used to send information to Inspetor everytime an account (*e.g. user*) tries log out.
 
-```javascript
-const kittn = require('kittn');
+Argument | Type | Description
+-------- | ---- | -----------
+auth  | Inspetor/Model/[Auth]() | The Auth that is logging out
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
+## Tracking Password Activities
 
-> The above command returns JSON structured like this:
+These are the functions that will be used to track all password changes initiated by the users that happen in your platform. The main activities that we track are the following:
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+- **Password Reset** (*trackPasswordReset*)
+- **Password Recovery** (*trackPasswordRecovery*)
 
-This endpoint retrieves a specific kitten.
+All the functions for tracking authentications will **receive an [PassRecovery]() object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
+Exception | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+**PassRecoveryException** | The PassRecovery object provided is not a valid one
+**AbstractException**     | The timestamps that you passed on the objects are not valid ones
+**TrackerException**      | An internal error occured. *Hopefully this never happen*
 
-## Delete a Specific Kitten
+<aside class="notice">
+You can find language specific details <a href="localhost:4567">here</a>.
+</aside>
 
-```ruby
-require 'kittn'
+### Tracking Password Reset
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackPasswordReset($pass_recovery);
+
+?>
 ```
 
-```python
-import kittn
+This function is used to send information to Inspetor everytime an account (*e.g. user*) tries to reset it's password.
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
+Argument | Type | Description
+-------- | ---- | -----------
+pass_recovery | Inspetor/Model/[PassRecovery]() | The PassRecovery that is being reseted
+
+### Tracking Password Recovery
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackPasswordRecovery($pass_recovery);
+
+?>
 ```
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
+This function is used to send information to Inspetor everytime an account (*e.g. user*) tries to recover it's password.
 
-```javascript
-const kittn = require('kittn');
+Argument | Type | Description
+-------- | ---- | -----------
+pass_recovery | Inspetor/Model/[PassRecovery]() | The PassRecovery that is being recovered
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
+## Tracking Event Activities
 
-> The above command returns JSON structured like this:
+These are the functions that will be used to track the events (*e.g. parties, shows...*) that happen in your platform. The main activities that we track are the following:
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
+- **Event Creation** (*trackEventCreation*)
+- **Event Update**   (*trackEventUpdate*)
+- **Event Deletion** (*trackEventDeletion*)
 
-This endpoint deletes a specific kitten.
+All the functions for tracking authentications will **receive an [Event]() object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
 
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
+Exception | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+**EventException**     | The Event object provided is not a valid one
+**AddressException**   | The Address object provided in the Event object is not a valid one
+**AbstractException**  | The timestamps that you passed on the objects are not valid ones
+**TrackerException**   | An internal error occured. *Hopefully this never happen*
+
+<aside class="notice">
+You can find language specific details <a href="localhost:4567">here</a>.
+</aside>
+
+### Tracking Event Creation
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackEventCreation($event);
+
+?>
+```
+
+This function is used to send information to Inspetor everytime a new event (*e.g. parties, shows...*) is created in your plataform.
+
+Argument | Type | Description
+-------- | ---- | -----------
+event | Inspetor/Model/[Event]() | The Event that is being created
+
+### Tracking Event Update
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackEventUpdate($event);
+
+?>
+```
+
+This function is used to send information to Inspetor everytime an event (*e.g. parties, shows...*) updates one of it's informations (*e.g. name, location...*).
+
+Argument | Type | Description
+-------- | ---- | -----------
+event | Inspetor/Model/[Event]() | The Event that is being updated
+
+### Tracking Event Update
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackEventDeletion($event);
+
+?>
+```
+
+This function is used to send information to Inspetor everytime an event (*e.g. parties, shows...*) it's deleted on your platform.
+
+Argument | Type | Description
+-------- | ---- | -----------
+event | Inspetor/Model/[Event]() | The Event that is being deleted
+
+## Tracking Sale Activities
+
+These are the functions that will be used to track sales that happen in your platform. The main activities that we track are the following:
+
+- **Sale Creation** (*trackSaleCreation*)
+- **Sale Update** (*trackSaleUpdate*)
+
+All the functions for tracking authentications will **receive an [Sale]() object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
+
+Exception | Description
+--------- | -----------
+**SaleException**      | The Transfer object provided is not a valid one
+**ItemException**      | The Item object provided on the Sale is not a valid one
+**PaymentException**   | The Payment object provided on the Sale is not a valid one
+**AbstractException**  | The timestamps that you passed on the objects are not valid ones
+**TrackerException**   | An internal error occured. *Hopefully this never happen*
+
+<aside class="notice">
+You can find language specific details <a href="localhost:4567">here</a>.
+</aside>
+
+### Tracking Sale Creation
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackSaleCreation($sale);
+
+?>
+```
+
+This function is used to send information to Inspetor everytime a new sale it's created on your platform.
+
+Argument | Type | Description
+-------- | ---- | -----------
+sale | Inspetor/Model/[Sale]() | The Sale that is being created
+
+### Tracking Sale Update
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackSaleUpdate($sale);
+
+?>
+```
+
+This function is used to send information to Inspetor everytime a sale updates it's status.
+
+Argument | Type | Description
+-------- | ---- | -----------
+sale | Inspetor/Model/[Sale]() | The Sale that is being updated
+
+## Tracking Items Transfers Activities
+
+These are the functions that will be used to track item (*e.g. ticket*) transfers between users (*e.g. accounts*) that happen in your platform. The main activities that we track are the following:
+
+- **Item Transfer Creation** (*trackItemTransferCreation*)
+- **Item Transfer Update** (*trackItemTransferUpdate*)
+
+All the functions for tracking authentications will **receive an [Transfer]() object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
+
+Exception | Description
+--------- | -----------
+**TransferException**  | The Transfer object provided is not a valid one
+**AbstractException**  | The timestamps that you passed on the objects are not valid ones
+**TrackerException**   | An internal error occured. *Hopefully this never happen*
+
+<aside class="notice">
+You can find language specific details <a href="localhost:4567">here</a>.
+</aside>
+
+### Tracking Transfer Creation
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackItemTransferCreation($transfer);
+
+?>
+```
+
+This function is used to send information to Inspetor everytime a new item (*e.g. ticket*) transfer is created on your platform.
+
+Argument | Type | Description
+-------- | ---- | -----------
+transfer | Inspetor/Model/[Transfer]() | The Transfer that is being created
+
+### Tracking Transfer Update
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+//Using the Inspetor instace that is already configured
+$inspetor->trackItemTransferUpdate($transfer);
+
+?>
+```
+
+This function is used to send information to Inspetor everytime a item (*e.g. ticket*) transfer has it's status updated. 
+
+Argument | Type | Description
+-------- | ---- | -----------
+transfer | Inspetor/Model/[Transfer]() | The Transfer that is being updated
 
