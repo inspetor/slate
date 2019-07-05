@@ -110,8 +110,9 @@ Category | Meaning
 7007  | seating_options should be null or an array of strings
 7008  | categories should be null or an array of strings
 7009  | The status is not a valid one
-70010 | sessions should be an array of one or more sessions
-70011 | id and timestamp are required properties of a session
+7010  | sessions should be an array of one or more sessions
+7011  | id and timestamp are required properties of a session
+7012  | admins_id should be an array of one or more users
 
 ## ItemException
 
