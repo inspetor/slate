@@ -34,8 +34,8 @@ The Inspetor collection libraries are avaible via public standard package manage
 use Inspetor;
 
 $inspetor_config = [
-  "appId"       => [your appId] (e.g. company.api),
-  "trackerName" => [your trackerName] (e.g. 30cdfed3-9f7f-4aaa-b9f1-033c4dbfef58)
+  "appId"       => [your appId] # (e.g. '30cdfed3-9f7f-4aaa-b9f1-033c4dbfef58'),
+  "trackerName" => [your trackerName] # (e.g. 'company.api')
 ];
 
 $inspetor = new InspetorClient($inspetor_config);
@@ -424,10 +424,6 @@ Exception | Description
 **[AbstractException](#abstractexception)** | The timestamps that you passed on the objects are not valid ones
 **[TrackerException](#trackerexception)**   | An internal error occured. *Hopefully this never happen*
 
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
-
 ### Sale Creation
 
 ```php
@@ -488,10 +484,6 @@ Exception | Description
 **[AbstractException](#abstractexception)**  | The timestamps that you passed on the objects are not valid ones
 **[TrackerException](#trackerexception)**    | An internal error occured. *Hopefully this never happen*
 
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
-
 ### Transfer Creation
 
 ```php
@@ -534,20 +526,18 @@ transfer | Inspetor/Model/[Transfer](#transfer-2) | The Transfer that is being u
 
 # Models
 
-The Inspetor Library provides a set of classes (*e.g. models*) that are used to help you collect the information that we need.
+The Inspetor Library provides a set of classes that are used to structure the information required by our fraud prevention platform.
 
-To get new instances of which model we suggest that you use the pre-built "gets" that are available in the InspetorClient class. They are an easy way to have access to every model without having to import every class.
-
-All the models have some optional properties, but it's important that you try to send us as much information as you can. Since this helps our machine learning models make better decisions.
+In our current PHP implementation, we suggest using the pre-built `get` accessor methods that are available in the InspetorClient class to get an instance of a given class. Thus you can access every model without having to import every class.
 
 <aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
+Most models have some optional properties, but it's important that you try to send us as much information as you can. The more information our models have to work with, the better your results will be.
 </aside>
 
 
 ## Account
 
-The Account Model will contain information about an user.
+Information about a user's account.
 
 ### Properties
 
@@ -571,27 +561,23 @@ $inspetor_account->setUpdateTimestamp(time()); //getUpdateTimestamp()
 ?>
 ```
 
-All the properties can be defined and accessed through **gets** and **sets**
+All properties can be accesssed or defined via `get` and `set` accessor methods
 
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
-**id** | Yes | String | An unique indentifier of this user in your platform
-**email** | Yes | String | The email of the user
-**update_timestamp** | Yes | Integer | The unix format of the time and date that the action happend
+**id** | Yes | String | Your unique indentifier for this account in your platform
+**email** | Yes | String | The email associated with the account
+**update_timestamp** | Yes | Integer | The Unix-formatted datetime that the account was last updated
 name | No | String | The name of the user
-document | No | String | The user CPF
-phone_number | No | String | The user phone number
-address | No | [Address](#address) | The address of the user
-billing_address | No | [Address](#address) | The billing address of the user
-creation_timestamp | No | Integer | The unix format of the time and date that the user account was created
-
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
+document | No | String | The CPF or document number associated with the account
+phone_number | No | String | The phone number associated with the account
+address | No | [Address](#address) | The address associated with the account
+billing_address | No | [Address](#address) | The billing address associated with the account
+creation_timestamp | No | Integer | The Unix-formatted datetime that the account was created
 
 ## Address
 
-The Address Model will contain information address that are used in other models (Account and Event).
+Residential or billing address information that is used in other models ([Account](#account-2) and [Event](#event-2)).
 
 ### Properties
 
@@ -614,26 +600,22 @@ $inspetor_address->setLongitude("123"); //getLongitude()
 ?>
 ```
 
-All the properties can be defined and accessed through **gets** and **sets**
+All properties can be accesssed or defined via `get` and `set` accessor methods
 
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
 **street** | Yes | String | The street of the address
 **number** | Yes | String | The street number of the address
-**zip_code** | Yes | String | The zip code (*e.g. cep*) of the address
-**city** | Yes | String | The city on which the address is located
-**state** | Yes | String | The state on which the address is located
-**country** | Yes | String | The country on which the address is located
+**zip_code** | Yes | String | The zip code (*e.g. CEP*) of the address
+**city** | Yes | String | The city in which the address is located
+**state** | Yes | String | The state in which the address is located
+**country** | Yes | String | The country in which the address is located
 latitude | No | String | The exact latitude of the address
 longitude | No | String | The exact longitude of the address
 
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
-
 ## Auth
 
-The Auth Model will contain information about logins and logouts in your platform.
+Login and logout event information in your platform
 
 ### Properties
 
@@ -651,7 +633,7 @@ $inspetor_auth->setTimestamp(time()); //getTimestamp()
 ?>
 ```
 
-All the properties can be defined and accessed through **gets** and **sets**
+All properties can be accesssed or defined via `get` and `set` accessor methods
 
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
@@ -659,13 +641,9 @@ Property | Required | Type | Description
 **timestamp** | Yes | Integer | The unix format of the time and date that the authentication happend
 account_email | No | String | The email that is being used to log in or log out
 
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
-
 ## CreditCard
 
-The Credit Card Model will contain information about credit cards that are used in [sales](#sale-2).
+Credit card information (used in [Sales](#sale-2) ).
 
 ### Properties
 
@@ -684,22 +662,18 @@ $inspetor_cc->setHolderCpf("07206094880"); //getHolderCpf()
 ?>
 ```
 
-All the properties can be defined and accessed through **gets** and **sets**
+All properties can be accesssed or defined via `get` and `set` accessor methods
 
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
 **first_six_digits** | Yes | String | The first six digits of the credit card number
 **last_four_digits** | Yes | Integer | The last four digits of the credit card number
-**holder_name** | Yes | String | The name of the owner of the credit card
-**holder_cpf** | Yes | String | The cpf of the owner of the credit card
-
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
+**holder_name** | Yes | String | The full name of the owner of the credit card
+**holder_cpf** | Yes | String | The CPF of the owner of the credit card
 
 ## Event
 
-The Event Model will contain information about parties, shows... that are registered in your platform
+The Event Model will contain information about parties, shows, and events that are listed on your platform
 
 ### Properties
 
@@ -736,31 +710,27 @@ $inspetor_event->setSeatingOptions(["Pista", "VIP"]); //getSeatingOptions()
 ?>
 ```
 
-All the properties can be defined and accessed through **gets** and **sets**
+All properties can be accesssed or defined via `get` and `set` accessor methods
 
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
-**id** | Yes | String | An unique indentifier of this event in your platform
+**id** | Yes | String | The unique indentifier of this event listing in your platform
 **name** | Yes | String | The name of the event
-**status** | Yes | String | The status of the event. *We have some pre-built status (draft, private and published) but you can use others if you want*
-**address** | Yes | [Address](#address) | The address of where the event is happening
-**sessions** | Yes | Array | All the dates that the event happens (if it has more than one) and the id of which date.
+**status** | Yes | String | The status of the event. *Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if you it does not fit with our status model.*
+**address** | Yes | [Address](#address) | The address where the event is happening
+**sessions** | Yes | Array | All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.
 **producer_id** | Yes | String | The id of the user who created the event
-**admins_id** | Yes | Array | An array containing the id of all the users who can make changes to the event
-**update_timestamp** | Yes | Integer | The unix format of the time and date that the action happend
-description | No | String | The description of the event
-creation_timestamp | No | Integer | The unix format of the time and date that the event was created
+**admins_id** | Yes | Array | An array containing the ids of all users who can make changes to the event
+**update_timestamp** | Yes | Integer | The Unix-formatted datetime that the event was last updated
+description | No | String | A description of the event
+creation_timestamp | No | Integer | The Unix-formatted datetime the event was created
 seating_options | No | Array | An array containing all names of the different ticket types that can be bought for this event
-categories | No | Array | An array containing the names of the categories of the event
+categories | No | Array | An array of categories associated with the event listing
 url | No | String | The url where the event is being sold
-
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
 
 ## Item
 
-The Item Model will contain information about the ticket that is being sold in a [sale](#sale-2).
+Information about the item(s) (generally a ticket) associated with a [sale](#sale-2).
 
 ### Properties
 
@@ -781,24 +751,20 @@ $inspetor_item->setQuantity("2"); //getQuantity()
 ?>
 ```
 
-All the properties can be defined and accessed through **gets** and **sets**
+All properties can be accesssed or defined via `get` and `set` accessor methods
 
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
-**id** | Yes | String | An unique indentifier of this item (*e.g. ticket*) in your platform
-**event_id** | Yes | String | The unique indentifier of the event that the ticket is tied too
-**session_id** | Yes | Integer | The unique indentifier of the event session (date and time) that the ticket is tied too
-**price** | Yes | String | The price of the ticket. *It should only contain number, dots and commas*
-**quantity** | Yes | String | The number of this type of tickets that are being bought.
-seating_option | No | String | The name of the type of ticket that is being bought
-
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
+**id** | Yes | String | A unique indentifier for this item (*e.g. ticket*) within your platform
+**event_id** | Yes | String | The unique indentifier of the event that the item is tied too
+**session_id** | Yes | Integer | The unique indentifier of the event session (date and time) that the item is tied to
+**price** | Yes | String | The price of the item. *It should only contain numbers, dots and commas*
+**quantity** | Yes | String | The number of item of this type being bought.
+seating_option | No | String | The name of the type of item that is being bought
 
 ## PassRecovery
 
-The PassRecovery Model will contain information about all the password changes initiated by the user.
+Information about password change requests or recoveries initiated by a user.
 
 ### Properties
 
@@ -815,20 +781,16 @@ $inspetor_pass->setTimestamp(time()); //getTimestamp()
 ?>
 ```
 
-All the properties can be defined and accessed through **gets** and **sets**
+All properties can be accesssed or defined via `get` and `set` accessor methods
 
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
-**recovery_email** | Yes | String | The email that is being used to recovery or reset the password
-**timestamp** | Yes | String | The unix format of the time and date that the action happend
-
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
+**recovery_email** | Yes | String | The email used to recover or reset the password
+**timestamp** | Yes | String | The Unix-formatted datetime when the action occurred.
 
 ## Payment
 
-The Payment Model will contain information about the payment that happens in a sale.
+Information about the payment associated with a [sale](#sale-2).
 
 ### Properties
 
@@ -847,22 +809,18 @@ $inspetor_payment->setCreditCard($inspetor_cc); //getCreditCard()
 ?>
 ```
 
-All the properties can be defined and accessed through **gets** and **sets**
+All properties can be accesssed or defined via `get` and `set` accessor methods
 
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
-**id** | Yes | String | The id of the payment. This id is the on eyou send to the bank
-**method** | Yes | String | The method of payment being used. *The allowed values are credit_card, boleto, other*
+**id** | Yes | String | The id of the payment. This id should be the same as the one you send to the payment processor.
+**method** | Yes | String | The method of payment being used. *The allowed values are `credit_card`, `boleto`, and `other`*
 **installments** | Yes | String | The number of "*parcelas*" that the user will pay
 credit_card | No | [CreditCard](#creditcard) | If the method is *credit_card* it should contains a credit card object
 
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
-
 ## Sale
 
-The Sale Model will contain information about a sale that happens in your platform.
+Information about a sale within your platform.
 
 ### Properties
 
@@ -885,27 +843,23 @@ $inspetor_sale->setPayment($inspetor_payment); //getPayment()
 ?>
 ```
 
-All the properties can be defined and accessed through **gets** and **sets**
+All properties can be accesssed or defined via `get` and `set` accessor methods
 
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
-**id** | Yes | String | An unique indentifier of the sale in your platform
+**id** | Yes | String | The unique indentifier for the sale within your platform
 **account_id** | Yes | String | The id of the user who is making the purchase
-**status** | Yes | String | The status of the sale. *The allowed values are: accepted, declined, pending, refunded, manual_analysis*
-**is_fraud** | Yes | Boolean | Indicates if the sale was fradulent. This should be false by default and should only be true when you get the confirmation of the cashback
+**status** | Yes | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
+**is_fraud** | Yes | Boolean | Indicates if the sale was fradulent. This should only be `true` when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.
 **update_timestamp** | Yes | Integer | The unix format of the time and date that the action happend
 **items** | Yes | Array of [Item](#item) | The items (*e.g. tickets*) that are being bought
 **payment** | Yes | [Payment](#payment) | The payment used in this purchase
 creation_timestamp | No | Integer | The unix format of the time and date that the sale was created
-total_value | No | Integer | The value of all items. *This value is not set by you!*
-
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
+total_value | No | Integer | The value of all items. *Automatically calculated*
 
 ## Transfer
 
-The Transfer Model will contain information transfer of [items](#item) (*e.g. tickets*) that happen in your platform
+Information regarding the transfer of purchased [items](#item) (*e.g. tickets*) within your platform.
 
 ### Properties
 
@@ -927,19 +881,16 @@ $inspetor_transfer->setStatus("pending"); //getStatus()
 ?>
 ```
 
-All the properties can be defined and accessed through **gets** and **sets**
+All properties can be accesssed or defined via `get` and `set` accessor methods
 
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
-**id** | Yes | String | An unique indentifier of the transfer
+**id** | Yes | String | Your platform-unique indentifier for the transfer
 **item_id** | Yes | String | The id of the [item](#item) (*e.g. ticket*) that is being transfered
-**sender_account_id** | Yes | String | The id of the user who is sending the item (*e.g. ticket*)
-**receiver_email** | Yes | String | The email of the person who is receiving the item (*e.g. ticket*)
-**update_timestamp** | Yes | Integer | The unix format of the time and date that the action happend
-**status** | Yes | String | The status of the transfer. *The allowed values are: accepted, rejected, pending (should be pending when created)*
+**sender_account_id** | Yes | String | The id of the account who is transferring the item (*e.g. ticket*)
+**receiver_email** | Yes | String | The email of the user who is receiving the item (*e.g. ticket*)
+**update_timestamp** | Yes | Integer | The Unix-formatted datetime that the action happend
+**status** | Yes | String | The status of the transfer. *The allowed values are: `accepted`, `rejected`, and `pending`*
 creation_timestamp | No | Integer | The unix format of the time and date that the transfer was created
 
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
 
