@@ -47,28 +47,28 @@ The first step of integrating Inspetor's antifraud services into your product is
 
 In order to do so, you will need to pass the `InspetorClient` your product's **App ID** and **Tracker Name**, both of which will be provided to you by the Inspetor Team.
 
-_Et voilà_! You now have an Inspetor client object that is capable of sending all of the information necessary to teach Inspetor's decision layer how to prevent fraud at your company. However, there is obviously a difference between instantiating a client instance and using it properly.
+_Et voilà_! You now have an Inspetor client object that is capable of sending all of the information necessary to teach Inspetor's decision layer how to prevent fraud at your company. However, there is a difference between instantiating a client instance and using it properly.
 
 # Using the Client Library
 
-Inspetor prevents chargebacks due to fraudulent purposes. In order to protect your company from fraudsters, our decision models need to be informed with customer behavior.
+Inspetor prevents chargebacks due to fraudulent purchases. In order to protect your company from fraudsters, our decision models need to be informed with customer behavior.
 
 Events like logins, profile updates, or even unrelated purchases on the same account all contribute to our assessment of whether or not a given transaction might be fraudulent. But we can't do it alone--we need _you_, our client, to send this information to us via the Client Library so that we can make better-informed decisions.
 
 At a high level, our decision model understands the e-commerce world in the following primary terms:
 
-- <a href="#account">**Accounts**</a>
-- <a href="#event">**Events**</a>
-- <a href="#sale">**Sales**</a>
+- <a href="#account-2">**Accounts**</a>
+- <a href="#event-2">**Events**</a>
+- <a href="#sale-2">**Sales**</a>
 - <a href="#item">**Sale Items**</a>
-- <a href="#transfer">**Transfers**</a>
+- <a href="#transfer-2">**Transfers**</a>
 
 You can think of the relationship between those entities something like this: If a user purchases tickets for a show on your site, Inspetor interprets the action as:
 
-- the creation of a new <a href="#sale">*Sale*</a>
-- the association of that Sale with an existing <a href="#account">*Account*</a>
+- the creation of a new <a href="#sale-2">*Sale*</a>
+- the association of that Sale with an existing <a href="#account-2">*Account*</a>
 - the association of that Sale with an <a href="#item">*Item*</a>
-- the association of that Item with an existing <a href="#item">*Event*</a>
+- the association of that Item with an existing <a href="#event-2">*Event*</a>
 
 ## When to send events to Inspetor
 
@@ -85,33 +85,33 @@ It is however <b>extremely important</b> that you provide us with updated inform
 The Inspetor Client Library provides methods for you to relay state changes to primary entities in any of the following instances:
 
 ### Account
-- When an account is <a href="#tracking-account-creation">created</a>
-- When an account is <a href="#tracking-account-updates">updated</a>
-- When an account is <a href="#tracking-account-deletion">deleted</a>
+- When an account is <a href="#account-creation">created</a>
+- When an account is <a href="#account-updates">updated</a>
+- When an account is <a href="#account-deletion">deleted</a>
 
 ### Event
-- When an event is <a href="#tracking-event-creation">created</a>
-- When an event is <a href="#tracking-event-updates">updated</a>
-- When an event is <a href="#tracking-event-deletion">deleted</a>
+- When an event is <a href="#event-creation">created</a>
+- When an event is <a href="#event-updates">updated</a>
+- When an event is <a href="#event-deletion">deleted</a>
 
 ### Transfer
-- When a request to transfer a sale item (e.g. a ticket) is <a href="#tracking-transfer-creation">created</a>
-- When a request to transfer a sale item (e.g. a ticket) is <a href="#tracking-transfer-updates">updated</a>
+- When a request to transfer a sale item (e.g. a ticket) is <a href="#transfer-creation">created</a>
+- When a request to transfer a sale item (e.g. a ticket) is <a href="#transfer-updates">updated</a>
 
 ### Sale
-- When a sale is <a href="#tracking-sale-creation">created</a>
-- When a sale is <a href="#tracking-sale-updates">updated</a>
+- When a sale is <a href="#sale-creation">created</a>
+- When a sale is <a href="#sale-updates">updated</a>
 
 
 Beyond updates to principal entities, Inspetor provides additional methods to allow you to inform us about meaningful account activity, such as:
 
 ### Login/Logout
-- When a user <a href="#tracking-login">logs in to an account</a>
-- When a user <a href="#tracking-logout">logs out of an account</a>
+- When a user <a href="#account-login">logs in to an account</a>
+- When a user <a href="#account-logout">logs out of an account</a>
 
 ### Password
-- When a user requests to <a href="#tracking-password-recovery">recover</a> their password
-- When a user <a href="#tracking-password-reset">resets</a> their password
+- When a user requests to <a href="#password-recovery">recover</a> their password
+- When a user <a href="#password-reset">resets</a> their password
 
 ## Where to insert Inspetor collection functions
 Where in your code base does the Inspetor library belong? Frontend? Backend? Loaded on the site?
@@ -131,40 +131,33 @@ You can find additional language-specific implementation details, including sugg
 
 Integration with Inspetor is meant to be easy--you should be able to simply instantiate our library, call our tracking methods, and if there are no errors thrown within your code execution, the data should appear within our database. However, for further validation, we also provide our customers with limited-access database credentials that allow the developer in charge of integrating Inspetor to see what data appears in our database. (Note that access is restricted such that your customer account will only be able to view data originating from your company's integration.) The Inspetor team will provide you with access credentials for this phase of validation.
 
-However, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after integration, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific (since it depends on your database implementation), and it will involved coordinated effort from both the customer the Inspetor integration team.
+However, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific (since it depends on your database implementation), and it will involved coordinated effort from both the customer the Inspetor integration team.
 
-# Collection
+# Collection API
 
-The Inspetor Library provides a set of functions that are used to track activities that happen in your application.
+<aside class="notice">
+To access the following library functions, you will need an instance of the InspetorClient class. All functions are access through the client instance.
+</aside>
 
-**To access all the trackers you will need an instance of the InspetorClient class**, since they are all available there.
+## Account Activity
 
-All the information that is collected will help our models indentify frauds. Because of that is super important that they are will cofigured.
+The following functions will be used to relay actions associated with an account:
 
-## Tracking Account Activities
+- <a href="#account-creation">trackAccountCreation</a>
+- <a href="#account-updates">trackAccountUpdate</a>
+- <a href="#account-deletion">trackAccountDeletion</a>
 
-These are the functions that will be used to track the user (*e.g. account*) inside your application. The main activities that will be tracked are the followings:
-
-- **Account Creation** (*trackAccountCreation*)
-- **Account Updates** (*trackAccountUpdate*)
-- **Account Deletion** (*trackAccountDeletion*)
-
-All the functions for tracking accounts (*e.g. user*) **will receive an [Account](#account) object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
+All the functions for tracking account-related actions require an [Account](#account-2) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
-**[AccountException](#accountexception)**   | The Account object provided is not a valid one
-**[AddressException](#addressexception)**   | The Address object provided in the Account object is not a valid one
-**[AbstractException](#abstractexception)** | The timestamps that you passed on the objects are not valid ones
-**[TrackerException](#trackerexception)**   | An internal error occured. *Hopefully this never happen*
-
-<aside class="notice">
-You can find language specific details <a
-href="#language-specific">here</a>.
-</aside>
+**[AccountException](#accountexception)**   | The Account object provided is not a valid Inspetor Account
+**[AddressException](#addressexception)**   | The Address object provided as a property of the Account object invalid
+**[AbstractException](#abstractexception)** | The timestamps passed as Account object properties are invalid
+**[TrackerException](#trackerexception)**   | An internal error occured. (*This should never happen.*)
 
 
-### Tracking Account Creation
+### Account Creation
 
 ```php
 <?php
@@ -173,20 +166,19 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackAccountCreation($account);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime a new account (*e.g. user*) is created on your plataform.
+Notify Inspetor any time a new user account is created.
 
 Argument | Type | Description
 -------- | ---- | -----------
-account  | Inspetor/Model/[Account](#account) | The Account that is being created
+account  | Inspetor/Model/[Account](#account-2) | The Account that is being created
 
 
-### Tracking Account Updates
+### Account Updates
 
 ```php
 <?php
@@ -195,20 +187,19 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackAccountUpdate($account);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime an account (*e.g. user*) updates it's informations (email, address, name...) on your application.
+Send information to Inspetor any time an account's information (email, address, name...) is altered.
 
 Argument | Type | Description
 -------- | ---- | -----------
-account  | Inspetor/Model/[Account](#account) | The Account that is being updated
+account  | Inspetor/Model/[Account](#account-2) | The Account that is being updated
 
 
-### Tracking Account Deletion
+### Account Deletion
 
 ```php
 <?php
@@ -217,38 +208,33 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackAccountDeletion($account);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime an account (*e.g. user*)  it's deleted on your platform.
+Send information to Inspetor any time an account is deleted.
 
 Argument | Type | Description
 -------- | ---- | -----------
-account  | Inspetor/Model/[Account](#account) | The Account that is being deleted
+account  | Inspetor/Model/[Account](#account-2) | The Account that is being deleted
 
-## Tracking Authentication Activities
+## Authentication Activity
 
-These are the functions that will be used to track authentications (*e.g. logins and logouts*) that happen in your platform. The main activities that we track are the following:
+The following functions provide Inspetor with information on when a user logs in our out of an account within your product:
 
-- **Login** (*trackLogin*)
-- **Logout** (*trackLogout*)
+- <a href="#account-login">trackLogin</a>
+- <a href="#account-logout">trackLogout</a>
 
-All the functions for tracking authentications will **receive an [Auth](#auth) object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
+All functions for tracking authentication activity require an [Auth](#auth) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
-**[AuthException](#authexception)**          | The Auth object provided is not a valid one
-**[AbstractException](#abstractexception)**  | The timestamps that you passed on the objects are not valid ones
-**[TrackerException](#trackerexception)**    | An internal error occured. *Hopefully this never happen*
+**[AuthException](#authexception)**          | The Auth object provided is invalid
+**[AbstractException](#abstractexception)**  | The timestamps passed as Auth object properties are invalid
+**[TrackerException](#trackerexception)**    | An internal error occured. (*This should never happen.*)
 
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
-
-### Tracking Login
+### Account Login
 
 ```php
 <?php
@@ -257,20 +243,19 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackLogin($auth);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime an account (*e.g. user*)  tries log in .
+Send information to Inspetor on every login attempt
 
 Argument | Type | Description
 -------- | ---- | -----------
-auth  | Inspetor/Model/[Auth](#auth) | The Auth that is logging in
+auth  | Inspetor/Model/[Auth](#auth) | The Auth object that describes the login
 
 
-### Tracking Logout
+### Account Logout
 
 ```php
 <?php
@@ -279,38 +264,33 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackLogout($auth);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime an account (*e.g. user*) tries log out.
+Send information to Inspetor everytime an account (*e.g. user*) logs out.
 
 Argument | Type | Description
 -------- | ---- | -----------
-auth  | Inspetor/Model/[Auth](#auth) | The Auth that is logging out
+auth  | Inspetor/Model/[Auth](#auth) | The Auth object that describes the logout
 
-## Tracking Password Activities
+## Password Activity
 
-These are the functions that will be used to track all password changes initiated by the users that happen in your platform, independing if the user is logged in or not. The main activities that we track are the following:
+The following functions notify Inspetor of password changes initiated by  users within your platform, independent of whether the user is logged in or not:
 
-- **Password Reset** (*trackPasswordReset*)
-- **Password Recovery** (*trackPasswordRecovery*)
+- <a href="#password-reset">trackPasswordReset</a>
+- <a href="#password-recovery">trackPasswordRecovery</a>
 
-All the functions for tracking authentications will **receive an [PassRecovery](#passrecovery) object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
+All functions for tracking authentication events require an [PassRecovery](#passrecovery) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
-**[PassRecoveryException](#passrecoveryexception)** | The PassRecovery object provided is not a valid one
-**[AbstractException](#abstractexception)**         | The timestamps that you passed on the objects are not valid ones
-**[TrackerException](#trackerexception)**           | An internal error occured. *Hopefully this never happen*
+**[PassRecoveryException](#passrecoveryexception)** | The PassRecovery object provided is invalid
+**[AbstractException](#abstractexception)**         | The timestamps passed as PassRecovery object properties are invalid
+**[TrackerException](#trackerexception)**           | An internal error occured. (*This should never happen.*)
 
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
-
-### Tracking Password Reset
+### Password Reset
 
 ```php
 <?php
@@ -319,19 +299,18 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackPasswordReset($pass_recovery);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime an account (*e.g. user*) tries to reset it's password.
+Send information to Inspetor anytime a request to reset an account's password is made.
 
 Argument | Type | Description
 -------- | ---- | -----------
-pass_recovery | Inspetor/Model/[PassRecovery](#passrecovery) | The PassRecovery that is being reseted
+pass_recovery | Inspetor/Model/[PassRecovery](#passrecovery) | The PassRecovery object that describes the password reset request
 
-### Tracking Password Recovery
+### Password Recovery
 
 ```php
 <?php
@@ -340,40 +319,35 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackPasswordRecovery($pass_recovery);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime an account (*e.g. user*) tries to recover it's password.
+Send information to Inspetor anytime a request is made to recover a password.
 
 Argument | Type | Description
 -------- | ---- | -----------
-pass_recovery | Inspetor/Model/[PassRecovery](#passrecovery) | The PassRecovery that is being recovered
+pass_recovery | Inspetor/Model/[PassRecovery](#passrecovery) | The PassRecovery object that describes the password recovery request
 
-## Tracking Event Activities
+## Event Activity
 
-These are the functions that will be used to track the events (*e.g. parties, shows...*) that happen in your platform. The main activities that we track are the following:
+The following functions provide Inspetor with information regarding the events (*e.g. parties, shows...*) listed on your platform:
 
-- **Event Creation** (*trackEventCreation*)
-- **Event Update**   (*trackEventUpdate*)
-- **Event Deletion** (*trackEventDeletion*)
+- <a href="#event-creation">trackEventCreation</a>
+- <a href="#event-updates">trackEventUpdate</a>
+- <a href="#event-deletion">trackEventDeletion</a>
 
-All the functions for tracking authentications will **receive an [Event](#event) object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
+All functions for tracking event activity require an [Event](#event-2) object as argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
-**[EventException](#eventexception)**       | The Event object provided is not a valid one
-**[AddressException](#addressexception)**   | The Address object provided in the Event object is not a valid one
-**[AbstractException](#abstractexception)** | The timestamps that you passed on the objects are not valid ones
-**[TrackerException](#trackerexception)**   | An internal error occured. *Hopefully this never happen*
+**[EventException](#eventexception)**       | The Event object provided is invalid
+**[AddressException](#addressexception)**   | The Address object provided as a property of the Event object is invalid
+**[AbstractException](#abstractexception)** | The timestamps passed as Event object properties are invalid
+**[TrackerException](#trackerexception)**   | An internal error occured. (*This should never happen.*)
 
-<aside class="notice">
-You can find language specific details <a href="#language-specific">here</a>.
-</aside>
-
-### Tracking Event Creation
+### Event Creation
 
 ```php
 <?php
@@ -382,19 +356,18 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackEventCreation($event);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime a new event (*e.g. parties, shows...*) is created in your plataform.
+Send information to Inspetor anytime a new event (*e.g. pary, shows...*) is created in your platform
 
 Argument | Type | Description
 -------- | ---- | -----------
-event | Inspetor/Model/[Event](#event) | The Event that is being created
+event | Inspetor/Model/[Event](#event-2) | The Event that is being created
 
-### Tracking Event Updates
+### Event Updates
 
 ```php
 <?php
@@ -403,19 +376,18 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackEventUpdate($event);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime an event (*e.g. parties, shows...*) updates one of it's informations (*e.g. name, location...*).
+Send information to Inspetor everytime an event listing's information is updated (event title, location, etc.)
 
 Argument | Type | Description
 -------- | ---- | -----------
-event | Inspetor/Model/[Event](#event) | The Event that is being updated
+event | Inspetor/Model/[Event](#event-2) | The Event that is being updated
 
-### Tracking Event Deletion
+### Event Deletion
 
 ```php
 <?php
@@ -424,26 +396,25 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackEventDeletion($event);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime an event (*e.g. parties, shows...*) it's deleted on your platform.
+Send information to Inspetor everytime an Event listing is deleted from your platform
 
 Argument | Type | Description
 -------- | ---- | -----------
-event | Inspetor/Model/[Event](#event) | The Event that is being deleted
+event | Inspetor/Model/[Event](#event-2) | The Event that is being deleted
 
-## Tracking Sale Activities
+## Sale Activity
 
-These are the functions that will be used to track sales that happen in your platform. The main activities that we track are the following:
+The following functions provide Inspetor with information on sales that happen within your platform. The main activities that we track are the following:
 
-- **Sale Creation** (*trackSaleCreation*)
-- **Sale Update** (*trackSaleUpdate*)
+- <a href="#sale-creation">trackSaleCreation</a>
+- <a href="#sale-updates">trackSaleUpdate</a>
 
-All the functions for tracking authentications will **receive an [Sale](#sale) object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
+All functions for tracking Sales activity require a [Sale](#sale-2) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
@@ -457,7 +428,7 @@ Exception | Description
 You can find language specific details <a href="#language-specific">here</a>.
 </aside>
 
-### Tracking Sale Creation
+### Sale Creation
 
 ```php
 <?php
@@ -466,19 +437,18 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackSaleCreation($sale);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime a new sale it's created on your platform.
+Send information to Inspetor every time a new sale is created on your platform.
 
 Argument | Type | Description
 -------- | ---- | -----------
-sale | Inspetor/Model/[Sale](#sale) | The Sale that is being created
+sale | Inspetor/Model/[Sale](#sale-2) | The Sale that is being created
 
-### Tracking Sale Updates
+### Sale Updates
 
 ```php
 <?php
@@ -487,26 +457,30 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackSaleUpdate($sale);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime a sale updates it's status.
+Send information to Inspetor everytime a sale's status is updated.
+<aside class="notice">
+You must call this function <b>any</b> time a sale's status is updated (including post-sale updates, such as refunds). Sale status is extremely crucial to Inspetor's prediction model.
+</aside>
 
 Argument | Type | Description
 -------- | ---- | -----------
 sale | Inspetor/Model/[Sale](#sale) | The Sale that is being updated
 
-## Tracking Items Transfers Activities
+## Items Transfers
 
-These are the functions that will be used to track item (*e.g. ticket*) transfers between users (*e.g. accounts*) that happen in your platform. The main activities that we track are the following:
+The following functions will be used to relay item (*e.g. ticket*) transfers between users (*e.g. accounts*) that happen within your platform:
 
 - **Item Transfer Creation** (*trackItemTransferCreation*)
+- <a href="#transfer-creation">trackTransferCreation</a>
+- <a href="#transfer-updates">trackTransferUpdate</a>
 - **Item Transfer Update** (*trackItemTransferUpdate*)
 
-All the functions for tracking authentications will **receive an [Transfer](#transfer) object as argument** and will *return true* if everything goes right. Otherwise they will throw one of the following exceptions:
+All the functions for tracking transfer activity require a [Transfer](#transfer-2) object as argument and return `true` if everything goes right. Otherwise, one of the the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
@@ -518,7 +492,7 @@ Exception | Description
 You can find language specific details <a href="#language-specific">here</a>.
 </aside>
 
-### Tracking Transfer Creation
+### Transfer Creation
 
 ```php
 <?php
@@ -527,7 +501,6 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackItemTransferCreation($transfer);
 
 ?>
@@ -537,9 +510,9 @@ This function is used to send information to Inspetor everytime a new item (*e.g
 
 Argument | Type | Description
 -------- | ---- | -----------
-transfer | Inspetor/Model/[Transfer](#transfer) | The Transfer that is being created
+transfer | Inspetor/Model/[Transfer](#transfer-2) | The Transfer that is being created
 
-### Tracking Transfer Updates
+### Transfer Updates
 
 ```php
 <?php
@@ -548,17 +521,16 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-//Using the Inspetor instace that is already configured
 $inspetor->trackItemTransferUpdate($transfer);
 
 ?>
 ```
 
-This function is used to send information to Inspetor everytime a item (*e.g. ticket*) transfer has it's status updated.
+This function is used to send information to Inspetor everytime an item (*e.g. ticket*) transfer's status is updated.
 
 Argument | Type | Description
 -------- | ---- | -----------
-transfer | Inspetor/Model/[Transfer](#transfer) | The Transfer that is being updated
+transfer | Inspetor/Model/[Transfer](#transfer-2) | The Transfer that is being updated
 
 # Models
 
@@ -661,7 +633,7 @@ You can find language specific details <a href="#language-specific">here</a>.
 
 ## Auth
 
-The Auth Model will contain information about log ins and log outs in your platform.
+The Auth Model will contain information about logins and logouts in your platform.
 
 ### Properties
 
@@ -693,7 +665,7 @@ You can find language specific details <a href="#language-specific">here</a>.
 
 ## CreditCard
 
-The Credit Card Model will contain information about credit cards that are used in [sales](#sale).
+The Credit Card Model will contain information about credit cards that are used in [sales](#sale-2).
 
 ### Properties
 
@@ -788,7 +760,7 @@ You can find language specific details <a href="#language-specific">here</a>.
 
 ## Item
 
-The Item Model will contain information about the ticket that is being sold in a [sale](#sale).
+The Item Model will contain information about the ticket that is being sold in a [sale](#sale-2).
 
 ### Properties
 
