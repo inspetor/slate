@@ -125,7 +125,7 @@ Fortunately for you, the answer is quite simple at the moment--we only have one 
 In the future however, our suggested integration model will be:
 
 - Full event coverage within the server/API level of your application (backend): This allows us to know everything about what is hapening within your product.
-- 1:1 corresponding coverage within your frontend interfaces (Desktop, iOS, and Android): This allows us to enrich the knowledge we're gathering from your server-level transactions with additional information that improves our protection capabilities.
+- 1:1 corresponding coverage within your frontend interfaces (Web, iOS, and Android): This allows us to enrich the knowledge we're gathering from your server-level transactions with additional information that improves our protection capabilities.
 
 You can find additional language-specific implementation details, including suggested architecture and best practices, via the following links:
 
