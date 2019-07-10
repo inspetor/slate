@@ -596,7 +596,7 @@ $inspetor_address = $inspetor->getInspetorAddress();
 
 // Filling model with company data
 $inspetor_address->setStreet("Street Security");  //getStreet()
-$inspetor_address->setNumber(123); //getNumber()
+$inspetor_address->setNumber("123"); //getNumber()
 $inspetor_address->setZipCode("05511010"); //getZipCode()
 $inspetor_address->setCity("Test City"); //getCity()
 $inspetor_address->setState("Test State"); //getState()
@@ -612,11 +612,11 @@ All properties can be accesssed or defined via `get` and `set` accessor methods
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
 **street** | Yes | String | The street of the address
-**number** | Yes | Integer | The street number of the address
 **zip_code** | Yes | String | The zip code (*e.g. CEP*) of the address
 **city** | Yes | String | The city in which the address is located
 **state** | Yes | String | The state in which the address is located
 **country** | Yes | String | The country in which the address is located
+number | Yes | String | The street number of the address
 latitude | No | String | The exact latitude of the address
 longitude | No | String | The exact longitude of the address
 
