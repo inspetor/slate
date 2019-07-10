@@ -55,9 +55,9 @@ _Et voilà_! You now have an Inspetor client object that is capable of sending a
 
 # Using the Client Library
 
-Inspetor prevents chargebacks due to fraudulent purchases. In order to protect your company from fraudsters, our decision models need to be informed with customer behavior.
+In order to protect your company from fraudsters, our decision models need to be informed with customer behavior.
 
-Events like logins, profile updates, or even unrelated purchases on the same account all contribute to our assessment of whether or not a given transaction might be fraudulent. But we can't do it alone--we need _you_, our client, to send this information to us via the Client Library so that we can make better-informed decisions.
+Events like logins, profile updates, or even unrelated purchases on the same account all contribute to our assessment of whether or not a given transaction is fraudulent. But we can't do it alone--we need _you_, our client, to send this information to us via the Client Library so that we can make better-informed decisions.
 
 At a high level, our decision model understands the e-commerce world in the following primary terms:
 
@@ -67,23 +67,29 @@ At a high level, our decision model understands the e-commerce world in the foll
 - <a href="#item">**Sale Items**</a>
 - <a href="#transfer-2">**Transfers**</a>
 
-You can think of the relationship between those entities something like this: If a user purchases tickets for a show on your site, Inspetor interprets the action as:
+You can think of the relationship between those entities something like this:
+
+If a user purchases tickets for a show on your site, Inspetor interprets the action as:
 
 - the creation of a new <a href="#sale-2">*Sale*</a>
 - the association of that Sale with an existing <a href="#account-2">*Account*</a>
 - the association of that Sale with an <a href="#item">*Item*</a>
 - the association of that Item with an existing <a href="#event-2">*Event*</a>
 
-## When to send events to Inspetor
-
-The primary Inspetor entities are **stateful** objects. They have properites that can be updated, and the values of these properties are crucial to our evaluation of transaction validity. However, if we base our evaluation upon outdated or incorrected information, the accuracy of our evaluation is likely to suffer as well. As such, it is critical that you notify Inspetor of any changes to these properties whenever they occur via the Inspetor Client Library.
+While these are the terms with which our model interprets actions on your platform, Inspetor is unaware of these actions occurring unless you use the Inspetor Client Library to relay this information to us.
 
 <aside class="notice">
 Inspetor will never request access to your code base--that means that it is on <i>you</i>, the developer, to integrate our library into your product's code base. We think that's the right way to do things: you know your product's code base, we know fraud.
 </aside>
 
+## When to send events to Inspetor
+
+The primary Inspetor entities are **stateful** objects. They have properites that can be updated, and the values of these properties are crucial to our evaluation of transaction validity. Thus, you should send events to Inspetor via the client library whenever properties of these objects are changed.
+
+However, if we base our evaluation upon outdated or incorrect information, the accuracy of our evaluation will suffer. As such, it is critical that you notify Inspetor of any changes to these properties whenever they occur via the Inspetor Client Library.
+
 <aside class="warning">
-It is however <b>extremely important</b> that you provide us with updated information at any stage that these primary entities are updated. If we are working with outdated or incorrect information, we can't make reliable predictions for you.
+It is <b>extremely important</b> that you provide us with updated information at any stage that these primary entities are updated. If we are working with outdated or incorrect information, we can't make reliable predictions for you.
 </aside>
 
 The Inspetor Client Library provides methods for you to relay state changes to primary entities in any of the following instances:
@@ -107,18 +113,18 @@ The Inspetor Client Library provides methods for you to relay state changes to p
 - When a sale is <a href="#sale-updates">updated</a>
 
 
-Beyond updates to principal entities, Inspetor provides additional methods to allow you to inform us about meaningful account activity, such as:
+Inspetor provides additional methods to allow you to inform us about meaningful user activity, such as:
 
 ### Login/Logout
 - When a user <a href="#account-login">logs in to an account</a>
 - When a user <a href="#account-logout">logs out of an account</a>
 
-### Password
+### Password Activity
 - When a user requests to <a href="#password-recovery">recover</a> their password
 - When a user <a href="#password-reset">resets</a> their password
 
 ## Where to insert Inspetor collection functions
-Where in your code base does the Inspetor library belong? Frontend? Backend? Loaded on the site?
+Where in your code base does the Inspetor client library belong? Frontend? Backend? Loaded on the site?
 
 Fortunately for you, the answer is quite simple at the moment--we only have one version (PHP) of the Client Library implemented! That means you'll need to integrate our library with your PHP application server.
 
@@ -133,16 +139,15 @@ You can find additional language-specific implementation details, including sugg
 
 ## Testing your integration with Inspetor
 
-Integration with Inspetor is meant to be easy--you should be able to simply instantiate our library, call our tracking methods, and if there are no errors thrown within your code execution, the data should appear within our database. However, for further validation, we also provide our customers with limited-access database credentials that allow the developer in charge of integrating Inspetor to see what data appears in our database. (Note that access is restricted such that your customer account will only be able to view data originating from your company's integration.) The Inspetor team will provide you with access credentials for this phase of validation.
+Integrating with Inspetor is meant to be easy--simply instantiate our library, call our tracking methods, and if there are no errors thrown within your code execution, data will appear within our database. However, for further validation, we also provide our customers with limited-access database credentials that allow the developer in charge of integrating Inspetor to inspect the that data appears in our database. (Note that access is restricted such that your customer account will only be able to view data originating from your company's integration.) The Inspetor team will provide you with access credentials for this phase of validation.
 
-However, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific (since it depends on your database implementation), and it will involved coordinated effort from both the customer the Inspetor integration team.
+However, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific and it will involve coordinated effort from both the customer and the Inspetor integration team.
 
 # Collection API
 
 <aside class="notice">
-To access the following library functions, you will need an instance of the InspetorClient class. All functions are access through the client instance.
+To access the following library functions, you will need an instance of the InspetorClient class. All functions are accessed through the client instance.
 </aside>
-
 ## Account Activity
 
 The following functions will be used to relay actions associated with an account:
@@ -158,7 +163,7 @@ Exception | Description
 **[AccountException](#accountexception)**   | The Account object provided is not a valid Inspetor Account
 **[AddressException](#addressexception)**   | The Address object provided as a property of the Account object invalid
 **[AbstractException](#abstractexception)** | The timestamps passed as Account object properties are invalid
-**[TrackerException](#trackerexception)**   | An internal error occured. (*This should never happen.*)
+**[TrackerException](#trackerexception)**   | An internal error occurred (*This should never happen*)
 
 
 ### Account Creation
@@ -236,7 +241,7 @@ Exception | Description
 --------- | -----------
 **[AuthException](#authexception)**          | The Auth object provided is invalid
 **[AbstractException](#abstractexception)**  | The timestamps passed as Auth object properties are invalid
-**[TrackerException](#trackerexception)**    | An internal error occured. (*This should never happen.*)
+**[TrackerException](#trackerexception)**    | An internal error occurred (*This should never happen*)
 
 ### Account Login
 
@@ -292,7 +297,7 @@ Exception | Description
 --------- | -----------
 **[PassRecoveryException](#passrecoveryexception)** | The PassRecovery object provided is invalid
 **[AbstractException](#abstractexception)**         | The timestamps passed as PassRecovery object properties are invalid
-**[TrackerException](#trackerexception)**           | An internal error occured. (*This should never happen.*)
+**[TrackerException](#trackerexception)**           | An internal error occurred (*This should never happen*)
 
 ### Password Reset
 
@@ -349,7 +354,7 @@ Exception | Description
 **[EventException](#eventexception)**       | The Event object provided is invalid
 **[AddressException](#addressexception)**   | The Address object provided as a property of the Event object is invalid
 **[AbstractException](#abstractexception)** | The timestamps passed as Event object properties are invalid
-**[TrackerException](#trackerexception)**   | An internal error occured. (*This should never happen.*)
+**[TrackerException](#trackerexception)**   | An internal error occurred (*This should never happen*)
 
 ### Event Creation
 
@@ -426,7 +431,7 @@ Exception | Description
 **[ItemException](#itemexception)**         | The Item object provided on the Sale is not a valid one
 **[PaymentException](#paymentexception)**   | The Payment object provided on the Sale is not a valid one
 **[AbstractException](#abstractexception)** | The timestamps that you passed on the objects are not valid ones
-**[TrackerException](#trackerexception)**   | An internal error occured. *Hopefully this never happen*
+**[TrackerException](#trackerexception)**   | An internal error occurred *Hopefully this never happen*
 
 ### Sale Creation
 
@@ -486,7 +491,7 @@ Exception | Description
 --------- | -----------
 **[TransferException](#transferexception)**  | The Transfer object provided is not a valid one
 **[AbstractException](#abstractexception)**  | The timestamps that you passed on the objects are not valid ones
-**[TrackerException](#trackerexception)**    | An internal error occured. *Hopefully this never happen*
+**[TrackerException](#trackerexception)**    | An internal error occurred *Hopefully this never happen*
 
 ### Transfer Creation
 
