@@ -6,7 +6,7 @@ The Inspetor Client Library uses the following exceptions:
 Exception | Description
 --------- | -----------
 [TrackerException](#trackerexception) | An error occured when sending information to our trackers
-[AbstractException](#abstractexception) | The provided timestamp was not in Unix format
+[generalException](#generalException) | The provided timestamp was not in Unix format
 [AccountException](#accountexception) | The provided [Account](#account) object was invalid
 [AddressException](#addressexception) | The provided [Address](#address) object was invalid
 [AuthException](#authexception) | The provided [Auth](#auth) object was invalid
@@ -28,7 +28,7 @@ Category | Meaning
 -------- | ------
 9001 | AppId and trackerName are required parameters
 
-## AbstractException
+## generalException
 
 This exception is thrown when you provide a non-Unix-formatted datetime as a timestamp property in a model
 

@@ -162,7 +162,7 @@ Exception | Description
 --------- | -----------
 **[AccountException](#accountexception)**   | The Account object provided is not a valid Inspetor Account
 **[AddressException](#addressexception)**   | The Address object provided as a property of the Account object invalid
-**[AbstractException](#abstractexception)** | The timestamps passed as Account object properties are invalid
+**[generalException](#generalException)** | The timestamps passed as Account object properties are invalid
 **[TrackerException](#trackerexception)**   | An internal error occurred (*This should never happen*)
 
 
@@ -240,7 +240,7 @@ All functions for tracking authentication activity require an [Auth](#auth) obje
 Exception | Description
 --------- | -----------
 **[AuthException](#authexception)**          | The Auth object provided is invalid
-**[AbstractException](#abstractexception)**  | The timestamps passed as Auth object properties are invalid
+**[generalException](#generalException)**  | The timestamps passed as Auth object properties are invalid
 **[TrackerException](#trackerexception)**    | An internal error occurred (*This should never happen*)
 
 ### Account Login
@@ -296,7 +296,7 @@ All functions for tracking authentication events require an [PassRecovery](#pass
 Exception | Description
 --------- | -----------
 **[PassRecoveryException](#passrecoveryexception)** | The PassRecovery object provided is invalid
-**[AbstractException](#abstractexception)**         | The timestamps passed as PassRecovery object properties are invalid
+**[generalException](#generalException)**         | The timestamps passed as PassRecovery object properties are invalid
 **[TrackerException](#trackerexception)**           | An internal error occurred (*This should never happen*)
 
 ### Password Reset
@@ -353,7 +353,7 @@ Exception | Description
 --------- | -----------
 **[EventException](#eventexception)**       | The Event object provided is invalid
 **[AddressException](#addressexception)**   | The Address object provided as a property of the Event object is invalid
-**[AbstractException](#abstractexception)** | The timestamps passed as Event object properties are invalid
+**[generalException](#generalException)** | The timestamps passed as Event object properties are invalid
 **[TrackerException](#trackerexception)**   | An internal error occurred (*This should never happen*)
 
 ### Event Creation
@@ -430,7 +430,7 @@ Exception | Description
 **[SaleException](#saleexception)**         | The Transfer object provided is not a valid one
 **[ItemException](#itemexception)**         | The Item object provided on the Sale is not a valid one
 **[PaymentException](#paymentexception)**   | The Payment object provided on the Sale is not a valid one
-**[AbstractException](#abstractexception)** | The timestamps that you passed on the objects are not valid ones
+**[generalException](#generalException)** | The timestamps that you passed on the objects are not valid ones
 **[TrackerException](#trackerexception)**   | An internal error occurred *Hopefully this never happen*
 
 ### Sale Creation
@@ -490,7 +490,7 @@ All the functions for tracking transfer activity require a [Transfer](#transfer-
 Exception | Description
 --------- | -----------
 **[TransferException](#transferexception)**  | The Transfer object provided is not a valid one
-**[AbstractException](#abstractexception)**  | The timestamps that you passed on the objects are not valid ones
+**[generalException](#generalException)**  | The timestamps that you passed on the objects are not valid ones
 **[TrackerException](#trackerexception)**    | An internal error occurred *Hopefully this never happen*
 
 ### Transfer Creation
