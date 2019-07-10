@@ -564,8 +564,7 @@ $inspetor_account->setDocument("07206094880"); //getDocument()
 $inspetor_account->setPhoneNumber("11953891736"); //getPhoneNumber()
 $inspetor_account->setAddress($inspetor_address); //getAddress()
 $inspetor_account->setBillingAddress($inspetor_billing_address); //getBillingAddress()
-$inspetor_account->setCreationTimestamp(time()); //getCreationTimestamp()
-$inspetor_account->setUpdateTimestamp(time()); //getUpdateTimestamp()
+$inspetor_account->setTimestamp(time()); //getTimestamp()
 
 ?>
 ```
@@ -576,13 +575,12 @@ Property | Required | Type | Description
 -------- | -------- | ---- | -----------
 **id** | Yes | String | Your unique indentifier for this account in your platform
 **email** | Yes | String | The email associated with the account
-**update_timestamp** | Yes | Integer | The Unix-formatted datetime that the account was last updated
+**timestamp** | Yes | Integer | The Unix-formatted datetime that the account was last updated
 name | No | String | The name of the user
 document | No | String | The CPF or document number associated with the account
 phone_number | No | String | The phone number associated with the account
 address | No | [Address](#address) | The address associated with the account
 billing_address | No | [Address](#address) | The billing address associated with the account
-creation_timestamp | No | Integer | The Unix-formatted datetime that the account was created
 
 ## Address
 
@@ -598,7 +596,7 @@ $inspetor_address = $inspetor->getInspetorAddress();
 
 // Filling model with company data
 $inspetor_address->setStreet("Street Security");  //getStreet()
-$inspetor_address->setNumber("123"); //getNumber()
+$inspetor_address->setNumber(123); //getNumber()
 $inspetor_address->setZipCode("05511010"); //getZipCode()
 $inspetor_address->setCity("Test City"); //getCity()
 $inspetor_address->setState("Test State"); //getState()
@@ -614,7 +612,7 @@ All properties can be accesssed or defined via `get` and `set` accessor methods
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
 **street** | Yes | String | The street of the address
-**number** | Yes | String | The street number of the address
+**number** | Yes | Integer | The street number of the address
 **zip_code** | Yes | String | The zip code (*e.g. CEP*) of the address
 **city** | Yes | String | The city in which the address is located
 **state** | Yes | String | The state in which the address is located
@@ -696,8 +694,7 @@ $inspetor_event = $inspetor->getInspetorEvent();
 $inspetor_event->setId("8000"); //getId()
 $inspetor_event->setName("Name Test"); //getName()
 $inspetor_event->setDescription("Description Test"); //getDescription()
-$inspetor_event->setCreationTimestamp(time()); //getCreationTimestamp()
-$inspetor_event->setUpdateTimestamp(time()); //getUpdateTimestamp()
+$inspetor_event->setTimestamp(time()); //getTimestamp()
 $inspetor_event->setSessions([
     [
         "id"        => "123",
@@ -730,9 +727,8 @@ Property | Required | Type | Description
 **sessions** | Yes | Array | All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.
 **producer_id** | Yes | String | The id of the user who created the event
 **admins_id** | Yes | Array | An array containing the ids of all users who can make changes to the event
-**update_timestamp** | Yes | Integer | The Unix-formatted datetime that the event was last updated
+**timestamp** | Yes | Integer | The Unix-formatted datetime that the event was last updated
 description | No | String | A description of the event
-creation_timestamp | No | Integer | The Unix-formatted datetime the event was created
 seating_options | No | Array | An array containing all names of the different ticket types that can be bought for this event
 categories | No | Array | An array of categories associated with the event listing
 url | No | String | The url where the event is being sold
@@ -753,9 +749,9 @@ $inspetor_item = $inspetor->getInspetorItem();
 $inspetor_item->setId("9000"); //getId()
 $inspetor_item->setEventId("8000"); //getEventId()
 $inspetor_item->setSessionId("124"); //getSessionId()
-$inspetor_item->setPrice("50.00"); //getPrice()
+$inspetor_item->setPrice(50.0); //getPrice()
 $inspetor_item->setSeatingOption("PISTA"); //getSeatingOption()
-$inspetor_item->setQuantity("2"); //getQuantity()
+$inspetor_item->setQuantity(2); //getQuantity()
 
 ?>
 ```
@@ -767,8 +763,8 @@ Property | Required | Type | Description
 **id** | Yes | String | A unique indentifier for this item (*e.g. ticket*) within your platform
 **event_id** | Yes | String | The unique indentifier of the event that the item is tied too
 **session_id** | Yes | Integer | The unique indentifier of the event session (date and time) that the item is tied to
-**price** | Yes | String | The price of the item. *It should only contain numbers, dots and commas*
-**quantity** | Yes | String | The number of item of this type being bought.
+**price** | Yes | Double | The price of the item. *It should only contain numbers, dots and commas*
+**quantity** | Yes | Integer | The number of item of this type being bought.
 seating_option | No | String | The name of the type of item that is being bought
 
 ## PassRecovery
@@ -812,7 +808,7 @@ $inspetor_payment = $inspetor->getInspetorPayment();
 // Filling model with company data
 $inspetor_payment->setId("12345"); //getId()
 $inspetor_payment->setMethod("credit_card"); //getMethod()
-$inspetor_payment->setInstallments("1"); //getInstallments()
+$inspetor_payment->setInstallments(1); //getInstallments()
 $inspetor_payment->setCreditCard($inspetor_cc); //getCreditCard()
 
 ?>
@@ -824,7 +820,7 @@ Property | Required | Type | Description
 -------- | -------- | ---- | -----------
 **id** | Yes | String | The id of the payment. This id should be the same as the one you send to the payment processor.
 **method** | Yes | String | The method of payment being used. *The allowed values are `credit_card`, `boleto`, and `other`*
-**installments** | Yes | String | The number of "*parcelas*" that the user will pay
+**installments** | Yes | Integer | The number of "*parcelas*" that the user will pay
 credit_card | No | [CreditCard](#creditcard) | If the method is *credit_card* it should contains a credit card object
 
 ## Sale
@@ -844,8 +840,7 @@ $inspetor_sale->setId("1234"); //getId()
 $inspetor_sale->setAccountId("123"); //getAccountId()
 $inspetor_sale->setStatus("pending"); //getStatus()
 $inspetor_sale->setIsFraud(false); //getIsFraud()
-$inspetor_sale->setCreationTimestamp(time()); //getCreationTimestamp()
-$inspetor_sale->setUpdateTimestamp(time()); //getUpdateTimestamp()
+$inspetor_sale->setTimestamp(time()); //getTimestamp()
 $inspetor_sale->setItems([$inspetor_item1, $inspetor_item2]); //getItems()
 $inspetor_sale->setPayment($inspetor_payment); //getPayment()
 
@@ -860,11 +855,10 @@ Property | Required | Type | Description
 **account_id** | Yes | String | The id of the user who is making the purchase
 **status** | Yes | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
 **is_fraud** | Yes | Boolean | Indicates if the sale was fradulent. This should only be `true` when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.
-**update_timestamp** | Yes | Integer | The unix format of the time and date that the action happend
+**timestamp** | Yes | Integer | The unix format of the time and date that the action happend
 **items** | Yes | Array of [Item](#item) | The items (*e.g. tickets*) that are being bought
 **payment** | Yes | [Payment](#payment) | The payment used in this purchase
-creation_timestamp | No | Integer | The unix format of the time and date that the sale was created
-total_value | No | Integer | The value of all items. *Automatically calculated*
+total_value | No | Double | The value of all items. *Automatically calculated*
 
 ## Transfer
 
@@ -880,8 +874,7 @@ $inspetor_transfer = $inspetor->getInspetorTransfer();
 
 // Filling model with company data
 $inspetor_transfer->setId("123"); //getId()
-$inspetor_transfer->setCreationTimestamp(time()); //getCreationTimestamp()
-$inspetor_transfer->setUpdateTimestamp(time()); //getUpdateTimestamp()
+$inspetor_transfer->setTimestamp(time()); //getTimestamp()
 $inspetor_transfer->setItemId("9000"); //getItemId()
 $inspetor_transfer->setSenderAccountId("124"); //getSenderAccountId()
 $inspetor_transfer->setReceiverEmail("test@email.com"); //getReceiverEmail()
@@ -898,8 +891,7 @@ Property | Required | Type | Description
 **item_id** | Yes | String | The id of the [item](#item) (*e.g. ticket*) that is being transfered
 **sender_account_id** | Yes | String | The id of the account who is transferring the item (*e.g. ticket*)
 **receiver_email** | Yes | String | The email of the user who is receiving the item (*e.g. ticket*)
-**update_timestamp** | Yes | Integer | The Unix-formatted datetime that the action happend
+**timestamp** | Yes | Integer | The Unix-formatted datetime that the action happend
 **status** | Yes | String | The status of the transfer. *The allowed values are: `accepted`, `rejected`, and `pending`*
-creation_timestamp | No | Integer | The unix format of the time and date that the transfer was created
 
 
