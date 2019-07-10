@@ -249,7 +249,7 @@
                             <a href="#login-logout" class="toc-h3 toc-link" data-title="Login/Logout">Login/Logout</a>
                           </li>
                           <li>
-                            <a href="#password" class="toc-h3 toc-link" data-title="Password">Password</a>
+                            <a href="#password-activity" class="toc-h3 toc-link" data-title="Password Activity">Password Activity</a>
                           </li>
                       </ul>
                   </li>
@@ -290,7 +290,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#password-activity" class="toc-h2 toc-link" data-title="Password Activity">Password Activity</a>
+                    <a href="#password-activity-2" class="toc-h2 toc-link" data-title="Password Activity">Password Activity</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#password-reset" class="toc-h3 toc-link" data-title="Password Reset">Password Reset</a>
@@ -561,9 +561,9 @@
 
 <p><em>Et voilà</em>! You now have an Inspetor client object that is capable of sending all of the information necessary to teach Inspetor&#39;s decision layer how to prevent fraud at your company. However, there is a difference between instantiating a client instance and using it properly.</p>
 <h1 id='using-the-client-library'>Using the Client Library</h1>
-<p>Inspetor prevents chargebacks due to fraudulent purchases. In order to protect your company from fraudsters, our decision models need to be informed with customer behavior.</p>
+<p>In order to protect your company from fraudsters, our decision models need to be informed with customer behavior.</p>
 
-<p>Events like logins, profile updates, or even unrelated purchases on the same account all contribute to our assessment of whether or not a given transaction might be fraudulent. But we can&#39;t do it alone--we need <em>you</em>, our client, to send this information to us via the Client Library so that we can make better-informed decisions.</p>
+<p>Events like logins, profile updates, or even unrelated purchases on the same account all contribute to our assessment of whether or not a given transaction is fraudulent. But we can&#39;t do it alone--we need <em>you</em>, our client, to send this information to us via the Client Library so that we can make better-informed decisions.</p>
 
 <p>At a high level, our decision model understands the e-commerce world in the following primary terms:</p>
 
@@ -575,7 +575,9 @@
 <li><a href="#transfer-2"><strong>Transfers</strong></a></li>
 </ul>
 
-<p>You can think of the relationship between those entities something like this: If a user purchases tickets for a show on your site, Inspetor interprets the action as:</p>
+<p>You can think of the relationship between those entities something like this:</p>
+
+<p>If a user purchases tickets for a show on your site, Inspetor interprets the action as:</p>
 
 <ul>
 <li>the creation of a new <a href="#sale-2"><em>Sale</em></a></li>
@@ -583,15 +585,19 @@
 <li>the association of that Sale with an <a href="#item"><em>Item</em></a></li>
 <li>the association of that Item with an existing <a href="#event-2"><em>Event</em></a></li>
 </ul>
-<h2 id='when-to-send-events-to-inspetor'>When to send events to Inspetor</h2>
-<p>The primary Inspetor entities are <strong>stateful</strong> objects. They have properites that can be updated, and the values of these properties are crucial to our evaluation of transaction validity. However, if we base our evaluation upon outdated or incorrected information, the accuracy of our evaluation is likely to suffer as well. As such, it is critical that you notify Inspetor of any changes to these properties whenever they occur via the Inspetor Client Library.</p>
+
+<p>While these are the terms with which our model interprets actions on your platform, Inspetor is unaware of these actions occurring unless you use the Inspetor Client Library to relay this information to us.</p>
 
 <aside class="notice">
 Inspetor will never request access to your code base--that means that it is on <i>you</i>, the developer, to integrate our library into your product's code base. We think that's the right way to do things: you know your product's code base, we know fraud.
 </aside>
+<h2 id='when-to-send-events-to-inspetor'>When to send events to Inspetor</h2>
+<p>The primary Inspetor entities are <strong>stateful</strong> objects. They have properites that can be updated, and the values of these properties are crucial to our evaluation of transaction validity. Thus, you should send events to Inspetor via the client library whenever properties of these objects are changed.</p>
+
+<p>However, if we base our evaluation upon outdated or incorrect information, the accuracy of our evaluation will suffer. As such, it is critical that you notify Inspetor of any changes to these properties whenever they occur via the Inspetor Client Library.</p>
 
 <aside class="warning">
-It is however <b>extremely important</b> that you provide us with updated information at any stage that these primary entities are updated. If we are working with outdated or incorrect information, we can't make reliable predictions for you.
+It is <b>extremely important</b> that you provide us with updated information at any stage that these primary entities are updated. If we are working with outdated or incorrect information, we can't make reliable predictions for you.
 </aside>
 
 <p>The Inspetor Client Library provides methods for you to relay state changes to primary entities in any of the following instances:</p>
@@ -618,19 +624,19 @@ It is however <b>extremely important</b> that you provide us with updated inform
 <li>When a sale is <a href="#sale-updates">updated</a></li>
 </ul>
 
-<p>Beyond updates to principal entities, Inspetor provides additional methods to allow you to inform us about meaningful account activity, such as:</p>
+<p>Inspetor provides additional methods to allow you to inform us about meaningful user activity, such as:</p>
 <h3 id='login-logout'>Login/Logout</h3>
 <ul>
 <li>When a user <a href="#account-login">logs in to an account</a></li>
 <li>When a user <a href="#account-logout">logs out of an account</a></li>
 </ul>
-<h3 id='password'>Password</h3>
+<h3 id='password-activity'>Password Activity</h3>
 <ul>
 <li>When a user requests to <a href="#password-recovery">recover</a> their password</li>
 <li>When a user <a href="#password-reset">resets</a> their password</li>
 </ul>
 <h2 id='where-to-insert-inspetor-collection-functions'>Where to insert Inspetor collection functions</h2>
-<p>Where in your code base does the Inspetor library belong? Frontend? Backend? Loaded on the site?</p>
+<p>Where in your code base does the Inspetor client library belong? Frontend? Backend? Loaded on the site?</p>
 
 <p>Fortunately for you, the answer is quite simple at the moment--we only have one version (PHP) of the Client Library implemented! That means you&#39;ll need to integrate our library with your PHP application server.</p>
 
@@ -647,12 +653,12 @@ It is however <b>extremely important</b> that you provide us with updated inform
 <li><a href="https://github.com/inspetor/inspetor-php/blob/master/README.md">PHP</a></li>
 </ul>
 <h2 id='testing-your-integration-with-inspetor'>Testing your integration with Inspetor</h2>
-<p>Integration with Inspetor is meant to be easy--you should be able to simply instantiate our library, call our tracking methods, and if there are no errors thrown within your code execution, the data should appear within our database. However, for further validation, we also provide our customers with limited-access database credentials that allow the developer in charge of integrating Inspetor to see what data appears in our database. (Note that access is restricted such that your customer account will only be able to view data originating from your company&#39;s integration.) The Inspetor team will provide you with access credentials for this phase of validation.</p>
+<p>Integrating with Inspetor is meant to be easy--simply instantiate our library, call our tracking methods, and if there are no errors thrown within your code execution, data will appear within our database. However, for further validation, we also provide our customers with limited-access database credentials that allow the developer in charge of integrating Inspetor to inspect the that data appears in our database. (Note that access is restricted such that your customer account will only be able to view data originating from your company&#39;s integration.) The Inspetor team will provide you with access credentials for this phase of validation.</p>
 
-<p>However, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific (since it depends on your database implementation), and it will involved coordinated effort from both the customer the Inspetor integration team.</p>
+<p>However, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific and it will involve coordinated effort from both the customer and the Inspetor integration team.</p>
 <h1 id='collection-api'>Collection API</h1>
 <aside class="notice">
-To access the following library functions, you will need an instance of the InspetorClient class. All functions are access through the client instance.
+To access the following library functions, you will need an instance of the InspetorClient class. All functions are accessed through the client instance.
 </aside>
 <h2 id='account-activity'>Account Activity</h2>
 <p>The following functions will be used to relay actions associated with an account:</p>
@@ -685,7 +691,7 @@ To access the following library functions, you will need an instance of the Insp
 </tr>
 <tr>
 <td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occured. (<em>This should never happen.</em>)</td>
+<td>An internal error occurred (<em>This should never happen</em>)</td>
 </tr>
 </tbody></table>
 <h3 id='account-creation'>Account Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -789,7 +795,7 @@ To access the following library functions, you will need an instance of the Insp
 </tr>
 <tr>
 <td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occured. (<em>This should never happen.</em>)</td>
+<td>An internal error occurred (<em>This should never happen</em>)</td>
 </tr>
 </tbody></table>
 <h3 id='account-login'>Account Login</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -842,7 +848,7 @@ To access the following library functions, you will need an instance of the Insp
 <td>The Auth object that describes the logout</td>
 </tr>
 </tbody></table>
-<h2 id='password-activity'>Password Activity</h2>
+<h2 id='password-activity-2'>Password Activity</h2>
 <p>The following functions notify Inspetor of password changes initiated by  users within your platform, independent of whether the user is logged in or not:</p>
 
 <ul>
@@ -868,7 +874,7 @@ To access the following library functions, you will need an instance of the Insp
 </tr>
 <tr>
 <td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occured. (<em>This should never happen.</em>)</td>
+<td>An internal error occurred (<em>This should never happen</em>)</td>
 </tr>
 </tbody></table>
 <h3 id='password-reset'>Password Reset</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -952,7 +958,7 @@ To access the following library functions, you will need an instance of the Insp
 </tr>
 <tr>
 <td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occured. (<em>This should never happen.</em>)</td>
+<td>An internal error occurred (<em>This should never happen</em>)</td>
 </tr>
 </tbody></table>
 <h3 id='event-creation'>Event Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -1064,7 +1070,7 @@ To access the following library functions, you will need an instance of the Insp
 </tr>
 <tr>
 <td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occured. <em>Hopefully this never happen</em></td>
+<td>An internal error occurred <em>Hopefully this never happen</em></td>
 </tr>
 </tbody></table>
 <h3 id='sale-creation'>Sale Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -1148,7 +1154,7 @@ You must call this function <b>any</b> time a sale&#39;s status is updated (incl
 </tr>
 <tr>
 <td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occured. <em>Hopefully this never happen</em></td>
+<td>An internal error occurred <em>Hopefully this never happen</em></td>
 </tr>
 </tbody></table>
 <h3 id='transfer-creation'>Transfer Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
