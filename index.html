@@ -1302,7 +1302,7 @@ Most models have some optional properties, but it's important that you try to se
 
 <span class="c1">// Filling model with company data
 </span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setStreet</span><span class="p">(</span><span class="s2">"Street Security"</span><span class="p">);</span>  <span class="c1">//getStreet()
-</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setNumber</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span> <span class="c1">//getNumber()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setNumber</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getNumber()
 </span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setZipCode</span><span class="p">(</span><span class="s2">"05511010"</span><span class="p">);</span> <span class="c1">//getZipCode()
 </span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setCity</span><span class="p">(</span><span class="s2">"Test City"</span><span class="p">);</span> <span class="c1">//getCity()
 </span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setState</span><span class="p">(</span><span class="s2">"Test State"</span><span class="p">);</span> <span class="c1">//getState()
@@ -1329,12 +1329,6 @@ Most models have some optional properties, but it's important that you try to se
 <td>The street of the address</td>
 </tr>
 <tr>
-<td><strong>number</strong></td>
-<td>Yes</td>
-<td>Integer</td>
-<td>The street number of the address</td>
-</tr>
-<tr>
 <td><strong>zip_code</strong></td>
 <td>Yes</td>
 <td>String</td>
@@ -1357,6 +1351,12 @@ Most models have some optional properties, but it's important that you try to se
 <td>Yes</td>
 <td>String</td>
 <td>The country in which the address is located</td>
+</tr>
+<tr>
+<td>number</td>
+<td>Yes</td>
+<td>String</td>
+<td>The street number of the address</td>
 </tr>
 <tr>
 <td>latitude</td>
