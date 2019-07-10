@@ -28,7 +28,7 @@ Category | Meaning
 -------- | ------
 9001 | AppId and trackerName are required parameters
 
-## generalException
+## GeneralException
 
 This exception is thrown when you provide a non-Unix-formatted datetime as a timestamp property in a model
 
