@@ -1354,7 +1354,7 @@ Most models have some optional properties, but it's important that you try to se
 </tr>
 <tr>
 <td>number</td>
-<td>Yes</td>
+<td>No</td>
 <td>String</td>
 <td>The street number of the address</td>
 </tr>
@@ -1975,7 +1975,7 @@ Most models have some optional properties, but it's important that you try to se
 </tr>
 <tr>
 <td>7003</td>
-<td>update_timestamp is a required property. It must not be null</td>
+<td>timestamp is a required property. It must not be null</td>
 </tr>
 </tbody></table>
 <h2 id='addressexception'>AddressException</h2>
@@ -1993,22 +1993,18 @@ Most models have some optional properties, but it's important that you try to se
 </tr>
 <tr>
 <td>7002</td>
-<td>number is a required property. It must not be null</td>
-</tr>
-<tr>
-<td>7003</td>
 <td>zip_code is a required property. It must not be null</td>
 </tr>
 <tr>
-<td>7004</td>
+<td>7003</td>
 <td>city is a required property. It must not be null</td>
 </tr>
 <tr>
-<td>7005</td>
+<td>7004</td>
 <td>state is a required property. It must not be null</td>
 </tr>
 <tr>
-<td>7006</td>
+<td>7005</td>
 <td>country is a required property. It must not be null</td>
 </tr>
 </tbody></table>
@@ -2075,7 +2071,7 @@ Most models have some optional properties, but it's important that you try to se
 </tr>
 <tr>
 <td>7003</td>
-<td>update_timestamp is a required property. It must not be null</td>
+<td>timestamp is a required property. It must not be null</td>
 </tr>
 <tr>
 <td>7004</td>
@@ -2141,15 +2137,11 @@ Most models have some optional properties, but it's important that you try to se
 </tr>
 <tr>
 <td>7005</td>
-<td>seating_option is a required property. It must not be null</td>
+<td>price is not valid. It must be a double value equals or greater than zero.</td>
 </tr>
 <tr>
 <td>7006</td>
-<td>price is not valid</td>
-</tr>
-<tr>
-<td>7007</td>
-<td>quantity is a required property. It must not be null</td>
+<td>quantity is a required property. It must be an integer greater than zero.</td>
 </tr>
 </tbody></table>
 <h2 id='passrecoveryexception'>PassRecoveryException</h2>
@@ -2227,7 +2219,7 @@ Most models have some optional properties, but it's important that you try to se
 </tr>
 <tr>
 <td>7005</td>
-<td>update_timestamp is a required property. It must not be null</td>
+<td>timestamp is a required property. It must not be null</td>
 </tr>
 <tr>
 <td>7006</td>
@@ -2261,7 +2253,7 @@ Most models have some optional properties, but it's important that you try to se
 </tr>
 <tr>
 <td>7002</td>
-<td>update_timestamp is a required property. It must not be null</td>
+<td>timestamp is a required property. It must not be null</td>
 </tr>
 <tr>
 <td>7003</td>
