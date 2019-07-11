@@ -48,7 +48,7 @@ Category | Meaning
 -------- | ------
 7001 | id is a required property. It must not be null
 7002 | email is a required property. It must not be null
-7003 | update_timestamp is a required property. It must not be null
+7003 | timestamp is a required property. It must not be null
 
 ## AddressException
 
@@ -59,11 +59,10 @@ This exception is thrown when you provide an [Address](#address) object with inv
 Category | Meaning
 -------- | ------
 7001 | street is a required property. It must not be null
-7002 | number is a required property. It must not be null
-7003 | zip_code is a required property. It must not be null
-7004 | city is a required property. It must not be null
-7005 | state is a required property. It must not be null
-7006 | country is a required property. It must not be null
+7002 | zip_code is a required property. It must not be null
+7003 | city is a required property. It must not be null
+7004 | state is a required property. It must not be null
+7005 | country is a required property. It must not be null
 
 ## AuthException
 
@@ -99,7 +98,7 @@ Category | Meaning
 -------- | ------
 7001  | id is a required property. It must not be null
 7002  | name is a required property. It must not be null
-7003  | update_timestamp is a required property. It must not be null
+7003  | timestamp is a required property. It must not be null
 7004  | producer_id is a required property. It must not be null
 7005  | address is a required property. It must not be null
 7006  | sessions is a required property. It must not be null neither an empty array
@@ -122,9 +121,8 @@ Category | Meaning
 7002 | event_id is a required property. It must not be null
 7003 | session_id is a required property. It must not be null
 7004 | price is a required property. It must not be null
-7005 | seating_option is a required property. It must not be null
-7006 | price is not valid
-7007 | quantity is a required property. It must not be null
+7005 | price is not valid. It must be a double value equals or greater than zero.
+7006 | quantity is a required property. It must be an integer greater than zero.
 
 ## PassRecoveryException
 
@@ -163,7 +161,7 @@ Category | Meaning
 7002  | account_id is a required property. It must not be null
 7003  | status is a required property. It must not be null
 7004  | is_fraud is a required property. It must not be null
-7005  | update_timestamp is a required property. It must not be null
+7005  | timestamp is a required property. It must not be null
 7006  | items is a required property. It must not be null neither an empty array
 7007  | payment is a required property. It must not be null
 7008  | The status is not a valid one
@@ -178,7 +176,7 @@ This exception is thrown when you provide a [Transfer](#transfer) object with in
 Category | Meaning
 -------- | ------
 7001 | id is a required property. It must not be null
-7002 | update_timestamp is a required property. It must not be null
+7002 | timestamp is a required property. It must not be null
 7003 | item_id is a required property. It must not be null
 7004 | sender_account_id is a required property. It must not be null
 7005 | receiver_email is a required property. It must not be null

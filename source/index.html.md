@@ -616,7 +616,7 @@ Property | Required | Type | Description
 **city** | Yes | String | The city in which the address is located
 **state** | Yes | String | The state in which the address is located
 **country** | Yes | String | The country in which the address is located
-number | Yes | String | The street number of the address
+number | No | String | The street number of the address
 latitude | No | String | The exact latitude of the address
 longitude | No | String | The exact longitude of the address
 
