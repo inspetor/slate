@@ -22,7 +22,7 @@ What follows is a general guide of how to integrate Inspetor's Client Library in
 
 
 ```php
-~ composer require inspetor/inspetor-php:${version}
+~ composer require inspetor/inspetorphp:${version}
 ```
 
 The Inspetor collection libraries are avaible via public standard package managers for the following supported languages:
@@ -61,20 +61,20 @@ Events like logins, profile updates, or even unrelated purchases on the same acc
 
 At a high level, our decision model understands the e-commerce world in the following primary terms:
 
-- <a href="#account-2">**Accounts**</a>
-- <a href="#event-2">**Events**</a>
-- <a href="#sale-2">**Sales**</a>
-- <a href="#item">**Sale Items**</a>
-- <a href="#transfer-2">**Transfers**</a>
+- <a href="#inspetoraccount">**Accounts**</a>
+- <a href="#inspetorevent">**Events**</a>
+- <a href="#inspetorsale">**Sales**</a>
+- <a href="#inspetoritem">**Sale Items**</a>
+- <a href="#inspetortransfer">**Transfers**</a>
 
 You can think of the relationship between those entities something like this:
 
 If a user purchases tickets for a show on your site, Inspetor interprets the action as:
 
-- the creation of a new <a href="#sale-2">*Sale*</a>
-- the association of that Sale with an existing <a href="#account-2">*Account*</a>
-- the association of that Sale with an <a href="#item">*Item*</a>
-- the association of that Item with an existing <a href="#event-2">*Event*</a>
+- the creation of a new <a href="#inspetorsale">*Sale*</a>
+- the association of that Sale with an existing <a href="#inspetoraccount">*Account*</a>
+- the association of that Sale with an <a href="#inspetoritem">*Item*</a>
+- the association of that Item with an existing <a href="#inspetorevent">*Event*</a>
 
 While these are the terms with which our model interprets actions on your platform, Inspetor is unaware of these actions occurring unless you use the Inspetor Client Library to relay this information to us.
 
@@ -135,7 +135,7 @@ In the future however, our suggested integration model will be:
 
 You can find additional language-specific implementation details, including suggested architecture and best practices, via the following links:
 
-- [PHP](https://github.com/inspetor/inspetor-php/blob/master/README.md)
+- [PHP](https://github.com/inspetor/inspetorphp/blob/master/README.md)
 
 ## Testing your integration with Inspetor
 
@@ -156,7 +156,7 @@ The following functions will be used to relay actions associated with an account
 - <a href="#account-updates">trackAccountUpdate</a>
 - <a href="#account-deletion">trackAccountDeletion</a>
 
-All the functions for tracking account-related actions require an [Account](#account-2) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
+All the functions for tracking account-related actions require an [InspetorAccount](#inspetoraccount) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
@@ -175,7 +175,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackAccountCreation($account);
+$inspetor>trackAccountCreation($account);
 
 ?>
 ```
@@ -184,7 +184,7 @@ Notify Inspetor any time a new user account is created.
 
 Argument | Type | Description
 -------- | ---- | -----------
-account  | Inspetor/Model/[Account](#account-2) | The Account that is being created
+account  | Inspetor/Model/[InspetorAccount](#inspetoraccount) | The Account that is being created
 
 
 ### Account Updates
@@ -196,7 +196,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackAccountUpdate($account);
+$inspetor>trackAccountUpdate($account);
 
 ?>
 ```
@@ -205,7 +205,7 @@ Send information to Inspetor any time an account's information (email, address, 
 
 Argument | Type | Description
 -------- | ---- | -----------
-account  | Inspetor/Model/[Account](#account-2) | The Account that is being updated
+account  | Inspetor/Model/[InspetorAccount](#inspetoraccount) | The Account that is being updated
 
 
 ### Account Deletion
@@ -217,7 +217,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackAccountDeletion($account);
+$inspetor>trackAccountDeletion($account);
 
 ?>
 ```
@@ -226,7 +226,7 @@ Send information to Inspetor any time an account is deleted.
 
 Argument | Type | Description
 -------- | ---- | -----------
-account  | Inspetor/Model/[Account](#account-2) | The Account that is being deleted
+account  | Inspetor/Model/[InspetorAccount](#inspetoraccount) | The Account that is being deleted
 
 ## Authentication Activity
 
@@ -235,7 +235,7 @@ The following functions provide Inspetor with information on when a user logs in
 - <a href="#account-login">trackLogin</a>
 - <a href="#account-logout">trackLogout</a>
 
-All functions for tracking authentication activity require an [Auth](#auth) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
+All functions for tracking authentication activity require an [InspetorAuth](#inspetorauth) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
@@ -252,7 +252,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackLogin($auth);
+$inspetor>trackLogin($auth);
 
 ?>
 ```
@@ -261,7 +261,7 @@ Send information to Inspetor on every login attempt
 
 Argument | Type | Description
 -------- | ---- | -----------
-auth  | Inspetor/Model/[Auth](#auth) | The Auth object that describes the login
+auth  | Inspetor/Model/[InspetorAuth](#inspetorauth) | The Auth object that describes the login
 
 
 ### Account Logout
@@ -273,7 +273,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackLogout($auth);
+$inspetor>trackLogout($auth);
 
 ?>
 ```
@@ -282,7 +282,7 @@ Send information to Inspetor everytime an account (*e.g. user*) logs out.
 
 Argument | Type | Description
 -------- | ---- | -----------
-auth  | Inspetor/Model/[Auth](#auth) | The Auth object that describes the logout
+auth  | Inspetor/Model/[InspetorAuth](#inspetorauth) | The Auth object that describes the logout
 
 ## Password Activity
 
@@ -291,7 +291,7 @@ The following functions notify Inspetor of password changes initiated by  users 
 - <a href="#password-reset">trackPasswordReset</a>
 - <a href="#password-recovery">trackPasswordRecovery</a>
 
-All functions for tracking authentication events require an [PassRecovery](#passrecovery) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
+All functions for tracking authentication events require an [InspetorPassRecovery](#inspetorpassrecovery) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
@@ -308,7 +308,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackPasswordReset($pass_recovery);
+$inspetor>trackPasswordReset($pass_recovery);
 
 ?>
 ```
@@ -317,7 +317,7 @@ Send information to Inspetor anytime a request to reset an account's password is
 
 Argument | Type | Description
 -------- | ---- | -----------
-pass_recovery | Inspetor/Model/[PassRecovery](#passrecovery) | The PassRecovery object that describes the password reset request
+pass_recovery | Inspetor/Model/[InspetorPassRecovery](#inspetorpassrecovery) | The PassRecovery object that describes the password reset request
 
 ### Password Recovery
 
@@ -328,7 +328,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackPasswordRecovery($pass_recovery);
+$inspetor>trackPasswordRecovery($pass_recovery);
 
 ?>
 ```
@@ -337,7 +337,7 @@ Send information to Inspetor anytime a request is made to recover a password.
 
 Argument | Type | Description
 -------- | ---- | -----------
-pass_recovery | Inspetor/Model/[PassRecovery](#passrecovery) | The PassRecovery object that describes the password recovery request
+pass_recovery | Inspetor/Model/[InspetorPassRecovery](#inspetorpassrecovery) | The PassRecovery object that describes the password recovery request
 
 ## Event Activity
 
@@ -347,7 +347,7 @@ The following functions provide Inspetor with information regarding the events (
 - <a href="#event-updates">trackEventUpdate</a>
 - <a href="#event-deletion">trackEventDeletion</a>
 
-All functions for tracking event activity require an [Event](#event-2) object as argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
+All functions for tracking event activity require an [InspetorEvent](#inspetorevent) object as argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
@@ -365,7 +365,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackEventCreation($event);
+$inspetor>trackEventCreation($event);
 
 ?>
 ```
@@ -374,7 +374,7 @@ Send information to Inspetor anytime a new event (*e.g. pary, shows...*) is crea
 
 Argument | Type | Description
 -------- | ---- | -----------
-event | Inspetor/Model/[Event](#event-2) | The Event that is being created
+event | Inspetor/Model/[InspetorEvent](#inspetorevent) | The Event that is being created
 
 ### Event Updates
 
@@ -385,7 +385,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackEventUpdate($event);
+$inspetor>trackEventUpdate($event);
 
 ?>
 ```
@@ -394,7 +394,7 @@ Send information to Inspetor everytime an event listing's information is updated
 
 Argument | Type | Description
 -------- | ---- | -----------
-event | Inspetor/Model/[Event](#event-2) | The Event that is being updated
+event | Inspetor/Model/[InspetorEvent](#inspetorevent) | The Event that is being updated
 
 ### Event Deletion
 
@@ -405,7 +405,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackEventDeletion($event);
+$inspetor>trackEventDeletion($event);
 
 ?>
 ```
@@ -414,7 +414,7 @@ Send information to Inspetor everytime an Event listing is deleted from your pla
 
 Argument | Type | Description
 -------- | ---- | -----------
-event | Inspetor/Model/[Event](#event-2) | The Event that is being deleted
+event | Inspetor/Model/[InspetorEvent](#inspetorevent) | The Event that is being deleted
 
 ## Sale Activity
 
@@ -423,7 +423,7 @@ The following functions provide Inspetor with information on sales that happen w
 - <a href="#sale-creation">trackSaleCreation</a>
 - <a href="#sale-updates">trackSaleUpdate</a>
 
-All functions for tracking Sales activity require a [Sale](#sale-2) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
+All functions for tracking Sales activity require a [InspetorSale](#inspetorsale) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
@@ -442,7 +442,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackSaleCreation($sale);
+$inspetor>trackSaleCreation($sale);
 
 ?>
 ```
@@ -451,7 +451,7 @@ Send information to Inspetor every time a new sale is created on your platform.
 
 Argument | Type | Description
 -------- | ---- | -----------
-sale | Inspetor/Model/[Sale](#sale-2) | The Sale that is being created
+sale | Inspetor/Model/[InspetorSale](#inspetorsale) | The Sale that is being created
 
 ### Sale Updates
 
@@ -462,7 +462,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackSaleUpdate($sale);
+$inspetor>trackSaleUpdate($sale);
 
 ?>
 ```
@@ -474,7 +474,7 @@ You must call this function <b>any</b> time a sale's status is updated (includin
 
 Argument | Type | Description
 -------- | ---- | -----------
-sale | Inspetor/Model/[Sale](#sale) | The Sale that is being updated
+sale | Inspetor/Model/[InspetorSale](#inspetorsale) | The Sale that is being updated
 
 ## Items Transfers
 
@@ -485,7 +485,7 @@ The following functions will be used to relay item (*e.g. ticket*) transfers bet
 - <a href="#transfer-updates">trackTransferUpdate</a>
 - **Item Transfer Update** (*trackItemTransferUpdate*)
 
-All the functions for tracking transfer activity require a [Transfer](#transfer-2) object as argument and return `true` if everything goes right. Otherwise, one of the the following exceptions will be thrown:
+All the functions for tracking transfer activity require a [InspetorTransfer](#inspetortransfer) object as argument and return `true` if everything goes right. Otherwise, one of the the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------
@@ -502,7 +502,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackItemTransferCreation($transfer);
+$inspetor>trackItemTransferCreation($transfer);
 
 ?>
 ```
@@ -511,7 +511,7 @@ This function is used to send information to Inspetor everytime a new item (*e.g
 
 Argument | Type | Description
 -------- | ---- | -----------
-transfer | Inspetor/Model/[Transfer](#transfer-2) | The Transfer that is being created
+transfer | Inspetor/Model/[InspetorTransfer](#inspetortransfer) | The Transfer that is being created
 
 ### Transfer Updates
 
@@ -522,7 +522,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor->trackItemTransferUpdate($transfer);
+$inspetor>trackItemTransferUpdate($transfer);
 
 ?>
 ```
@@ -531,7 +531,7 @@ This function is used to send information to Inspetor everytime an item (*e.g. t
 
 Argument | Type | Description
 -------- | ---- | -----------
-transfer | Inspetor/Model/[Transfer](#transfer-2) | The Transfer that is being updated
+transfer | Inspetor/Model/[InspetorTransfer](#inspetortransfer) | The Transfer that is being updated
 
 # Models
 
@@ -544,7 +544,7 @@ Most models have some optional properties, but it's important that you try to se
 </aside>
 
 
-## Account
+## InspetorAccount
 
 Information about a user's account.
 
@@ -554,7 +554,7 @@ Information about a user's account.
 <?php
 
 // Calling an instance of Model
-$inspetor_account = $inspetor->getInspetorAuth();
+$inspetor_account = $inspetor>getInspetorAuth();
 
 // Filling model with company data
 $inspetor_account->setId("123"); //getId()
@@ -563,7 +563,6 @@ $inspetor_account->setEmail("test@email.com"); //getEmail()
 $inspetor_account->setDocument("07206094880"); //getDocument()
 $inspetor_account->setPhoneNumber("11953891736"); //getPhoneNumber()
 $inspetor_account->setAddress($inspetor_address); //getAddress()
-$inspetor_account->setBillingAddress($inspetor_billing_address); //getBillingAddress()
 $inspetor_account->setTimestamp(time()); //getTimestamp()
 
 ?>
@@ -580,11 +579,10 @@ name | No | String | The name of the user
 document | No | String | The CPF or document number associated with the account
 phone_number | No | String | The phone number associated with the account
 address | No | [Address](#address) | The address associated with the account
-billing_address | No | [Address](#address) | The billing address associated with the account
 
-## Address
+## InspetorAddress
 
-Residential or billing address information that is used in other models ([Account](#account-2) and [Event](#event-2)).
+Residential or billing address information that is used in other models ([InspetorAccount](#inspetoraccount), [InspetorEvent](#inspetorevent) and [InspetorCreditCard](#inspetorcreditcard)).
 
 ### Properties
 
@@ -592,7 +590,7 @@ Residential or billing address information that is used in other models ([Accoun
 <?php
 
 // Calling an instance of Model
-$inspetor_address = $inspetor->getInspetorAddress();
+$inspetor_address = $inspetor>getInspetorAddress();
 
 // Filling model with company data
 $inspetor_address->setStreet("Street Security");  //getStreet()
@@ -620,7 +618,7 @@ number | No | String | The street number of the address
 latitude | No | String | The exact latitude of the address
 longitude | No | String | The exact longitude of the address
 
-## Auth
+## InspetorAuth
 
 Login and logout event information in your platform
 
@@ -630,11 +628,10 @@ Login and logout event information in your platform
 <?php
 
 // Calling an instance of Model
-$inspetor_auth = $inspetor->getInspetorAuth();
+$inspetor_auth = $inspetor>getInspetorAuth();
 
 // Filling model with company data
 $inspetor_auth->setAccountId("123"); //getAccountId()
-$inspetor_auth->setAccountEmail("test@email.com"); //getAccountEmail()
 $inspetor_auth->setTimestamp(time()); //getTimestamp()
 
 ?>
@@ -646,11 +643,10 @@ Property | Required | Type | Description
 -------- | -------- | ---- | -----------
 **account_id** | Yes | String | The id of the user that is making the login or logout
 **timestamp** | Yes | Integer | The unix format of the time and date that the authentication happend
-account_email | No | String | The email that is being used to log in or log out
 
-## CreditCard
+## InspetorCategory
 
-Credit card information (used in [Sales](#sale-2) ).
+Event categories that are used in the [InspetorEvent](#inspetorevent) model.
 
 ### Properties
 
@@ -658,13 +654,40 @@ Credit card information (used in [Sales](#sale-2) ).
 <?php
 
 // Calling an instance of Model
-$inspetor_cc = $inspetor->getInspetorCreditCard();
+$inspetor_category = $inspetor>getInspetorCategory();
+
+// Filling model with company data
+$inspetor_category->setId("123"); //getId()
+$inspetor_category->setName("Category"); //getName()
+
+?>
+```
+
+All properties can be accesssed or defined via `get` and `set` accessor methods
+
+Property | Required | Type | Description
+-------- | -------- | ---- | -----------
+**id** | Yes | String | Your unique indentifier for this category in your platform
+**name** | Yes | String | The name of the category
+
+## InspetorCreditCard
+
+Credit card information (used in [InspetorSales](#inspetorsale) ).
+
+### Properties
+
+```php
+<?php
+
+// Calling an instance of Model
+$inspetor_cc = $inspetor>getInspetorCreditCard();
 
 // Filling model with company data
 $inspetor_cc->setFirstSixDigits("123456"); //getFirstSixDigits()
 $inspetor_cc->setLastFourDigits("1234"); //getLastFourDigits()
 $inspetor_cc->setHolderName("Holder Name"); //getHolderName()
 $inspetor_cc->setHolderCpf("07206094880"); //getHolderCpf()
+$inspetor_cc->setBillingAddress($inspetor_address); //getBillingAddress
 
 ?>
 ```
@@ -677,8 +700,9 @@ Property | Required | Type | Description
 **last_four_digits** | Yes | Integer | The last four digits of the credit card number
 **holder_name** | Yes | String | The full name of the owner of the credit card
 **holder_cpf** | Yes | String | The CPF of the owner of the credit card
+**billing_address** | Yes | [InspetorAddress](#inspetoraddress) | The billing address associated with this credit card
 
-## Event
+## InspetorEvent
 
 The Event Model will contain information about parties, shows, and events that are listed on your platform
 
@@ -688,28 +712,20 @@ The Event Model will contain information about parties, shows, and events that a
 <?php
 
 // Calling an instance of Model
-$inspetor_event = $inspetor->getInspetorEvent();
+$inspetor_event = $inspetor>getInspetorEvent();
 
 // Filling model with company data
 $inspetor_event->setId("8000"); //getId()
 $inspetor_event->setName("Name Test"); //getName()
 $inspetor_event->setDescription("Description Test"); //getDescription()
 $inspetor_event->setTimestamp(time()); //getTimestamp()
-$inspetor_event->setSessions([
-    [
-        "id"        => "123",
-        "timestamp" => $event_session_date1
-    ],
-    [
-        "id"        => "124",
-        "timestamp" => $event_session_date2
-    ]
-]); //getSession()
+$inspetor_event->setSessions($inspetor_session); //getSession()
 $inspetor_event->setStatus("private"); //getStatus()
-$inspetor_event->setCategories(["Category1", "Category2"]); //getCategories()
-$inspetor_event->setAddress($inspetor_event_address); //getAddress()
-$inspetor_event->setUrl("cool-company-event"); //getUrl()
-$inspetor_event->setProducerId("123"); //getProducerId()
+$inspetor_event->setCategories([$inspetor_category1, $inspetor_category2]); //getCategories()
+$inspetor_event->setIsPhysical(true); //getIsPhysical()
+$inspetor_event->setAddress($inspetor_address); //getAddress()
+$inspetor_event->setSlug("cool-company-event"); //getSlug()
+$inspetor_event->setCreatorId("123"); //getCreatorId()
 $inspetor_event->setAdminsId(["123", "234"]); //getAdminsId()
 $inspetor_event->setSeatingOptions(["Pista", "VIP"]); //getSeatingOptions()
 
@@ -722,20 +738,21 @@ Property | Required | Type | Description
 -------- | -------- | ---- | -----------
 **id** | Yes | String | The unique indentifier of this event listing in your platform
 **name** | Yes | String | The name of the event
-**status** | Yes | String | The status of the event. *Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if you it does not fit with our status model.*
-**address** | Yes | [Address](#address) | The address where the event is happening
-**sessions** | Yes | Array | All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.
-**producer_id** | Yes | String | The id of the user who created the event
+**is_physical** | Yes | Bool | It determines if it's a physical or digital event. *The default value is `true`.*
+**sessions** | Yes | Array of [InspetorSession](#inspetorsession) | All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.
+**creator_id** | Yes | String | The id of the user who created the event
 **admins_id** | Yes | Array | An array containing the ids of all users who can make changes to the event
 **timestamp** | Yes | Integer | The Unix-formatted datetime that the event was last updated
+address | No | [InspetorAddress](#inspetoraddress) | The address where the event is happening. *This field is only required if the type of the event is set to physical.*
+status | No| String | The status of the event. *Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if you it does not fit with our status model.*
 description | No | String | A description of the event
 seating_options | No | Array | An array containing all names of the different ticket types that can be bought for this event
-categories | No | Array | An array of categories associated with the event listing
-url | No | String | The url where the event is being sold
+categories | No | Array of [InspetorCategory](#inspetorcategory) | An array of categories associated with the event listing
+slug | No | String | The slug of the event
 
-## Item
+## InspetorItem
 
-Information about the item(s) (generally a ticket) associated with a [sale](#sale-2).
+Information about the item(s) (generally a ticket) associated with a [InspetorSale](#inspetorsale).
 
 ### Properties
 
@@ -743,7 +760,7 @@ Information about the item(s) (generally a ticket) associated with a [sale](#sal
 <?php
 
 // Calling an instance of Model
-$inspetor_item = $inspetor->getInspetorItem();
+$inspetor_item = $inspetor>getInspetorItem();
 
 // Filling model with company data
 $inspetor_item->setId("9000"); //getId()
@@ -762,12 +779,12 @@ Property | Required | Type | Description
 -------- | -------- | ---- | -----------
 **id** | Yes | String | A unique indentifier for this item (*e.g. ticket*) within your platform
 **event_id** | Yes | String | The unique indentifier of the event that the item is tied too
-**session_id** | Yes | Integer | The unique indentifier of the event session (date and time) that the item is tied to
+**session_id** | Yes | String | The unique indentifier of the event session (date and time) that the item is tied to
 **price** | Yes | Double | The price of the item. *It should only contain numbers, dots and commas*
 **quantity** | Yes | Integer | The number of item of this type being bought.
 seating_option | No | String | The name of the type of item that is being bought
 
-## PassRecovery
+## InspetorPassRecovery
 
 Information about password change requests or recoveries initiated by a user.
 
@@ -777,7 +794,7 @@ Information about password change requests or recoveries initiated by a user.
 <?php
 
 // Calling an instance of Model
-$inspetor_pass = $inspetor->getInspetorPassRecovery();
+$inspetor_pass = $inspetor>getInspetorPassRecovery();
 
 // Filling model with company data
 $inspetor_pass->setRecoveryEmail("test@email.com"); //getRecoveryEmail()
@@ -793,9 +810,9 @@ Property | Required | Type | Description
 **recovery_email** | Yes | String | The email used to recover or reset the password
 **timestamp** | Yes | String | The Unix-formatted datetime when the action occurred.
 
-## Payment
+## InspetorPayment
 
-Information about the payment associated with a [sale](#sale-2).
+Information about the payment associated with a [InspetorSale](#inspetorsale).
 
 ### Properties
 
@@ -803,7 +820,7 @@ Information about the payment associated with a [sale](#sale-2).
 <?php
 
 // Calling an instance of Model
-$inspetor_payment = $inspetor->getInspetorPayment();
+$inspetor_payment = $inspetor>getInspetorPayment();
 
 // Filling model with company data
 $inspetor_payment->setId("12345"); //getId()
@@ -821,9 +838,9 @@ Property | Required | Type | Description
 **id** | Yes | String | The id of the payment. This id should be the same as the one you send to the payment processor.
 **method** | Yes | String | The method of payment being used. *The allowed values are `credit_card`, `boleto`, and `other`*
 **installments** | Yes | Integer | The number of "*parcelas*" that the user will pay
-credit_card | No | [CreditCard](#creditcard) | If the method is *credit_card* it should contains a credit card object
+credit_card | No | [InspetorCreditCard](#inspetorcreditcard) | If the method is *credit_card* it should contains a credit card object
 
-## Sale
+## InspetorSale
 
 Information about a sale within your platform.
 
@@ -833,7 +850,7 @@ Information about a sale within your platform.
 <?php
 
 // Calling an instance of Model
-$inspetor_sale = $inspetor->getInspetorSale();
+$inspetor_sale = $inspetor>getInspetorSale();
 
 // Filling model with company data
 $inspetor_sale->setId("1234"); //getId()
@@ -856,13 +873,13 @@ Property | Required | Type | Description
 **status** | Yes | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
 **is_fraud** | Yes | Boolean | Indicates if the sale was fradulent. This should only be `true` when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.
 **timestamp** | Yes | Integer | The unix format of the time and date that the action happend
-**items** | Yes | Array of [Item](#item) | The items (*e.g. tickets*) that are being bought
-**payment** | Yes | [Payment](#payment) | The payment used in this purchase
-total_value | No | Double | The value of all items. *Automatically calculated*
+**items** | Yes | Array of [InspetorItem](#inspetoritem) | The items (*e.g. tickets*) that are being bought
+**payment** | Yes | [InspetorPayment](#inspetorpayment) | The payment used in this purchase
 
-## Transfer
 
-Information regarding the transfer of purchased [items](#item) (*e.g. tickets*) within your platform.
+## InspetorSession
+
+Event session that are used in the [InspetorEvent](#inspetorevent) model.
 
 ### Properties
 
@@ -870,7 +887,34 @@ Information regarding the transfer of purchased [items](#item) (*e.g. tickets*) 
 <?php
 
 // Calling an instance of Model
-$inspetor_transfer = $inspetor->getInspetorTransfer();
+$inspetor_session = $inspetor>getInspetorSession();
+
+// Filling model with company data
+$inspetor_session->setId("123"); //getId()
+$inspetor_session->setDatetime(1234); //getDatetime()
+
+?>
+```
+
+All properties can be accesssed or defined via `get` and `set` accessor methods
+
+Property | Required | Type | Description
+-------- | -------- | ---- | -----------
+**id** | Yes | String | Your unique indentifier for this session in your platform
+**datetime** | Yes | String | The date and time of the event session 
+
+
+## InspetorTransfer
+
+Information regarding the transfer of purchased [InspetorItems](#inspetoritem) (*e.g. tickets*) within your platform.
+
+### Properties
+
+```php
+<?php
+
+// Calling an instance of Model
+$inspetor_transfer = $inspetor>getInspetorTransfer();
 
 // Filling model with company data
 $inspetor_transfer->setId("123"); //getId()
@@ -888,7 +932,7 @@ All properties can be accesssed or defined via `get` and `set` accessor methods
 Property | Required | Type | Description
 -------- | -------- | ---- | -----------
 **id** | Yes | String | Your platform-unique indentifier for the transfer
-**item_id** | Yes | String | The id of the [item](#item) (*e.g. ticket*) that is being transfered
+**item_id** | Yes | String | The id of the [InspetorItem](#inspetoritem) (*e.g. ticket*) that is being transfered
 **sender_account_id** | Yes | String | The id of the account who is transferring the item (*e.g. ticket*)
 **receiver_email** | Yes | String | The email of the user who is receiving the item (*e.g. ticket*)
 **timestamp** | Yes | Integer | The Unix-formatted datetime that the action happend
