@@ -175,7 +175,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackAccountCreation($account);
+$inspetor->trackAccountCreation($account);
 
 ?>
 ```
@@ -196,7 +196,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackAccountUpdate($account);
+$inspetor->trackAccountUpdate($account);
 
 ?>
 ```
@@ -217,7 +217,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackAccountDeletion($account);
+$inspetor->trackAccountDeletion($account);
 
 ?>
 ```
@@ -252,7 +252,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackLogin($auth);
+$inspetor->trackLogin($auth);
 
 ?>
 ```
@@ -273,7 +273,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackLogout($auth);
+$inspetor->trackLogout($auth);
 
 ?>
 ```
@@ -308,7 +308,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackPasswordReset($pass_recovery);
+$inspetor->trackPasswordReset($pass_recovery);
 
 ?>
 ```
@@ -328,7 +328,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackPasswordRecovery($pass_recovery);
+$inspetor->trackPasswordRecovery($pass_recovery);
 
 ?>
 ```
@@ -365,7 +365,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackEventCreation($event);
+$inspetor->trackEventCreation($event);
 
 ?>
 ```
@@ -385,7 +385,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackEventUpdate($event);
+$inspetor->trackEventUpdate($event);
 
 ?>
 ```
@@ -405,7 +405,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackEventDeletion($event);
+$inspetor->trackEventDeletion($event);
 
 ?>
 ```
@@ -442,7 +442,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackSaleCreation($sale);
+$inspetor->trackSaleCreation($sale);
 
 ?>
 ```
@@ -462,7 +462,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackSaleUpdate($sale);
+$inspetor->trackSaleUpdate($sale);
 
 ?>
 ```
@@ -502,7 +502,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackItemTransferCreation($transfer);
+$inspetor->trackItemTransferCreation($transfer);
 
 ?>
 ```
@@ -522,7 +522,7 @@ use Inspetor;
 
 $inspetor = $this->getConfiguredInspetor();
 
-$inspetor>trackItemTransferUpdate($transfer);
+$inspetor->trackItemTransferUpdate($transfer);
 
 ?>
 ```
@@ -554,7 +554,7 @@ Information about a user's account.
 <?php
 
 // Calling an instance of Model
-$inspetor_account = $inspetor>getInspetorAuth();
+$inspetor_account = $inspetor->getInspetorAccount();
 
 // Filling model with company data
 $inspetor_account->setId("123"); //getId()
@@ -564,6 +564,10 @@ $inspetor_account->setDocument("07206094880"); //getDocument()
 $inspetor_account->setPhoneNumber("11953891736"); //getPhoneNumber()
 $inspetor_account->setAddress($inspetor_address); //getAddress()
 $inspetor_account->setTimestamp(time()); //getTimestamp()
+
+$inspetor->trackAccountCreation($inspetor_account);
+$inspetor->trackAccountUpdate($inspetor_account);
+$inspetor->trackAccountDeletion($inspetor_account);
 
 ?>
 ```
@@ -590,7 +594,7 @@ Residential or billing address information that is used in other models ([Inspet
 <?php
 
 // Calling an instance of Model
-$inspetor_address = $inspetor>getInspetorAddress();
+$inspetor_address = $inspetor->getInspetorAddress();
 
 // Filling model with company data
 $inspetor_address->setStreet("Street Security");  //getStreet()
@@ -628,11 +632,14 @@ Login and logout event information in your platform
 <?php
 
 // Calling an instance of Model
-$inspetor_auth = $inspetor>getInspetorAuth();
+$inspetor_auth = $inspetor->getInspetorAuth();
 
 // Filling model with company data
 $inspetor_auth->setAccountId("123"); //getAccountId()
 $inspetor_auth->setTimestamp(time()); //getTimestamp()
+
+$inspetor->trackAccountLogin($inspetor_auth);
+$inspetor->trackAccountLogout($inspetor_auth);
 
 ?>
 ```
@@ -654,7 +661,7 @@ Event categories that are used in the [InspetorEvent](#inspetorevent) model.
 <?php
 
 // Calling an instance of Model
-$inspetor_category = $inspetor>getInspetorCategory();
+$inspetor_category = $inspetor->getInspetorCategory();
 
 // Filling model with company data
 $inspetor_category->setId("123"); //getId()
@@ -680,7 +687,7 @@ Credit card information (used in [InspetorSales](#inspetorsale) ).
 <?php
 
 // Calling an instance of Model
-$inspetor_cc = $inspetor>getInspetorCreditCard();
+$inspetor_cc = $inspetor->getInspetorCreditCard();
 
 // Filling model with company data
 $inspetor_cc->setFirstSixDigits("123456"); //getFirstSixDigits()
@@ -712,7 +719,7 @@ The Event Model will contain information about parties, shows, and events that a
 <?php
 
 // Calling an instance of Model
-$inspetor_event = $inspetor>getInspetorEvent();
+$inspetor_event = $inspetor->getInspetorEvent();
 
 // Filling model with company data
 $inspetor_event->setId("8000"); //getId()
@@ -728,6 +735,10 @@ $inspetor_event->setSlug("cool-company-event"); //getSlug()
 $inspetor_event->setCreatorId("123"); //getCreatorId()
 $inspetor_event->setAdminsId(["123", "234"]); //getAdminsId()
 $inspetor_event->setSeatingOptions(["Pista", "VIP"]); //getSeatingOptions()
+
+$inspetor->trackEventCreation($inspetor_event);
+$inspetor->trackEventUpdate($inspetor_event);
+$inspetor->trackEventDeletion($inspetor_event);
 
 ?>
 ```
@@ -760,7 +771,7 @@ Information about the item(s) (generally a ticket) associated with a [InspetorSa
 <?php
 
 // Calling an instance of Model
-$inspetor_item = $inspetor>getInspetorItem();
+$inspetor_item = $inspetor->getInspetorItem();
 
 // Filling model with company data
 $inspetor_item->setId("9000"); //getId()
@@ -794,11 +805,14 @@ Information about password change requests or recoveries initiated by a user.
 <?php
 
 // Calling an instance of Model
-$inspetor_pass = $inspetor>getInspetorPassRecovery();
+$inspetor_pass = $inspetor->getInspetorPassRecovery();
 
 // Filling model with company data
 $inspetor_pass->setRecoveryEmail("test@email.com"); //getRecoveryEmail()
 $inspetor_pass->setTimestamp(time()); //getTimestamp()
+
+$inspetor->trackPasswordReset($inspetor_pass);
+$inspetor->trackPasswordRecovery($inspetor_pass);
 
 ?>
 ```
@@ -820,7 +834,7 @@ Information about the payment associated with a [InspetorSale](#inspetorsale).
 <?php
 
 // Calling an instance of Model
-$inspetor_payment = $inspetor>getInspetorPayment();
+$inspetor_payment = $inspetor->getInspetorPayment();
 
 // Filling model with company data
 $inspetor_payment->setId("12345"); //getId()
@@ -850,7 +864,7 @@ Information about a sale within your platform.
 <?php
 
 // Calling an instance of Model
-$inspetor_sale = $inspetor>getInspetorSale();
+$inspetor_sale = $inspetor->getInspetorSale();
 
 // Filling model with company data
 $inspetor_sale->setId("1234"); //getId()
@@ -860,6 +874,9 @@ $inspetor_sale->setIsFraud(false); //getIsFraud()
 $inspetor_sale->setTimestamp(time()); //getTimestamp()
 $inspetor_sale->setItems([$inspetor_item1, $inspetor_item2]); //getItems()
 $inspetor_sale->setPayment($inspetor_payment); //getPayment()
+
+$inspetor->trackSaleCreation($inspetor_sale);
+$inspetor->trackSaleUpdate($inspetor_sale);
 
 ?>
 ```
@@ -887,7 +904,7 @@ Event session that are used in the [InspetorEvent](#inspetorevent) model.
 <?php
 
 // Calling an instance of Model
-$inspetor_session = $inspetor>getInspetorSession();
+$inspetor_session = $inspetor->getInspetorSession();
 
 // Filling model with company data
 $inspetor_session->setId("123"); //getId()
@@ -914,7 +931,7 @@ Information regarding the transfer of purchased [InspetorItems](#inspetoritem) (
 <?php
 
 // Calling an instance of Model
-$inspetor_transfer = $inspetor>getInspetorTransfer();
+$inspetor_transfer = $inspetor->getInspetorTransfer();
 
 // Filling model with company data
 $inspetor_transfer->setId("123"); //getId()
@@ -923,6 +940,9 @@ $inspetor_transfer->setItemId("9000"); //getItemId()
 $inspetor_transfer->setSenderAccountId("124"); //getSenderAccountId()
 $inspetor_transfer->setReceiverEmail("test@email.com"); //getReceiverEmail()
 $inspetor_transfer->setStatus("pending"); //getStatus()
+
+$inspetor->trackItemTransferCreation($inspetor_transfer);
+$inspetor->trackItemTransferUpdate($inspetor_transfer);
 
 ?>
 ```
