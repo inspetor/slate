@@ -483,7 +483,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#inspetorcreditcardexception" class="toc-h2 toc-link" data-title="InspetorCreditCardException">InspetorCreditCardException</a>
+                    <a href="#inspetorcategoryexception" class="toc-h2 toc-link" data-title="InspetorCategoryException">InspetorCategoryException</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#types-6" class="toc-h3 toc-link" data-title="Types">Types</a>
@@ -491,7 +491,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#inspetoreventexception" class="toc-h2 toc-link" data-title="InspetorEventException">InspetorEventException</a>
+                    <a href="#inspetorcreditcardexception" class="toc-h2 toc-link" data-title="InspetorCreditCardException">InspetorCreditCardException</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#types-7" class="toc-h3 toc-link" data-title="Types">Types</a>
@@ -499,7 +499,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#inspetoritemexception" class="toc-h2 toc-link" data-title="InspetorItemException">InspetorItemException</a>
+                    <a href="#inspetoreventexception" class="toc-h2 toc-link" data-title="InspetorEventException">InspetorEventException</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#types-8" class="toc-h3 toc-link" data-title="Types">Types</a>
@@ -507,7 +507,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#inspetorpassrecoveryexception" class="toc-h2 toc-link" data-title="InspetorPassRecoveryException">InspetorPassRecoveryException</a>
+                    <a href="#inspetoritemexception" class="toc-h2 toc-link" data-title="InspetorItemException">InspetorItemException</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#types-9" class="toc-h3 toc-link" data-title="Types">Types</a>
@@ -515,7 +515,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#inspetorpaymentexception" class="toc-h2 toc-link" data-title="InspetorPaymentException">InspetorPaymentException</a>
+                    <a href="#inspetorpassrecoveryexception" class="toc-h2 toc-link" data-title="InspetorPassRecoveryException">InspetorPassRecoveryException</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#types-10" class="toc-h3 toc-link" data-title="Types">Types</a>
@@ -523,7 +523,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#inspetorsaleexception" class="toc-h2 toc-link" data-title="InspetorSaleException">InspetorSaleException</a>
+                    <a href="#inspetorpaymentexception" class="toc-h2 toc-link" data-title="InspetorPaymentException">InspetorPaymentException</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#types-11" class="toc-h3 toc-link" data-title="Types">Types</a>
@@ -531,10 +531,26 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#inspetortransferexception" class="toc-h2 toc-link" data-title="InspetorTransferException">InspetorTransferException</a>
+                    <a href="#inspetorsaleexception" class="toc-h2 toc-link" data-title="InspetorSaleException">InspetorSaleException</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#types-12" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#inspetorsessionexception" class="toc-h2 toc-link" data-title="InspetorSessionException">InspetorSessionException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-13" class="toc-h3 toc-link" data-title="Types">Types</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#inspetortransferexception" class="toc-h2 toc-link" data-title="InspetorTransferException">InspetorTransferException</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#types-14" class="toc-h3 toc-link" data-title="Types">Types</a>
                           </li>
                       </ul>
                   </li>
@@ -2107,9 +2123,27 @@ Most models have some optional properties, but it's important that you try to se
 <td>timestamp is a required property. It must not be null</td>
 </tr>
 </tbody></table>
+<h2 id='inspetorcategoryexception'>InspetorCategoryException</h2>
+<p>This exception is thrown when you provide an <a href="#inspetorcategory">InspetorCategory</a> object with invalid properties or missing required properties</p>
+<h3 id='types-6'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>name is a required property. It must not be null</td>
+</tr>
+</tbody></table>
 <h2 id='inspetorcreditcardexception'>InspetorCreditCardException</h2>
 <p>This exception is thrown when you provide a <a href="#inspetorcreditcard">InspetorCreditCard</a> object with invalid properties or missing required properties</p>
-<h3 id='types-6'>Types</h3>
+<h3 id='types-7'>Types</h3>
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2132,10 +2166,14 @@ Most models have some optional properties, but it's important that you try to se
 <td>7004</td>
 <td>holder_cpf is a required property. It must not be null</td>
 </tr>
+<tr>
+<td>7005</td>
+<td>billing_address is a required property. It can&#39;t be null</td>
+</tr>
 </tbody></table>
 <h2 id='inspetoreventexception'>InspetorEventException</h2>
 <p>This exception is thrown when you provide an <a href="#inspetorevent">InspetorEvent</a> object with invalid properties or missing required properties</p>
-<h3 id='types-7'>Types</h3>
+<h3 id='types-8'>Types</h3>
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2190,10 +2228,14 @@ Most models have some optional properties, but it's important that you try to se
 <td>7012</td>
 <td>admins_id should be an array of one or more users</td>
 </tr>
+<tr>
+<td>7013</td>
+<td>is_physical should be a boolean. It&#39;s true by default</td>
+</tr>
 </tbody></table>
 <h2 id='inspetoritemexception'>InspetorItemException</h2>
 <p>This exception is thrown when you provide an <a href="#inspetoritem">InspetorItem</a> object with invalid properties or missing required properties</p>
-<h3 id='types-8'>Types</h3>
+<h3 id='types-9'>Types</h3>
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2227,7 +2269,7 @@ Most models have some optional properties, but it's important that you try to se
 </tbody></table>
 <h2 id='inspetorpassrecoveryexception'>InspetorPassRecoveryException</h2>
 <p>This exception is thrown when you provide a <a href="#inspetorpassrecovery">InspetorPassRecovery</a> object with invalid properties or missing required properties</p>
-<h3 id='types-9'>Types</h3>
+<h3 id='types-10'>Types</h3>
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2245,7 +2287,7 @@ Most models have some optional properties, but it's important that you try to se
 </tbody></table>
 <h2 id='inspetorpaymentexception'>InspetorPaymentException</h2>
 <p>This exception is thrown when you provide a <a href="#inspetorpayment">InspetorPayment</a> object with invalid properties or missing required properties</p>
-<h3 id='types-10'>Types</h3>
+<h3 id='types-11'>Types</h3>
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2275,7 +2317,7 @@ Most models have some optional properties, but it's important that you try to se
 </tbody></table>
 <h2 id='inspetorsaleexception'>InspetorSaleException</h2>
 <p>This exception is thrown when you provide a <a href="#inspetorsale">InspetorSale</a> object with invalid properties or missing required properties</p>
-<h3 id='types-11'>Types</h3>
+<h3 id='types-12'>Types</h3>
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2319,9 +2361,27 @@ Most models have some optional properties, but it's important that you try to se
 <td>One or more items have invalid price</td>
 </tr>
 </tbody></table>
+<h2 id='inspetorsessionexception'>InspetorSessionException</h2>
+<p>This exception is thrown when you provide an <a href="#inspetorsession">InspetorSession</a> object with invalid properties or missing required properties</p>
+<h3 id='types-13'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>datetime is a required property. It must not be null</td>
+</tr>
+</tbody></table>
 <h2 id='inspetortransferexception'>InspetorTransferException</h2>
 <p>This exception is thrown when you provide a <a href="#inspetortransfer">InspetorTransfer</a> object with invalid properties or missing required properties</p>
-<h3 id='types-12'>Types</h3>
+<h3 id='types-14'>Types</h3>
 <table><thead>
 <tr>
 <th>Category</th>
