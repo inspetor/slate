@@ -543,7 +543,6 @@ In our current PHP implementation, we suggest using the pre-built `get` accessor
 Most models have some optional properties, but it's important that you try to send us as much information as you can. The more information our models have to work with, the better your results will be.
 </aside>
 
-
 ## InspetorAccount
 
 Information about a user's account.
@@ -574,15 +573,15 @@ $inspetor->trackAccountDeletion($inspetor_account);
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**id** | Yes | String | Your unique indentifier for this account in your platform
-**email** | Yes | String | The email associated with the account
-**timestamp** | Yes | Integer | The Unix-formatted datetime that the account was last updated
-name | No | String | The name of the user
-document | No | String | The CPF or document number associated with the account
-phone_number | No | String | The phone number associated with the account
-address | No | [Address](#address) | The address associated with the account
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**        | Yes | Yes | String  | Your unique indentifier for this account in your platform
+**timestamp** | Yes | Yes | Integer | The Unix-formatted datetime that the account was last updated
+**email**     | Yes | No  | String  | The email associated with the account
+name          | No  | No  | String  | The name of the user
+document      | No  | No  | String  | The CPF or document number associated with the account
+phone_number  | No  | No  | String  | The phone number associated with the account
+address       | No  | No  | [Address](#address) | The address associated with the account
 
 ## InspetorAddress
 
@@ -611,16 +610,16 @@ $inspetor_address->setLongitude("123"); //getLongitude()
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**street** | Yes | String | The street of the address
-**zip_code** | Yes | String | The zip code (*e.g. CEP*) of the address
-**city** | Yes | String | The city in which the address is located
-**state** | Yes | String | The state in which the address is located
-**country** | Yes | String | The country in which the address is located
-number | No | String | The street number of the address
-latitude | No | String | The exact latitude of the address
-longitude | No | String | The exact longitude of the address
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**street**   | Yes | Yes | String | The street of the address
+**zip_code** | Yes | Yes | String | The zip code (*e.g. CEP*) of the address
+**city**     | Yes | Yes | String | The city in which the address is located
+**state**    | Yes | Yes | String | The state in which the address is located
+**country**  | Yes | Yes | String | The country in which the address is located
+number       | No  | No  | String | The street number of the address
+latitude     | No  | No  | String | The exact latitude of the address
+longitude    | No  | No  | String | The exact longitude of the address
 
 ## InspetorAuth
 
@@ -646,10 +645,10 @@ $inspetor->trackAccountLogout($inspetor_auth);
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**account_id** | Yes | String | The id of the user that is making the login or logout
-**timestamp** | Yes | Integer | The unix format of the time and date that the authentication happend
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**account_id** | Yes | Yes | String  | The id of the user that is making the login or logout
+**timestamp**  | Yes | Yes | Integer | The unix format of the time and date that the authentication happend
 
 ## InspetorCategory
 
@@ -672,10 +671,10 @@ $inspetor_category->setName("Category"); //getName()
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**id** | Yes | String | Your unique indentifier for this category in your platform
-**name** | Yes | String | The name of the category
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**   | Yes | Yes | String | Your unique indentifier for this category in your platform
+**name** | Yes | Yes | String | The name of the category
 
 ## InspetorCreditCard
 
@@ -701,13 +700,13 @@ $inspetor_cc->setBillingAddress($inspetor_address); //getBillingAddress
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**first_six_digits** | Yes | String | The first six digits of the credit card number
-**last_four_digits** | Yes | Integer | The last four digits of the credit card number
-**holder_name** | Yes | String | The full name of the owner of the credit card
-**holder_cpf** | Yes | String | The CPF of the owner of the credit card
-**billing_address** | Yes | [InspetorAddress](#inspetoraddress) | The billing address associated with this credit card
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**first_six_digits** | Yes | Yes | String | The first six digits of the credit card number
+**last_four_digits** | Yes | Yes | Integer | The last four digits of the credit card number
+**holder_name**      | Yes | Yes | String | The full name of the owner of the credit card
+**holder_cpf**       | Yes | Yes | String | The CPF of the owner of the credit card
+**billing_address**  | Yes | Yes | [InspetorAddress](#inspetoraddress) | The billing address associated with this credit card
 
 ## InspetorEvent
 
@@ -745,21 +744,21 @@ $inspetor->trackEventDeletion($inspetor_event);
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**id** | Yes | String | The unique indentifier of this event listing in your platform
-**name** | Yes | String | The name of the event
-**is_physical** | Yes | Bool | It determines if it's a physical or digital event. *The default value is `true`.*
-**sessions** | Yes | Array of [InspetorSession](#inspetorsession) | All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.
-**creator_id** | Yes | String | The id of the user who created the event
-**admins_id** | Yes | Array | An array containing the ids of all users who can make changes to the event
-**timestamp** | Yes | Integer | The Unix-formatted datetime that the event was last updated
-address | No | [InspetorAddress](#inspetoraddress) | The address where the event is happening. *This field is only required if the type of the event is set to physical.*
-status | No| String | The status of the event. *Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if you it does not fit with our status model.*
-description | No | String | A description of the event
-seating_options | No | Array | An array containing all names of the different ticket types that can be bought for this event
-categories | No | Array of [InspetorCategory](#inspetorcategory) | An array of categories associated with the event listing
-slug | No | String | The slug of the event
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**          | Yes  | Yes | String | The unique indentifier of this event listing in your platform
+**timestamp**   | Yes  | Yes | Integer | The Unix-formatted datetime that the event was last updated
+**name**        | Yes  | No  | String | The name of the event
+**is_physical** | Yes  | No  | Bool | It determines if it's a physical or digital event. *The default value is `true`.*
+**sessions**    | Yes  | No  | Array of [InspetorSession](#inspetorsession) | All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.
+**creator_id**  | Yes  | No  | String | The id of the user who created the event
+**admins_id**   | Yes  | No  | Array | An array containing the ids of all users who can make changes to the event
+address         | No   | No  | [InspetorAddress](#inspetoraddress) | The address where the event is happening. *This field is only required if the type of the event is set to physical.*
+status          | No   | No  | String | The status of the event. *Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if you it does not fit with our status model.* 
+description     | No   | No  | String | A description of the event
+seating_options | No   | No  | Array | An array containing all names of the different ticket types that can be bought for this event
+categories      | No   | No  | Array of [InspetorCategory](#inspetorcategory) | An array of categories associated with the event listing
+slug            | No   | No  | String | The slug of the event
 
 ## InspetorItem
 
@@ -786,14 +785,14 @@ $inspetor_item->setQuantity(2); //getQuantity()
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**id** | Yes | String | A unique indentifier for this item (*e.g. ticket*) within your platform
-**event_id** | Yes | String | The unique indentifier of the event that the item is tied too
-**session_id** | Yes | String | The unique indentifier of the event session (date and time) that the item is tied to
-**price** | Yes | Double | The price of the item. *It should only contain numbers, dots and commas*
-**quantity** | Yes | Integer | The number of item of this type being bought.
-seating_option | No | String | The name of the type of item that is being bought
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**         | Yes | Yes | String  | A unique indentifier for this item (*e.g. ticket*) within your platform
+**event_id**   | Yes | Yes | String  | The unique indentifier of the event that the item is tied too
+**session_id** | Yes | Yes | String  | The unique indentifier of the event session (date and time) that the item is tied to
+**price**      | Yes | Yes | Double  | The price of the item. *It should only contain numbers, dots and commas*
+**quantity**   | Yes | Yes | Integer | The number of item of this type being bought.
+seating_option | No  | Yes | String  | The name of the type of item that is being bought
 
 ## InspetorPassRecovery
 
@@ -819,10 +818,10 @@ $inspetor->trackPasswordRecovery($inspetor_pass);
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**recovery_email** | Yes | String | The email used to recover or reset the password
-**timestamp** | Yes | String | The Unix-formatted datetime when the action occurred.
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**recovery_email** | Yes | Yes | String | The email used to recover or reset the password
+**timestamp**      | Yes | Yes | String | The Unix-formatted datetime when the action occurred.
 
 ## InspetorPayment
 
@@ -847,12 +846,12 @@ $inspetor_payment->setCreditCard($inspetor_cc); //getCreditCard()
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**id** | Yes | String | The id of the payment. This id should be the same as the one you send to the payment processor.
-**method** | Yes | String | The method of payment being used. *The allowed values are `credit_card`, `boleto`, and `other`*
-**installments** | Yes | Integer | The number of "*parcelas*" that the user will pay
-credit_card | No | [InspetorCreditCard](#inspetorcreditcard) | If the method is *credit_card* it should contains a credit card object
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**           | Yes | Yes | String | The id of the payment. This id should be the same as the one you send to the payment processor.
+**method**       | Yes | Yes  | String | The method of payment being used. *The allowed values are `credit_card`, `boleto`, and `other`*
+**installments** | Yes | Yes  | Integer | The number of "*parcelas*" that the user will pay
+credit_card      | No  | No  | [InspetorCreditCard](#inspetorcreditcard) | If the method is *credit_card* it should contains a credit card object
 
 ## InspetorSale
 
@@ -883,15 +882,15 @@ $inspetor->trackSaleUpdate($inspetor_sale);
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**id** | Yes | String | The unique indentifier for the sale within your platform
-**account_id** | Yes | String | The id of the user who is making the purchase
-**status** | Yes | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
-**is_fraud** | Yes | Boolean | Indicates if the sale was fradulent. This should only be `true` when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.
-**timestamp** | Yes | Integer | The unix format of the time and date that the action happend
-**items** | Yes | Array of [InspetorItem](#inspetoritem) | The items (*e.g. tickets*) that are being bought
-**payment** | Yes | [InspetorPayment](#inspetorpayment) | The payment used in this purchase
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**         | Yes | Yes | String | The unique indentifier for the sale within your platform
+**timestamp**  | Yes | Yes | Integer | The unix format of the time and date that the action happend
+**account_id** | Yes | No  | String | The id of the user who is making the purchase
+**status**     | Yes | No  | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
+**is_fraud**   | Yes | No  | Boolean | Indicates if the sale was fradulent. This should only be `true` when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.
+**items**      | Yes | No  | Array of [InspetorItem](#inspetoritem) | The items (*e.g. tickets*) that are being bought
+**payment**    | Yes | No  | [InspetorPayment](#inspetorpayment) | The payment used in this purchase
 
 
 ## InspetorSession
@@ -915,10 +914,10 @@ $inspetor_session->setDatetime(1234); //getDatetime()
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**id** | Yes | String | Your unique indentifier for this session in your platform
-**datetime** | Yes | String | The date and time of the event session 
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**       | Yes | Yes | String | Your unique indentifier for this session in your platform
+**datetime** | Yes | Yes | String | The date and time of the event session 
 
 
 ## InspetorTransfer
@@ -949,13 +948,13 @@ $inspetor->trackItemTransferUpdate($inspetor_transfer);
 
 All properties can be accesssed or defined via `get` and `set` accessor methods
 
-Property | Required | Type | Description
--------- | -------- | ---- | -----------
-**id** | Yes | String | Your platform-unique indentifier for the transfer
-**item_id** | Yes | String | The id of the [InspetorItem](#inspetoritem) (*e.g. ticket*) that is being transfered
-**sender_account_id** | Yes | String | The id of the account who is transferring the item (*e.g. ticket*)
-**receiver_email** | Yes | String | The email of the user who is receiving the item (*e.g. ticket*)
-**timestamp** | Yes | Integer | The Unix-formatted datetime that the action happend
-**status** | Yes | String | The status of the transfer. *The allowed values are: `accepted`, `rejected`, and `pending`*
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**                | Yes | Yes | String | Your platform-unique indentifier for the transfer
+**timestamp**         | Yes | Yes | Integer | The Unix-formatted datetime that the action happend
+**item_id**           | Yes | No  | String | The id of the [InspetorItem](#inspetoritem) (*e.g. ticket*) that is being transfered
+**sender_account_id** | Yes | No  | String | The id of the account who is transferring the item (*e.g. ticket*)
+**receiver_email**    | Yes | No  | String | The email of the user who is receiving the item (*e.g. ticket*)
+**status**            | Yes | No  | String | The status of the transfer. *The allowed values are: `accepted`, `rejected`, and `pending`*
 
 
