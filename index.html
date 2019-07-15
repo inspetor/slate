@@ -1274,7 +1274,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1282,23 +1283,27 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>id</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>Your unique indentifier for this account in your platform</td>
 </tr>
 <tr>
-<td><strong>email</strong></td>
-<td>Yes</td>
-<td>String</td>
-<td>The email associated with the account</td>
-</tr>
-<tr>
 <td><strong>timestamp</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td>Integer</td>
 <td>The Unix-formatted datetime that the account was last updated</td>
 </tr>
 <tr>
+<td><strong>email</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td>String</td>
+<td>The email associated with the account</td>
+</tr>
+<tr>
 <td>name</td>
+<td>No</td>
 <td>No</td>
 <td>String</td>
 <td>The name of the user</td>
@@ -1306,17 +1311,20 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td>document</td>
 <td>No</td>
+<td>No</td>
 <td>String</td>
 <td>The CPF or document number associated with the account</td>
 </tr>
 <tr>
 <td>phone_number</td>
 <td>No</td>
+<td>No</td>
 <td>String</td>
 <td>The phone number associated with the account</td>
 </tr>
 <tr>
 <td>address</td>
+<td>No</td>
 <td>No</td>
 <td><a href="#address">Address</a></td>
 <td>The address associated with the account</td>
@@ -1346,7 +1354,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1354,11 +1363,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>street</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The street of the address</td>
 </tr>
 <tr>
 <td><strong>zip_code</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td>String</td>
 <td>The zip code (<em>e.g. CEP</em>) of the address</td>
@@ -1366,11 +1377,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>city</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The city in which the address is located</td>
 </tr>
 <tr>
 <td><strong>state</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td>String</td>
 <td>The state in which the address is located</td>
@@ -1378,11 +1391,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>country</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The country in which the address is located</td>
 </tr>
 <tr>
 <td>number</td>
+<td>No</td>
 <td>No</td>
 <td>String</td>
 <td>The street number of the address</td>
@@ -1390,11 +1405,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td>latitude</td>
 <td>No</td>
+<td>No</td>
 <td>String</td>
 <td>The exact latitude of the address</td>
 </tr>
 <tr>
 <td>longitude</td>
+<td>No</td>
 <td>No</td>
 <td>String</td>
 <td>The exact longitude of the address</td>
@@ -1421,7 +1438,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1429,11 +1447,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>account_id</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The id of the user that is making the login or logout</td>
 </tr>
 <tr>
 <td><strong>timestamp</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td>Integer</td>
 <td>The unix format of the time and date that the authentication happend</td>
@@ -1457,7 +1477,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1465,11 +1486,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>id</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>Your unique indentifier for this category in your platform</td>
 </tr>
 <tr>
 <td><strong>name</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td>String</td>
 <td>The name of the category</td>
@@ -1496,7 +1519,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1504,11 +1528,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>first_six_digits</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The first six digits of the credit card number</td>
 </tr>
 <tr>
 <td><strong>last_four_digits</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td>Integer</td>
 <td>The last four digits of the credit card number</td>
@@ -1516,17 +1542,20 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>holder_name</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The full name of the owner of the credit card</td>
 </tr>
 <tr>
 <td><strong>holder_cpf</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The CPF of the owner of the credit card</td>
 </tr>
 <tr>
 <td><strong>billing_address</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td><a href="#inspetoraddress">InspetorAddress</a></td>
 <td>The billing address associated with this credit card</td>
@@ -1565,7 +1594,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1573,47 +1603,55 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>id</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The unique indentifier of this event listing in your platform</td>
 </tr>
 <tr>
+<td><strong>timestamp</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The Unix-formatted datetime that the event was last updated</td>
+</tr>
+<tr>
 <td><strong>name</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>String</td>
 <td>The name of the event</td>
 </tr>
 <tr>
 <td><strong>is_physical</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>Bool</td>
 <td>It determines if it&#39;s a physical or digital event. <em>The default value is <code>true</code>.</em></td>
 </tr>
 <tr>
 <td><strong>sessions</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>Array of <a href="#inspetorsession">InspetorSession</a></td>
 <td>All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.</td>
 </tr>
 <tr>
 <td><strong>creator_id</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>String</td>
 <td>The id of the user who created the event</td>
 </tr>
 <tr>
 <td><strong>admins_id</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>Array</td>
 <td>An array containing the ids of all users who can make changes to the event</td>
 </tr>
 <tr>
-<td><strong>timestamp</strong></td>
-<td>Yes</td>
-<td>Integer</td>
-<td>The Unix-formatted datetime that the event was last updated</td>
-</tr>
-<tr>
 <td>address</td>
+<td>No</td>
 <td>No</td>
 <td><a href="#inspetoraddress">InspetorAddress</a></td>
 <td>The address where the event is happening. <em>This field is only required if the type of the event is set to physical.</em></td>
@@ -1621,11 +1659,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td>status</td>
 <td>No</td>
+<td>No</td>
 <td>String</td>
 <td>The status of the event. <em>Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if you it does not fit with our status model.</em></td>
 </tr>
 <tr>
 <td>description</td>
+<td>No</td>
 <td>No</td>
 <td>String</td>
 <td>A description of the event</td>
@@ -1633,17 +1673,20 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td>seating_options</td>
 <td>No</td>
+<td>No</td>
 <td>Array</td>
 <td>An array containing all names of the different ticket types that can be bought for this event</td>
 </tr>
 <tr>
 <td>categories</td>
 <td>No</td>
+<td>No</td>
 <td>Array of <a href="#inspetorcategory">InspetorCategory</a></td>
 <td>An array of categories associated with the event listing</td>
 </tr>
 <tr>
 <td>slug</td>
+<td>No</td>
 <td>No</td>
 <td>String</td>
 <td>The slug of the event</td>
@@ -1671,7 +1714,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1679,11 +1723,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>id</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>A unique indentifier for this item (<em>e.g. ticket</em>) within your platform</td>
 </tr>
 <tr>
 <td><strong>event_id</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td>String</td>
 <td>The unique indentifier of the event that the item is tied too</td>
@@ -1691,11 +1737,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>session_id</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The unique indentifier of the event session (date and time) that the item is tied to</td>
 </tr>
 <tr>
 <td><strong>price</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td>Double</td>
 <td>The price of the item. <em>It should only contain numbers, dots and commas</em></td>
@@ -1703,12 +1751,14 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>quantity</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>Integer</td>
 <td>The number of item of this type being bought.</td>
 </tr>
 <tr>
 <td>seating_option</td>
 <td>No</td>
+<td>Yes</td>
 <td>String</td>
 <td>The name of the type of item that is being bought</td>
 </tr>
@@ -1734,7 +1784,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1742,11 +1793,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>recovery_email</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The email used to recover or reset the password</td>
 </tr>
 <tr>
 <td><strong>timestamp</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td>String</td>
 <td>The Unix-formatted datetime when the action occurred.</td>
@@ -1772,7 +1825,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1780,11 +1834,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>id</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The id of the payment. This id should be the same as the one you send to the payment processor.</td>
 </tr>
 <tr>
 <td><strong>method</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td>String</td>
 <td>The method of payment being used. <em>The allowed values are <code>credit_card</code>, <code>boleto</code>, and <code>other</code></em></td>
@@ -1792,11 +1848,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>installments</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>Integer</td>
 <td>The number of &quot;<em>parcelas</em>&quot; that the user will pay</td>
 </tr>
 <tr>
 <td>credit_card</td>
+<td>No</td>
 <td>No</td>
 <td><a href="#inspetorcreditcard">InspetorCreditCard</a></td>
 <td>If the method is <em>credit_card</em> it should contains a credit card object</td>
@@ -1828,7 +1886,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1836,42 +1895,49 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>id</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>The unique indentifier for the sale within your platform</td>
 </tr>
 <tr>
+<td><strong>timestamp</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The unix format of the time and date that the action happend</td>
+</tr>
+<tr>
 <td><strong>account_id</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>String</td>
 <td>The id of the user who is making the purchase</td>
 </tr>
 <tr>
 <td><strong>status</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>String</td>
 <td>The status of the sale. <em>The allowed values are: <code>accepted</code>, <code>declined</code>, <code>pending</code>, <code>refunded</code>, and <code>manual_analysis</code></em></td>
 </tr>
 <tr>
 <td><strong>is_fraud</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>Boolean</td>
 <td>Indicates if the sale was fradulent. This should only be <code>true</code> when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.</td>
 </tr>
 <tr>
-<td><strong>timestamp</strong></td>
-<td>Yes</td>
-<td>Integer</td>
-<td>The unix format of the time and date that the action happend</td>
-</tr>
-<tr>
 <td><strong>items</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>Array of <a href="#inspetoritem">InspetorItem</a></td>
 <td>The items (<em>e.g. tickets</em>) that are being bought</td>
 </tr>
 <tr>
 <td><strong>payment</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td><a href="#inspetorpayment">InspetorPayment</a></td>
 <td>The payment used in this purchase</td>
 </tr>
@@ -1894,7 +1960,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1902,11 +1969,13 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>id</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>Your unique indentifier for this session in your platform</td>
 </tr>
 <tr>
 <td><strong>datetime</strong></td>
+<td>Yes</td>
 <td>Yes</td>
 <td>String</td>
 <td>The date and time of the event session</td>
@@ -1937,7 +2006,8 @@ Most models have some optional properties, but it's important that you try to se
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1945,36 +2015,42 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>id</strong></td>
 <td>Yes</td>
+<td>Yes</td>
 <td>String</td>
 <td>Your platform-unique indentifier for the transfer</td>
 </tr>
 <tr>
+<td><strong>timestamp</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The Unix-formatted datetime that the action happend</td>
+</tr>
+<tr>
 <td><strong>item_id</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>String</td>
 <td>The id of the <a href="#inspetoritem">InspetorItem</a> (<em>e.g. ticket</em>) that is being transfered</td>
 </tr>
 <tr>
 <td><strong>sender_account_id</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>String</td>
 <td>The id of the account who is transferring the item (<em>e.g. ticket</em>)</td>
 </tr>
 <tr>
 <td><strong>receiver_email</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>String</td>
 <td>The email of the user who is receiving the item (<em>e.g. ticket</em>)</td>
 </tr>
 <tr>
-<td><strong>timestamp</strong></td>
-<td>Yes</td>
-<td>Integer</td>
-<td>The Unix-formatted datetime that the action happend</td>
-</tr>
-<tr>
 <td><strong>status</strong></td>
 <td>Yes</td>
+<td>No</td>
 <td>String</td>
 <td>The status of the transfer. <em>The allowed values are: <code>accepted</code>, <code>rejected</code>, and <code>pending</code></em></td>
 </tr>
