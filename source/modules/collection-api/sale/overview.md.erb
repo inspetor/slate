@@ -1,0 +1,19 @@
+## Sale Activity
+
+The following functions provide Inspetor with information on sales that happen within your platform. The main activities that we track are the following:
+
+- <a href="#sale-creation">trackSaleCreation</a>
+- <a href="#sale-updates">trackSaleUpdate</a>
+
+All functions for tracking Sales activity require a [InspetorSale](#inspetorsale) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
+
+Exception | Description
+--------- | -----------
+**[SaleException](#inspetorsaleexception)**         | The Transfer object provided is not a valid one
+**[ItemException](#inspetoritemexception)**         | The Item object provided on the Sale is not a valid one
+**[PaymentException](#pinspetoraymentexception)**   | The Payment object provided on the Sale is not a valid one
+**[generalException](#inspetorgeneralexception)** | The timestamps that you passed on the objects are not valid ones
+**[TrackerException](#trackerexception)**   | An internal error occurred *Hopefully this never happen*
+
+<p><%= partial "modules/collection-api/sale/actions/create.md.erb" %></p>
+<p><%= partial "modules/collection-api/sale/actions/update.md.erb" %></p>

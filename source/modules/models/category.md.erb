@@ -1,0 +1,25 @@
+## InspetorCategory
+
+Event categories that are used in the [InspetorEvent](#inspetorevent) model.
+
+### Properties
+
+```php
+<?php
+
+// Calling an instance of Model
+$inspetor_category = $inspetor->getInspetorCategory();
+
+// Filling model with company data
+$inspetor_category->setId("123"); //getId()
+$inspetor_category->setName("Category"); //getName()
+
+?>
+```
+
+All properties can be accesssed or defined via `get` and `set` accessor methods
+
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**   | Yes | Yes | String | Your unique indentifier for this category in your platform
+**name** | Yes | Yes | String | The name of the category

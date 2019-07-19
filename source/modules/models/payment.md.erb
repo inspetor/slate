@@ -1,0 +1,29 @@
+## InspetorPayment
+
+Information about the payment associated with a [InspetorSale](#inspetorsale).
+
+### Properties
+
+```php
+<?php
+
+// Calling an instance of Model
+$inspetor_payment = $inspetor->getInspetorPayment();
+
+// Filling model with company data
+$inspetor_payment->setId("12345"); //getId()
+$inspetor_payment->setMethod("credit_card"); //getMethod()
+$inspetor_payment->setInstallments(1); //getInstallments()
+$inspetor_payment->setCreditCard($inspetor_cc); //getCreditCard()
+
+?>
+```
+
+All properties can be accesssed or defined via `get` and `set` accessor methods
+
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**           | Yes | Yes | String | The id of the payment. This id should be the same as the one you send to the payment processor.
+**method**       | Yes | Yes  | String | The method of payment being used. *The allowed values are `credit_card`, `boleto`, and `other`*
+**installments** | Yes | Yes  | Integer | The number of "*parcelas*" that the user will pay
+credit_card      | No  | No  | [InspetorCreditCard](#inspetorcreditcard) | If the method is *credit_card* it should contains a credit card object

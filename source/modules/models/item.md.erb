@@ -1,0 +1,33 @@
+## InspetorItem
+
+Information about the item(s) (generally a ticket) associated with a [InspetorSale](#inspetorsale).
+
+### Properties
+
+```php
+<?php
+
+// Calling an instance of Model
+$inspetor_item = $inspetor->getInspetorItem();
+
+// Filling model with company data
+$inspetor_item->setId("9000"); //getId()
+$inspetor_item->setEventId("8000"); //getEventId()
+$inspetor_item->setSessionId("124"); //getSessionId()
+$inspetor_item->setPrice(50.0); //getPrice()
+$inspetor_item->setSeatingOption("PISTA"); //getSeatingOption()
+$inspetor_item->setQuantity(2); //getQuantity()
+
+?>
+```
+
+All properties can be accesssed or defined via `get` and `set` accessor methods
+
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**         | Yes | Yes | String  | A unique indentifier for this item (*e.g. ticket*) within your platform
+**event_id**   | Yes | Yes | String  | The unique indentifier of the event that the item is tied too
+**session_id** | Yes | Yes | String  | The unique indentifier of the event session (date and time) that the item is tied to
+**price**      | Yes | Yes | Double  | The price of the item. *It should only contain numbers, dots and commas*
+**quantity**   | Yes | Yes | Integer | The number of item of this type being bought.
+seating_option | No  | Yes | String  | The name of the type of item that is being bought

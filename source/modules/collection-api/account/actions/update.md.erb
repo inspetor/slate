@@ -1,0 +1,19 @@
+### Account Updates
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+$inspetor->trackAccountUpdate($account);
+
+?>
+```
+
+Send information to Inspetor any time an account's information (email, address, name...) is altered.
+
+Argument | Type | Description
+-------- | ---- | -----------
+account  | Inspetor/Model/[InspetorAccount](#inspetoraccount) | The Account that is being updated

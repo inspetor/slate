@@ -1,0 +1,19 @@
+### Password Recovery
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+$inspetor->trackPasswordRecovery($pass_recovery);
+
+?>
+```
+
+Send information to Inspetor anytime a request is made to recover a password.
+
+Argument | Type | Description
+-------- | ---- | -----------
+pass_recovery | Inspetor/Model/[InspetorPassRecovery](#inspetorpassrecovery) | The PassRecovery object that describes the password recovery request

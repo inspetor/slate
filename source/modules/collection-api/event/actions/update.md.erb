@@ -1,0 +1,19 @@
+### Event Updates
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+$inspetor->trackEventUpdate($event);
+
+?>
+```
+
+Send information to Inspetor everytime an event listing's information is updated (event title, location, etc.)
+
+Argument | Type | Description
+-------- | ---- | -----------
+event | Inspetor/Model/[InspetorEvent](#inspetorevent) | The Event that is being updated

@@ -1,0 +1,19 @@
+### Account Logout
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+$inspetor->trackLogout($auth);
+
+?>
+```
+
+Send information to Inspetor everytime an account (*e.g. user*) logs out.
+
+Argument | Type | Description
+-------- | ---- | -----------
+auth  | Inspetor/Model/[InspetorAuth](#inspetorauth) | The Auth object that describes the logout

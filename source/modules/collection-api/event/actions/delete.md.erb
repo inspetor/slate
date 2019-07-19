@@ -1,0 +1,19 @@
+### Event Deletion
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+$inspetor->trackEventDeletion($event);
+
+?>
+```
+
+Send information to Inspetor everytime an Event listing is deleted from your platform
+
+Argument | Type | Description
+-------- | ---- | -----------
+event | Inspetor/Model/[InspetorEvent](#inspetorevent) | The Event that is being deleted

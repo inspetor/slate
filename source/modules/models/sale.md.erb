@@ -1,0 +1,38 @@
+## InspetorSale
+
+Information about a sale within your platform.
+
+### Properties
+
+```php
+<?php
+
+// Calling an instance of Model
+$inspetor_sale = $inspetor->getInspetorSale();
+
+// Filling model with company data
+$inspetor_sale->setId("1234"); //getId()
+$inspetor_sale->setAccountId("123"); //getAccountId()
+$inspetor_sale->setStatus("pending"); //getStatus()
+$inspetor_sale->setIsFraud(false); //getIsFraud()
+$inspetor_sale->setTimestamp(time()); //getTimestamp()
+$inspetor_sale->setItems([$inspetor_item1, $inspetor_item2]); //getItems()
+$inspetor_sale->setPayment($inspetor_payment); //getPayment()
+
+$inspetor->trackSaleCreation($inspetor_sale);
+$inspetor->trackSaleUpdate($inspetor_sale);
+
+?>
+```
+
+All properties can be accesssed or defined via `get` and `set` accessor methods
+
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**         | Yes | Yes | String | The unique indentifier for the sale within your platform
+**timestamp**  | Yes | Yes | Integer | The unix format of the time and date that the action happend
+**account_id** | Yes | No  | String | The id of the user who is making the purchase
+**status**     | Yes | No  | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
+**is_fraud**   | Yes | No  | Boolean | Indicates if the sale was fradulent. This should only be `true` when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.
+**items**      | Yes | No  | Array of [InspetorItem](#inspetoritem) | The items (*e.g. tickets*) that are being bought
+**payment**    | Yes | No  | [InspetorPayment](#inspetorpayment) | The payment used in this purchase

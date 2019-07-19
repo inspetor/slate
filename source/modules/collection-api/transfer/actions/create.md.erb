@@ -1,0 +1,19 @@
+### Transfer Creation
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+$inspetor->trackItemTransferCreation($transfer);
+
+?>
+```
+
+This function is used to send information to Inspetor everytime a new item (*e.g. ticket*) transfer is created on your platform.
+
+Argument | Type | Description
+-------- | ---- | -----------
+transfer | Inspetor/Model/[InspetorTransfer](#inspetortransfer) | The Transfer that is being created

@@ -1,0 +1,21 @@
+## InspetorEventException
+
+This exception is thrown when you provide an [InspetorEvent](#inspetorevent) object with invalid properties or missing required properties
+
+### Types
+
+Category | Meaning
+-------- | ------
+7001  | id is a required property. It must not be null
+7002  | name is a required property. It must not be null
+7003  | timestamp is a required property. It must not be null
+7004  | producer_id is a required property. It must not be null
+7005  | address is a required property. It must not be null
+7006  | sessions is a required property. It must not be null neither an empty array
+7007  | seating_options should be null or an array of strings
+7008  | categories should be null or an array of strings
+7009  | The status is not a valid one
+7010  | sessions should be an array of one or more sessions
+7011  | id and timestamp are required properties of a session
+7012  | admins_id should be an array of one or more users
+7013  | is_physical should be a boolean. It's true by default

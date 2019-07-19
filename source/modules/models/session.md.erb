@@ -1,0 +1,25 @@
+## InspetorSession
+
+Event session that are used in the [InspetorEvent](#inspetorevent) model.
+
+### Properties
+
+```php
+<?php
+
+// Calling an instance of Model
+$inspetor_session = $inspetor->getInspetorSession();
+
+// Filling model with company data
+$inspetor_session->setId("123"); //getId()
+$inspetor_session->setDatetime(1234); //getDatetime()
+
+?>
+```
+
+All properties can be accesssed or defined via `get` and `set` accessor methods
+
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**       | Yes | Yes | String | Your unique indentifier for this session in your platform
+**datetime** | Yes | Yes | String | The date and time of the event session 

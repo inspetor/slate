@@ -1,0 +1,31 @@
+## InspetorCreditCard
+
+Credit card information (used in [InspetorSales](#inspetorsale) ).
+
+### Properties
+
+```php
+<?php
+
+// Calling an instance of Model
+$inspetor_cc = $inspetor->getInspetorCreditCard();
+
+// Filling model with company data
+$inspetor_cc->setFirstSixDigits("123456"); //getFirstSixDigits()
+$inspetor_cc->setLastFourDigits("1234"); //getLastFourDigits()
+$inspetor_cc->setHolderName("Holder Name"); //getHolderName()
+$inspetor_cc->setHolderCpf("07206094880"); //getHolderCpf()
+$inspetor_cc->setBillingAddress($inspetor_address); //getBillingAddress
+
+?>
+```
+
+All properties can be accesssed or defined via `get` and `set` accessor methods
+
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**first_six_digits** | Yes | Yes | String | The first six digits of the credit card number
+**last_four_digits** | Yes | Yes | Integer | The last four digits of the credit card number
+**holder_name**      | Yes | Yes | String | The full name of the owner of the credit card
+**holder_cpf**       | Yes | Yes | String | The CPF of the owner of the credit card
+**billing_address**  | Yes | Yes | [InspetorAddress](#inspetoraddress) | The billing address associated with this credit card

@@ -1,0 +1,28 @@
+## InspetorAuth
+
+Login and logout event information in your platform
+
+### Properties
+
+```php
+<?php
+
+// Calling an instance of Model
+$inspetor_auth = $inspetor->getInspetorAuth(); 
+
+// Filling model with company data
+$inspetor_auth->setAccountId("123"); //getAccountId()
+$inspetor_auth->setTimestamp(time()); //getTimestamp()
+
+$inspetor->trackAccountLogin($inspetor_auth);
+$inspetor->trackAccountLogout($inspetor_auth);
+
+?>
+```
+
+All properties can be accesssed or defined via `get` and `set` accessor methods
+
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**account_id** | Yes | Yes | String  | The id of the user that is making the login or logout
+**timestamp**  | Yes | Yes | Integer | The unix format of the time and date that the authentication happend

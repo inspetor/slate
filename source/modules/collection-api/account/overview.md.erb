@@ -1,0 +1,20 @@
+## Account Activity
+
+The following functions will be used to relay actions associated with an account:
+
+- <a href="#account-creation">trackAccountCreation</a>
+- <a href="#account-updates">trackAccountUpdate</a>
+- <a href="#account-deletion">trackAccountDeletion</a>
+
+All the functions for tracking account-related actions require an [InspetorAccount](#inspetoraccount) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
+
+Exception | Description
+--------- | -----------
+**[AccountException](#inspetoraccountexception)**   | The Account object provided is not a valid Inspetor Account
+**[AddressException](#inspetoraddressexception)**   | The Address object provided as a property of the Account object invalid
+**[generalException](#inspetorgeneralexception)**   | The timestamps passed as Account object properties are invalid
+**[TrackerException](#trackerexception)**   | An internal error occurred (*This should never happen*)
+
+<p><%= partial "modules/collection-api/account/actions/create.md.erb" %></p>
+<p><%= partial "modules/collection-api/account/actions/update.md.erb" %></p>
+<p><%= partial "modules/collection-api/account/actions/delete.md.erb" %></p>

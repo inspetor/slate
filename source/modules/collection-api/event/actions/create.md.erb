@@ -1,0 +1,19 @@
+### Event Creation
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+$inspetor->trackEventCreation($event);
+
+?>
+```
+
+Send information to Inspetor anytime a new event (*e.g. pary, shows...*) is created in your platform
+
+Argument | Type | Description
+-------- | ---- | -----------
+event | Inspetor/Model/[InspetorEvent](#inspetorevent) | The Event that is being created

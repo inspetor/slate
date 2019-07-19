@@ -1,0 +1,19 @@
+### Transfer Updates
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+$inspetor->trackItemTransferUpdate($transfer);
+
+?>
+```
+
+This function is used to send information to Inspetor everytime an item (*e.g. ticket*) transfer's status is updated.
+
+Argument | Type | Description
+-------- | ---- | -----------
+transfer | Inspetor/Model/[InspetorTransfer](#inspetortransfer) | The Transfer that is being updated

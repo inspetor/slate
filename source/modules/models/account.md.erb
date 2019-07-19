@@ -1,0 +1,39 @@
+## InspetorAccount
+
+Information about a user's account.
+
+### Properties
+
+```php
+<?php
+
+// Calling an instance of Model
+$inspetor_account = $inspetor->getInspetorAccount();
+
+// Filling model with company data
+$inspetor_account->setId("123"); //getId()
+$inspetor_account->setName("Test Name"); //getName()
+$inspetor_account->setEmail("test@email.com"); //getEmail()
+$inspetor_account->setDocument("07206094880"); //getDocument()
+$inspetor_account->setPhoneNumber("11953891736"); //getPhoneNumber()
+$inspetor_account->setAddress($inspetor_address); //getAddress()
+$inspetor_account->setTimestamp(time()); //getTimestamp()
+
+$inspetor->trackAccountCreation($inspetor_account);
+$inspetor->trackAccountUpdate($inspetor_account);
+$inspetor->trackAccountDeletion($inspetor_account);
+
+?>
+```
+
+All properties can be accesssed or defined via `get` and `set` accessor methods
+
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**        | Yes | Yes | String  | Your unique indentifier for this account in your platform
+**timestamp** | Yes | Yes | Integer | The Unix-formatted datetime that the account was last updated
+**email**     | Yes | No  | String  | The email associated with the account
+name          | No  | No  | String  | The name of the user
+document      | No  | No  | String  | The CPF or document number associated with the account
+phone_number  | No  | No  | String  | The phone number associated with the account
+address       | No  | No  | [Address](#address) | The address associated with the account

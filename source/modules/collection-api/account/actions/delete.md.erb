@@ -1,0 +1,19 @@
+### Account Deletion
+
+```php
+<?php 
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+$inspetor->trackAccountDeletion($account);
+
+?> 
+```
+
+Send information to Inspetor any time an account is deleted.
+
+Argument | Type | Description
+-------- | ---- | -----------
+account  | Inspetor/Model/[InspetorAccount](#inspetoraccount) | The Account that is being deleted

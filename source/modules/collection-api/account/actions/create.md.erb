@@ -1,0 +1,19 @@
+### Account Creation
+
+```php
+<?php 
+
+use Inspetor; 
+
+$inspetor = $this->getConfiguredInspetor(); 
+
+$inspetor->trackAccountCreation($account); 
+
+?>
+```
+
+Notify Inspetor any time a new user account is created.
+
+Argument | Type | Description
+-------- | ---- | -----------
+account  | Inspetor/Model/[InspetorAccount](#inspetoraccount) | The Account that is being created

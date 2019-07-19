@@ -1,0 +1,19 @@
+### Account Login
+
+```php
+<?php
+
+use Inspetor;
+
+$inspetor = $this->getConfiguredInspetor();
+
+$inspetor->trackLogin($auth);
+
+?>
+```
+
+Send information to Inspetor on every login attempt
+
+Argument | Type | Description
+-------- | ---- | -----------
+auth  | Inspetor/Model/[InspetorAuth](#inspetorauth) | The Auth object that describes the login

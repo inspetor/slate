@@ -139,7 +139,7 @@ under the License.
 
     var presetLanguage = getLanguageFromQueryString();
     if (presetLanguage) {
-      // the language is in the URL, so use that language!
+      // the language is in the URL, so use that language!   
       activateLanguage(presetLanguage);
 
       localStorage.setItem("language", presetLanguage);

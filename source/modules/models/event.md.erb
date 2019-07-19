@@ -1,0 +1,51 @@
+## InspetorEvent
+
+The Event Model will contain information about parties, shows, and events that are listed on your platform
+
+### Properties
+
+```php
+<?php
+
+// Calling an instance of Model
+$inspetor_event = $inspetor->getInspetorEvent();
+
+// Filling model with company data
+$inspetor_event->setId("8000"); //getId()
+$inspetor_event->setName("Name Test"); //getName()
+$inspetor_event->setDescription("Description Test"); //getDescription()
+$inspetor_event->setTimestamp(time()); //getTimestamp()
+$inspetor_event->setSessions($inspetor_session); //getSession()
+$inspetor_event->setStatus("private"); //getStatus()
+$inspetor_event->setCategories([$inspetor_category1, $inspetor_category2]); //getCategories()
+$inspetor_event->setIsPhysical(true); //getIsPhysical()
+$inspetor_event->setAddress($inspetor_address); //getAddress()
+$inspetor_event->setSlug("cool-company-event"); //getSlug()
+$inspetor_event->setCreatorId("123"); //getCreatorId()
+$inspetor_event->setAdminsId(["123", "234"]); //getAdminsId()
+$inspetor_event->setSeatingOptions(["Pista", "VIP"]); //getSeatingOptions()
+
+$inspetor->trackEventCreation($inspetor_event);
+$inspetor->trackEventUpdate($inspetor_event);
+$inspetor->trackEventDeletion($inspetor_event);
+
+?>
+```
+
+All properties can be accesssed or defined via `get` and `set` accessor methods
+
+Property | Required For Creation | Required For Update | Type | Description
+-------- | --------------------- | ------------------- | ---- | -----------
+**id**          | Yes  | Yes | String | The unique indentifier of this event listing in your platform
+**timestamp**   | Yes  | Yes | Integer | The Unix-formatted datetime that the event was last updated
+**name**        | Yes  | No  | String | The name of the event
+**is_physical** | Yes  | No  | Bool | It determines if it's a physical or digital event. *The default value is `true`.*
+**sessions**    | Yes  | No  | Array of [InspetorSession](#inspetorsession) | All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.
+**creator_id**  | Yes  | No  | String | The id of the user who created the event
+**admins_id**   | Yes  | No  | Array | An array containing the ids of all users who can make changes to the event
+address         | No   | No  | [InspetorAddress](#inspetoraddress) | The address where the event is happening. *This field is only required if the type of the event is set to physical.*
+status          | No   | No  | String | The status of the event. *Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if you it does not fit with our status model.* 
+description     | No   | No  | String | A description of the event
+seating_options | No   | No  | Array | An array containing all names of the different ticket types that can be bought for this event
+categories      | No   | No  | Array of [InspetorCategory](#inspetorcategory) | An array of categories associated with the event listing
+slug            | No   | No  | String | The slug of the event

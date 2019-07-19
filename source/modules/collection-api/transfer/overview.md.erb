@@ -1,0 +1,19 @@
+## Items Transfers
+
+The following functions will be used to relay item (*e.g. ticket*) transfers between users (*e.g. accounts*) that happen within your platform:
+
+- **Item Transfer Creation** (*trackItemTransferCreation*)
+- <a href="#transfer-creation">trackTransferCreation</a>
+- <a href="#transfer-updates">trackTransferUpdate</a>
+- **Item Transfer Update** (*trackItemTransferUpdate*)
+
+All the functions for tracking transfer activity require a [InspetorTransfer](#inspetortransfer) object as argument and return `true` if everything goes right. Otherwise, one of the the following exceptions will be thrown:
+
+Exception | Description
+--------- | -----------
+**[TransferException](#inspetortransferexception)**  | The Transfer object provided is not a valid one
+**[generalException](#inspetorgeneralexception)**  | The timestamps that you passed on the objects are not valid ones
+**[TrackerException](#trackerexception)**    | An internal error occurred *Hopefully this never happen*
+
+<p><%= partial "modules/collection-api/transfer/actions/create.md.erb" %></p>
+<p><%= partial "modules/collection-api/transfer/actions/update.md.erb" %></p>
