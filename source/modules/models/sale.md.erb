@@ -25,11 +25,11 @@ $inspetor->trackSaleUpdate($inspetor_sale);
 ?>
 ```
 
-All properties can be accesssed or defined via `get` and `set` accessor methods
+All properties can be accessed or defined via `get` and `set` accessor methods
 
 Property | Required For Creation | Required For Update | Type | Description
 -------- | --------------------- | ------------------- | ---- | -----------
-**id**         | Yes | Yes | String | The unique indentifier for the sale within your platform
+**id**         | Yes | Yes | String | The unique identifier for the sale within your platform
 **timestamp**  | Yes | Yes | Integer | The unix format of the time and date that the action happend
 **account_id** | Yes | No  | String | The id of the user who is making the purchase
 **status**     | Yes | No  | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*

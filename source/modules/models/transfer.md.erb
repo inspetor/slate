@@ -24,11 +24,11 @@ $inspetor->trackItemTransferUpdate($inspetor_transfer);
 ?>
 ```
 
-All properties can be accesssed or defined via `get` and `set` accessor methods
+All properties can be accessed or defined via `get` and `set` accessor methods
 
 Property | Required For Creation | Required For Update | Type | Description
 -------- | --------------------- | ------------------- | ---- | -----------
-**id**                | Yes | Yes | String | Your platform-unique indentifier for the transfer
+**id**                | Yes | Yes | String | Your platform-unique identifier for the transfer
 **timestamp**         | Yes | Yes | Integer | The Unix-formatted datetime that the action happend
 **item_id**           | Yes | No  | String | The id of the [InspetorItem](#inspetoritem) (*e.g. ticket*) that is being transfered
 **sender_account_id** | Yes | No  | String | The id of the account who is transferring the item (*e.g. ticket*)

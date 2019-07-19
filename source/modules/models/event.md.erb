@@ -32,11 +32,11 @@ $inspetor->trackEventDeletion($inspetor_event);
 ?>
 ```
 
-All properties can be accesssed or defined via `get` and `set` accessor methods
+All properties can be accessed or defined via `get` and `set` accessor methods
 
 Property | Required For Creation | Required For Update | Type | Description
 -------- | --------------------- | ------------------- | ---- | -----------
-**id**          | Yes  | Yes | String | The unique indentifier of this event listing in your platform
+**id**          | Yes  | Yes | String | The unique identifier of this event listing in your platform
 **timestamp**   | Yes  | Yes | Integer | The Unix-formatted datetime that the event was last updated
 **name**        | Yes  | No  | String | The name of the event
 **is_physical** | Yes  | No  | Bool | It determines if it's a physical or digital event. *The default value is `true`.*
@@ -44,7 +44,7 @@ Property | Required For Creation | Required For Update | Type | Description
 **creator_id**  | Yes  | No  | String | The id of the user who created the event
 **admins_id**   | Yes  | No  | Array | An array containing the ids of all users who can make changes to the event
 address         | No   | No  | [InspetorAddress](#inspetoraddress) | The address where the event is happening. *This field is only required if the type of the event is set to physical.*
-status          | No   | No  | String | The status of the event. *Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if you it does not fit with our status model.* 
+status          | No   | No  | String | The status of the event. *Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if it does not fit with our status model.* 
 description     | No   | No  | String | A description of the event
 seating_options | No   | No  | Array | An array containing all names of the different ticket types that can be bought for this event
 categories      | No   | No  | Array of [InspetorCategory](#inspetorcategory) | An array of categories associated with the event listing
