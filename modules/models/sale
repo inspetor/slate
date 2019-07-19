@@ -1,0 +1,82 @@
+<h2 id='inspetorsale'>InspetorSale</h2>
+<p>Information about a sale within your platform.</p>
+<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_sale</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorSale</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"1234"</span><span class="p">);</span> <span class="c1">//getId()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setAccountId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getAccountId()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setStatus</span><span class="p">(</span><span class="s2">"pending"</span><span class="p">);</span> <span class="c1">//getStatus()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setIsFraud</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span> <span class="c1">//getIsFraud()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setItems</span><span class="p">([</span><span class="nv">$inspetor_item1</span><span class="p">,</span> <span class="nv">$inspetor_item2</span><span class="p">]);</span> <span class="c1">//getItems()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setPayment</span><span class="p">(</span><span class="nv">$inspetor_payment</span><span class="p">);</span> <span class="c1">//getPayment()
+</span>
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleCreation</span><span class="p">(</span><span class="nv">$inspetor_sale</span><span class="p">);</span>
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleUpdate</span><span class="p">(</span><span class="nv">$inspetor_sale</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The unique indentifier for the sale within your platform</td>
+</tr>
+<tr>
+<td><strong>timestamp</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The unix format of the time and date that the action happend</td>
+</tr>
+<tr>
+<td><strong>account_id</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td>String</td>
+<td>The id of the user who is making the purchase</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td>String</td>
+<td>The status of the sale. <em>The allowed values are: <code>accepted</code>, <code>declined</code>, <code>pending</code>, <code>refunded</code>, and <code>manual_analysis</code></em></td>
+</tr>
+<tr>
+<td><strong>is_fraud</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td>Boolean</td>
+<td>Indicates if the sale was fradulent. This should only be <code>true</code> when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.</td>
+</tr>
+<tr>
+<td><strong>items</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td>Array of <a href="#inspetoritem">InspetorItem</a></td>
+<td>The items (<em>e.g. tickets</em>) that are being bought</td>
+</tr>
+<tr>
+<td><strong>payment</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td><a href="#inspetorpayment">InspetorPayment</a></td>
+<td>The payment used in this purchase</td>
+</tr>
+</tbody></table>

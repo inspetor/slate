@@ -1,0 +1,115 @@
+<h2 id='event-activity'>Event Activity</h2>
+<p>The following functions provide Inspetor with information regarding the events (<em>e.g. parties, shows...</em>) listed on your platform:</p>
+
+<ul>
+<li><a href="#event-creation">trackEventCreation</a></li>
+<li><a href="#event-updates">trackEventUpdate</a></li>
+<li><a href="#event-deletion">trackEventDeletion</a></li>
+</ul>
+
+<p>All functions for tracking event activity require an <a href="#inspetorevent">InspetorEvent</a> object as argument and return <code>true</code> upon successful execution. Otherwise, one of the following exceptions will be thrown:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#inspetoreventexception">EventException</a></strong></td>
+<td>The Event object provided is invalid</td>
+</tr>
+<tr>
+<td><strong><a href="#inspetoraddressexception">AddressException</a></strong></td>
+<td>The Address object provided as a property of the Event object is invalid</td>
+</tr>
+<tr>
+<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
+<td>The timestamps passed as Event object properties are invalid</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occurred (<em>This should never happen</em>)</td>
+</tr>
+</tbody></table>
+
+<p><h3 id='event-creation'>Event Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventCreation</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor anytime a new event (<em>e.g. pary, shows...</em>) is created in your platform</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>Inspetor/Model/<a href="#inspetorevent">InspetorEvent</a></td>
+<td>The Event that is being created</td>
+</tr>
+</tbody></table>
+</p>
+
+<p><h3 id='event-updates'>Event Updates</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventUpdate</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor everytime an event listing&#39;s information is updated (event title, location, etc.)</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>Inspetor/Model/<a href="#inspetorevent">InspetorEvent</a></td>
+<td>The Event that is being updated</td>
+</tr>
+</tbody></table>
+</p>
+
+<p><h3 id='event-deletion'>Event Deletion</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventDeletion</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor everytime an Event listing is deleted from your platform</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>Inspetor/Model/<a href="#inspetorevent">InspetorEvent</a></td>
+<td>The Event that is being deleted</td>
+</tr>
+</tbody></table>
+</p>

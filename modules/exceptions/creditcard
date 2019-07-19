@@ -1,0 +1,30 @@
+<h2 id='inspetorcreditcardexception'>InspetorCreditCardException</h2>
+<p>This exception is thrown when you provide a <a href="#inspetorcreditcard">InspetorCreditCard</a> object with invalid properties or missing required properties</p>
+<h3 id='types'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>first_six_digits is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>last_four_digits is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7003</td>
+<td>holder_name is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7004</td>
+<td>holder_cpf is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7005</td>
+<td>billing_address is a required property. It can&#39;t be null</td>
+</tr>
+</tbody></table>

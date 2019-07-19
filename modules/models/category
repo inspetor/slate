@@ -1,0 +1,39 @@
+<h2 id='inspetorcategory'>InspetorCategory</h2>
+<p>Event categories that are used in the <a href="#inspetorevent">InspetorEvent</a> model.</p>
+<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_category</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorCategory</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_category</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getId()
+</span><span class="nv">$inspetor_category</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s2">"Category"</span><span class="p">);</span> <span class="c1">//getName()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>Your unique indentifier for this category in your platform</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The name of the category</td>
+</tr>
+</tbody></table>

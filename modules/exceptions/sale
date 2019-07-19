@@ -1,0 +1,46 @@
+<h2 id='inspetorsaleexception'>InspetorSaleException</h2>
+<p>This exception is thrown when you provide a <a href="#inspetorsale">InspetorSale</a> object with invalid properties or missing required properties</p>
+<h3 id='types'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>account_id is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7003</td>
+<td>status is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7004</td>
+<td>is_fraud is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7005</td>
+<td>timestamp is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7006</td>
+<td>items is a required property. It must not be null neither an empty array</td>
+</tr>
+<tr>
+<td>7007</td>
+<td>payment is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7008</td>
+<td>The status is not a valid one</td>
+</tr>
+<tr>
+<td>7009</td>
+<td>One or more items have invalid price</td>
+</tr>
+</tbody></table>

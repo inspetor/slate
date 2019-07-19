@@ -1,0 +1,94 @@
+<h2 id='sale-activity'>Sale Activity</h2>
+<p>The following functions provide Inspetor with information on sales that happen within your platform. The main activities that we track are the following:</p>
+
+<ul>
+<li><a href="#sale-creation">trackSaleCreation</a></li>
+<li><a href="#sale-updates">trackSaleUpdate</a></li>
+</ul>
+
+<p>All functions for tracking Sales activity require a <a href="#inspetorsale">InspetorSale</a> object as an argument and return <code>true</code> upon successful execution. Otherwise, one of the following exceptions will be thrown:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#inspetorsaleexception">SaleException</a></strong></td>
+<td>The Transfer object provided is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#inspetoritemexception">ItemException</a></strong></td>
+<td>The Item object provided on the Sale is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#pinspetoraymentexception">PaymentException</a></strong></td>
+<td>The Payment object provided on the Sale is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
+<td>The timestamps that you passed on the objects are not valid ones</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occurred <em>Hopefully this never happen</em></td>
+</tr>
+</tbody></table>
+
+<p><h3 id='sale-creation'>Sale Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleCreation</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor every time a new sale is created on your platform.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sale</td>
+<td>Inspetor/Model/<a href="#inspetorsale">InspetorSale</a></td>
+<td>The Sale that is being created</td>
+</tr>
+</tbody></table>
+</p>
+
+<p><h3 id='sale-updates'>Sale Updates</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleUpdate</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor everytime a sale&#39;s status is updated.
+<aside class="notice">
+You must call this function <b>any</b> time a sale&#39;s status is updated (including post-sale updates, such as refunds). Sale status is extremely crucial to Inspetor&#39;s prediction model.
+</aside></p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sale</td>
+<td>Inspetor/Model/<a href="#inspetorsale">InspetorSale</a></td>
+<td>The Sale that is being updated</td>
+</tr>
+</tbody></table>
+</p>

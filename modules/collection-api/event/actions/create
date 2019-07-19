@@ -1,0 +1,25 @@
+<h3 id='event-creation'>Event Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventCreation</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor anytime a new event (<em>e.g. pary, shows...</em>) is created in your platform</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>Inspetor/Model/<a href="#inspetorevent">InspetorEvent</a></td>
+<td>The Event that is being created</td>
+</tr>
+</tbody></table>

@@ -1,0 +1,25 @@
+<h3 id='sale-creation'>Sale Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleCreation</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor every time a new sale is created on your platform.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sale</td>
+<td>Inspetor/Model/<a href="#inspetorsale">InspetorSale</a></td>
+<td>The Sale that is being created</td>
+</tr>
+</tbody></table>

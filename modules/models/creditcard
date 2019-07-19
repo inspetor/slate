@@ -1,0 +1,63 @@
+<h2 id='inspetorcreditcard'>InspetorCreditCard</h2>
+<p>Credit card information (used in <a href="#inspetorsale">InspetorSales</a> ).</p>
+<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_cc</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorCreditCard</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setFirstSixDigits</span><span class="p">(</span><span class="s2">"123456"</span><span class="p">);</span> <span class="c1">//getFirstSixDigits()
+</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setLastFourDigits</span><span class="p">(</span><span class="s2">"1234"</span><span class="p">);</span> <span class="c1">//getLastFourDigits()
+</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setHolderName</span><span class="p">(</span><span class="s2">"Holder Name"</span><span class="p">);</span> <span class="c1">//getHolderName()
+</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setHolderCpf</span><span class="p">(</span><span class="s2">"07206094880"</span><span class="p">);</span> <span class="c1">//getHolderCpf()
+</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setBillingAddress</span><span class="p">(</span><span class="nv">$inspetor_address</span><span class="p">);</span> <span class="c1">//getBillingAddress
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>first_six_digits</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The first six digits of the credit card number</td>
+</tr>
+<tr>
+<td><strong>last_four_digits</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The last four digits of the credit card number</td>
+</tr>
+<tr>
+<td><strong>holder_name</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The full name of the owner of the credit card</td>
+</tr>
+<tr>
+<td><strong>holder_cpf</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The CPF of the owner of the credit card</td>
+</tr>
+<tr>
+<td><strong>billing_address</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td><a href="#inspetoraddress">InspetorAddress</a></td>
+<td>The billing address associated with this credit card</td>
+</tr>
+</tbody></table>

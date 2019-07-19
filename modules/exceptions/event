@@ -1,0 +1,62 @@
+<h2 id='inspetoreventexception'>InspetorEventException</h2>
+<p>This exception is thrown when you provide an <a href="#inspetorevent">InspetorEvent</a> object with invalid properties or missing required properties</p>
+<h3 id='types'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>name is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7003</td>
+<td>timestamp is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7004</td>
+<td>producer_id is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7005</td>
+<td>address is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7006</td>
+<td>sessions is a required property. It must not be null neither an empty array</td>
+</tr>
+<tr>
+<td>7007</td>
+<td>seating_options should be null or an array of strings</td>
+</tr>
+<tr>
+<td>7008</td>
+<td>categories should be null or an array of strings</td>
+</tr>
+<tr>
+<td>7009</td>
+<td>The status is not a valid one</td>
+</tr>
+<tr>
+<td>7010</td>
+<td>sessions should be an array of one or more sessions</td>
+</tr>
+<tr>
+<td>7011</td>
+<td>id and timestamp are required properties of a session</td>
+</tr>
+<tr>
+<td>7012</td>
+<td>admins_id should be an array of one or more users</td>
+</tr>
+<tr>
+<td>7013</td>
+<td>is_physical should be a boolean. It&#39;s true by default</td>
+</tr>
+</tbody></table>

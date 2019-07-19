@@ -1,0 +1,87 @@
+<h2 id='inspetoraddress'>InspetorAddress</h2>
+<p>Residential or billing address information that is used in other models (<a href="#inspetoraccount">InspetorAccount</a>, <a href="#inspetorevent">InspetorEvent</a> and <a href="#inspetorcreditcard">InspetorCreditCard</a>).</p>
+<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_address</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorAddress</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setStreet</span><span class="p">(</span><span class="s2">"Street Security"</span><span class="p">);</span>  <span class="c1">//getStreet()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setNumber</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getNumber()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setZipCode</span><span class="p">(</span><span class="s2">"05511010"</span><span class="p">);</span> <span class="c1">//getZipCode()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setCity</span><span class="p">(</span><span class="s2">"Test City"</span><span class="p">);</span> <span class="c1">//getCity()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setState</span><span class="p">(</span><span class="s2">"Test State"</span><span class="p">);</span> <span class="c1">//getState()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setCountry</span><span class="p">(</span><span class="s2">"Test Country"</span><span class="p">);</span> <span class="c1">//getCountry()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setLatitude</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getLatitude()
+</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setLongitude</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getLongitude()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>street</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The street of the address</td>
+</tr>
+<tr>
+<td><strong>zip_code</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The zip code (<em>e.g. CEP</em>) of the address</td>
+</tr>
+<tr>
+<td><strong>city</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The city in which the address is located</td>
+</tr>
+<tr>
+<td><strong>state</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The state in which the address is located</td>
+</tr>
+<tr>
+<td><strong>country</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The country in which the address is located</td>
+</tr>
+<tr>
+<td>number</td>
+<td>No</td>
+<td>No</td>
+<td>String</td>
+<td>The street number of the address</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>No</td>
+<td>No</td>
+<td>String</td>
+<td>The exact latitude of the address</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>No</td>
+<td>No</td>
+<td>String</td>
+<td>The exact longitude of the address</td>
+</tr>
+</tbody></table>

@@ -1,0 +1,28 @@
+<h3 id='sale-updates'>Sale Updates</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleUpdate</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor everytime a sale&#39;s status is updated.
+<aside class="notice">
+You must call this function <b>any</b> time a sale&#39;s status is updated (including post-sale updates, such as refunds). Sale status is extremely crucial to Inspetor&#39;s prediction model.
+</aside></p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sale</td>
+<td>Inspetor/Model/<a href="#inspetorsale">InspetorSale</a></td>
+<td>The Sale that is being updated</td>
+</tr>
+</tbody></table>

@@ -1,0 +1,83 @@
+<h2 id='password-activity'>Password Activity</h2>
+<p>The following functions notify Inspetor of password changes initiated by  users within your platform, independent of whether the user is logged in or not:</p>
+
+<ul>
+<li><a href="#password-reset">trackPasswordReset</a></li>
+<li><a href="#password-recovery">trackPasswordRecovery</a></li>
+</ul>
+
+<p>All functions for tracking authentication events require an <a href="#inspetorpassrecovery">InspetorPassRecovery</a> object as an argument and return <code>true</code> upon successful execution. Otherwise, one of the following exceptions will be thrown:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#inspetorpassrecoveryexception">PassRecoveryException</a></strong></td>
+<td>The PassRecovery object provided is invalid</td>
+</tr>
+<tr>
+<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
+<td>The timestamps passed as PassRecovery object properties are invalid</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occurred (<em>This should never happen</em>)</td>
+</tr>
+</tbody></table>
+
+<p><h3 id='password-reset'>Password Reset</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordReset</span><span class="p">(</span><span class="nv">$pass_recovery</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor anytime a request to reset an account&#39;s password is made.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pass_recovery</td>
+<td>Inspetor/Model/<a href="#inspetorpassrecovery">InspetorPassRecovery</a></td>
+<td>The PassRecovery object that describes the password reset request</td>
+</tr>
+</tbody></table>
+</p>
+
+<p><h3 id='password-recovery'>Password Recovery</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordRecovery</span><span class="p">(</span><span class="nv">$pass_recovery</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor anytime a request is made to recover a password.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pass_recovery</td>
+<td>Inspetor/Model/<a href="#inspetorpassrecovery">InspetorPassRecovery</a></td>
+<td>The PassRecovery object that describes the password recovery request</td>
+</tr>
+</tbody></table>
+</p>

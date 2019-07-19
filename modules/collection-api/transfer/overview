@@ -1,0 +1,85 @@
+<h2 id='items-transfers'>Items Transfers</h2>
+<p>The following functions will be used to relay item (<em>e.g. ticket</em>) transfers between users (<em>e.g. accounts</em>) that happen within your platform:</p>
+
+<ul>
+<li><strong>Item Transfer Creation</strong> (<em>trackItemTransferCreation</em>)</li>
+<li><a href="#transfer-creation">trackTransferCreation</a></li>
+<li><a href="#transfer-updates">trackTransferUpdate</a></li>
+<li><strong>Item Transfer Update</strong> (<em>trackItemTransferUpdate</em>)</li>
+</ul>
+
+<p>All the functions for tracking transfer activity require a <a href="#inspetortransfer">InspetorTransfer</a> object as argument and return <code>true</code> if everything goes right. Otherwise, one of the the following exceptions will be thrown:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#inspetortransferexception">TransferException</a></strong></td>
+<td>The Transfer object provided is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
+<td>The timestamps that you passed on the objects are not valid ones</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occurred <em>Hopefully this never happen</em></td>
+</tr>
+</tbody></table>
+
+<p><h3 id='transfer-creation'>Transfer Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferCreation</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime a new item (<em>e.g. ticket</em>) transfer is created on your platform.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transfer</td>
+<td>Inspetor/Model/<a href="#inspetortransfer">InspetorTransfer</a></td>
+<td>The Transfer that is being created</td>
+</tr>
+</tbody></table>
+</p>
+
+<p><h3 id='transfer-updates'>Transfer Updates</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferUpdate</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>This function is used to send information to Inspetor everytime an item (<em>e.g. ticket</em>) transfer&#39;s status is updated.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transfer</td>
+<td>Inspetor/Model/<a href="#inspetortransfer">InspetorTransfer</a></td>
+<td>The Transfer that is being updated</td>
+</tr>
+</tbody></table>
+</p>

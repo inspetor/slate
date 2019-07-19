@@ -1,0 +1,74 @@
+<h2 id='inspetortransfer'>InspetorTransfer</h2>
+<p>Information regarding the transfer of purchased <a href="#inspetoritem">InspetorItems</a> (<em>e.g. tickets</em>) within your platform.</p>
+<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_transfer</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorTransfer</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getId()
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setItemId</span><span class="p">(</span><span class="s2">"9000"</span><span class="p">);</span> <span class="c1">//getItemId()
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setSenderAccountId</span><span class="p">(</span><span class="s2">"124"</span><span class="p">);</span> <span class="c1">//getSenderAccountId()
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setReceiverEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getReceiverEmail()
+</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setStatus</span><span class="p">(</span><span class="s2">"pending"</span><span class="p">);</span> <span class="c1">//getStatus()
+</span>
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferCreation</span><span class="p">(</span><span class="nv">$inspetor_transfer</span><span class="p">);</span>
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferUpdate</span><span class="p">(</span><span class="nv">$inspetor_transfer</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>Your platform-unique indentifier for the transfer</td>
+</tr>
+<tr>
+<td><strong>timestamp</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The Unix-formatted datetime that the action happend</td>
+</tr>
+<tr>
+<td><strong>item_id</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td>String</td>
+<td>The id of the <a href="#inspetoritem">InspetorItem</a> (<em>e.g. ticket</em>) that is being transfered</td>
+</tr>
+<tr>
+<td><strong>sender_account_id</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td>String</td>
+<td>The id of the account who is transferring the item (<em>e.g. ticket</em>)</td>
+</tr>
+<tr>
+<td><strong>receiver_email</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td>String</td>
+<td>The email of the user who is receiving the item (<em>e.g. ticket</em>)</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td>String</td>
+<td>The status of the transfer. <em>The allowed values are: <code>accepted</code>, <code>rejected</code>, and <code>pending</code></em></td>
+</tr>
+</tbody></table>

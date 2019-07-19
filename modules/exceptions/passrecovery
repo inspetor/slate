@@ -1,0 +1,18 @@
+<h2 id='inspetorpassrecoveryexception'>InspetorPassRecoveryException</h2>
+<p>This exception is thrown when you provide a <a href="#inspetorpassrecovery">InspetorPassRecovery</a> object with invalid properties or missing required properties</p>
+<h3 id='types'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>recovery_email is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>timestamp is a required property. It must not be null</td>
+</tr>
+</tbody></table>

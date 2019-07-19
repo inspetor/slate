@@ -1,0 +1,14 @@
+<h2 id='trackerexception'>TrackerException</h2>
+<p>This exception is thrown when an error occured while sending information via our trackers</p>
+<h3 id='types'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>9001</td>
+<td>AppId and trackerName are required parameters</td>
+</tr>
+</tbody></table>

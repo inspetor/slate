@@ -1,0 +1,25 @@
+<h3 id='password-recovery'>Password Recovery</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordRecovery</span><span class="p">(</span><span class="nv">$pass_recovery</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor anytime a request is made to recover a password.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pass_recovery</td>
+<td>Inspetor/Model/<a href="#inspetorpassrecovery">InspetorPassRecovery</a></td>
+<td>The PassRecovery object that describes the password recovery request</td>
+</tr>
+</tbody></table>

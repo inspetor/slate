@@ -1,0 +1,30 @@
+<h2 id='inspetorpaymentexception'>InspetorPaymentException</h2>
+<p>This exception is thrown when you provide a <a href="#inspetorpayment">InspetorPayment</a> object with invalid properties or missing required properties</p>
+<h3 id='types'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>method is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7003</td>
+<td>installments is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7004</td>
+<td>This payment method is not a valid one</td>
+</tr>
+<tr>
+<td>7005</td>
+<td>Credit card can&#39;t be null when method is credit_card</td>
+</tr>
+</tbody></table>

@@ -1,0 +1,18 @@
+<h2 id='inspetorsessionexception'>InspetorSessionException</h2>
+<p>This exception is thrown when you provide an <a href="#inspetorsession">InspetorSession</a> object with invalid properties or missing required properties</p>
+<h3 id='types'>Types</h3>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>7001</td>
+<td>id is a required property. It must not be null</td>
+</tr>
+<tr>
+<td>7002</td>
+<td>datetime is a required property. It must not be null</td>
+</tr>
+</tbody></table>

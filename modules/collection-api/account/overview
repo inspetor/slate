@@ -1,0 +1,115 @@
+<h2 id='account-activity'>Account Activity</h2>
+<p>The following functions will be used to relay actions associated with an account:</p>
+
+<ul>
+<li><a href="#account-creation">trackAccountCreation</a></li>
+<li><a href="#account-updates">trackAccountUpdate</a></li>
+<li><a href="#account-deletion">trackAccountDeletion</a></li>
+</ul>
+
+<p>All the functions for tracking account-related actions require an <a href="#inspetoraccount">InspetorAccount</a> object as an argument and return <code>true</code> upon successful execution. Otherwise, one of the following exceptions will be thrown:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#inspetoraccountexception">AccountException</a></strong></td>
+<td>The Account object provided is not a valid Inspetor Account</td>
+</tr>
+<tr>
+<td><strong><a href="#inspetoraddressexception">AddressException</a></strong></td>
+<td>The Address object provided as a property of the Account object invalid</td>
+</tr>
+<tr>
+<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
+<td>The timestamps passed as Account object properties are invalid</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occurred (<em>This should never happen</em>)</td>
+</tr>
+</tbody></table>
+
+<p><h3 id='account-creation'>Account Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> 
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span> 
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span> 
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountCreation</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span> 
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Notify Inspetor any time a new user account is created.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account</td>
+<td>Inspetor/Model/<a href="#inspetoraccount">InspetorAccount</a></td>
+<td>The Account that is being created</td>
+</tr>
+</tbody></table>
+</p>
+
+<p><h3 id='account-updates'>Account Updates</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountUpdate</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>Send information to Inspetor any time an account&#39;s information (email, address, name...) is altered.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account</td>
+<td>Inspetor/Model/<a href="#inspetoraccount">InspetorAccount</a></td>
+<td>The Account that is being updated</td>
+</tr>
+</tbody></table>
+</p>
+
+<p><h3 id='account-deletion'>Account Deletion</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> 
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountDeletion</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span> 
+</code></pre>
+<p>Send information to Inspetor any time an account is deleted.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account</td>
+<td>Inspetor/Model/<a href="#inspetoraccount">InspetorAccount</a></td>
+<td>The Account that is being deleted</td>
+</tr>
+</tbody></table>
+</p>

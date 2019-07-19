@@ -1,0 +1,55 @@
+<h2 id='inspetorpayment'>InspetorPayment</h2>
+<p>Information about the payment associated with a <a href="#inspetorsale">InspetorSale</a>.</p>
+<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Calling an instance of Model
+</span><span class="nv">$inspetor_payment</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorPayment</span><span class="p">();</span>
+
+<span class="c1">// Filling model with company data
+</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"12345"</span><span class="p">);</span> <span class="c1">//getId()
+</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="s2">"credit_card"</span><span class="p">);</span> <span class="c1">//getMethod()
+</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setInstallments</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//getInstallments()
+</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setCreditCard</span><span class="p">(</span><span class="nv">$inspetor_cc</span><span class="p">);</span> <span class="c1">//getCreditCard()
+</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required For Creation</th>
+<th>Required For Update</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The id of the payment. This id should be the same as the one you send to the payment processor.</td>
+</tr>
+<tr>
+<td><strong>method</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>String</td>
+<td>The method of payment being used. <em>The allowed values are <code>credit_card</code>, <code>boleto</code>, and <code>other</code></em></td>
+</tr>
+<tr>
+<td><strong>installments</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Integer</td>
+<td>The number of &quot;<em>parcelas</em>&quot; that the user will pay</td>
+</tr>
+<tr>
+<td>credit_card</td>
+<td>No</td>
+<td>No</td>
+<td><a href="#inspetorcreditcard">InspetorCreditCard</a></td>
+<td>If the method is <em>credit_card</em> it should contains a credit card object</td>
+</tr>
+</tbody></table>
