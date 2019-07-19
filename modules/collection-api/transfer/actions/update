@@ -8,7 +8,7 @@
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>This function is used to send information to Inspetor everytime an item (<em>e.g. ticket</em>) transfer&#39;s status is updated.</p>
+<p>This function is used to send information to Inspetor every time an item (<em>e.g. ticket</em>) transfer&#39;s status is updated.</p>
 
 <table><thead>
 <tr>

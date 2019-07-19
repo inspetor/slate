@@ -8,7 +8,7 @@
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>This function is used to send information to Inspetor everytime a new item (<em>e.g. ticket</em>) transfer is created on your platform.</p>
+<p>This function is used to send information to Inspetor every time a new item (<em>e.g. ticket</em>) transfer is created on your platform.</p>
 
 <table><thead>
 <tr>

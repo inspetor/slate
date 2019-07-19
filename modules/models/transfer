@@ -18,7 +18,7 @@
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -34,7 +34,7 @@
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>Your platform-unique indentifier for the transfer</td>
+<td>Your platform-unique identifier for the transfer</td>
 </tr>
 <tr>
 <td><strong>timestamp</strong></td>

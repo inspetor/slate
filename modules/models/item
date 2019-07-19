@@ -15,7 +15,7 @@
 </span>
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -31,21 +31,21 @@
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>A unique indentifier for this item (<em>e.g. ticket</em>) within your platform</td>
+<td>A unique identifier for this item (<em>e.g. ticket</em>) within your platform</td>
 </tr>
 <tr>
 <td><strong>event_id</strong></td>
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>The unique indentifier of the event that the item is tied too</td>
+<td>The unique identifier of the event that the item is tied too</td>
 </tr>
 <tr>
 <td><strong>session_id</strong></td>
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>The unique indentifier of the event session (date and time) that the item is tied to</td>
+<td>The unique identifier of the event session (date and time) that the item is tied to</td>
 </tr>
 <tr>
 <td><strong>price</strong></td>

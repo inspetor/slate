@@ -569,7 +569,7 @@
 <p>What follows is a general guide of how to integrate Inspetor&#39;s Client Library into your product. It should be sufficient for you to start with your Inspetor product integration. Should you find yourself in need of further assistance, do not hesitate to reach out to the Inspetor team--we will be happy to help!</p>
 <h1 id='installing-the-client-library'>Installing the Client Library</h1><pre class="highlight php tab-php"><code>~ composer require inspetor/inspetorphp:${version}
 </code></pre>
-<p>The Inspetor collection libraries are avaible via public standard package managers for the following supported languages:</p>
+<p>The Inspetor collection libraries are available via public standard package managers for the following supported languages:</p>
 
 <ul>
 <li>PHP (via <a href="https://packagist.org/packages/inspetor/inspetor-php">Composer</a>)</li>
@@ -624,7 +624,7 @@
 Inspetor will never request access to your code base--that means that it is on <i>you</i>, the developer, to integrate our library into your product's code base. We think that's the right way to do things: you know your product's code base, we know fraud.
 </aside>
 <h2 id='when-to-send-events-to-inspetor'>When to send events to Inspetor</h2>
-<p>The primary Inspetor entities are <strong>stateful</strong> objects. They have properites that can be updated, and the values of these properties are crucial to our evaluation of transaction validity. Thus, you should send events to Inspetor via the client library whenever properties of these objects are changed.</p>
+<p>The primary Inspetor entities are <strong>stateful</strong> objects. They have properties that can be updated, and the values of these properties are crucial to our evaluation of transaction validity. Thus, you should send events to Inspetor via the client library whenever properties of these objects are changed.</p>
 
 <p>However, if we base our evaluation upon outdated or incorrect information, the accuracy of our evaluation will suffer. As such, it is critical that you notify Inspetor of any changes to these properties whenever they occur via the Inspetor Client Library.</p>
 
@@ -675,19 +675,19 @@ It is <b>extremely important</b> that you provide us with updated information at
 <p>In the future however, our suggested integration model will be:</p>
 
 <ul>
-<li>Full event coverage within the server/API level of your application (backend): This allows us to know everything about what is hapening within your product.</li>
+<li>Full event coverage within the server/API level of your application (backend): This allows us to know everything about what is happening within your product.</li>
 <li>1:1 corresponding coverage within your frontend interfaces (Web, iOS, and Android): This allows us to enrich the knowledge we&#39;re gathering from your server-level transactions with additional information that improves our protection capabilities.</li>
 </ul>
 
 <p>You can find additional language-specific implementation details, including suggested architecture and best practices, via the following links:</p>
 
 <ul>
-<li><a href="https://github.com/inspetor/inspetorphp/blob/master/README.md">PHP</a></li>
+<li><a href="https://github.com/inspetor/libraries-docs/blob/master/backend/php/README.md">PHP</a></li>
 </ul>
 <h2 id='testing-your-integration-with-inspetor'>Testing your integration with Inspetor</h2>
-<p>Integrating with Inspetor is meant to be easy--simply instantiate our library, call our tracking methods, and if there are no errors thrown within your code execution, data will appear within our database. However, for further validation, we also provide our customers with limited-access database credentials that allow the developer in charge of integrating Inspetor to inspect the that data appears in our database. (Note that access is restricted such that your customer account will only be able to view data originating from your company&#39;s integration.) The Inspetor team will provide you with access credentials for this phase of validation.</p>
+<p>Integrating with Inspetor is meant to be easy--simply instantiate our library, call our tracking methods, and if there are no errors thrown within your code execution, data will appear within our database. However, for further validation, we also provide our customers with limited-access database credentials that allow the developer in charge of integrating Inspetor to inspect that data appears in our database. (Note that access is restricted such that your customer account will only be able to view data originating from your company&#39;s integration.) The Inspetor team will provide you with access credentials for this phase of validation.</p>
 
-<p>However, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific and it will involve coordinated effort from both the customer and the Inspetor integration team.</p>
+<p>, however, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific and it will involve coordinated effort from both the customer and the Inspetor integration team.</p>
 <h1 id='collection-api'>Collection API</h1>
 <aside class="notice">
 To access the following library functions, you will need an instance of the InspetorClient class. All functions are accessed through the client instance.
@@ -878,7 +878,7 @@ To access the following library functions, you will need an instance of the Insp
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>Send information to Inspetor everytime an account (<em>e.g. user</em>) logs out.</p>
+<p>Send information to Inspetor every time an account (<em>e.g. user</em>) logs out.</p>
 
 <table><thead>
 <tr>
@@ -1053,7 +1053,7 @@ To access the following library functions, you will need an instance of the Insp
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>Send information to Inspetor everytime an event listing&#39;s information is updated (event title, location, etc.)</p>
+<p>Send information to Inspetor every time an event listing&#39;s information is updated (event title, location, etc.)</p>
 
 <table><thead>
 <tr>
@@ -1080,7 +1080,7 @@ To access the following library functions, you will need an instance of the Insp
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>Send information to Inspetor everytime an Event listing is deleted from your platform</p>
+<p>Send information to Inspetor every time an Event listing is deleted from your platform</p>
 
 <table><thead>
 <tr>
@@ -1173,7 +1173,7 @@ To access the following library functions, you will need an instance of the Insp
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>Send information to Inspetor everytime a sale&#39;s status is updated.
+<p>Send information to Inspetor every time a sale&#39;s status is updated.
 <aside class="notice">
 You must call this function <b>any</b> time a sale&#39;s status is updated (including post-sale updates, such as refunds). Sale status is extremely crucial to Inspetor&#39;s prediction model.
 </aside></p>
@@ -1236,7 +1236,7 @@ You must call this function <b>any</b> time a sale&#39;s status is updated (incl
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>This function is used to send information to Inspetor everytime a new item (<em>e.g. ticket</em>) transfer is created on your platform.</p>
+<p>This function is used to send information to Inspetor every time a new item (<em>e.g. ticket</em>) transfer is created on your platform.</p>
 
 <table><thead>
 <tr>
@@ -1263,7 +1263,7 @@ You must call this function <b>any</b> time a sale&#39;s status is updated (incl
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>This function is used to send information to Inspetor everytime an item (<em>e.g. ticket</em>) transfer&#39;s status is updated.</p>
+<p>This function is used to send information to Inspetor every time an item (<em>e.g. ticket</em>) transfer&#39;s status is updated.</p>
 
 <table><thead>
 <tr>
@@ -1310,7 +1310,7 @@ Most models have some optional properties, but it's important that you try to se
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -1326,7 +1326,7 @@ Most models have some optional properties, but it's important that you try to se
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>Your unique indentifier for this account in your platform</td>
+<td>Your unique identifier for this account in your platform</td>
 </tr>
 <tr>
 <td><strong>timestamp</strong></td>
@@ -1392,7 +1392,7 @@ Most models have some optional properties, but it's important that you try to se
 </span>
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -1478,7 +1478,7 @@ Most models have some optional properties, but it's important that you try to se
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -1519,7 +1519,7 @@ Most models have some optional properties, but it's important that you try to se
 </span>
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -1535,7 +1535,7 @@ Most models have some optional properties, but it's important that you try to se
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>Your unique indentifier for this category in your platform</td>
+<td>Your unique identifier for this category in your platform</td>
 </tr>
 <tr>
 <td><strong>name</strong></td>
@@ -1563,7 +1563,7 @@ Most models have some optional properties, but it's important that you try to se
 </span>
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -1640,7 +1640,7 @@ Most models have some optional properties, but it's important that you try to se
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -1656,7 +1656,7 @@ Most models have some optional properties, but it's important that you try to se
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>The unique indentifier of this event listing in your platform</td>
+<td>The unique identifier of this event listing in your platform</td>
 </tr>
 <tr>
 <td><strong>timestamp</strong></td>
@@ -1712,7 +1712,7 @@ Most models have some optional properties, but it's important that you try to se
 <td>No</td>
 <td>No</td>
 <td>String</td>
-<td>The status of the event. <em>Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if you it does not fit with our status model.</em></td>
+<td>The status of the event. <em>Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if it does not fit with our status model.</em></td>
 </tr>
 <tr>
 <td>description</td>
@@ -1762,7 +1762,7 @@ Most models have some optional properties, but it's important that you try to se
 </span>
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -1778,21 +1778,21 @@ Most models have some optional properties, but it's important that you try to se
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>A unique indentifier for this item (<em>e.g. ticket</em>) within your platform</td>
+<td>A unique identifier for this item (<em>e.g. ticket</em>) within your platform</td>
 </tr>
 <tr>
 <td><strong>event_id</strong></td>
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>The unique indentifier of the event that the item is tied too</td>
+<td>The unique identifier of the event that the item is tied too</td>
 </tr>
 <tr>
 <td><strong>session_id</strong></td>
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>The unique indentifier of the event session (date and time) that the item is tied to</td>
+<td>The unique identifier of the event session (date and time) that the item is tied to</td>
 </tr>
 <tr>
 <td><strong>price</strong></td>
@@ -1834,7 +1834,7 @@ Most models have some optional properties, but it's important that you try to se
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -1877,7 +1877,7 @@ Most models have some optional properties, but it's important that you try to se
 </span>
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -1940,7 +1940,7 @@ Most models have some optional properties, but it's important that you try to se
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -1956,7 +1956,7 @@ Most models have some optional properties, but it's important that you try to se
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>The unique indentifier for the sale within your platform</td>
+<td>The unique identifier for the sale within your platform</td>
 </tr>
 <tr>
 <td><strong>timestamp</strong></td>
@@ -2016,7 +2016,7 @@ Most models have some optional properties, but it's important that you try to se
 </span>
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -2032,7 +2032,7 @@ Most models have some optional properties, but it's important that you try to se
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>Your unique indentifier for this session in your platform</td>
+<td>Your unique identifier for this session in your platform</td>
 </tr>
 <tr>
 <td><strong>datetime</strong></td>
@@ -2064,7 +2064,7 @@ Most models have some optional properties, but it's important that you try to se
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>All properties can be accesssed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
 <tr>
@@ -2080,7 +2080,7 @@ Most models have some optional properties, but it's important that you try to se
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
-<td>Your platform-unique indentifier for the transfer</td>
+<td>Your platform-unique identifier for the transfer</td>
 </tr>
 <tr>
 <td><strong>timestamp</strong></td>

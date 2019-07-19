@@ -73,7 +73,7 @@
 
 <span class="cp">?&gt;</span>
 </code></pre>
-<p>Send information to Inspetor everytime a sale&#39;s status is updated.
+<p>Send information to Inspetor every time a sale&#39;s status is updated.
 <aside class="notice">
 You must call this function <b>any</b> time a sale&#39;s status is updated (including post-sale updates, such as refunds). Sale status is extremely crucial to Inspetor&#39;s prediction model.
 </aside></p>
