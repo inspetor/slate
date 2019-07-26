@@ -659,8 +659,8 @@ It is <b>extremely important</b> that you provide us with updated information at
 <p>Inspetor provides additional methods to allow you to inform us about meaningful user activity, such as:</p>
 <h3 id='login-logout'>Login/Logout</h3>
 <ul>
-<li>When a user <a href="#account-login">logs in to an account</a></li>
-<li>When a user <a href="#account-logout">logs out of an account</a></li>
+<li>When a user attempts to <a href="#account-login">log in to an account</a></li>
+<li>When a user attempts to <a href="#account-logout">log out of an account</a></li>
 </ul>
 <h3 id='password-activity'>Password Activity</h3>
 <ul>
@@ -1472,6 +1472,7 @@ Most models have some optional properties, but it's important that you try to se
 <span class="c1">// Filling model with company data
 </span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setAccountId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getAccountId()
 </span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
+</span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setSucceeded</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span> <span class="c1">//getSucceeded()
 </span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountLogin</span><span class="p">(</span><span class="nv">$inspetor_auth</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountLogout</span><span class="p">(</span><span class="nv">$inspetor_auth</span><span class="p">);</span>
@@ -1502,6 +1503,13 @@ Most models have some optional properties, but it's important that you try to se
 <td>Yes</td>
 <td>Integer</td>
 <td>The unix format of the time and date that the authentication happend</td>
+</tr>
+<tr>
+<td><strong>succeeded</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Boolean</td>
+<td>Indicating if the attempt to login our logout was succeeded or not.</td>
 </tr>
 </tbody></table>
 </p>
@@ -1934,6 +1942,7 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
 </span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setItems</span><span class="p">([</span><span class="nv">$inspetor_item1</span><span class="p">,</span> <span class="nv">$inspetor_item2</span><span class="p">]);</span> <span class="c1">//getItems()
 </span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setPayment</span><span class="p">(</span><span class="nv">$inspetor_payment</span><span class="p">);</span> <span class="c1">//getPayment()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setAnalyzedBy</span><span class="p">(</span><span class="s2">"inspetor"</span><span class="p">);</span> <span class="c1">//getAnayzedBy()
 </span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleCreation</span><span class="p">(</span><span class="nv">$inspetor_sale</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleUpdate</span><span class="p">(</span><span class="nv">$inspetor_sale</span><span class="p">);</span>
@@ -1999,6 +2008,13 @@ Most models have some optional properties, but it's important that you try to se
 <td>No</td>
 <td><a href="#inspetorpayment">InspetorPayment</a></td>
 <td>The payment used in this purchase</td>
+</tr>
+<tr>
+<td><strong>analyzed_by</strong></td>
+<td>No</td>
+<td>Yes</td>
+<td>String</td>
+<td>The name of the antifraud system that made the change on the sale. Even if it&#39;s us how made the change you should pass &quot;inspetor&quot;</td>
 </tr>
 </tbody></table>
 </p>
@@ -2236,15 +2252,15 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>id is a required property. It must not be null</td>
+<td>id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>email is a required property. It must not be null</td>
+<td>email is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7003</td>
-<td>timestamp is a required property. It must not be null</td>
+<td>timestamp is a required property. It can&#39;t  be null</td>
 </tr>
 </tbody></table>
 
@@ -2262,23 +2278,23 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>street is a required property. It must not be null</td>
+<td>street is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>zip_code is a required property. It must not be null</td>
+<td>zip_code is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7003</td>
-<td>city is a required property. It must not be null</td>
+<td>city is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7004</td>
-<td>state is a required property. It must not be null</td>
+<td>state is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7005</td>
-<td>country is a required property. It must not be null</td>
+<td>country is a required property. It can&#39;t  be null</td>
 </tr>
 </tbody></table>
 
@@ -2296,11 +2312,15 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>account_id is a required property. It must not be null</td>
+<td>account_id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>timestamp is a required property. It must not be null</td>
+<td>timestamp is a required property. It can&#39;t  be null</td>
+</tr>
+<tr>
+<td>7003</td>
+<td>succeeded is a required property. It can&#39;t be null.</td>
 </tr>
 </tbody></table>
 
@@ -2318,11 +2338,11 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>id is a required property. It must not be null</td>
+<td>id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>name is a required property. It must not be null</td>
+<td>name is a required property. It can&#39;t  be null</td>
 </tr>
 </tbody></table>
 
@@ -2340,19 +2360,19 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>first_six_digits is a required property. It must not be null</td>
+<td>first_six_digits is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>last_four_digits is a required property. It must not be null</td>
+<td>last_four_digits is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7003</td>
-<td>holder_name is a required property. It must not be null</td>
+<td>holder_name is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7004</td>
-<td>holder_cpf is a required property. It must not be null</td>
+<td>holder_cpf is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7005</td>
@@ -2374,27 +2394,27 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>id is a required property. It must not be null</td>
+<td>id is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>name is a required property. It must not be null</td>
+<td>name is a required property. It can&#39;t be null on creation</td>
 </tr>
 <tr>
 <td>7003</td>
-<td>timestamp is a required property. It must not be null</td>
+<td>timestamp is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
 <td>7004</td>
-<td>producer_id is a required property. It must not be null</td>
+<td>creator_id is a required property. It can&#39;t be null on creation</td>
 </tr>
 <tr>
 <td>7005</td>
-<td>address is a required property. It must not be null</td>
+<td>address is a required property when the event has physical place.  It can&#39;t be null on creation</td>
 </tr>
 <tr>
 <td>7006</td>
-<td>sessions is a required property. It must not be null neither an empty array</td>
+<td>sessions is a required property. It can&#39;t be null neither an empty array on creation</td>
 </tr>
 <tr>
 <td>7007</td>
@@ -2440,19 +2460,19 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>id is a required property. It must not be null</td>
+<td>id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>event_id is a required property. It must not be null</td>
+<td>event_id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7003</td>
-<td>session_id is a required property. It must not be null</td>
+<td>session_id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7004</td>
-<td>price is a required property. It must not be null</td>
+<td>price is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7005</td>
@@ -2478,11 +2498,11 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>recovery_email is a required property. It must not be null</td>
+<td>recovery_email is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>timestamp is a required property. It must not be null</td>
+<td>timestamp is a required property. It can&#39;t  be null</td>
 </tr>
 </tbody></table>
 
@@ -2500,15 +2520,15 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>id is a required property. It must not be null</td>
+<td>id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>method is a required property. It must not be null</td>
+<td>method is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7003</td>
-<td>installments is a required property. It must not be null</td>
+<td>installments is a required property. It should be an integer greater than zero.</td>
 </tr>
 <tr>
 <td>7004</td>
@@ -2534,31 +2554,31 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>id is a required property. It must not be null</td>
+<td>id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>account_id is a required property. It must not be null</td>
+<td>account_id is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7003</td>
-<td>status is a required property. It must not be null</td>
+<td>status is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7004</td>
-<td>is_fraud is a required property. It must not be null</td>
+<td>is_fraud is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7005</td>
-<td>timestamp is a required property. It must not be null</td>
+<td>timestamp is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7006</td>
-<td>items is a required property. It must not be null neither an empty array</td>
+<td>items is a required property. It can&#39;t  be null neither an empty array on creation</td>
 </tr>
 <tr>
 <td>7007</td>
-<td>payment is a required property. It must not be null</td>
+<td>payment is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7008</td>
@@ -2567,6 +2587,10 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td>7009</td>
 <td>One or more items have invalid price</td>
+</tr>
+<tr>
+<td>7010</td>
+<td>analyzed_by is a required property. It can&#39;t be null on update.</td>
 </tr>
 </tbody></table>
 
@@ -2584,11 +2608,11 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>id is a required property. It must not be null</td>
+<td>id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>datetime is a required property. It must not be null</td>
+<td>datetime is a required property. It can&#39;t  be null</td>
 </tr>
 </tbody></table>
 
@@ -2606,23 +2630,23 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>id is a required property. It must not be null</td>
+<td>id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>timestamp is a required property. It must not be null</td>
+<td>timestamp is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7003</td>
-<td>item_id is a required property. It must not be null</td>
+<td>item_id is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7004</td>
-<td>sender_account_id is a required property. It must not be null</td>
+<td>sender_account_id is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7005</td>
-<td>receiver_email is a required property. It must not be null</td>
+<td>receiver_email is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7006</td>

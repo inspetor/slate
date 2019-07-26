@@ -8,6 +8,7 @@
 <span class="c1">// Filling model with company data
 </span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setAccountId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getAccountId()
 </span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
+</span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setSucceeded</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span> <span class="c1">//getSucceeded()
 </span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountLogin</span><span class="p">(</span><span class="nv">$inspetor_auth</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountLogout</span><span class="p">(</span><span class="nv">$inspetor_auth</span><span class="p">);</span>
@@ -38,5 +39,12 @@
 <td>Yes</td>
 <td>Integer</td>
 <td>The unix format of the time and date that the authentication happend</td>
+</tr>
+<tr>
+<td><strong>succeeded</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Boolean</td>
+<td>Indicating if the attempt to login our logout was succeeded or not.</td>
 </tr>
 </tbody></table>

@@ -9,31 +9,31 @@
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>id is a required property. It must not be null</td>
+<td>id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>account_id is a required property. It must not be null</td>
+<td>account_id is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7003</td>
-<td>status is a required property. It must not be null</td>
+<td>status is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7004</td>
-<td>is_fraud is a required property. It must not be null</td>
+<td>is_fraud is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7005</td>
-<td>timestamp is a required property. It must not be null</td>
+<td>timestamp is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7006</td>
-<td>items is a required property. It must not be null neither an empty array</td>
+<td>items is a required property. It can&#39;t  be null neither an empty array on creation</td>
 </tr>
 <tr>
 <td>7007</td>
-<td>payment is a required property. It must not be null</td>
+<td>payment is a required property. It can&#39;t  be null on creation</td>
 </tr>
 <tr>
 <td>7008</td>
@@ -42,5 +42,9 @@
 <tr>
 <td>7009</td>
 <td>One or more items have invalid price</td>
+</tr>
+<tr>
+<td>7010</td>
+<td>analyzed_by is a required property. It can&#39;t be null on update.</td>
 </tr>
 </tbody></table>

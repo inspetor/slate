@@ -9,10 +9,10 @@
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>id is a required property. It must not be null</td>
+<td>id is a required property. It can&#39;t  be null</td>
 </tr>
 <tr>
 <td>7002</td>
-<td>name is a required property. It must not be null</td>
+<td>name is a required property. It can&#39;t  be null</td>
 </tr>
 </tbody></table>

@@ -13,6 +13,7 @@
 </span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
 </span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setItems</span><span class="p">([</span><span class="nv">$inspetor_item1</span><span class="p">,</span> <span class="nv">$inspetor_item2</span><span class="p">]);</span> <span class="c1">//getItems()
 </span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setPayment</span><span class="p">(</span><span class="nv">$inspetor_payment</span><span class="p">);</span> <span class="c1">//getPayment()
+</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setAnalyzedBy</span><span class="p">(</span><span class="s2">"inspetor"</span><span class="p">);</span> <span class="c1">//getAnayzedBy()
 </span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleCreation</span><span class="p">(</span><span class="nv">$inspetor_sale</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleUpdate</span><span class="p">(</span><span class="nv">$inspetor_sale</span><span class="p">);</span>
@@ -78,5 +79,12 @@
 <td>No</td>
 <td><a href="#inspetorpayment">InspetorPayment</a></td>
 <td>The payment used in this purchase</td>
+</tr>
+<tr>
+<td><strong>analyzed_by</strong></td>
+<td>No</td>
+<td>Yes</td>
+<td>String</td>
+<td>The name of the antifraud system that made the change on the sale. Even if it&#39;s us how made the change you should pass &quot;inspetor&quot;</td>
 </tr>
 </tbody></table>
