@@ -13,6 +13,7 @@ $inspetor_auth = $inspetor->getInspetorAuth();
 // Filling model with company data
 $inspetor_auth->setAccountId("123"); //getAccountId()
 $inspetor_auth->setTimestamp(time()); //getTimestamp()
+$inspetor_auth->setSucceeded(true); //getSucceeded()
 
 $inspetor->trackAccountLogin($inspetor_auth);
 $inspetor->trackAccountLogout($inspetor_auth);
@@ -26,3 +27,4 @@ Property | Required For Creation | Required For Update | Type | Description
 -------- | --------------------- | ------------------- | ---- | -----------
 **account_id** | Yes | Yes | String  | The id of the user that is making the login or logout
 **timestamp**  | Yes | Yes | Integer | The unix format of the time and date that the authentication happend
+**succeeded**  | Yes | Yes | Boolean | Indicating if the attempt to login our logout was succeeded or not.

@@ -6,8 +6,8 @@
 use Inspetor;
 
 $inspetor_config = [
-  "appId"       => [your appId] # (e.g. '30cdfed3-9f7f-4aaa-b9f1-033c4dbfef58'),
-  "trackerName" => [your trackerName] # (e.g. 'company.api')
+  "appId"       => "your appId" # (e.g. '30cdfed3-9f7f-4aaa-b9f1-033c4dbfef58'),
+  "trackerName" => "your trackerName" # (e.g. 'company.api')
 ];
 
 $inspetor = new InspetorClient($inspetor_config);

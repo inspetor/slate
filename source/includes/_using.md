@@ -61,8 +61,8 @@ The Inspetor Client Library provides methods for you to relay state changes to p
 Inspetor provides additional methods to allow you to inform us about meaningful user activity, such as:
 
 ### Login/Logout
-- When a user <a href="#account-login">logs in to an account</a>
-- When a user <a href="#account-logout">logs out of an account</a>
+- When a user attempts to <a href="#account-login">log in to an account</a>
+- When a user attempts to <a href="#account-logout">log out of an account</a>
 
 ### Password Activity
 - When a user requests to <a href="#password-recovery">recover</a> their password

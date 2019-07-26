@@ -18,6 +18,7 @@ $inspetor_sale->setIsFraud(false); //getIsFraud()
 $inspetor_sale->setTimestamp(time()); //getTimestamp()
 $inspetor_sale->setItems([$inspetor_item1, $inspetor_item2]); //getItems()
 $inspetor_sale->setPayment($inspetor_payment); //getPayment()
+$inspetor_sale->setAnalyzedBy("inspetor"); //getAnayzedBy()
 
 $inspetor->trackSaleCreation($inspetor_sale);
 $inspetor->trackSaleUpdate($inspetor_sale);
@@ -29,10 +30,11 @@ All properties can be accessed or defined via `get` and `set` accessor methods
 
 Property | Required For Creation | Required For Update | Type | Description
 -------- | --------------------- | ------------------- | ---- | -----------
-**id**         | Yes | Yes | String | The unique identifier for the sale within your platform
-**timestamp**  | Yes | Yes | Integer | The unix format of the time and date that the action happend
-**account_id** | Yes | No  | String | The id of the user who is making the purchase
-**status**     | Yes | No  | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
-**is_fraud**   | Yes | No  | Boolean | Indicates if the sale was fradulent. This should only be `true` when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.
-**items**      | Yes | No  | Array of [InspetorItem](#inspetoritem) | The items (*e.g. tickets*) that are being bought
-**payment**    | Yes | No  | [InspetorPayment](#inspetorpayment) | The payment used in this purchase
+**id**          | Yes | Yes | String | The unique identifier for the sale within your platform
+**timestamp**   | Yes | Yes | Integer | The unix format of the time and date that the action happend
+**account_id**  | Yes | No  | String | The id of the user who is making the purchase
+**status**      | Yes | No  | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
+**is_fraud**    | Yes | No  | Boolean | Indicates if the sale was fradulent. This should only be `true` when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.
+**items**       | Yes | No  | Array of [InspetorItem](#inspetoritem) | The items (*e.g. tickets*) that are being bought
+**payment**     | Yes | No  | [InspetorPayment](#inspetorpayment) | The payment used in this purchase
+**analyzed_by** | No  | Yes | String  | The name of the antifraud system that made the change on the sale. Even if it's us how made the change you should pass "inspetor"
