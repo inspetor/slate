@@ -1984,16 +1984,9 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td><strong>status</strong></td>
 <td>Yes</td>
-<td>No</td>
+<td>Yes</td>
 <td>String</td>
 <td>The status of the sale. <em>The allowed values are: <code>accepted</code>, <code>declined</code>, <code>pending</code>, <code>refunded</code>, and <code>manual_analysis</code></em></td>
-</tr>
-<tr>
-<td><strong>is_fraud</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>Boolean</td>
-<td>Indicates if the sale was fradulent. This should only be <code>true</code> when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.</td>
 </tr>
 <tr>
 <td><strong>items</strong></td>
@@ -2008,6 +2001,13 @@ Most models have some optional properties, but it's important that you try to se
 <td>No</td>
 <td><a href="#inspetorpayment">InspetorPayment</a></td>
 <td>The payment used in this purchase</td>
+</tr>
+<tr>
+<td><strong>is_fraud</strong></td>
+<td>No</td>
+<td>Yes</td>
+<td>Boolean</td>
+<td>Indicates if the sale was fradulent. This should only be <code>true</code> when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.</td>
 </tr>
 <tr>
 <td><strong>analyzed_by</strong></td>
@@ -2217,6 +2217,30 @@ Most models have some optional properties, but it's important that you try to se
 <tr>
 <td>9001</td>
 <td>AppId and trackerName are required parameters</td>
+</tr>
+<tr>
+<td>9002</td>
+<td>Invalid Context! Authentication valid contexts:  account_login, account_logout,</td>
+</tr>
+<tr>
+<td>9003</td>
+<td>Invalid Context! Account valid contexts: account_create, account_update, account_delete.</td>
+</tr>
+<tr>
+<td>9005</td>
+<td>Invalid Context! Sale valid contexts: sale_create, sale_update_status.</td>
+</tr>
+<tr>
+<td>9006</td>
+<td>Invalid Context! Tranfer valid contexts: transfer_create, transfer_update_status.</td>
+</tr>
+<tr>
+<td>9007</td>
+<td>Invalid Context! Password request valid contexts: password_reset, password_recovery.</td>
+</tr>
+<tr>
+<td>9008</td>
+<td>Invalid Context! Event request valid contexts: event_create, event_update, event_delete.</td>
 </tr>
 </tbody></table>
 
@@ -2566,7 +2590,7 @@ Most models have some optional properties, but it's important that you try to se
 </tr>
 <tr>
 <td>7004</td>
-<td>is_fraud is a required property. It can&#39;t  be null on creation</td>
+<td>is_fraud is a required property. It can&#39;t be null on update.</td>
 </tr>
 <tr>
 <td>7005</td>

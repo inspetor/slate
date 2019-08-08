@@ -55,16 +55,9 @@
 <tr>
 <td><strong>status</strong></td>
 <td>Yes</td>
-<td>No</td>
+<td>Yes</td>
 <td>String</td>
 <td>The status of the sale. <em>The allowed values are: <code>accepted</code>, <code>declined</code>, <code>pending</code>, <code>refunded</code>, and <code>manual_analysis</code></em></td>
-</tr>
-<tr>
-<td><strong>is_fraud</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>Boolean</td>
-<td>Indicates if the sale was fradulent. This should only be <code>true</code> when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.</td>
 </tr>
 <tr>
 <td><strong>items</strong></td>
@@ -79,6 +72,13 @@
 <td>No</td>
 <td><a href="#inspetorpayment">InspetorPayment</a></td>
 <td>The payment used in this purchase</td>
+</tr>
+<tr>
+<td><strong>is_fraud</strong></td>
+<td>No</td>
+<td>Yes</td>
+<td>Boolean</td>
+<td>Indicates if the sale was fradulent. This should only be <code>true</code> when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.</td>
 </tr>
 <tr>
 <td><strong>analyzed_by</strong></td>

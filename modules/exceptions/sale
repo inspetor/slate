@@ -21,7 +21,7 @@
 </tr>
 <tr>
 <td>7004</td>
-<td>is_fraud is a required property. It can&#39;t  be null on creation</td>
+<td>is_fraud is a required property. It can&#39;t be null on update.</td>
 </tr>
 <tr>
 <td>7005</td>
