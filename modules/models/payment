@@ -12,6 +12,14 @@
 </span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setCreditCard</span><span class="p">(</span><span class="nv">$inspetor_cc</span><span class="p">);</span> <span class="c1">//getCreditCard()
 </span>
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_payment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_payment</span><span class="p">()</span>
+
+<span class="c"># Filling model with payment data</span>
+<span class="n">payment</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">payment</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="s">"credit_card"</span>
+<span class="n">payment</span><span class="o">.</span><span class="n">installments</span> <span class="o">=</span> <span class="s">"1"</span>
+<span class="n">payment</span><span class="o">.</span><span class="n">credit_card</span> <span class="o">=</span> <span class="n">inspetor_credit_card</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 

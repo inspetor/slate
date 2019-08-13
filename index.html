@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;php&quot;]">
+  <body class="index" data-languages="[&quot;php&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,6 +212,7 @@
       <img src="images/logo-white.png" class="logo" alt="Logo white" />
         <div class="lang-selector">
               <a href="#" data-language-name="php">php</a>
+              <a href="#" data-language-name="python">python</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -567,12 +568,14 @@
 <p>But we can&#39;t do it alone--we need <em>you</em>, the user, to integrate our library into your code base so we can capture sufficient information to train our models. The more information we receive, the better the decision we can make, and the better we can protect your platform from fraud.</p>
 
 <p>What follows is a general guide of how to integrate Inspetor&#39;s Client Library into your product. It should be sufficient for you to start with your Inspetor product integration. Should you find yourself in need of further assistance, do not hesitate to reach out to the Inspetor team--we will be happy to help!</p>
-<h1 id='installing-the-client-library'>Installing the Client Library</h1><pre class="highlight php tab-php"><code>~ composer require inspetor/inspetorphp:${version}
+<h1 id='installing-the-client-library'>Installing the Client Library</h1><pre class="highlight php tab-php"><code>$ composer require inspetor/inspetorphp:${version}
+</code></pre><pre class="highlight python tab-python"><code><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">inspetor</span>
 </code></pre>
 <p>The Inspetor collection libraries are available via public standard package managers for the following supported languages:</p>
 
 <ul>
 <li>PHP (via <a href="https://packagist.org/packages/inspetor/inspetor-php">Composer</a>)</li>
+<li>Python (via <a href="https://pypi.org/project/inspetor/">Pip</a>)</li>
 </ul>
 <h1 id='client-library-setup'>Client Library Setup</h1><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
@@ -586,6 +589,16 @@
 <span class="nv">$inspetor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InspetorClient</span><span class="p">(</span><span class="nv">$inspetor_config</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor_config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"APP_ID"</span><span class="p">:</span><span class="s">"123"</span><span class="p">,</span>
+  <span class="s">"TRACKER_NAME"</span><span class="p">:</span><span class="s">"123"</span><span class="p">,</span>
+  <span class="s">"DEV_ENV"</span><span class="p">:</span><span class="bp">True</span>
+<span class="p">}</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="n">InspetorClient</span><span class="p">(</span><span class="n">inspetor_config</span><span class="p">)</span>
+
 </code></pre>
 <p>The first step of integrating Inspetor&#39;s antifraud services into your product is instantiating the library.</p>
 
@@ -683,6 +696,7 @@ It is <b>extremely important</b> that you provide us with updated information at
 
 <ul>
 <li><a href="https://github.com/inspetor/libraries-docs/blob/master/backend/php/README.md">PHP</a></li>
+<li><a href="https://github.com/inspetor/libraries-docs/blob/master/backend/python/README.md">Python</a></li>
 </ul>
 <h2 id='testing-your-integration-with-inspetor'>Testing your integration with Inspetor</h2>
 <p>Integrating with Inspetor is meant to be easy--simply instantiate our library, call our tracking methods, and if there are no errors thrown within your code execution, data will appear within our database. However, for further validation, we also provide our customers with limited-access database credentials that allow the developer in charge of integrating Inspetor to inspect that data appears in our database. (Note that access is restricted such that your customer account will only be able to view data originating from your company&#39;s integration.) The Inspetor team will provide you with access credentials for this phase of validation.</p>
@@ -738,6 +752,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountCreation</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span> 
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_creation</span><span class="p">(</span><span class="n">account</span><span class="p">)</span>
+
 </code></pre>
 <p>Notify Inspetor any time a new user account is created.</p>
 
@@ -765,6 +785,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountUpdate</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_update</span><span class="p">(</span><span class="n">account</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor any time an account&#39;s information (email, address, name...) is altered.</p>
 
@@ -792,6 +818,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountDeletion</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span> 
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_deletion</span><span class="p">(</span><span class="n">account</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor any time an account is deleted.</p>
 
@@ -850,6 +882,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackLogin</span><span class="p">(</span><span class="nv">$auth</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_login</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor on every login attempt</p>
 
@@ -877,6 +915,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackLogout</span><span class="p">(</span><span class="nv">$auth</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_logout</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor every time an account (<em>e.g. user</em>) logs out.</p>
 
@@ -935,6 +979,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordReset</span><span class="p">(</span><span class="nv">$pass_recovery</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_password_reset</span><span class="p">(</span><span class="n">pass_recovery</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor anytime a request to reset an account&#39;s password is made.</p>
 
@@ -962,6 +1012,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordRecovery</span><span class="p">(</span><span class="nv">$pass_recovery</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_password_recovery</span><span class="p">(</span><span class="n">pass_recovery</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor anytime a request is made to recover a password.</p>
 
@@ -1025,6 +1081,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventCreation</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_creation</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor anytime a new event (<em>e.g. pary, shows...</em>) is created in your platform</p>
 
@@ -1052,6 +1114,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventUpdate</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_update</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor every time an event listing&#39;s information is updated (event title, location, etc.)</p>
 
@@ -1079,6 +1147,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventDeletion</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_deletion</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor every time an Event listing is deleted from your platform</p>
 
@@ -1145,6 +1219,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleCreation</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_creation</span><span class="p">(</span><span class="n">sale</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor every time a new sale is created on your platform.</p>
 
@@ -1172,6 +1252,12 @@ To access the following library functions, you will need an instance of the Insp
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleUpdate</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_update</span><span class="p">(</span><span class="n">sale</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor every time a sale&#39;s status is updated.
 <aside class="notice">
@@ -1235,6 +1321,12 @@ You must call this function <b>any</b> time a sale&#39;s status is updated (incl
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferCreation</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_creation</span><span class="p">(</span><span class="n">transfer</span><span class="p">)</span>
+
 </code></pre>
 <p>This function is used to send information to Inspetor every time a new item (<em>e.g. ticket</em>) transfer is created on your platform.</p>
 
@@ -1262,6 +1354,12 @@ You must call this function <b>any</b> time a sale&#39;s status is updated (incl
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferUpdate</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_update</span><span class="p">(</span><span class="n">transfer</span><span class="p">)</span>
+
 </code></pre>
 <p>This function is used to send information to Inspetor every time an item (<em>e.g. ticket</em>) transfer&#39;s status is updated.</p>
 
@@ -1304,11 +1402,28 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setAddress</span><span class="p">(</span><span class="nv">$inspetor_address</span><span class="p">);</span> <span class="c1">//getAddress()
 </span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
 </span>
+
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountCreation</span><span class="p">(</span><span class="nv">$inspetor_account</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountUpdate</span><span class="p">(</span><span class="nv">$inspetor_account</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountDeletion</span><span class="p">(</span><span class="nv">$inspetor_account</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_account</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_account</span><span class="p">()</span>
+
+<span class="c"># Filling model with account data</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Test"</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">document</span> <span class="o">=</span> <span class="s">"12312312312"</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">phoneNumber</span> <span class="o">=</span> <span class="s">"112345678"</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">inspetor_account_address</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_creation</span><span class="p">(</span><span class="n">inspetor_account</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_update</span><span class="p">(</span><span class="n">inspetor_account</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_deletion</span><span class="p">(</span><span class="n">inspetor_account</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -1391,6 +1506,18 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setLongitude</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getLongitude()
 </span>
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_address</span><span class="p">()</span>
+
+<span class="c"># Filling model with address data</span>
+<span class="n">inspetor_address</span><span class="o">.</span><span class="n">street</span> <span class="o">=</span> <span class="s">"Test Stree"</span>
+<span class="n">inspetor_address</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_address</span><span class="o">.</span><span class="n">zip_code</span> <span class="o">=</span> <span class="s">"123456"</span>
+<span class="n">inspetor_address</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="s">"Test City"</span>
+<span class="n">inspetor_address</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="s">"Test State"</span>
+<span class="n">inspetor_address</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="s">"Test Country"</span>
+<span class="n">inspetor_address</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_address</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="s">"123"</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -1474,10 +1601,22 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
 </span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setSucceeded</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span> <span class="c1">//getSucceeded()
 </span>
+
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountLogin</span><span class="p">(</span><span class="nv">$inspetor_auth</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountLogout</span><span class="p">(</span><span class="nv">$inspetor_auth</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_auth</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_auth</span><span class="p">()</span>
+
+<span class="c"># Filling model with auth data</span>
+<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">account_email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
+<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">succeeded</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="bp">True</span> <span class="o">//</span> <span class="bp">True</span> <span class="n">when</span> <span class="n">login</span> <span class="n">works</span>
+
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_login</span><span class="p">(</span><span class="n">inspetor_auth</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_logout</span><span class="p">(</span><span class="n">inspetor_auth</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -1526,6 +1665,12 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_category</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s2">"Category"</span><span class="p">);</span> <span class="c1">//getName()
 </span>
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_category</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_category</span><span class="p">()</span>
+
+<span class="c"># Filling model with category data</span>
+<span class="n">category</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">category</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Cooltegory"</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -1570,6 +1715,15 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setBillingAddress</span><span class="p">(</span><span class="nv">$inspetor_address</span><span class="p">);</span> <span class="c1">//getBillingAddress
 </span>
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_cc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_card</span><span class="p">()</span>
+
+<span class="c"># Filling model with credit card data</span>
+<span class="n">credit_card</span><span class="o">.</span><span class="n">first_six_digits</span> <span class="o">=</span> <span class="s">"123456"</span>
+<span class="n">credit_card</span><span class="o">.</span><span class="n">last_four_digits</span> <span class="o">=</span> <span class="s">"1234"</span>
+<span class="n">credit_card</span><span class="o">.</span><span class="n">holder_name</span> <span class="o">=</span> <span class="s">"Holder Name Test"</span>
+<span class="n">credit_card</span><span class="o">.</span><span class="n">holder_cpf</span> <span class="o">=</span> <span class="s">"Holder CPF Test"</span>
+<span class="n">credit_card</span><span class="o">.</span><span class="n">billing_address</span> <span class="o">=</span> <span class="n">inspetor_billing_address</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -1642,11 +1796,40 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setAdminsId</span><span class="p">([</span><span class="s2">"123"</span><span class="p">,</span> <span class="s2">"234"</span><span class="p">]);</span> <span class="c1">//getAdminsId()
 </span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setSeatingOptions</span><span class="p">([</span><span class="s2">"Pista"</span><span class="p">,</span> <span class="s2">"VIP"</span><span class="p">]);</span> <span class="c1">//getSeatingOptions()
 </span>
+
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventCreation</span><span class="p">(</span><span class="nv">$inspetor_event</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventUpdate</span><span class="p">(</span><span class="nv">$inspetor_event</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventDeletion</span><span class="p">(</span><span class="nv">$inspetor_event</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_event</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_event</span><span class="p">()</span>
+
+<span class="c"># Filling model with event data</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Name Test"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Description Test"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">sessions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">inspetor_event_session1</span><span class="p">,</span>
+    <span class="n">inspetor_event_session1</span>
+<span class="p">]</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"private"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">slug</span> <span class="o">=</span> <span class="s">"slug-test"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">creator_id</span> <span class="o">=</span> <span class="s">"124"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">is_physical</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">categories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">inspetor_event_category1</span><span class="p">,</span>
+    <span class="n">inspetor_event_category2</span>
+<span class="p">]</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">inspetor_event_address</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">admins_id</span> <span class="o">=</span> <span class="p">[</span><span class="s">"123"</span><span class="p">]</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">seating_options</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Seating Option"</span><span class="p">]</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_creation</span><span class="p">(</span><span class="n">inspetor_event</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_update</span><span class="p">(</span><span class="n">inspetor_event</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_deletion</span><span class="p">(</span><span class="n">inspetor_event</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -1769,6 +1952,16 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setQuantity</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//getQuantity()
 </span>
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_item</span><span class="p">()</span>
+
+<span class="c">#Filling model with item data</span>
+<span class="n">inspetor_item</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_item</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_item</span><span class="o">.</span><span class="n">session_id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_item</span><span class="o">.</span><span class="n">seating_option</span> <span class="o">=</span> <span class="s">"Seating Option Test"</span>
+<span class="n">inspetor_item</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="s">"10"</span>
+<span class="n">inspetor_item</span><span class="o">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="s">"123"</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -1841,6 +2034,15 @@ Most models have some optional properties, but it's important that you try to se
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordRecovery</span><span class="p">(</span><span class="nv">$inspetor_pass</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_pass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_pass_recovery</span><span class="p">()</span>
+
+<span class="c"># Filling model with password recovery data</span>
+<span class="n">inspetor_pass</span><span class="o">.</span><span class="n">recovery_email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
+<span class="n">inspetor_pass</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_password_recovery</span><span class="p">(</span><span class="n">inspetor_pass</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_password_reset</span><span class="p">(</span><span class="n">inspetor_pass</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -1884,6 +2086,14 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setCreditCard</span><span class="p">(</span><span class="nv">$inspetor_cc</span><span class="p">);</span> <span class="c1">//getCreditCard()
 </span>
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_payment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_payment</span><span class="p">()</span>
+
+<span class="c"># Filling model with payment data</span>
+<span class="n">payment</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">payment</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="s">"credit_card"</span>
+<span class="n">payment</span><span class="o">.</span><span class="n">installments</span> <span class="o">=</span> <span class="s">"1"</span>
+<span class="n">payment</span><span class="o">.</span><span class="n">credit_card</span> <span class="o">=</span> <span class="n">inspetor_credit_card</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -1944,10 +2154,29 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setPayment</span><span class="p">(</span><span class="nv">$inspetor_payment</span><span class="p">);</span> <span class="c1">//getPayment()
 </span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setAnalyzedBy</span><span class="p">(</span><span class="s2">"inspetor"</span><span class="p">);</span> <span class="c1">//getAnayzedBy()
 </span>
+
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleCreation</span><span class="p">(</span><span class="nv">$inspetor_sale</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleUpdate</span><span class="p">(</span><span class="nv">$inspetor_sale</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_sale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_sale</span><span class="p">()</span>
+
+<span class="c"># Filling model with sale data</span>
+<span class="n">inspetor_sale</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">account_id</span> <span class="o">=</span> <span class="s">"456"</span>
+<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">total_value</span> <span class="o">=</span> <span class="s">"123,00"</span>
+<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"pending"</span>
+<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">get_default_item</span><span class="p">()</span>
+<span class="p">]</span>
+<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">payment</span> <span class="o">=</span> <span class="n">inspetor_payment</span>
+
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_creation</span><span class="p">(</span><span class="n">inspetor_sale</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_update</span><span class="p">(</span><span class="n">inspetor_sale</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_deletion</span><span class="p">(</span><span class="n">inspetor_sale</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -2031,7 +2260,13 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_session</span><span class="o">-&gt;</span><span class="na">setDatetime</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span> <span class="c1">//getDatetime()
 </span>
 <span class="cp">?&gt;</span>
-</code></pre>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_session</span><span class="p">()</span>
+
+<span class="c"># Filling model with session data</span>
+<span class="n">inspetor_session</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_session</span><span class="o">.</span><span class="n">datetime</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1562934682</span><span class="p">)</span> <span class="o">//</span> <span class="n">it</span><span class="s">'s the date of that event session in unix timestamp format</span><span class="err">
+</span></code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>
@@ -2075,10 +2310,25 @@ Most models have some optional properties, but it's important that you try to se
 </span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setReceiverEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getReceiverEmail()
 </span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setStatus</span><span class="p">(</span><span class="s2">"pending"</span><span class="p">);</span> <span class="c1">//getStatus()
 </span>
+
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferCreation</span><span class="p">(</span><span class="nv">$inspetor_transfer</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferUpdate</span><span class="p">(</span><span class="nv">$inspetor_transfer</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_transfer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_transfer</span><span class="p">()</span>
+
+<span class="c"># Filling model with transfer data</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">item_id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">sender_account_id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">receiver_email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"pending"</span>
+
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_creation</span><span class="p">(</span><span class="n">inspetor_transger</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_update</span><span class="p">(</span><span class="n">inspetor_transger</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -2682,6 +2932,7 @@ Most models have some optional properties, but it's important that you try to se
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="php">php</a>
+                <a href="#" data-language-name="python">python</a>
           </div>
       </div>
     </div>

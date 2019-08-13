@@ -10,6 +10,12 @@
 </span><span class="nv">$inspetor_category</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s2">"Category"</span><span class="p">);</span> <span class="c1">//getName()
 </span>
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_category</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_category</span><span class="p">()</span>
+
+<span class="c"># Filling model with category data</span>
+<span class="n">category</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">category</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Cooltegory"</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 

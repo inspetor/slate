@@ -13,10 +13,25 @@
 </span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setReceiverEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getReceiverEmail()
 </span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setStatus</span><span class="p">(</span><span class="s2">"pending"</span><span class="p">);</span> <span class="c1">//getStatus()
 </span>
+
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferCreation</span><span class="p">(</span><span class="nv">$inspetor_transfer</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferUpdate</span><span class="p">(</span><span class="nv">$inspetor_transfer</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_transfer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_transfer</span><span class="p">()</span>
+
+<span class="c"># Filling model with transfer data</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">item_id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">sender_account_id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">receiver_email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
+<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"pending"</span>
+
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_creation</span><span class="p">(</span><span class="n">inspetor_transger</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_update</span><span class="p">(</span><span class="n">inspetor_transger</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 

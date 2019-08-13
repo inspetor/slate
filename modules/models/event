@@ -20,11 +20,40 @@
 </span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setAdminsId</span><span class="p">([</span><span class="s2">"123"</span><span class="p">,</span> <span class="s2">"234"</span><span class="p">]);</span> <span class="c1">//getAdminsId()
 </span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setSeatingOptions</span><span class="p">([</span><span class="s2">"Pista"</span><span class="p">,</span> <span class="s2">"VIP"</span><span class="p">]);</span> <span class="c1">//getSeatingOptions()
 </span>
+
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventCreation</span><span class="p">(</span><span class="nv">$inspetor_event</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventUpdate</span><span class="p">(</span><span class="nv">$inspetor_event</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventDeletion</span><span class="p">(</span><span class="nv">$inspetor_event</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_event</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_event</span><span class="p">()</span>
+
+<span class="c"># Filling model with event data</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Name Test"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Description Test"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">sessions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">inspetor_event_session1</span><span class="p">,</span>
+    <span class="n">inspetor_event_session1</span>
+<span class="p">]</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"private"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">slug</span> <span class="o">=</span> <span class="s">"slug-test"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">creator_id</span> <span class="o">=</span> <span class="s">"124"</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">is_physical</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">categories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">inspetor_event_category1</span><span class="p">,</span>
+    <span class="n">inspetor_event_category2</span>
+<span class="p">]</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">inspetor_event_address</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">admins_id</span> <span class="o">=</span> <span class="p">[</span><span class="s">"123"</span><span class="p">]</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">seating_options</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Seating Option"</span><span class="p">]</span>
+<span class="n">inspetor_event</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_creation</span><span class="p">(</span><span class="n">inspetor_event</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_update</span><span class="p">(</span><span class="n">inspetor_event</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_deletion</span><span class="p">(</span><span class="n">inspetor_event</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 

@@ -10,10 +10,22 @@
 </span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
 </span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setSucceeded</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span> <span class="c1">//getSucceeded()
 </span>
+
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountLogin</span><span class="p">(</span><span class="nv">$inspetor_auth</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountLogout</span><span class="p">(</span><span class="nv">$inspetor_auth</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_auth</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_auth</span><span class="p">()</span>
+
+<span class="c"># Filling model with auth data</span>
+<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">account_email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
+<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">succeeded</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="bp">True</span> <span class="o">//</span> <span class="bp">True</span> <span class="n">when</span> <span class="n">login</span> <span class="n">works</span>
+
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_login</span><span class="p">(</span><span class="n">inspetor_auth</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_logout</span><span class="p">(</span><span class="n">inspetor_auth</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 

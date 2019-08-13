@@ -42,6 +42,12 @@
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventCreation</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_creation</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor anytime a new event (<em>e.g. pary, shows...</em>) is created in your platform</p>
 
@@ -69,6 +75,12 @@
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventUpdate</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_update</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor every time an event listing&#39;s information is updated (event title, location, etc.)</p>
 
@@ -96,6 +108,12 @@
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventDeletion</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_deletion</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
 </code></pre>
 <p>Send information to Inspetor every time an Event listing is deleted from your platform</p>
 

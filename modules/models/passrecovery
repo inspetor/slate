@@ -13,6 +13,15 @@
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordRecovery</span><span class="p">(</span><span class="nv">$inspetor_pass</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_pass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_pass_recovery</span><span class="p">()</span>
+
+<span class="c"># Filling model with password recovery data</span>
+<span class="n">inspetor_pass</span><span class="o">.</span><span class="n">recovery_email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
+<span class="n">inspetor_pass</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_password_recovery</span><span class="p">(</span><span class="n">inspetor_pass</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_password_reset</span><span class="p">(</span><span class="n">inspetor_pass</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 

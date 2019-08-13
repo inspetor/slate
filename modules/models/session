@@ -10,7 +10,13 @@
 </span><span class="nv">$inspetor_session</span><span class="o">-&gt;</span><span class="na">setDatetime</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span> <span class="c1">//getDatetime()
 </span>
 <span class="cp">?&gt;</span>
-</code></pre>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_session</span><span class="p">()</span>
+
+<span class="c"># Filling model with session data</span>
+<span class="n">inspetor_session</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_session</span><span class="o">.</span><span class="n">datetime</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1562934682</span><span class="p">)</span> <span class="o">//</span> <span class="n">it</span><span class="s">'s the date of that event session in unix timestamp format</span><span class="err">
+</span></code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
 <table><thead>

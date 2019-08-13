@@ -14,11 +14,28 @@
 </span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setAddress</span><span class="p">(</span><span class="nv">$inspetor_address</span><span class="p">);</span> <span class="c1">//getAddress()
 </span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
 </span>
+
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountCreation</span><span class="p">(</span><span class="nv">$inspetor_account</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountUpdate</span><span class="p">(</span><span class="nv">$inspetor_account</span><span class="p">);</span>
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountDeletion</span><span class="p">(</span><span class="nv">$inspetor_account</span><span class="p">);</span>
 
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_account</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_account</span><span class="p">()</span>
+
+<span class="c"># Filling model with account data</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Test"</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">document</span> <span class="o">=</span> <span class="s">"12312312312"</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">phoneNumber</span> <span class="o">=</span> <span class="s">"112345678"</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">inspetor_account_address</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_creation</span><span class="p">(</span><span class="n">inspetor_account</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_update</span><span class="p">(</span><span class="n">inspetor_account</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_deletion</span><span class="p">(</span><span class="n">inspetor_account</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 

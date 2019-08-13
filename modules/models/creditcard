@@ -13,6 +13,15 @@
 </span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setBillingAddress</span><span class="p">(</span><span class="nv">$inspetor_address</span><span class="p">);</span> <span class="c1">//getBillingAddress
 </span>
 <span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
+<span class="n">inspetor_cc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_card</span><span class="p">()</span>
+
+<span class="c"># Filling model with credit card data</span>
+<span class="n">credit_card</span><span class="o">.</span><span class="n">first_six_digits</span> <span class="o">=</span> <span class="s">"123456"</span>
+<span class="n">credit_card</span><span class="o">.</span><span class="n">last_four_digits</span> <span class="o">=</span> <span class="s">"1234"</span>
+<span class="n">credit_card</span><span class="o">.</span><span class="n">holder_name</span> <span class="o">=</span> <span class="s">"Holder Name Test"</span>
+<span class="n">credit_card</span><span class="o">.</span><span class="n">holder_cpf</span> <span class="o">=</span> <span class="s">"Holder CPF Test"</span>
+<span class="n">credit_card</span><span class="o">.</span><span class="n">billing_address</span> <span class="o">=</span> <span class="n">inspetor_billing_address</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
