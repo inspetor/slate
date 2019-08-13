@@ -20,6 +20,18 @@ $inspetor_item->setQuantity(2); //getQuantity()
 
 ?>
 ```
+```python
+# Calling an instance of Model
+inspetor_item = self.inspetor.get_inspetor_item()
+
+#Filling model with item data
+inspetor_item.id = "123"
+inspetor_item.event_id = "123"
+inspetor_item.session_id = "123"
+inspetor_item.seating_option = "Seating Option Test"
+inspetor_item.price = "10"
+inspetor_item.quantity = "123"
+```
 
 All properties can be accessed or defined via `get` and `set` accessor methods
 

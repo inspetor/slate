@@ -81,6 +81,7 @@ In the future however, our suggested integration model will be:
 You can find additional language-specific implementation details, including suggested architecture and best practices, via the following links:
 
 - [PHP](https://github.com/inspetor/libraries-docs/blob/master/backend/php/README.md)
+- [Python](https://github.com/inspetor/libraries-docs/blob/master/backend/python/README.md)
 
 ## Testing your integration with Inspetor
 

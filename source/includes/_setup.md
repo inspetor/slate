@@ -14,6 +14,18 @@ $inspetor = new InspetorClient($inspetor_config);
 
 ?>
 ```
+```python
+import inspetor
+
+inspetor_config = {
+  "APP_ID":"123",
+  "TRACKER_NAME":"123",
+  "DEV_ENV":True
+}
+
+inspetor = InspetorClient(inspetor_config)
+
+```
 
 The first step of integrating Inspetor's antifraud services into your product is instantiating the library.
 

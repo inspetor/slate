@@ -19,7 +19,17 @@ $inspetor->trackPasswordRecovery($inspetor_pass);
 
 ?>
 ```
+```python
+# Calling an instance of Model
+inspetor_pass = self.inspetor.get_inspetor_pass_recovery()
 
+# Filling model with password recovery data
+inspetor_pass.recovery_email = "test@email.com"
+inspetor_pass.timestamp = datetime.timestamp(datetime.now())
+
+inspetor.track_password_recovery(inspetor_pass)
+inspetor.track_password_reset(inspetor_pass)
+```
 All properties can be accessed or defined via `get` and `set` accessor methods
 
 Property | Required For Creation | Required For Update | Type | Description

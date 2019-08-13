@@ -18,11 +18,29 @@ $inspetor_transfer->setSenderAccountId("124"); //getSenderAccountId()
 $inspetor_transfer->setReceiverEmail("test@email.com"); //getReceiverEmail()
 $inspetor_transfer->setStatus("pending"); //getStatus()
 
+
 $inspetor->trackItemTransferCreation($inspetor_transfer);
 $inspetor->trackItemTransferUpdate($inspetor_transfer);
 
 ?>
 ```
+```python
+# Calling an instance of Model
+inspetor_transfer = self.inspetor.get_inspetor_transfer()
+
+# Filling model with transfer data
+inspetor_transfer.id = "123"
+inspetor_transfer.timestamp = datetime.timestamp(datetime.now())
+inspetor_transfer.item_id = "123"
+inspetor_transfer.sender_account_id = "123"
+inspetor_transfer.receiver_email = "test@email.com"
+inspetor_transfer.status = "pending"
+
+
+inspetor.track_transfer_creation(inspetor_transger)
+inspetor.track_transfer_update(inspetor_transger)
+```
+
 
 All properties can be accessed or defined via `get` and `set` accessor methods
 

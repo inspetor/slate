@@ -18,6 +18,16 @@ $inspetor_payment->setCreditCard($inspetor_cc); //getCreditCard()
 
 ?>
 ```
+```python
+# Calling an instance of Model
+inspetor_payment = self.inspetor.get_inspetor_payment()
+
+# Filling model with payment data
+payment.id = "123"
+payment.method = "credit_card"
+payment.installments = "1"
+payment.credit_card = inspetor_credit_card
+```
 
 All properties can be accessed or defined via `get` and `set` accessor methods
 

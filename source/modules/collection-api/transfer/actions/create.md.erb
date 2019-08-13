@@ -11,6 +11,14 @@ $inspetor->trackItemTransferCreation($transfer);
 
 ?>
 ```
+```python 
+import inspetor
+
+inspetor = self.getConfiguredInspetor()
+
+inspetor.track_transfer_creation(transfer)
+
+```
 
 This function is used to send information to Inspetor every time a new item (*e.g. ticket*) transfer is created on your platform.
 

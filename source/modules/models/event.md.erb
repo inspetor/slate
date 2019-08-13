@@ -25,11 +25,42 @@ $inspetor_event->setCreatorId("123"); //getCreatorId()
 $inspetor_event->setAdminsId(["123", "234"]); //getAdminsId()
 $inspetor_event->setSeatingOptions(["Pista", "VIP"]); //getSeatingOptions()
 
+
 $inspetor->trackEventCreation($inspetor_event);
 $inspetor->trackEventUpdate($inspetor_event);
 $inspetor->trackEventDeletion($inspetor_event);
 
 ?>
+```
+```python
+# Calling an instance of Model
+inspetor_event = self.inspetor.get_inspetor_event()
+
+# Filling model with event data
+inspetor_event.id = "123"
+inspetor_event.name = "Name Test"
+inspetor_event.description = "Description Test"
+inspetor_event.sessions = [
+    inspetor_event_session1,
+    inspetor_event_session1
+]
+inspetor_event.status = "private"
+inspetor_event.slug = "slug-test"
+inspetor_event.creator_id = "124"
+inspetor_event.is_physical = True
+inspetor_event.categories = [
+    inspetor_event_category1,
+    inspetor_event_category2
+]
+inspetor_event.address = inspetor_event_address
+inspetor_event.admins_id = ["123"]
+inspetor_event.seating_options = ["Seating Option"]
+inspetor_event.timestamp = datetime.timestamp(datetime.now())
+
+
+inspetor.track_event_creation(inspetor_event)
+inspetor.track_event_update(inspetor_event)
+inspetor.track_event_deletion(inspetor_event)
 ```
 
 All properties can be accessed or defined via `get` and `set` accessor methods

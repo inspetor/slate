@@ -16,6 +16,14 @@ $inspetor_session->setDatetime(1234); //getDatetime()
 
 ?>
 ```
+```python
+# Calling an instance of Model
+inspetor_session = self.inspetor.get_inspetor_session()
+
+# Filling model with session data
+inspetor_session.id = "123"
+inspetor_session.datetime = int(1562934682) // it's the date of that event session in unix timestamp format
+```
 
 All properties can be accessed or defined via `get` and `set` accessor methods
 

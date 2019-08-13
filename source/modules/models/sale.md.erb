@@ -20,10 +20,31 @@ $inspetor_sale->setItems([$inspetor_item1, $inspetor_item2]); //getItems()
 $inspetor_sale->setPayment($inspetor_payment); //getPayment()
 $inspetor_sale->setAnalyzedBy("inspetor"); //getAnayzedBy()
 
+
 $inspetor->trackSaleCreation($inspetor_sale);
 $inspetor->trackSaleUpdate($inspetor_sale);
 
 ?>
+```
+```python
+# Calling an instance of Model
+inspetor_sale = self.inspetor.get_inspetor_sale()
+
+# Filling model with sale data
+inspetor_sale.id = "123"
+inspetor_sale.account_id = "456"
+inspetor_sale.total_value = "123,00"
+inspetor_sale.status = "pending"
+inspetor_sale.timestamp = datetime.timestamp(datetime.now())
+inspetor_sale.items = [
+    self.get_default_item()
+]
+inspetor_sale.payment = inspetor_payment
+
+
+inspetor.track_sale_creation(inspetor_sale)
+inspetor.track_sale_update(inspetor_sale)
+inspetor.track_sale_deletion(inspetor_sale)
 ```
 
 All properties can be accessed or defined via `get` and `set` accessor methods

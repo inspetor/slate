@@ -11,6 +11,14 @@ $inspetor->trackItemTransferUpdate($transfer);
 
 ?>
 ```
+```python 
+import inspetor
+
+inspetor = self.getConfiguredInspetor()
+
+inspetor.track_transfer_update(transfer)
+
+```
 
 This function is used to send information to Inspetor every time an item (*e.g. ticket*) transfer's status is updated.
 

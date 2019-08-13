@@ -19,6 +19,17 @@ $inspetor_cc->setBillingAddress($inspetor_address); //getBillingAddress
 
 ?>
 ```
+```python
+# Calling an instance of Model
+inspetor_cc = self.inspetor.get_inspetor_card()
+
+# Filling model with credit card data
+credit_card.first_six_digits = "123456"
+credit_card.last_four_digits = "1234"
+credit_card.holder_name = "Holder Name Test"
+credit_card.holder_cpf = "Holder CPF Test"
+credit_card.billing_address = inspetor_billing_address
+```
 
 All properties can be accessed or defined via `get` and `set` accessor methods
 

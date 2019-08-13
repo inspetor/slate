@@ -11,6 +11,14 @@ $inspetor->trackPasswordReset($pass_recovery);
 
 ?>
 ```
+```python 
+import inspetor
+
+inspetor = self.getConfiguredInspetor()
+
+inspetor.track_password_reset(pass_recovery)
+
+```
 
 Send information to Inspetor anytime a request to reset an account's password is made.
 

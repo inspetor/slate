@@ -22,6 +22,20 @@ $inspetor_address->setLongitude("123"); //getLongitude()
 
 ?>
 ```
+```python
+# Calling an instance of Model
+inspetor_address = self.inspetor.get_inspetor_address()
+
+# Filling model with address data
+inspetor_address.street = "Test Stree"
+inspetor_address.number = "123"
+inspetor_address.zip_code = "123456"
+inspetor_address.city = "Test City"
+inspetor_address.state = "Test State"
+inspetor_address.country = "Test Country"
+inspetor_address.latitude = "123"
+inspetor_address.longitude = "123"
+```
 
 All properties can be accessed or defined via `get` and `set` accessor methods
 

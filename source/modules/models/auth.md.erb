@@ -15,11 +15,26 @@ $inspetor_auth->setAccountEmail("login@email.com"); //getAccountEmail()
 $inspetor_auth->setTimestamp(time()); //getTimestamp()
 $inspetor_auth->setSucceeded(true); //getSucceeded()
 
+
 $inspetor->trackAccountLogin($inspetor_auth);
 $inspetor->trackAccountLogout($inspetor_auth);
 
 ?>
 ```
+```python
+# Calling an instance of Model
+inspetor_auth = self.inspetor.get_inspetor_auth()
+
+# Filling model with auth data
+inspetor_auth.account_email = "test@email.com"
+inspetor_auth.succeeded = datetime.timestamp(datetime.now())
+inspetor_auth.timestamp = True // True when login works
+
+
+inspetor.track_login(inspetor_auth)
+inspetor.track_logout(inspetor_auth)
+```
+
 
 All properties can be accessed or defined via `get` and `set` accessor methods
 
