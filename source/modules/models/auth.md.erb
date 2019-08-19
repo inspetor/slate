@@ -13,7 +13,7 @@ $inspetor_auth = $inspetor->getInspetorAuth();
 // Filling model with company data
 $inspetor_auth->setAccountEmail("login@email.com"); //getAccountEmail()
 $inspetor_auth->setTimestamp(time()); //getTimestamp()
-$inspetor_auth->setSucceeded(true); //getSucceeded()
+$inspetor_auth->setAccountId("123"); //getAccountId()
 
 
 $inspetor->trackAccountLogin($inspetor_auth);
@@ -27,8 +27,8 @@ inspetor_auth = self.inspetor.get_inspetor_auth()
 
 # Filling model with auth data
 inspetor_auth.account_email = "test@email.com"
-inspetor_auth.succeeded = datetime.timestamp(datetime.now())
-inspetor_auth.timestamp = True // True when login works
+inspetor_auth.timestamp = datetime.timestamp(datetime.now())
+inspetor_auth.account_id = "123" 
 
 
 inspetor.track_login(inspetor_auth)
@@ -42,4 +42,4 @@ Property | Required For Login | Required For Logout | Type | Description
 -------- | --------------------- | ------------------- | ---- | -----------
 **account_email** | Yes | Yes | String  | The email of the user that is attempting to login or logout
 **timestamp**  | Yes | Yes | Integer | The unix format of the time and date that the authentication happend
-**succeeded**  | Yes | No | Boolean | Indicating if the attempt to login our logout was succeeded or not.
+**account_id**  | No | No | String | If set indicates that the login/logout attempt was successful. **Although this is not a required property it should be passed everytime a user makes a succesfull login or logout.**
