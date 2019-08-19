@@ -1599,7 +1599,7 @@ Most models have some optional properties, but it's important that you try to se
 <span class="c1">// Filling model with company data
 </span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setAccountEmail</span><span class="p">(</span><span class="s2">"login@email.com"</span><span class="p">);</span> <span class="c1">//getAccountEmail()
 </span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
-</span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setSucceeded</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span> <span class="c1">//getSucceeded()
+</span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setAccountId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getAccountId()
 </span>
 
 <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountLogin</span><span class="p">(</span><span class="nv">$inspetor_auth</span><span class="p">);</span>
@@ -1611,8 +1611,8 @@ Most models have some optional properties, but it's important that you try to se
 
 <span class="c"># Filling model with auth data</span>
 <span class="n">inspetor_auth</span><span class="o">.</span><span class="n">account_email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
-<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">succeeded</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="bp">True</span> <span class="o">//</span> <span class="bp">True</span> <span class="n">when</span> <span class="n">login</span> <span class="n">works</span>
+<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">account_id</span> <span class="o">=</span> <span class="s">"123"</span> 
 
 
 <span class="n">inspetor</span><span class="o">.</span><span class="n">track_login</span><span class="p">(</span><span class="n">inspetor_auth</span><span class="p">)</span>
@@ -1644,11 +1644,11 @@ Most models have some optional properties, but it's important that you try to se
 <td>The unix format of the time and date that the authentication happend</td>
 </tr>
 <tr>
-<td><strong>succeeded</strong></td>
-<td>Yes</td>
+<td><strong>account_id</strong></td>
 <td>No</td>
-<td>Boolean</td>
-<td>Indicating if the attempt to login our logout was succeeded or not.</td>
+<td>No</td>
+<td>String</td>
+<td>If set indicates that the login/logout attempt was successful. <strong>Although this is not a required property it should be passed everytime a user makes a succesfull login or logout.</strong></td>
 </tr>
 </tbody></table>
 </p>
@@ -2586,15 +2586,11 @@ Most models have some optional properties, but it's important that you try to se
 </thead><tbody>
 <tr>
 <td>7001</td>
-<td>account_email is a required property. It can&#39;t be null.</td>
+<td>account_email is a required property. It can&#39;t be null</td>
 </tr>
 <tr>
 <td>7002</td>
 <td>timestamp is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7003</td>
-<td>succeeded is a required property. It can&#39;t be null.</td>
 </tr>
 </tbody></table>
 
