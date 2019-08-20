@@ -19,4 +19,12 @@
 <td>7003</td>
 <td>timestamp is a required property. It can&#39;t  be null</td>
 </tr>
+<tr>
+<td>7004</td>
+<td>document is a required property. It can&#39;t be null on creation</td>
+</tr>
+<tr>
+<td>7005</td>
+<td>phone_number is a required property. It can&#39;t be null on creation</td>
+</tr>
 </tbody></table>
