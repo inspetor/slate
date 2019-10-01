@@ -55,8 +55,8 @@ Property | Required For Creation | Required For Update | Type | Description
 **id**            | Yes | Yes | String  | Your unique identifier for this account in your platform
 **timestamp**     | Yes | Yes | Integer | The Unix-formatted datetime that the account was last updated
 **email**         | Yes | No  | String  | The email associated with the account
-**document**      | Yes | No  | String  | The CPF or document number associated with the account
-**phone_number**  | Yes | No  | String  | The phone number associated with the account
+**document**      | Yes | No  | String  | The CPF number associated with the account. The expected format is only numbers, no dots and dashes.
+**phone_number**  | Yes | No  | String  | The phone number associated with the account. The expected format is `Country Code+DDD+Number` (only numbers) 
 **password_hash** | Yes | No  | String  | The hashed password associated with the account 
 **name**          | Yes | No  | String  | The name of the user
 address           | No  | No  | [Address](#address) | The address associated with the account
