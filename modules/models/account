@@ -10,7 +10,7 @@
 </span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s2">"Test Name"</span><span class="p">);</span> <span class="c1">//getName()
 </span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getEmail()
 </span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setDocument</span><span class="p">(</span><span class="s2">"07206094880"</span><span class="p">);</span> <span class="c1">//getDocument()
-</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setPhoneNumber</span><span class="p">(</span><span class="s2">"+5511953891736"</span><span class="p">);</span> <span class="c1">//getPhoneNumber()
+</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setPhoneNumber</span><span class="p">(</span><span class="s2">"5511953891736"</span><span class="p">);</span> <span class="c1">//getPhoneNumber()
 </span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setPasswordHash</span><span class="p">(</span><span class="s2">"225f958849172c1ce9c4898bf648f108"</span><span class="p">);</span> <span class="c1">//getPasswordHash()
 </span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setAddress</span><span class="p">(</span><span class="nv">$inspetor_address</span><span class="p">);</span> <span class="c1">//getAddress()
 </span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
@@ -29,7 +29,7 @@
 <span class="n">inspetor_account</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Test"</span>
 <span class="n">inspetor_account</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
 <span class="n">inspetor_account</span><span class="o">.</span><span class="n">document</span> <span class="o">=</span> <span class="s">"07206094880"</span>
-<span class="n">inspetor_account</span><span class="o">.</span><span class="n">phoneNumber</span> <span class="o">=</span> <span class="s">"+5511953891736"</span>
+<span class="n">inspetor_account</span><span class="o">.</span><span class="n">phoneNumber</span> <span class="o">=</span> <span class="s">"5511953891736"</span>
 <span class="n">inspetor_account</span><span class="o">.</span><span class="n">passwordHash</span> <span class="o">=</span> <span class="s">"225f958849172c1ce9c4898bf648f108"</span>
 <span class="n">inspetor_account</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">inspetor_account_address</span>
 <span class="n">inspetor_account</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
@@ -76,14 +76,14 @@
 <td>Yes</td>
 <td>No</td>
 <td>String</td>
-<td>The CPF or document number associated with the account</td>
+<td>The CPF number associated with the account. The expected format is only numbers, no dots and dashes.</td>
 </tr>
 <tr>
 <td><strong>phone_number</strong></td>
 <td>Yes</td>
 <td>No</td>
 <td>String</td>
-<td>The phone number associated with the account</td>
+<td>The phone number associated with the account. The expected format is <code>Country Code+DDD+Number</code> (only numbers)</td>
 </tr>
 <tr>
 <td><strong>password_hash</strong></td>
