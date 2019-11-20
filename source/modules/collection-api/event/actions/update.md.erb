@@ -1,27 +1,22 @@
 ### Event Updates
-
-```php
-<?php
-
-use Inspetor;
-
-$inspetor = $this->getConfiguredInspetor();
-
-$inspetor->trackEventUpdate($event);
-
-?>
-```
-```python 
-import inspetor
-
-inspetor = self.getConfiguredInspetor()
-
-inspetor.track_event_update(event)
-
+```sh
+curl -XPOST https://collection.inspcdn.net/events \
+    -d '{
+        "id":          "12345",
+        "name":        "Revellon 2021",
+        "sessions":  [
+            {
+                "id":           1,
+                "session_time": 1594210000
+            },
+            {
+                "id":           2,
+                "session_time": 1594315000
+            }
+        ],
+        "description": "We have postponed until next year",
+        "slug":        "/revellon_2021"
+    }'
 ```
 
 Send information to Inspetor every time an event listing's information is updated (event title, location, etc.)
-
-Argument | Type | Description
--------- | ---- | -----------
-event | Inspetor/Model/[InspetorEvent](#inspetorevent) | The Event that is being updated

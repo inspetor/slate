@@ -1,27 +1,10 @@
 ### Event Deletion
 
-```php
-<?php
-
-use Inspetor;
-
-$inspetor = $this->getConfiguredInspetor();
-
-$inspetor->trackEventDeletion($event);
-
-?>
-```
-```python 
-import inspetor
-
-inspetor = self.getConfiguredInspetor()
-
-inspetor.track_event_deletion(event)
-
+```sh
+curl -XPOST https://collection.inspcdn.net/events \
+    -d '{
+        "id":          "12345"
+    }'
 ```
 
 Send information to Inspetor every time an Event listing is deleted from your platform
-
-Argument | Type | Description
--------- | ---- | -----------
-event | Inspetor/Model/[InspetorEvent](#inspetorevent) | The Event that is being deleted

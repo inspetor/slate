@@ -1,0 +1,15 @@
+### Event Sessions 
+```sh
+    {
+        "id":           201,
+        "session_time": 1594315000
+    }
+```
+Our data model operates with the assumption that a single event listing could have multiple sessions (for example Lollapalooza may have multiple sessions, but all be considered the same event.) Whenever you're creating an event, or even when you're selling tickets to an event, you should indicate which session or sessions should be correlated with that action. 
+
+An event session requires the following information: 
+
+Property     | Type   | Description
+--------     | ----   | -----------
+**id**       | String | The identifier for this session in your platform. Session IDs must be unique per-event (but session ids can be the same if they are sessions of different events)
+**datetime** | String | The Unix-timesstamp corresponding to the date and time of the event session 

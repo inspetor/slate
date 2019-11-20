@@ -1,12 +1,12 @@
 ### Account Creation
-```shell
+```sh
 curl -XPOST https://collection.inspcdn.net/accounts \
     -d '{
-        "id":            12345,
+        "id":            "12345",
         "creation_time": 1574210000,
         "email":         "my_user@inspetor.com",
         "document":      "123.456.789-10",
-        "phone_number":  "(11) 99912 3456",
+        "phone_number":  "11999123456",
         "password_hash": "effebbbeeabc123",
         "first_name":    "john",
         "last_name":     "fulano",
@@ -20,31 +20,5 @@ curl -XPOST https://collection.inspcdn.net/accounts \
         }
     }'
 ```
-```php
-<?php 
-
-use Inspetor; 
-
-$inspetor = $this->getConfiguredInspetor(); 
-
-$inspetor->trackAccountCreation($account); 
-
-?>
-```
-```python 
-import inspetor
-
-inspetor = self.getConfiguredInspetor()
-
-inspetor.track_account_creation(account)
-
-```
-
 
 Notify Inspetor any time a new user account is created.
-
-If you are using the Python or PHP SDK:
-
-Argument | Type | Description
--------- | ---- | -----------
-account  | Inspetor/Model/[InspetorAccount](#inspetoraccount) | The Account that is being created
