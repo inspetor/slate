@@ -4,6 +4,43 @@ Information about a sale within your platform.
 
 ### Properties
 
+```json
+'{
+    "sale_id":    12345,
+    "account_id": 157421,
+    "status":     "pending",
+    "sale_items": [
+        {
+            "item_id":           1,
+            "value":             25.00,
+            "event_id":          23553,
+            "event_session_ids": [101, 102]
+        },
+        {
+            "item_id":           2,
+            "value":             25.00,
+            "event_id":          23553,
+            "event_session_ids": [101, 102]
+        }
+    ]
+    "payment": {
+        "method":          "credit_card",
+        "installments":    1,
+        "ccard_first_six": 455326,
+        "ccard_last_four": 0012,
+        "holder_name":     "John Fulano",
+        "holder_cpf":      "741.112.235-53",
+        "billing_address": {
+            "street_name":   "Rua Fidalga",
+            "street_number": "252",
+            "zip_code":      "05432-010",
+            "city":          "São Paulo",
+            "state":         "SP",
+            "country":       "Brasil"
+        }
+    }
+}'
+```
 ```php
 <?php
 
@@ -14,11 +51,9 @@ $inspetor_sale = $inspetor->getInspetorSale();
 $inspetor_sale->setId("1234"); //getId()
 $inspetor_sale->setAccountId("123"); //getAccountId()
 $inspetor_sale->setStatus("pending"); //getStatus()
-$inspetor_sale->setIsFraud(false); //getIsFraud()
 $inspetor_sale->setTimestamp(time()); //getTimestamp()
 $inspetor_sale->setItems([$inspetor_item1, $inspetor_item2]); //getItems()
 $inspetor_sale->setPayment($inspetor_payment); //getPayment()
-$inspetor_sale->setAnalyzedBy("inspetor"); //getAnayzedBy()
 
 
 $inspetor->trackSaleCreation($inspetor_sale);
@@ -35,7 +70,6 @@ inspetor_sale.id = "123"
 inspetor_sale.account_id = "456"
 inspetor_sale.total_value = "123,00"
 inspetor_sale.status = "pending"
-inspetor_sale.timestamp = datetime.timestamp(datetime.now())
 inspetor_sale.items = [
     self.get_default_item()
 ]
@@ -52,10 +86,7 @@ All properties can be accessed or defined via `get` and `set` accessor methods
 Property | Required For Creation | Required For Update | Type | Description
 -------- | --------------------- | ------------------- | ---- | -----------
 **id**          | Yes | Yes | String | The unique identifier for the sale within your platform
-**timestamp**   | Yes | Yes | Integer | The unix format of the time and date that the action happend
 **account_id**  | Yes | No  | String | The id of the user who is making the purchase
 **status**      | Yes | Yes | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
 **items**       | Yes | No  | Array of [InspetorItem](#inspetoritem) | The items (*e.g. tickets*) that are being bought
 **payment**     | Yes | No  | [InspetorPayment](#inspetorpayment) | The payment used in this purchase
-**is_fraud**    | No  | Yes | Boolean | Indicates if the sale was fradulent. This should only be `true` when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.
-**analyzed_by** | No  | Yes | String  | The name of the antifraud system that made the change on the sale. Even if it's us how made the change you should pass "inspetor"

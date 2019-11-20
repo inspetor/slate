@@ -1,0 +1,15 @@
+### Mark Sale Fraudulent
+```shell
+curl -XPOST https://collection.inspcdn.net/sales/mark_fraudulent \
+    -d '{
+        "sale_id":           12345,
+        "fraud_signal_type": "chargeback"
+    }'
+```
+
+(Currently only available via the HTTP endpoint)
+
+Property              | Required For Creation | Type | Description
+--------              | --------------------- | ---- | -----------
+**sale_id**           | Yes                   | String | The unique identifier for the sale within your platform
+**fraud_signal_type** | Yes                   | String | The mechanism by which you identified the sale as fraudulent. Current accepted values are other antifraud services such as **'horus'**, **'fraudnet'**, and **'sift'**, your company name (**'ingresse'**), or simply **'chargeback'**.

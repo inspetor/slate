@@ -11,13 +11,10 @@ Identical functionality is also available via the REST API. The `/sales` endpoin
 Property | Required For Creation | Required For Update | Type | Description
 -------- | --------------------- | ------------------- | ---- | -----------
 **id**          | Yes | Yes | String | The unique identifier for the sale within your platform
-**timestamp**   | Yes | Yes | Integer | The unix format of the time and date that the action happend
 **account_id**  | Yes | No  | String | The id of the user who is making the purchase
 **status**      | Yes | Yes | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
 **items**       | Yes | No  | Array of [InspetorItem](#inspetoritem) | The items (*e.g. tickets*) that are being bought
 **payment**     | Yes | No  | [InspetorPayment](#inspetorpayment) | The payment used in this purchase
-**is_fraud**    | No  | Yes | Boolean | Indicates if the sale was fradulent. This should only be `true` when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.
-**analyzed_by** | No  | Yes | String  | The name of the antifraud system that made the change on the sale. Even if it's us how made the change you should pass "inspetor"
 
 All functions for tracking Sales activity require a [InspetorSale](#inspetorsale) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
@@ -31,3 +28,8 @@ Exception | Description
 
 <p><%= partial "modules/collection-api/sale/actions/create.md.erb" %></p>
 <p><%= partial "modules/collection-api/sale/actions/update.md.erb" %></p>
+<p><%= partial "modules/collection-api/sale/actions/mark_fraudulent.md.erb" %></p>
+
+Additionally, there is a `/sales/mark_fraudulent` endpoint that you should use to update Inspetor when a sale has been rejected or refunded due to suspicion of fraud, or if a sale has resuled in a chargeback.
+
+Note: it is expected that when marking a sale fraudulent, one would also make a corresponding call to the `/sales` endpoint to update a sale with a `rejected` status (unless the sale was marked fraudulent only after a chargeback was received). 
