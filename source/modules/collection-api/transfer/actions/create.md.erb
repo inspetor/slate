@@ -1,5 +1,16 @@
 ### Transfer Creation
+```shell
+curl -XPOST https://collection.inspcdn.net/transfer \
+    -d '{
+        "transfer_id":             43262,
+        "sale_id":                 12345,
+        "sale_id":                 101,
+        "sender_account_id":       25236,
+        "recipient_account_email": "user_email@gmail.com",
+        "status":                  "pending"
+    }'      
 
+```
 ```php
 <?php
 
