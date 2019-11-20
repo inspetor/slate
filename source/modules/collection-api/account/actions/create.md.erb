@@ -1,5 +1,25 @@
 ### Account Creation
-
+```shell
+curl -XPOST https://collection.inspcdn.net/accounts \
+    -d '{
+        "id":            12345,
+        "creation_time": 1574210000,
+        "email":         "my_user@inspetor.com",
+        "document":      "123.456.789-10",
+        "phone_number":  "(11) 99912 3456",
+        "password_hash": "effebbbeeabc123",
+        "first_name":    "john",
+        "last_name":     "fulano",
+        "address":       {
+            "street_name":   "Rua Fidalga",
+            "street_number": "252",
+            "zip_code":      "05432-010",
+            "city":          "São Paulo",
+            "state":         "SP",
+            "country":       "Brasil"
+        }
+    }'
+```
 ```php
 <?php 
 
@@ -22,6 +42,8 @@ inspetor.track_account_creation(account)
 
 
 Notify Inspetor any time a new user account is created.
+
+If you are using the Python or PHP SDK:
 
 Argument | Type | Description
 -------- | ---- | -----------

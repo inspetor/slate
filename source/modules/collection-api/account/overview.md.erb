@@ -6,7 +6,21 @@ The following functions will be used to relay actions associated with an account
 - <a href="#account-updates">trackAccountUpdate</a>
 - <a href="#account-deletion">trackAccountDeletion</a>
 
-All the functions for tracking account-related actions require an [InspetorAccount](#inspetoraccount) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
+Identical functionality is also available via the REST API. The `/accounts` endpoint supports POST, UPDATE, and DELETE operations with the following required arguments:
+
+Property               | Required For Creation | Required For Update | Type                | Description
+---------------------- | --------------------- | ------------------- | ----                | -----------
+**id**                 | Yes                   | Yes                 | String              | Your unique identifier for this account in your platform
+**creation_time**      | Yes                   | No                  | Integer             | The Unix-formatted datetime that the account was created
+**email**              | Yes                   | No                  | String              | The email associated with the account
+**document**           | No                    | No                  | String              | The CPF number associated with the account. The expected format is only numbers, no dots and dashes.
+**phone_number**       | No                    | No                  | String              | The phone number associated with the account. The expected format is `Country Code+DDD+Number` (only numbers) 
+**password_hash**      | Yes                   | No                  | String              | The hashed password associated with the account 
+**first_name**         | No                    | No                  | String              | The first name of the user
+**last_name**          | No                    | No                  | String              | The last name of the user
+address                | No                    | No                  | [Address](#address) | The address associated with the account
+
+If you are using the Python or PHP SDKs, the functions for tracking account-related actions require an [InspetorAccount](#inspetoraccount) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------

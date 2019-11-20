@@ -1,4 +1,10 @@
 ### Account Deletion
+```shell```
+curl -XDELETE https://collection.inspcdn.net/accounts \
+    -d '{ \
+        "id":            12345
+    }'
+```
 
 ```php
 <?php 
@@ -21,6 +27,8 @@ inspetor.track_account_deletion(account)
 ```
 
 Send information to Inspetor any time an account is deleted.
+
+If you are using the Python or PHP SDK:
 
 Argument | Type | Description
 -------- | ---- | -----------

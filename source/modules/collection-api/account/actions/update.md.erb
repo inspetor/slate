@@ -1,5 +1,19 @@
 ### Account Updates
-
+```shell```
+curl -XUPDATE https://collection.inspcdn.net/accounts \
+    -d '{
+        "id":            12345,
+        "email":         "my_new_email@inspetor.com",
+        "address":       {
+            "street_name":   "Rua Novarua",
+            "street_number": "253",
+            "zip_code"       "05432-010",
+            "city"           "São Paulo",
+            "state"          "SP",
+            "country"        "Brasil"
+        }
+    }'
+```
 ```php
 <?php
 
@@ -21,6 +35,8 @@ inspetor.track_account_update(account)
 ```
 
 Send information to Inspetor any time an account's information (email, address, name...) is altered.
+
+If you are using the Python or PHP SDK:
 
 Argument | Type | Description
 -------- | ---- | -----------
