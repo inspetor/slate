@@ -7,28 +7,6 @@ curl -XPOST https://collection.inspcdn.net/transfer \
     }'      
 
 ```
-```php
-<?php
 
-use Inspetor;
-
-$inspetor = $this->getConfiguredInspetor();
-
-$inspetor->trackItemTransferUpdate($transfer);
-
-?>
-```
-```python 
-import inspetor
-
-inspetor = self.getConfiguredInspetor()
-
-inspetor.track_transfer_update(transfer)
-
-```
 
 This function is used to send information to Inspetor every time an item (*e.g. ticket*) transfer's status is updated.
-
-Argument | Type | Description
--------- | ---- | -----------
-transfer | Inspetor/Model/[InspetorTransfer](#inspetortransfer) | The Transfer that is being updated

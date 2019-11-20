@@ -4,35 +4,12 @@ curl -XPOST https://collection.inspcdn.net/transfer \
     -d '{
         "transfer_id":             43262,
         "sale_id":                 12345,
-        "sale_id":                 101,
+        "sale_item_id":            101,
         "sender_account_id":       25236,
         "recipient_account_email": "user_email@gmail.com",
         "status":                  "pending"
     }'      
 
 ```
-```php
-<?php
-
-use Inspetor;
-
-$inspetor = $this->getConfiguredInspetor();
-
-$inspetor->trackItemTransferCreation($transfer);
-
-?>
-```
-```python 
-import inspetor
-
-inspetor = self.getConfiguredInspetor()
-
-inspetor.track_transfer_creation(transfer)
-
-```
 
 This function is used to send information to Inspetor every time a new item (*e.g. ticket*) transfer is created on your platform.
-
-Argument | Type | Description
--------- | ---- | -----------
-transfer | Inspetor/Model/[InspetorTransfer](#inspetortransfer) | The Transfer that is being created
