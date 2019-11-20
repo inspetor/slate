@@ -1,0 +1,32 @@
+### Sale Payment
+```shell
+
+{
+    "method":          "credit_card",
+    "installments":    1,
+    "ccard_first_six": 455326,
+    "ccard_last_four": 0012,
+    "holder_name":     "John Fulano",
+    "holder_cpf":      "741.112.235-53",
+    "billing_address": {
+        "street_name":   "Rua Fidalga",
+        "street_number": "252",
+        "zip_code":      "05432-010",
+        "city":          "São Paulo",
+        "state":         "SP",
+        "country":       "Brasil"
+    }
+}
+```
+
+Inspetor has a standardized format for accepting payment information that is associated with a sale. You can find the accepted and required parameters below:
+
+Property             | When is it required?   | Type    | Description
+--------             | ---------------------  | ----    | -----------
+**method**           | `POST`                 | String  | The method of payment being used. *The allowed values are `credit_card`, `boleto`, and `other`*
+**installments**     | `POST`                 | Integer | The number of "*parcelas*" that the user will pay
+**first_six_digits** | `POST`                 | String  | The first six digits of the credit card number
+**last_four_digits** | `POST`                 | Integer | The last four digits of the credit card number
+**holder_name**      | `POST`                 | String  | The full name of the owner of the credit card
+**holder_cpf**       | `POST`                 | String  | The CPF of the owner of the credit card
+**billing_address**  | `POST`                 | [InspetorAddress](#inspetoraddress) | The billing address associated with this credit card

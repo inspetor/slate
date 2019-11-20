@@ -37,28 +37,5 @@ curl -XPOST https://collection.inspcdn.net/sale \
         }
     }'
 ```
-```php
-<?php
-
-use Inspetor;
-
-$inspetor = $this->getConfiguredInspetor();
-
-$inspetor->trackSaleCreation($sale);
-
-?>
-```
-```python 
-import inspetor
-
-inspetor = self.getConfiguredInspetor()
-
-inspetor.track_sale_creation(sale)
-
-```
 
 Send information to Inspetor every time a new sale is created on your platform.
-
-Argument | Type | Description
--------- | ---- | -----------
-sale | Inspetor/Model/[InspetorSale](#inspetorsale) | The Sale that is being created

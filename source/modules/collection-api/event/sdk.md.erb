@@ -1,4 +1,3 @@
-If you are using the Python or PHP SDKs, the functions for tracking event-related actions require an [InspetorEvent](#inspetorevent) object as argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 # Note: code snippets are here only temporarily; they should be moved back to the corresponding action page when the SDK properly supports these actions
 
 ### CREATE ##
@@ -62,6 +61,7 @@ inspetor = self.getConfiguredInspetor()
 inspetor.track_event_update(event)
 
 ```
+If you are using the Python or PHP SDKs, the functions for tracking event-related actions require an [InspetorEvent](#inspetorevent) object as argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
 
 Exception | Description
 --------- | -----------

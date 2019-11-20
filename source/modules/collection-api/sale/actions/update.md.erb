@@ -7,31 +7,10 @@ curl -XPOST https://collection.inspcdn.net/sale \
         "status":     "approved"
     }'
 ```
-```php
-<?php
 
-use Inspetor;
 
-$inspetor = $this->getConfiguredInspetor();
+Send information to Inspetor every time a sale's attributes (in particular, its status) is updated.
 
-$inspetor->trackSaleUpdate($sale);
-
-?>
-```
-```python 
-import inspetor
-
-inspetor = self.getConfiguredInspetor()
-
-inspetor.track_sale_update(sale)
-
-```
-
-Send information to Inspetor every time a sale's status is updated.
 <aside class="notice">
 You must call this function <b>any</b> time a sale's status is updated (including post-sale updates, such as refunds). Sale status is extremely crucial to Inspetor's prediction model.
 </aside>
-
-Argument | Type | Description
--------- | ---- | -----------
-sale | Inspetor/Model/[InspetorSale](#inspetorsale) | The Sale that is being updated

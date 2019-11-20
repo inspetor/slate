@@ -7,8 +7,8 @@ In order to protect your company from fraudsters, our decision models need to be
 At a high level, our decision model understands the e-commerce world in the following primary terms:
 
 - <a href="#account-activity">**Accounts**</a>
-- <a href="#inspetorevent">**Events**</a>
-- <a href="#inspetorsale">**Sales**</a>
+- <a href="#event-activity">**Events**</a>
+- <a href="#sale-activity">**Sales**</a>
 - <a href="#inspetoritem">**Sale Items**</a>
 - <a href="#inspetortransfer">**Transfers**</a>
 
@@ -16,10 +16,10 @@ You can think of the relationship between those entities something like this:
 
 If a user purchases tickets for a show on your site, Inspetor interprets the action as:
 
-- the creation of a new <a href="#inspetorsale">*Sale*</a>
+- the creation of a new <a href="#sale-activity">*Sale*</a>
 - the association of that Sale with an existing <a href="#account-activity">*Account*</a>
 - the association of that Sale with one or more <a href="#inspetoritem">*Items*</a>
-- the association of that Item with an existing <a href="#inspetorevent">*Event*</a>
+- the association of that Item with an existing <a href="#event-activity">*Event*</a>
 
 While these are the terms with which our model interprets actions on your platform, Inspetor is unaware of these actions occurring unless you use the Inspetor Collection API to relay this information to us.
 

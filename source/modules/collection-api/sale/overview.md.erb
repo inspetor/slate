@@ -1,35 +1,20 @@
 ## Sale Activity
 
-The following functions provide Inspetor with information on sales that happen within your platform. The main activities that we track are the following:
-
-- <a href="#sale-creation">trackSaleCreation</a>
-- <a href="#sale-updates">trackSaleUpdate</a>
-
-Identical functionality is also available via the REST API. The `/sales` endpoint supports POST and PUT operations with the following required arguments:
+You can provide sale-related activity via the REST API. The `/sales` endpoint supports `POST` and `PUT` operations with the following arguments:
 
 
-Property | Required For Creation | Required For Update | Type | Description
--------- | --------------------- | ------------------- | ---- | -----------
-**id**          | Yes | Yes | String | The unique identifier for the sale within your platform
-**account_id**  | Yes | No  | String | The id of the user who is making the purchase
-**status**      | Yes | Yes | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
-**items**       | Yes | No  | Array of [InspetorItem](#inspetoritem) | The items (*e.g. tickets*) that are being bought
-**payment**     | Yes | No  | [InspetorPayment](#inspetorpayment) | The payment used in this purchase
-
-All functions for tracking Sales activity require a [InspetorSale](#inspetorsale) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
-
-Exception | Description
---------- | -----------
-**[SaleException](#inspetorsaleexception)**         | The Transfer object provided is not a valid one
-**[ItemException](#inspetoritemexception)**         | The Item object provided on the Sale is not a valid one
-**[PaymentException](#pinspetoraymentexception)**   | The Payment object provided on the Sale is not a valid one
-**[generalException](#inspetorgeneralexception)** | The timestamps that you passed on the objects are not valid ones
-**[TrackerException](#trackerexception)**   | An internal error occurred *Hopefully this never happen*
+Property       | When is it required?   | Type   | Description
+--------       | ---------------------  | ----   | -----------
+**id**         | `POST`, `PUT`          | String | The unique identifier for the sale within your platform
+**account_id** | `POST`                 | String | The id of the user who is making the purchase
+**status**     | `POST`,                | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
+**items**      | `POST`                 | Array of [sale items](#sale-items) | The items (*e.g. tickets*) that are being bought
+**payment**    | `POST`                 | [Payment](#sale-payment) | The payment used in this purchase
 
 <p><%= partial "modules/collection-api/sale/actions/create.md.erb" %></p>
 <p><%= partial "modules/collection-api/sale/actions/update.md.erb" %></p>
-<p><%= partial "modules/collection-api/sale/actions/mark_fraudulent.md.erb" %></p>
 
-Additionally, there is a `/sales/mark_fraudulent` endpoint that you should use to update Inspetor when a sale has been rejected or refunded due to suspicion of fraud, or if a sale has resuled in a chargeback.
+<p><%= partial "modules/collection-api/sale/actions/mark_fraudulent.md.erb" %></p>\
 
-Note: it is expected that when marking a sale fraudulent, one would also make a corresponding call to the `/sales` endpoint to update a sale with a `rejected` status (unless the sale was marked fraudulent only after a chargeback was received). 
+<p><%= partial "modules/collection-api/sale/sale_items.md.erb" %></p>
+<p><%= partial "modules/collection-api/sale/sale_payment.md.erb" %></p>
