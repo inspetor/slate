@@ -15,6 +15,6 @@ The `/sale/mark_fraudulent` endpoint supports the `POST` operation and requires 
 Property              | Required? | Type   | Description
 --------              | --------- | ----   | -----------
 **sale_id**           | Yes       | String | The unique identifier for the sale within your platform
-**fraud_signal_type** | Yes       | String | The mechanism by which you identified the sale as fraudulent. Current accepted values are other antifraud services such as **'horus'**, **'fraudnet'**, and **'sift'**, your company name (**'ingresse'**), or simply **'chargeback'**.
+**fraud_signal_type** | Yes       | String | The mechanism by which you identified the sale as fraudulent. Current accepted values are 'acquirer', other antifraud services such as **'horus'**, **'fraudnet'**, and **'sift'**, your company name (**'ingresse'**), or simply **'chargeback'**.
 
 Note: it is expected that when marking a sale fraudulent, one would also make a corresponding call to the `/sales` endpoint to update a sale with a `rejected` status (unless the sale was marked fraudulent only after a chargeback was received). 

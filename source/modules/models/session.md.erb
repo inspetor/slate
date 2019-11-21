@@ -1,4 +1,4 @@
-## InspetorSession
+## InspetorDatetime
 
 Event session that are used in the [InspetorEvent](#inspetorevent) model.
 
@@ -22,7 +22,7 @@ inspetor_session = self.inspetor.get_inspetor_session()
 
 # Filling model with session data
 inspetor_session.id = "123"
-inspetor_session.datetime = int(1562934682) // it's the date of that event session in unix timestamp format
+inspetor_session.datetime = int(1562934682) // it's the date of that event datetime in unix timestamp format
 ```
 
 All properties can be accessed or defined via `get` and `set` accessor methods
@@ -30,4 +30,4 @@ All properties can be accessed or defined via `get` and `set` accessor methods
     Property | Required For Creation | Required For Update | Type | Description
     -------- | --------------------- | ------------------- | ---- | -----------
     **id**       | Yes | Yes | String | Your unique identifier for this session in your platform
-    **datetime** | Yes | Yes | String | The date and time of the event session 
+    **datetime** | Yes | Yes | String | The date and time of the event datetime 

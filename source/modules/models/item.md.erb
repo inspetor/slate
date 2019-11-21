@@ -32,10 +32,10 @@ inspetor_item.price = "10"
 
 All properties can be accessed or defined via `get` and `set` accessor methods
 
-Property | Required For Creation | Required For Update | Type | Description
--------- | --------------------- | ------------------- | ---- | -----------
-**id**          | Yes | Yes | String  | A unique identifier for this item (*e.g. ticket*) within your platform
-**event_id**    | Yes | Yes | String  | The unique identifier of the event that the item is tied too
-**session_ids** | Yes | Yes | Array   | The array of event sessions that the ticket is tied to
-**price**       | Yes | Yes | Double  | The price of the item. *It should only contain numbers, dots and commas*
-**quantity**    | Yes | Yes | Integer | The number of item of this type being bought.
+Property               | Required For Creation | Required For Update | Type | Description
+--------               | --------------------- | ------------------- | ---- | -----------
+**id**                 | Yes                   | Yes                 | String  | A unique identifier for this item (*e.g. ticket*) within your platform
+**event_id**           | Yes                   | Yes                 | String  | The unique identifier of the event that the item is tied too
+**event_datetime_ids** | Yes                   | Yes                 | Array   | The array of event datetimes that the ticket is tied to
+**price**              | Yes                   | Yes                 | Double  | The price of the item. *It should only contain numbers, dots and commas*
+**quantity**           | Yes                   | Yes                 | Integer | The number of item of this type being bought.
