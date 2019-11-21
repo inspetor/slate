@@ -3,8 +3,7 @@
 curl -XPOST https://collection.inspcdn.net/forgot-password \
     -d '{
         "recovery_email": "badguy@yahoo.com",
-        "timestamp":      15836200,
-        "actions":        "reset"
+        "action":        "reset"
     }'
 ```
 
@@ -19,5 +18,4 @@ The `/forgot-password` endpoint accepts `POST` requests only and requires the fo
 Property           | Type    | Description
 --------           | ----    | -----------
 **recovery_email** | String  | The email used to recover or reset the password
-**timestamp**      | Integer | The Unix-formatted datetime when the action occurred.
-**action**         | String  | The type of user action that was taken. Accepted values are `recovery` and `reset` (case-insensitive)
+**action**         | String  | The type of user action that was taken. Accepted values are `'recovery'` and `'reset'` (case-insensitive)
