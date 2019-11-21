@@ -10,7 +10,7 @@ Property        | When is it required?   | Type    | Description
 **sessions**    | `POST`                 | Array of Inspetor [event sessions](#event-sessions) | All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.
 **creator_id**  | `POST`                 | String  | The id of the user who created the event
 **admin_ids**   | `POST`                 | Array   | An array containing the ids of all users who can make changes to the event
-address         |                        | [InspetorAddress](#inspetoraddress) | The address where the event is happening. *This field is only required if the type of the event is set to physical.*
+address         |                        | [Address](#addresses) | The address where the event is happening. *This field is only required if the type of the event is set to physical.*
 status          |                        | String  | The status of the event. *Inspetor provides some pre-built statuses (`draft`, `private` and `published`) but you can provide a custom status if it does not fit with our status model.* 
 description     |                        | String  | A description of the event
 slug            |                        | String  | The slug of the event

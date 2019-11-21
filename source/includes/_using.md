@@ -9,8 +9,7 @@ At a high level, our decision model understands the e-commerce world in the foll
 - <a href="#account-activity">**Accounts**</a>
 - <a href="#event-activity">**Events**</a>
 - <a href="#sale-activity">**Sales**</a>
-- <a href="#sale-items">**Sale Items**</a>
-- <a href="#transfer-activity">**Transfers**</a>
+- <a href="#sale-items">**Sale Items** (e.g. tickets)</a>
 
 You can think of the relationship between those entities something like this:
 
@@ -20,6 +19,17 @@ If a user purchases tickets for a show on your site, Inspetor interprets the act
 - the association of that Sale with an existing <a href="#account-activity">*Account*</a>
 - the association of that Sale with one or more <a href="#sale-items">*Items*</a>
 - the association of that Item with an existing <a href="#event-activity">*Event*</a>
+
+There are some additional behaviors that are also relevant to assessing potentially fraudulent behavior:
+
+- <a href="#authentication-activity">Attempted and successful logins or logouts of a user account</a>
+- <a href="#password-activity">Password recovery or reset</a>
+- <a href="#item-transfers">**Ticket transfers**</a>
+
+And lastly, there are some "primitive" types that we use:
+
+- <a href="#addresses">**Addresses**</a>
+- <a href="#sale-payment">**Sale Payment**</a>
 
 While these are the terms with which our model interprets actions on your platform, Inspetor is unaware of these actions occurring unless you use the Inspetor Collection API to relay this information to us.
 
@@ -34,7 +44,7 @@ The primary Inspetor entities are **stateful** objects. They have properties tha
 However, if we base our evaluation upon outdated or incorrect information, the accuracy of our evaluation will suffer. As such, it is critical that you notify Inspetor of any changes to these properties whenever they occur via the Inspetor Client Library.
 
 <aside class="warning">
-It is <b>extremely important</b> that you provide us with updated information at any stage that these primary entities are updated. If we are working with outdated or incorrect information, we can't make reliable predictions for you.
+It is <b>extremely important</b> that you provide us with updated information at any stage that these primary entities are modified. If we are working with outdated or incorrect information, we can't make reliable predictions for you.
 </aside>
 
 The Inspetor Client Library provides methods for you to relay state changes to primary entities in any of the following instances:

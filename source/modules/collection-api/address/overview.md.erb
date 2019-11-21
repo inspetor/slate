@@ -1,0 +1,26 @@
+## Addresses
+```shell
+{
+    "street_name":   "Rua Fidalga",
+    "street_number": "252",
+    "zip_code":      "05432-010",
+    "city":          "São Paulo",
+    "state":         "SP",
+    "country":       "Brasil",
+    "latitude":      -43.2360,
+    "longitude":     -23.5115
+}
+```
+
+Numerous resources have associated location data: Sale payments have an associated billing address, events occur at a particular address, or an account may have a shipping address associated with it. Inspetor standardizes the format in which we collect this data as follows:
+
+Property          | Required? | Type   | Description
+--------          | --------- | -----  | -----------
+**street**        | Yes       | String | The street of the address
+**street_number** | Yes       | String | The street number of the address
+**zip_code**      | Yes       | String | The zip code (*e.g. CEP*) of the address
+**city**          | Yes       | String | The city in which the address is located
+**state**         | Yes       | String | The state in which the address is located
+**country**       | Yes       | String | The country in which the address is located
+latitude          | No        | Double | The exact latitude of the address
+longitude         | No        | Double | The exact longitude of the address
