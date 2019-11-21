@@ -2,19 +2,22 @@
 
 ```shell
 {
-    "item_id":           "101",
-    "value":             25.00,
-    "event_id":          23553,
-    "event_session_ids": ["101", "102"]
+    "id":                 "101",
+    "event_id":           "23553",
+    "event_datetime_ids": ["101", "102"]
+    "value":              25.00,
 }
 ```
 
 Our current collection API is built with certain assumptions about the ticketing industry. In particular, we assume that a sale will have one or more items (in the case of the ticketing industry, tickets) associated with it. We require some information about these items in order to reason about the sale:
 
-Property            | When is it required?  | Type | Description
---------            | --------------------- | ---- | -----------
-**id**              | `POST`, `UPDATE`      | String  | A unique identifier for this item (*e.g. ticket*) within your platform
-**event_id**        | `POST`                | String  | The unique identifier of the [event](#event-activity) that the item is tied too
-**event_datetimes** | `POST`                | Array   | The array of [event datetime IDs](#event-datetimes) that the ticket is tied to
-**price**           | `POST`                | Double  | The price of the item. *It should only contain numbers, dots, or commas*
-**quantity**        | `POST`                | Integer | The number of item of this type being bought.
+Property               | When is it required?  | Type    | Description
+--------               | --------------------- | ----    | -----------
+**id**                 | `POST`, `UPDATE`      | String  | A unique identifier for this item (*e.g. ticket*) within your platform
+**event_id**           | `POST`                | String  | The unique identifier of the [event](#event-activity) that the item is tied too
+**event_datetime_ids** | `POST`                | Array   | The array of [event datetime IDs](#event-datetimes) that the ticket is tied to
+**value**              | `POST`                | Double  | The price of the item. *It should only contain numbers, dots, or commas*
+
+<aside class="notice">
+Any time you are updating one or more of the items associated with a sale, you must send <b>all</b> of the items associated with that sale (even the items that were not updated). Otherwise, the update request will be interpreted as having removed the omitted items from the sale.
+</aside>
