@@ -1,17 +1,23 @@
 ## Password Activity
+```shell
+curl -XPOST https://collection.inspcdn.net/forgot-password \
+    -d '{
+        "recovery_email": "badguy@yahoo.com",
+        "timestamp":      15836200,
+        "actions":        "reset"
+    }'
+```
 
-The following functions notify Inspetor of password changes initiated by  users within your platform, independent of whether the user is logged in or not:
+Unsurprisingly, there is a correlation between fraudulent activity on an account and password resets or password recovery. As such, Inspetor provides an endpoint where you should notify us of _any_ behavior that involves a user resetting their password or initiating password recovery. You should send information to this endpoint when a user who is not logged in either resets or recovers their password.
 
-- <a href="#password-reset">trackPasswordReset</a>
-- <a href="#password-recovery">trackPasswordRecovery</a>
+<aside class="notice">
+This is different than when a logged-in user changes their password. You can notify Inspetor of such changes via the accounts endpoint. 
+</aside>
 
-All functions for tracking authentication events require an [InspetorPassRecovery](#inspetorpassrecovery) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
+The `/forgot-password` endpoint accepts `POST` requests only and requires the following arguments
 
-Exception | Description
---------- | -----------
-**[PassRecoveryException](#inspetorpassrecoveryexception)** | The PassRecovery object provided is invalid
-**[generalException](#inspetorgeneralexception)**         | The timestamps passed as PassRecovery object properties are invalid
-**[TrackerException](#trackerexception)**           | An internal error occurred (*This should never happen*)
-
-<p><%= partial "modules/collection-api/password/actions/reset.md.erb" %></p>
-<p><%= partial "modules/collection-api/password/actions/recovery.md.erb" %></p>
+Property           | Type    | Description
+--------           | ----    | -----------
+**recovery_email** | String  | The email used to recover or reset the password
+**timestamp**      | Integer | The Unix-formatted datetime when the action occurred.
+**action**         | String  | The type of user action that was taken. Accepted values are `recovery` and `reset` (case-insensitive)

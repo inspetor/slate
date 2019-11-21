@@ -9,8 +9,8 @@ At a high level, our decision model understands the e-commerce world in the foll
 - <a href="#account-activity">**Accounts**</a>
 - <a href="#event-activity">**Events**</a>
 - <a href="#sale-activity">**Sales**</a>
-- <a href="#inspetoritem">**Sale Items**</a>
-- <a href="#inspetortransfer">**Transfers**</a>
+- <a href="#sale-items">**Sale Items**</a>
+- <a href="#transfer-activity">**Transfers**</a>
 
 You can think of the relationship between those entities something like this:
 
@@ -18,7 +18,7 @@ If a user purchases tickets for a show on your site, Inspetor interprets the act
 
 - the creation of a new <a href="#sale-activity">*Sale*</a>
 - the association of that Sale with an existing <a href="#account-activity">*Account*</a>
-- the association of that Sale with one or more <a href="#inspetoritem">*Items*</a>
+- the association of that Sale with one or more <a href="#sale-items">*Items*</a>
 - the association of that Item with an existing <a href="#event-activity">*Event*</a>
 
 While these are the terms with which our model interprets actions on your platform, Inspetor is unaware of these actions occurring unless you use the Inspetor Collection API to relay this information to us.
@@ -64,9 +64,9 @@ Inspetor provides additional methods to allow you to inform us about meaningful 
 - When a user attempts to <a href="#account-login">log in to an account</a>
 - When a user attempts to <a href="#account-logout">log out of an account</a>
 
-### Password Activity
-- When a user requests to <a href="#password-recovery">recover</a> their password
-- When a user <a href="#password-reset">resets</a> their password
+### Password Activities
+- When a user requests to <a href="#password-activity">recover</a> their password
+- When a user <a href="#password-activity">resets</a> their password
 
 ## Where to insert Inspetor collection functions
 Where in your code base does the Inspetor client library belong? Frontend? Backend? Loaded on the site?
