@@ -21,12 +21,12 @@
 
 Inspetor has a standardized format for accepting payment information that is associated with a sale. You can find the accepted and required parameters below:
 
-Property             | When is it required?   | Type    | Description
---------             | ---------------------  | ----    | -----------
-**method**           | `POST`                 | String  | The method of payment being used. *The allowed values are `credit_card`, `boleto`, and `other`*
-**installments**     | `POST`                 | Integer | The number of "*parcelas*" that the user will pay
-**first_six_digits** | `POST`                 | String  | The first six digits of the credit card number
-**last_four_digits** | `POST`                 | Integer | The last four digits of the credit card number
-**holder_name**      | `POST`                 | String  | The full name of the owner of the credit card
-**holder_cpf**       | `POST`                 | String  | The CPF of the owner of the credit card
-**billing_address**  | `POST`                 | [Address](#addresses) | The billing address associated with this credit card
+Property             | When is it required?      | Type    | Description
+--------             | ---------------------     | ----    | -----------
+**method**           | `POST`                    | String  | The method of payment being used. *The allowed values are `credit_card`, `boleto`, and `other`*
+**installments**     | `POST`                    | Integer | The number of "*parcelas*" that the user will pay
+**first_six_digits** | `POST` (credit_card only) | String  | The first six digits of the credit card number
+**last_four_digits** | `POST` (credit_card only) | Integer | The last four digits of the credit card number
+**holder_name**      | `POST` (credit_card only) | String  | The full name of the owner of the credit card
+**holder_cpf**       | `POST` (credit_card only) | String  | The CPF of the owner of the credit card
+**billing_address**  | `POST` (credit_card only) | [Address](#addresses) | The billing address associated with this credit card

@@ -2,18 +2,18 @@
 
 You can send event-related information to Inspetor via the REST API. The `/events` endpoint supports `POST` (create), `PUT` (update), and `DELETE` (delete) operations with the following arguments:
 
-Property        | When is it required?   | Type    | Description
---------        | ---------------------  | ----    | -----------
-**id**          | `POST`, `PUT`, `DELETE`| String  | The unique identifier of this event listing in your platform
-**name**        | `POST`                 | String  | The name of the event
-**is_physical** | `POST`                 | Bool    | It determines if it is a physical or digital event. *The default value is `true`.*
-**sessions**    | `POST`                 | Array of Inspetor [event datetimes](#event-datetimes) | All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.
-**creator_id**  | `POST`                 | String  | The id of the user who created the event
-**admin_ids**   | `POST`                 | Array   | An array containing the ids of all users who can make changes to the event
-address         |                        | [Address](#addresses) | The address where the event is happening. *This field is only required if the type of the event is set to physical.*
-status          |                        | String  | The status of the event. *Inspetor provides some pre-built statuses (`draft`, `private` and `published`) but you can provide a custom status if it does not fit with our status model.* 
-description     |                        | String  | A description of the event
-slug            |                        | String  | The slug of the event
+Property            | When is it required?   | Type    | Description
+--------            | ---------------------  | ----    | -----------
+**id**              | `POST`, `PUT`, `DELETE`| String  | The unique identifier of this event listing in your platform
+**name**            | `POST`                 | String  | The name of the event
+**is_physical**     | `POST`                 | Bool    | It determines if it is a physical or digital event. *The default value is `true`.*
+**event_datetimes** | `POST`                 | Array of Inspetor [event datetimes](#event-datetimes) | All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.
+**creator_id**      | `POST`                 | String  | The id of the user who created the event
+**admin_ids**       | `POST`                 | Array   | An array containing the ids of all users who can make changes to the event
+address             |                        | [Address](#addresses) | The address where the event is happening. *This field is only required if the type of the event is set to physical.*
+status              |                        | String  | The status of the event. *Inspetor provides some pre-built statuses (`draft`, `private` and `published`) but you can provide a custom status if it does not fit with our status model.* 
+description         |                        | String  | A description of the event
+slug                |                        | String  | The slug of the event
 
 <p><%= partial "modules/collection-api/event/actions/create.md.erb" %></p>
 <p><%= partial "modules/collection-api/event/actions/update.md.erb" %></p>
