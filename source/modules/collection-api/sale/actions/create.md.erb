@@ -5,34 +5,35 @@ curl -XPOST https://collection.inspcdn.net/sale \
         "sale_id":    "12345",
         "account_id": "157421",
         "status":     "pending",
-        "sale_items": [
+        "items": [
             {
-                "item_id":           "1",
+                "id":           "1",
                 "value":             25.00,
                 "event_id":          "23553",
                 "event_session_ids": ["101", "102"]
             },
             {
-                "item_id":           "2",
+                "id":           "2",
                 "value":             25.00,
                 "event_id":          "23553",
                 "event_session_ids": ["101", "102"]
             }
         ]
-        "payment": {
-            "method":          "credit_card",
-            "installments":    1,
-            "ccard_first_six": 455326,
-            "ccard_last_four": 0012,
-            "holder_name":     "John Fulano",
-            "holder_cpf":      "741.112.235-53",
+        "payment": 
+        {
+            "method":              "credit_card",
+            "installments":        1,
+            "first_six_digits_cc": 455326,
+            "last_four_digits_cc": 0012,
+            "holder_name":         "John Fulano",
+            "holder_cpf":          "741.112.235-53",
             "billing_address": {
-                "street_name":   "Rua Fidalga",
-                "street_number": "252",
-                "zip_code":      "05432-010",
-                "city":          "São Paulo",
-                "state":         "SP",
-                "country":       "Brasil"
+                "street_name":     "Rua Fidalga",
+                "street_number":   "252",
+                "zip_code":        "05432-010",
+                "city":            "São Paulo",
+                "state":           "SP",
+                "country":         "Brasil"
             }
         }
     }'

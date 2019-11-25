@@ -4,7 +4,7 @@ You can provide transfer-related activity via the REST API. The `/transfer` endp
 
 Property                 | Required For Creation | Required For Update | Type | Description
 --------                 | --------------------- | ------------------- | ---- | -----------
-transfer_id              | Yes | Yes | String  | Your platform-unique identifier for the transfer
+id                       | Yes | Yes | String  | Your platform-unique identifier for the transfer
 sale_id                  | Yes | No  | String  | Your platform-unique identifier for the **sale** associated with the items being transfered
 sale_item_id             | Yes | No  | String  | The id of the [sale item](#sale-items) (*e.g. ticket*) that is being transfered
 sender_account_id        | Yes | No  | String  | The id of the account who is transferring the item (*e.g. ticket*)
