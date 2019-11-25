@@ -2,21 +2,21 @@
 ```shell
 curl -XPOST https://collection.inspcdn.net/sale \
     -d '{
-        "sale_id":    12345,
-        "account_id": 157421,
+        "sale_id":    "12345",
+        "account_id": "157421",
         "status":     "pending",
         "sale_items": [
             {
-                "item_id":           1,
+                "item_id":           "1",
                 "value":             25.00,
-                "event_id":          23553,
-                "event_session_ids": [101, 102]
+                "event_id":          "23553",
+                "event_session_ids": ["101", "102"]
             },
             {
-                "item_id":           2,
+                "item_id":           "2",
                 "value":             25.00,
-                "event_id":          23553,
-                "event_session_ids": [101, 102]
+                "event_id":          "23553",
+                "event_session_ids": ["101", "102"]
             }
         ]
         "payment": {

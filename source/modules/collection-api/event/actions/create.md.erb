@@ -1,19 +1,19 @@
 ### Event Creation
 
 ```sh
-curl -XPOST https://collection.inspcdn.net/events \
+curl -XPOST https://collection.inspcdn.net/event \
     -d '{
         "id":          "12345",
         "name":        "Reveillon 2020",
-        "is_physical": True,
+        "is_physical": true,
         "event_datetimes":  [
             {
-                "id":           1,
-                "event_datetime": 1574210000
+                "id":           "1",
+                "datetime": 1574210000
             },
             {
-                "id":           2,
-                "event_datetime": 1574315000
+                "id":           "2",
+                "datetime": 1574315000
             }
         ],
         "creator_id":  "22342",
