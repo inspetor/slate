@@ -13,10 +13,10 @@ Our current collection API is built with certain assumptions about the ticketing
 
 Property               | When is it required?  | Type    | Description
 --------               | --------------------- | ----    | -----------
-**id**                 | `POST`, `UPDATE`      | String  | A unique identifier for this item (*e.g. ticket*) within your platform
-**event_id**           | `POST`                | String  | The unique identifier of the [event](#event-activity) that the item is tied too
-**event_datetime_ids** | `POST`                | Array   | The array of [event datetime IDs](#event-datetimes) that the ticket is tied to
-**value**              | `POST`                | Double  | The price of the item. *It should only contain numbers, dots, or commas*
+id                     | `POST`, `UPDATE`      | String  | A unique identifier for this item (*e.g. ticket*) within your platform
+event_id               | `POST`                | String  | The unique identifier of the [event](#event-activity) that the item is tied too
+event_datetime_ids     | `POST`                | Array   | The array of [event datetime IDs](#event-datetimes) that the ticket is tied to
+value                  | `POST`                | Double  | The price of the item. *It should only contain numbers, dots, or commas*
 
 <aside class="notice">
 Any time you are updating one or more of the items associated with a sale, you must send <b>all</b> of the items associated with that sale (even the items that were not updated). Otherwise, the update request will be interpreted as having removed the omitted items from the sale.

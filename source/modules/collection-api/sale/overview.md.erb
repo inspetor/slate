@@ -5,11 +5,11 @@ You can provide sale-related activity via the REST API. The `/sales` endpoint su
 
 Property       | When is it required?   | Type   | Description
 --------       | ---------------------  | ----   | -----------
-**id**         | `POST`, `PUT`          | String | The unique identifier for the sale within your platform
-**account_id** | `POST`                 | String | The id of the user who is making the purchase
-**status**     | `POST`,                | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
-**items**      | `POST`                 | Array of [sale items](#sale-items) | The items (*e.g. tickets*) that are being bought
-**payment**    | `POST`                 | [Payment](#sale-payment) | The payment used in this purchase
+id             | `POST`, `PUT`          | String | The unique identifier for the sale within your platform
+account_id     | `POST`                 | String | The id of the user who is making the purchase
+status         | `POST`,                | String | The status of the sale. *The allowed values are: `accepted`, `declined`, `pending`, `refunded`, and `manual_analysis`*
+items          | `POST`                 | Array of [sale items](#sale-items) | The items (*e.g. tickets*) that are being bought
+payment        | `POST`                 | [Payment](#sale-payment) | The payment used in this purchase
 
 <p><%= partial "modules/collection-api/sale/actions/create.md.erb" %></p>
 <p><%= partial "modules/collection-api/sale/actions/update.md.erb" %></p>

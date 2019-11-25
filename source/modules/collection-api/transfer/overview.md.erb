@@ -4,13 +4,13 @@ You can provide transfer-related activity via the REST API. The `/transfer` endp
 
 Property                 | Required For Creation | Required For Update | Type | Description
 --------                 | --------------------- | ------------------- | ---- | -----------
-**transfer_id**          | Yes | Yes | String  | Your platform-unique identifier for the transfer
-**sale_id**              | Yes | No  | String  | Your platform-unique identifier for the **sale** associated with the items being transfered
-**sale_item_id**         | Yes | No  | String  | The id of the [sale item](#sale-items) (*e.g. ticket*) that is being transfered
-**sender_account_id**    | Yes | No  | String  | The id of the account who is transferring the item (*e.g. ticket*)
-**recipient_email**      | Yes | No  | String  | The email of the user who is receiving the item
-**recipient_account_id** | No  | No  | String  | The id of the account (if available) who is receiving the item
-**status**               | Yes | Yes | String  | The status of the transfer. *The allowed values are: `accepted`, `rejected`, and `pending`*
+transfer_id              | Yes | Yes | String  | Your platform-unique identifier for the transfer
+sale_id                  | Yes | No  | String  | Your platform-unique identifier for the **sale** associated with the items being transfered
+sale_item_id             | Yes | No  | String  | The id of the [sale item](#sale-items) (*e.g. ticket*) that is being transfered
+sender_account_id        | Yes | No  | String  | The id of the account who is transferring the item (*e.g. ticket*)
+recipient_email          | Yes | No  | String  | The email of the user who is receiving the item
+recipient_account_id     | No  | No  | String  | The id of the account (if available) who is receiving the item
+status                   | Yes | Yes | String  | The status of the transfer. *The allowed values are: `accepted`, `rejected`, and `pending`*
 
 <p><%= partial "modules/collection-api/transfer/actions/create.md.erb" %></p>
 <p><%= partial "modules/collection-api/transfer/actions/update.md.erb" %></p>
