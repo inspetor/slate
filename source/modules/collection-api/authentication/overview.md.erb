@@ -1,6 +1,7 @@
 ## Authentication Activity
 ```shell
 curl -XPOST https://collection-prod.inspcdn.net/auth \
+    -H 'Authorization: Bearer <your API key>'   
     -d '{
         "account_id": "232550",
         "action":     "login_failure"

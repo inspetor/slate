@@ -1,6 +1,7 @@
 ## Password Activity
 ```shell
 curl -XPOST https://collection-prod.inspcdn.net/forgot-password \
+    -H 'Authorization: Bearer <your API key>'   
     -d '{
         "recovery_email": "badguy@yahoo.com",
         "action":         "reset"
