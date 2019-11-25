@@ -1,6 +1,6 @@
 ## Authentication Activity
 ```shell
-curl -XPOST https://collection.inspcdn.net/auth \
+curl -XPOST https://collection-prod.inspcdn.net/auth \
     -d '{
         "account_id": "232550",
         "action":     "login_failure"
@@ -11,7 +11,7 @@ Account login/logout behavior is highly correlated with fraudulent activity. You
 
 The following fields are required:
 
-Argument    | Type   | Description
+Property    | Type   | Description
 --------    | ----   | -----------
 account_id  | String | The account ID that was (or was attempted to be) logged into\
 action      | String | What type of authentication activity occurred. Accepted values are limited to `'login_failure'`, `'login_success'`, and `'logout'` (case-insensitive).
