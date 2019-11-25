@@ -1,7 +1,7 @@
 ### Event Datetimes 
 ```sh
     {
-        "id":           201,
+        "id":           "201",
         "event_datetime": 1594315000
     }
 ```
@@ -9,7 +9,7 @@ Our data model operates with the assumption that a single event listing could ha
 
 An event datetime requires the following information: 
 
-Property     | Type   | Description
---------     | ----   | -----------
-**id**       | String | The identifier for this event datetime in your platform. Event datetime IDs must be unique per-event (but event datetime ids can be the same if they are sessions of different events)
-**datetime** | String | The Unix-timesstamp corresponding to the date and time of the event datetime 
+Property     | Type    | Description
+--------     | ----    | -----------
+**id**       | String  | The identifier for this event datetime in your platform. Event datetime IDs must be unique per-event (but event datetime ids can be the same if they are sessions of different events)
+**datetime** | Integer | The Unix-timestamp corresponding to the date and time of the event datetime 
