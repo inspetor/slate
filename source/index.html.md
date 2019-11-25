@@ -6,7 +6,6 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 includes:
   - using
-  - authorization
   - collection-api.md.erb
 
 search: true

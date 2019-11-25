@@ -1,5 +1,19 @@
 # Using the Inspetor collection service
 
+## Authorization
+
+To use our API, you will need to provide authorization. We grant authorization based on an API key that should be provided in a request header with every request in the following format (OAuth 2.0):
+
+`Authorization: Bearer <your JWT-format API key here>`
+
+The API key is customer-specific and will be provided to you by Inspetor.
+
+## Sandbox API Keys
+
+In the initial stages of your integration, you will probably want to test out a few endpoints to make sure everything is working. It is important that this data is differentiated from your production data; otherwise, our antifraud models will use this test data for training. You can test your integration with our collection service and indicate that you are sending test data by providing a "sandbox" API key. (We will provide you with at the same time we issue your production API key.)
+
+## When to send events to Inspetor
+
 In order to protect your company from fraudsters, our decision models need to be informed with customer behavior.
 
  But we can't do it alone--we need _you_, our client, to send this information to us via the Client Library so that we can make better-informed decisions.
@@ -37,7 +51,7 @@ While these are the terms with which our model interprets actions on your platfo
 Inspetor will never request write access to your code base--that means that it is on <i>you</i>, the developer, to integrate our library into your product's code base. We think that's the right way to do things: you know your product's code base, we know fraud.
 </aside>
 
-## When to send events to Inspetor
+## Inspetor Entities
 
 The primary Inspetor entities are **stateful** objects. They have properties that can be updated, and the values of these properties are crucial to our evaluation of transaction validity. Thus, you should send events to Inspetor via the client library whenever properties of these objects are changed.
 
@@ -92,5 +106,9 @@ Note that the information that you provide in either environment will vary. In t
 ## Testing your integration with Inspetor
 
 Integrating with Inspetor is meant to be easy--simply instantiate our library or hit our REST API with valid authentication, and ensure that you receive a `200 OK` response.
+
+<aside class="notice">
+Please ensure you are using your <b>sandbox API keys</b> when you are testing your integration; otherwise, Inspetor's models will interpret anything you send during dev testing as production data and train our fraud detection models accordingly.
+</aside>
 
 However, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific and it will involve coordinated effort from both the customer and the Inspetor integration team.
