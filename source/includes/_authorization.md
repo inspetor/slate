@@ -1,8 +1,8 @@
 # Authorization
 
-To use our API, you will need to provide authorization. We grant authorization based on an API key that should be provided in a request header with every request in the following format:
+To use our API, you will need to provide authorization. We grant authorization based on an API key that should be provided in a request header with every request in the following format (OAuth 2.0):
 
-`Authorization: <your API key here>`
+`Authorization: Bearer <your JWT-format API key here>`
 
 The API key is customer-specific and will be provided to you by Inspetor.
 
