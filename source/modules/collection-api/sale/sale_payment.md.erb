@@ -25,8 +25,8 @@ Property             | When is it required?      | Type    | Description
 --------             | ---------------------     | ----    | -----------
 method               | `POST`                    | String  | The method of payment being used. *The allowed values are `credit_card`, `boleto`, and `other`*
 installments         | `POST`                    | Integer | The number of "*parcelas*" that the user will pay
-first_six_digits_cc  | `POST` (credit_card only) | Integer  | The first six digits of the credit card number
+first_six_digits_cc  | `POST` (credit_card only) | Integer | The first six digits of the credit card number
 last_four_digits_cc  | `POST` (credit_card only) | Integer | The last four digits of the credit card number
 holder_name          | `POST` (credit_card only) | String  | The full name of the owner of the credit card
-holder_cpf           | `POST` (credit_card only) | String  | The CPF of the owner of the credit card. (Expected format is only numbers, with no dots or dashes)\
+holder_cpf           | `POST` (credit_card only) | String  | The CPF of the owner of the credit card. (Expected format is only numbers, with no dots or dashes)
 billing_address      | `POST` (credit_card only) | [Address](#addresses) | The billing address associated with this credit card
