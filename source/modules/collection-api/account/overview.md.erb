@@ -6,8 +6,10 @@ Property               | When is it required?   | Type                | Descript
 ---------------------- | ---------------------  | ----                | -----------
 id                     | `POST`, `PUT`, `DELETE`| String              | Your unique identifier for this account in your platform
 email                  | `POST`                 | String              | The email associated with the account
-document               |                        | String              | The CPF number associated with the account. The expected format is only numbers, no dots and dashes.
-phone_number           |                        | String              | The phone number associated with the account. The expected format is `Country Code+DDD+Number` (only numbers) 
+document               |                        | String              | The Document number associated with the account.
+document_type          |                        | String              | The Document type associated with the account's document number. Accpeted values are `cpf`, `passport`, and `rne`.
+phone_number           |                        | Integer             | The phone number associated with the account (numbers only; country code not included)
+phone_country_code     |                        | Integer             | The international country code associated with the phone number (numbers only)
 password_hash          | `POST`                 | String              | The **secure** (salted and hashed) password associated with the account 
 first_name             |                        | String              | The first name of the user
 last_name              |                        | String              | The last name of the user
