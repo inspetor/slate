@@ -10,7 +10,7 @@ sale_item_id             | `POST`               | String  | The id of the [sale 
 sender_account_id        | `POST`               | String  | The id of the account who is transferring the item (*e.g. ticket*)
 recipient_email          | `POST`               | String  | The email of the user who is receiving the item
 recipient_account_id     |                      | String  | The id of the account (if available) who is receiving the item
-status                   | `POST`, `UPDATE`     | String  | The status of the transfer. *The allowed values are: `accepted`, `rejected`, and `pending`*
+status                   | `POST`, `UPDATE`     | String  | The status of the transfer. (Allowed values: `accepted`, `rejected`, `cancelled`, and `pending`)
 
 <p><%= partial "modules/collection-api/transfer/actions/create.md.erb" %></p>
 <p><%= partial "modules/collection-api/transfer/actions/update.md.erb" %></p>
