@@ -8,9 +8,9 @@ id                     | `POST`, `PUT`, `DELETE`| String              | Your uni
 email                  | `POST`                 | String              | The email associated with the account
 document               |                        | String              | The Document number associated with the account.
 document_type          |                        | String              | The Document type associated with the account's document number. Accpeted values are `cpf`, `passport`, and `rne`.
-phone_number           |                        | Integer             | The phone number associated with the account (numbers only; country code not included)
-phone_country_code     |                        | Integer             | The international country code associated with the phone number (numbers only)
-password_hash          | `POST`                 | String              | The **secure** (salted and hashed) password associated with the account 
+phone_number           |                        | Integer             | The phone number associated with the account (numbers only; country code not included). Note: if phone_number is provided, phone_country_code is also required.
+phone_country_code     |                        | Integer             | The international country code associated with the phone number (numbers only). Note: if phone_country_code is provided, phone_number is also required.
+password_hash          |                        | String              | The **secure** (salted and hashed) password associated with the account 
 first_name             |                        | String              | The first name of the user
 last_name              |                        | String              | The last name of the user
 address                |                        | [Address](#addresses) | The address associated with the account

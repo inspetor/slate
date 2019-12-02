@@ -1,8 +1,8 @@
 ### Event Deletion
 
 ```sh
-curl -XDELETE https://collection-prod.inspcdn.net/event \
-    -H 'Authorization: Bearer $API_KEY'   
+curl -X DELETE https://collection-prod.inspcdn.net/event \
+    -H "Authorization: Bearer $API_KEY" \    
     -d '{
         "id": "12345"
     }'
