@@ -118,7 +118,7 @@ You must call this function <b>any</b> time a sale's status is updated (includin
         "fraud_signal_type": "chargeback"
     }'</span>
 </code></pre>
-<p>Additionally, there is a <code>/sales/mark_fraudulent</code> endpoint that you should use to update Inspetor when a sale has been rejected or refunded due to suspicion of fraud, or if a sale has resuled in a chargeback.</p>
+<p>Additionally, there is a <code>/sales/mark_fraudulent</code> endpoint that you should use to update Inspetor when a sale has been rejected or refunded due to suspicion of fraud, or if a sale has resulted in a chargeback.</p>
 
 <p>If a sale is deemed fraudulent (either via your existing antifraud solution, manual analysis, acquirer rejection, or even if you receive a chargeback), it is extremely important that you relay this information to Inspetor. This is perhaps <em>the most valuable piece of information</em> you can send to us; all of our fraud prediction models are trained on this label. </p>
 

@@ -1,5 +1,5 @@
 <h2 id='account-activity'>Account Activity</h2>
-<p>You can send account-related information to Inspetor via the REST API. The <code>/accounts</code> endpoint supports <code>POST</code> (create), <code>PUT</code> (update), and <code>DELETE</code> (delete) operations with the following arguments:</p>
+<p>You can send account-related information to Inspetor via the REST API. The <code>/account</code> endpoint supports <code>POST</code> (create), <code>PUT</code> (update), and <code>DELETE</code> (delete) operations with the following arguments:</p>
 
 <table><thead>
 <tr>
