@@ -7,7 +7,7 @@ curl -X POST https://collection-prod.inspcdn.net/sale/mark_fraudulent \
         "fraud_signal_type": "chargeback"
     }'
 ```
-Additionally, there is a `/sales/mark_fraudulent` endpoint that you should use to update Inspetor when a sale has been rejected or refunded due to suspicion of fraud, or if a sale has resuled in a chargeback.
+Additionally, there is a `/sales/mark_fraudulent` endpoint that you should use to update Inspetor when a sale has been rejected or refunded due to suspicion of fraud, or if a sale has resulted in a chargeback.
 
 If a sale is deemed fraudulent (either via your existing antifraud solution, manual analysis, acquirer rejection, or even if you receive a chargeback), it is extremely important that you relay this information to Inspetor. This is perhaps _the most valuable piece of information_ you can send to us; all of our fraud prediction models are trained on this label. 
 
