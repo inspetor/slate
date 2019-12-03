@@ -38,12 +38,12 @@ There are some additional behaviors that are also relevant to assessing potentia
 
 - <a href="#authentication-activity">Attempted and successful logins or logouts of a user account</a>
 - <a href="#password-activity">Password recovery or reset</a>
-- <a href="#item-transfers">**Ticket transfers**</a>
+- <a href="#item-transfers">Ticket transfers</a>
 
 And lastly, there are some "primitive" types that we use:
 
-- <a href="#addresses">**Addresses**</a>
-- <a href="#sale-payment">**Sale Payment**</a>
+- <a href="#addresses">Addresses</a>
+- <a href="#sale-payment">Sale Payment</a>
 
 While these are the terms with which our model interprets actions on your platform, Inspetor is unaware of these actions occurring unless you use the Inspetor Collection API to relay this information to us.
 
