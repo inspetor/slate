@@ -1,0 +1,61 @@
+<h3 id='sdks'>SDKs</h3><h1 id='note-code-snippets-are-here-only-temporarily-they-should-be-moved-back-to-the-corresponding-action-page-when-the-sdk-properly-supports-these-actions'>Note: code snippets are here only temporarily; they should be moved back to the corresponding action page when the SDK properly supports these actions</h1><h3 id='create'>CREATE</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferCreation</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_creation</span><span class="p">(</span><span class="n">transfer</span><span class="p">)</span>
+
+</code></pre><h3 id='update'>UPDATE</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferUpdate</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_update</span><span class="p">(</span><span class="n">transfer</span><span class="p">)</span>
+
+</code></pre>
+<p>All the functions for tracking transfer activity require a <a href="#inspetortransfer">InspetorTransfer</a> object as argument and return <code>true</code> if everything goes right. Otherwise, one of the the following exceptions will be thrown:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#inspetortransferexception">TransferException</a></strong></td>
+<td>The Transfer object provided is not a valid one</td>
+</tr>
+<tr>
+<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
+<td>The timestamps that you passed on the objects are not valid ones</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occurred <em>Hopefully this never happen</em></td>
+</tr>
+</tbody></table>
+
+<p>The following functions will be used to relay item (<em>e.g. ticket</em>) transfers between users (<em>e.g. accounts</em>) that happen within your platform:</p>
+
+<ul>
+<li><strong>Item Transfer Creation</strong> (<em>trackItemTransferCreation</em>)</li>
+<li><a href="#transfer-creation">trackTransferCreation</a></li>
+<li><a href="#transfer-updates">trackTransferUpdate</a></li>
+<li><strong>Item Transfer Update</strong> (<em>trackItemTransferUpdate</em>)</li>
+</ul>

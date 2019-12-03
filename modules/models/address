@@ -1,6 +1,18 @@
 <h2 id='inspetoraddress'>InspetorAddress</h2>
 <p>Residential or billing address information that is used in other models (<a href="#inspetoraccount">InspetorAccount</a>, <a href="#inspetorevent">InspetorEvent</a> and <a href="#inspetorcreditcard">InspetorCreditCard</a>).</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<h3 id='properties'>Properties</h3><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">'</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"street_name"</span><span class="p">:</span><span class="w">   </span><span class="s2">"Rua Fidalga"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"street_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"252"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w">      </span><span class="s2">"05432-010"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w">          </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w">         </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w">       </span><span class="s2">"Brasil"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w">      </span><span class="mf">-46.234501</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w">     </span><span class="mf">-21.515252</span><span class="w">    
+</span><span class="p">}</span><span class="err">'</span><span class="w">
+
+</span></code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
 <span class="c1">// Calling an instance of Model
 </span><span class="nv">$inspetor_address</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorAddress</span><span class="p">();</span>

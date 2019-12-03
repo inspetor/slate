@@ -1,0 +1,70 @@
+<h2 id='addresses'>Addresses</h2><pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"street_name"</span>:   <span class="s2">"Rua Fidalga"</span>,
+    <span class="s2">"street_number"</span>: <span class="s2">"252"</span>,
+    <span class="s2">"zip_code"</span>:      <span class="s2">"05432-010"</span>,
+    <span class="s2">"city"</span>:          <span class="s2">"São Paulo"</span>,
+    <span class="s2">"state"</span>:         <span class="s2">"SP"</span>,
+    <span class="s2">"country"</span>:       <span class="s2">"BR"</span>,
+    <span class="s2">"latitude"</span>:      -43.2360,
+    <span class="s2">"longitude"</span>:     -23.5115
+<span class="o">}</span>
+</code></pre>
+<p>Numerous resources have associated location data: Sale payments have an associated billing address, events occur at a particular address, or an account may have a shipping address associated with it. Inspetor standardizes the format in which we collect this data as follows:</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>street_name</td>
+<td>Yes</td>
+<td>String</td>
+<td>The street of the address</td>
+</tr>
+<tr>
+<td>street_number</td>
+<td>Yes</td>
+<td>String</td>
+<td>The street number of the address</td>
+</tr>
+<tr>
+<td>zip_code</td>
+<td>Yes</td>
+<td>String</td>
+<td>The zip code (<em>e.g. CEP</em>) of the address</td>
+</tr>
+<tr>
+<td>city</td>
+<td>Yes</td>
+<td>String</td>
+<td>The city in which the address is located</td>
+</tr>
+<tr>
+<td>state</td>
+<td>Yes</td>
+<td>String</td>
+<td>The two-character ISO 3166-2 abbreviation of the state in which the address is located</td>
+</tr>
+<tr>
+<td>country</td>
+<td>Yes</td>
+<td>String</td>
+<td>The two-character ISO 3166-2 country code in which the address is located</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>No</td>
+<td>Double</td>
+<td>The exact latitude of the address</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>No</td>
+<td>Double</td>
+<td>The exact longitude of the address</td>
+</tr>
+</tbody></table>

@@ -1,0 +1,46 @@
+<h3 id='sale-items'>Sale Items</h3><pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"id"</span>:                 <span class="s2">"101"</span>,
+    <span class="s2">"event_id"</span>:           <span class="s2">"23553"</span>,
+    <span class="s2">"event_datetime_ids"</span>: <span class="o">[</span><span class="s2">"101"</span>, <span class="s2">"102"</span><span class="o">]</span>
+    <span class="s2">"value"</span>:              25.00,
+<span class="o">}</span>
+</code></pre>
+<p>Our current collection API is built with certain assumptions about the ticketing industry. In particular, we assume that a sale will have one or more items (in the case of the ticketing industry, tickets) associated with it. We require some information about these items in order to reason about the sale:</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>When is it required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>POST</code>, <code>UPDATE</code></td>
+<td>String</td>
+<td>A consistent identifier for this item (<em>e.g. ticket</em>) within your platform</td>
+</tr>
+<tr>
+<td>event_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The unique identifier of the <a href="#event-activity">event</a> that the item is tied too</td>
+</tr>
+<tr>
+<td>event_datetime_ids</td>
+<td><code>POST</code></td>
+<td>Array</td>
+<td>The array of <a href="#event-datetimes">event datetime IDs</a> that the ticket is tied to</td>
+</tr>
+<tr>
+<td>value</td>
+<td><code>POST</code></td>
+<td>Double</td>
+<td>The price of the item. <em>It should only contain numbers, dots, or commas</em></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Any time you are updating one or more of the items associated with a sale, you must send <b>all</b> of the items associated with that sale (even the items that were not updated). Otherwise, the update request will be interpreted as having removed the omitted items from the sale.
+</aside>

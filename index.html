@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;php&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;sh&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,8 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo-white.png" class="logo" alt="Logo white" />
         <div class="lang-selector">
-              <a href="#" data-language-name="php">php</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="sh">sh</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -223,16 +222,19 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#installing-the-client-library" class="toc-h1 toc-link" data-title="Installing the Client Library">Installing the Client Library</a>
-          </li>
-          <li>
-            <a href="#client-library-setup" class="toc-h1 toc-link" data-title="Client Library Setup">Client Library Setup</a>
-          </li>
-          <li>
-            <a href="#using-the-client-library" class="toc-h1 toc-link" data-title="Using the Client Library">Using the Client Library</a>
+            <a href="#using-the-inspetor-collection-service" class="toc-h1 toc-link" data-title="Using the Inspetor collection service">Using the Inspetor collection service</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#authorization" class="toc-h2 toc-link" data-title="Authorization">Authorization</a>
+                  </li>
+                  <li>
+                    <a href="#sandbox-api-keys" class="toc-h2 toc-link" data-title="Sandbox API Keys">Sandbox API Keys</a>
+                  </li>
+                  <li>
                     <a href="#when-to-send-events-to-inspetor" class="toc-h2 toc-link" data-title="When to send events to Inspetor">When to send events to Inspetor</a>
+                  </li>
+                  <li>
+                    <a href="#inspetor-entities" class="toc-h2 toc-link" data-title="Inspetor Entities">Inspetor Entities</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#account" class="toc-h3 toc-link" data-title="Account">Account</a>
@@ -250,7 +252,7 @@
                             <a href="#login-logout" class="toc-h3 toc-link" data-title="Login/Logout">Login/Logout</a>
                           </li>
                           <li>
-                            <a href="#password-activity" class="toc-h3 toc-link" data-title="Password Activity">Password Activity</a>
+                            <a href="#password-activities" class="toc-h3 toc-link" data-title="Password Activities">Password Activities</a>
                           </li>
                       </ul>
                   </li>
@@ -281,25 +283,9 @@
                   </li>
                   <li>
                     <a href="#authentication-activity" class="toc-h2 toc-link" data-title="Authentication Activity">Authentication Activity</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#account-login" class="toc-h3 toc-link" data-title="Account Login">Account Login</a>
-                          </li>
-                          <li>
-                            <a href="#account-logout" class="toc-h3 toc-link" data-title="Account Logout">Account Logout</a>
-                          </li>
-                      </ul>
                   </li>
                   <li>
                     <a href="#password-activity" class="toc-h2 toc-link" data-title="Password Activity">Password Activity</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#password-reset" class="toc-h3 toc-link" data-title="Password Reset">Password Reset</a>
-                          </li>
-                          <li>
-                            <a href="#password-recovery" class="toc-h3 toc-link" data-title="Password Recovery">Password Recovery</a>
-                          </li>
-                      </ul>
                   </li>
                   <li>
                     <a href="#event-activity" class="toc-h2 toc-link" data-title="Event Activity">Event Activity</a>
@@ -313,6 +299,9 @@
                           <li>
                             <a href="#event-deletion" class="toc-h3 toc-link" data-title="Event Deletion">Event Deletion</a>
                           </li>
+                          <li>
+                            <a href="#event-datetimes" class="toc-h3 toc-link" data-title="Event Datetimes">Event Datetimes</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -324,10 +313,19 @@
                           <li>
                             <a href="#sale-updates" class="toc-h3 toc-link" data-title="Sale Updates">Sale Updates</a>
                           </li>
+                          <li>
+                            <a href="#mark-sale-fraudulent" class="toc-h3 toc-link" data-title="Mark Sale Fraudulent">Mark Sale Fraudulent</a>
+                          </li>
+                          <li>
+                            <a href="#sale-items" class="toc-h3 toc-link" data-title="Sale Items">Sale Items</a>
+                          </li>
+                          <li>
+                            <a href="#sale-payment" class="toc-h3 toc-link" data-title="Sale Payment">Sale Payment</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
-                    <a href="#items-transfers" class="toc-h2 toc-link" data-title="Items Transfers">Items Transfers</a>
+                    <a href="#item-transfers" class="toc-h2 toc-link" data-title="Item Transfers">Item Transfers</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#transfer-creation" class="toc-h3 toc-link" data-title="Transfer Creation">Transfer Creation</a>
@@ -337,223 +335,8 @@
                           </li>
                       </ul>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#models" class="toc-h1 toc-link" data-title="Models">Models</a>
-              <ul class="toc-list-h2">
                   <li>
-                    <a href="#inspetoraccount" class="toc-h2 toc-link" data-title="InspetorAccount">InspetorAccount</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetoraddress" class="toc-h2 toc-link" data-title="InspetorAddress">InspetorAddress</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorauth" class="toc-h2 toc-link" data-title="InspetorAuth">InspetorAuth</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorcategory" class="toc-h2 toc-link" data-title="InspetorCategory">InspetorCategory</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorcreditcard" class="toc-h2 toc-link" data-title="InspetorCreditCard">InspetorCreditCard</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorevent" class="toc-h2 toc-link" data-title="InspetorEvent">InspetorEvent</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetoritem" class="toc-h2 toc-link" data-title="InspetorItem">InspetorItem</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorpassrecovery" class="toc-h2 toc-link" data-title="InspetorPassRecovery">InspetorPassRecovery</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorpayment" class="toc-h2 toc-link" data-title="InspetorPayment">InspetorPayment</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorsale" class="toc-h2 toc-link" data-title="InspetorSale">InspetorSale</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorsession" class="toc-h2 toc-link" data-title="InspetorSession">InspetorSession</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetortransfer" class="toc-h2 toc-link" data-title="InspetorTransfer">InspetorTransfer</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
-                          </li>
-                      </ul>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#exceptions" class="toc-h1 toc-link" data-title="Exceptions">Exceptions</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#trackerexception" class="toc-h2 toc-link" data-title="TrackerException">TrackerException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorgeneralexception" class="toc-h2 toc-link" data-title="InspetorGeneralException">InspetorGeneralException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetoraccountexception" class="toc-h2 toc-link" data-title="InspetorAccountException">InspetorAccountException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetoraddressexception" class="toc-h2 toc-link" data-title="InspetorAddressException">InspetorAddressException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorauthexception" class="toc-h2 toc-link" data-title="InspetorAuthException">InspetorAuthException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorcategoryexception" class="toc-h2 toc-link" data-title="InspetorCategoryException">InspetorCategoryException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorcreditcardexception" class="toc-h2 toc-link" data-title="InspetorCreditCardException">InspetorCreditCardException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetoreventexception" class="toc-h2 toc-link" data-title="InspetorEventException">InspetorEventException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetoritemexception" class="toc-h2 toc-link" data-title="InspetorItemException">InspetorItemException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorpassrecoveryexception" class="toc-h2 toc-link" data-title="InspetorPassRecoveryException">InspetorPassRecoveryException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorpaymentexception" class="toc-h2 toc-link" data-title="InspetorPaymentException">InspetorPaymentException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorsaleexception" class="toc-h2 toc-link" data-title="InspetorSaleException">InspetorSaleException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetorsessionexception" class="toc-h2 toc-link" data-title="InspetorSessionException">InspetorSessionException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#inspetortransferexception" class="toc-h2 toc-link" data-title="InspetorTransferException">InspetorTransferException</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#types" class="toc-h3 toc-link" data-title="Types">Types</a>
-                          </li>
-                      </ul>
+                    <a href="#addresses" class="toc-h2 toc-link" data-title="Addresses">Addresses</a>
                   </li>
               </ul>
           </li>
@@ -563,61 +346,31 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Inspetor protects your company from losses due to fraud and chargebacks, all while maximizing revenue from valid purchases and maintaining the simple payment flow that your customers love. We accomplish this by making predictions based on past and present user behavior to evaluate the likelihood that a transaction is fraudulent.</p>
+<p>Inspetor protects your company from losses due to fraud and chargebacks, all while maximizing revenue from valid purchases and maintaining the simple payment flow that your customers love. We accomplish this by making predictions based on past and present user behavior to evaluate the likelihood that a transaction is fraudulent. </p>
 
-<p>But we can&#39;t do it alone--we need <em>you</em>, the user, to integrate our library into your code base so we can capture sufficient information to train our models. The more information we receive, the better the decision we can make, and the better we can protect your platform from fraud.</p>
+<p>But we can&#39;t collect this information on our own--we need <em>you</em>, the user, to integrate our library into your code base so we can capture sufficient information to train our models. The more information we receive, the better the decision we can make, and the better we can protect your platform from fraud. Events like logins, profile updates, or even unrelated purchases on the same account all contribute to our assessment of a given transaction.</p>
 
 <p>What follows is a general guide of how to integrate Inspetor&#39;s Client Library into your product. It should be sufficient for you to start with your Inspetor product integration. Should you find yourself in need of further assistance, do not hesitate to reach out to the Inspetor team--we will be happy to help!</p>
-<h1 id='installing-the-client-library'>Installing the Client Library</h1><pre class="highlight php tab-php"><code>$ composer require inspetor/inspetorphp:${version}
-</code></pre><pre class="highlight python tab-python"><code><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">inspetor</span>
-</code></pre>
-<p>The Inspetor collection libraries are available via public standard package managers for the following supported languages:</p>
+<h1 id='using-the-inspetor-collection-service'>Using the Inspetor collection service</h1><h2 id='authorization'>Authorization</h2>
+<p>To use our API, you will need to provide authorization. We grant authorization based on an API key that should be provided in a request header with every request in the following format (OAuth 2.0):</p>
 
-<ul>
-<li>PHP (via <a href="https://packagist.org/packages/inspetor/inspetor-php">Composer</a>)</li>
-<li>Python (via <a href="https://pypi.org/project/inspetor/">Pip</a>)</li>
-</ul>
-<h1 id='client-library-setup'>Client Library Setup</h1><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<p><code>Authorization: Bearer &lt;your JWT-format API key here&gt;</code></p>
 
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor_config</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="s2">"appId"</span>       <span class="o">=&gt;</span> <span class="s2">"your appId"</span> <span class="c1"># (e.g. '30cdfed3-9f7f-4aaa-b9f1-033c4dbfef58'),
-</span>  <span class="s2">"trackerName"</span> <span class="o">=&gt;</span> <span class="s2">"your trackerName"</span> <span class="c1"># (e.g. 'company.api')
-</span><span class="p">];</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InspetorClient</span><span class="p">(</span><span class="nv">$inspetor_config</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor_config</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">"APP_ID"</span><span class="p">:</span><span class="s">"123"</span><span class="p">,</span>
-  <span class="s">"TRACKER_NAME"</span><span class="p">:</span><span class="s">"123"</span><span class="p">,</span>
-  <span class="s">"DEV_ENV"</span><span class="p">:</span><span class="bp">True</span>
-<span class="p">}</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="n">InspetorClient</span><span class="p">(</span><span class="n">inspetor_config</span><span class="p">)</span>
-
-</code></pre>
-<p>The first step of integrating Inspetor&#39;s antifraud services into your product is instantiating the library.</p>
-
-<p>In order to do so, you will need to pass the <code>InspetorClient</code> your product&#39;s <strong>App ID</strong> and <strong>Tracker Name</strong>, both of which will be provided to you by the Inspetor Team.</p>
-
-<p><em>Et voilà</em>! You now have an Inspetor client object that is capable of sending all of the information necessary to teach Inspetor&#39;s decision layer how to prevent fraud at your company. However, there is a difference between instantiating a client instance and using it properly.</p>
-<h1 id='using-the-client-library'>Using the Client Library</h1>
+<p>The API key is customer-specific and will be provided to you by Inspetor.</p>
+<h2 id='sandbox-api-keys'>Sandbox API Keys</h2>
+<p>In the initial stages of your integration, you will probably want to test out a few endpoints to make sure everything is working. It is important that this data is differentiated from your production data; otherwise, our antifraud models will use this test data for training. You can test your integration with our collection service and indicate that you are sending test data by providing a &quot;sandbox&quot; API key. (We will provide you with at the same time we issue your production API key.)</p>
+<h2 id='when-to-send-events-to-inspetor'>When to send events to Inspetor</h2>
 <p>In order to protect your company from fraudsters, our decision models need to be informed with customer behavior.</p>
 
-<p>Events like logins, profile updates, or even unrelated purchases on the same account all contribute to our assessment of whether or not a given transaction is fraudulent. But we can&#39;t do it alone--we need <em>you</em>, our client, to send this information to us via the Client Library so that we can make better-informed decisions.</p>
+<p>But we can&#39;t do it alone--we need <em>you</em>, our client, to send this information to us via the Client Library so that we can make better-informed decisions.</p>
 
 <p>At a high level, our decision model understands the e-commerce world in the following primary terms:</p>
 
 <ul>
-<li><a href="#inspetoraccount"><strong>Accounts</strong></a></li>
-<li><a href="#inspetorevent"><strong>Events</strong></a></li>
-<li><a href="#inspetorsale"><strong>Sales</strong></a></li>
-<li><a href="#inspetoritem"><strong>Sale Items</strong></a></li>
-<li><a href="#inspetortransfer"><strong>Transfers</strong></a></li>
+<li><a href="#account-activity"><strong>Accounts</strong></a></li>
+<li><a href="#event-activity"><strong>Events</strong></a></li>
+<li><a href="#sale-activity"><strong>Sales</strong></a></li>
+<li><a href="#sale-items"><strong>Sale Items</strong> (e.g. tickets)</a></li>
 </ul>
 
 <p>You can think of the relationship between those entities something like this:</p>
@@ -625,24 +378,39 @@
 <p>If a user purchases tickets for a show on your site, Inspetor interprets the action as:</p>
 
 <ul>
-<li>the creation of a new <a href="#inspetorsale"><em>Sale</em></a></li>
-<li>the association of that Sale with an existing <a href="#inspetoraccount"><em>Account</em></a></li>
-<li>the association of that Sale with an <a href="#inspetoritem"><em>Item</em></a></li>
-<li>the association of that Item with an existing <a href="#inspetorevent"><em>Event</em></a></li>
+<li>the creation of a new <a href="#sale-activity"><em>Sale</em></a></li>
+<li>the association of that Sale with an existing <a href="#account-activity"><em>Account</em></a></li>
+<li>the association of that Sale with one or more <a href="#sale-items"><em>Items</em></a></li>
+<li>the association of that Item with an existing <a href="#event-activity"><em>Event</em></a></li>
 </ul>
 
-<p>While these are the terms with which our model interprets actions on your platform, Inspetor is unaware of these actions occurring unless you use the Inspetor Client Library to relay this information to us.</p>
+<p>There are some additional behaviors that are also relevant to assessing potentially fraudulent behavior:</p>
+
+<ul>
+<li><a href="#authentication-activity">Attempted and successful logins or logouts of a user account</a></li>
+<li><a href="#password-activity">Password recovery or reset</a></li>
+<li><a href="#item-transfers">Ticket transfers</a></li>
+</ul>
+
+<p>And lastly, there are some &quot;primitive&quot; types that we use:</p>
+
+<ul>
+<li><a href="#addresses">Addresses</a></li>
+<li><a href="#sale-payment">Sale Payment</a></li>
+</ul>
+
+<p>While these are the terms with which our model interprets actions on your platform, Inspetor is unaware of these actions occurring unless you use the Inspetor Collection API to relay this information to us.</p>
 
 <aside class="notice">
 Inspetor will never request write access to your code base--that means that it is on <i>you</i>, the developer, to integrate our library into your product's code base. We think that's the right way to do things: you know your product's code base, we know fraud.
 </aside>
-<h2 id='when-to-send-events-to-inspetor'>When to send events to Inspetor</h2>
+<h2 id='inspetor-entities'>Inspetor Entities</h2>
 <p>The primary Inspetor entities are <strong>stateful</strong> objects. They have properties that can be updated, and the values of these properties are crucial to our evaluation of transaction validity. Thus, you should send events to Inspetor via the client library whenever properties of these objects are changed.</p>
 
 <p>However, if we base our evaluation upon outdated or incorrect information, the accuracy of our evaluation will suffer. As such, it is critical that you notify Inspetor of any changes to these properties whenever they occur via the Inspetor Client Library.</p>
 
 <aside class="warning">
-It is <b>extremely important</b> that you provide us with updated information at any stage that these primary entities are updated. If we are working with outdated or incorrect information, we can't make reliable predictions for you.
+It is <b>extremely important</b> that you provide us with updated information at any stage that these primary entities are modified. If we are working with outdated or incorrect information, we can't make reliable predictions for you.
 </aside>
 
 <p>The Inspetor Client Library provides methods for you to relay state changes to primary entities in any of the following instances:</p>
@@ -675,2277 +443,820 @@ It is <b>extremely important</b> that you provide us with updated information at
 <li>When a user attempts to <a href="#account-login">log in to an account</a></li>
 <li>When a user attempts to <a href="#account-logout">log out of an account</a></li>
 </ul>
-<h3 id='password-activity'>Password Activity</h3>
+<h3 id='password-activities'>Password Activities</h3>
 <ul>
-<li>When a user requests to <a href="#password-recovery">recover</a> their password</li>
-<li>When a user <a href="#password-reset">resets</a> their password</li>
+<li>When a user requests to <a href="#password-activity">recover</a> their password</li>
+<li>When a user <a href="#password-activity">resets</a> their password</li>
 </ul>
 <h2 id='where-to-insert-inspetor-collection-functions'>Where to insert Inspetor collection functions</h2>
 <p>Where in your code base does the Inspetor client library belong? Frontend? Backend? Loaded on the site?</p>
 
-<p>Fortunately for you, the answer is quite simple at the moment--we only have one version (PHP) of the Client Library implemented! That means you&#39;ll need to integrate our library with your PHP application server.</p>
-
-<p>In the future however, our suggested integration model will be:</p>
+<p>The answer is in as many places as possible. From your frontend interfaces (iOS/Android apps, JS websites), we&#39;re able to derive valuable information such as device characteristics, user behavior, and IP information, while from the backend you can provide us with a more holistic representation of your data in terms of business logic. Both of these types of data are extremely valuable for detecting fraud. As such, we suggest the following:</p>
 
 <ul>
 <li>Full event coverage within the server/API level of your application (backend): This allows us to know everything about what is happening within your product.</li>
 <li>1:1 corresponding coverage within your frontend interfaces (Web, iOS, and Android): This allows us to enrich the knowledge we&#39;re gathering from your server-level transactions with additional information that improves our protection capabilities.</li>
 </ul>
 
-<p>You can find additional language-specific implementation details, including suggested architecture and best practices, via the following links:</p>
-
-<ul>
-<li><a href="https://github.com/inspetor/libraries-docs/blob/master/backend/php/README.md">PHP</a></li>
-<li><a href="https://github.com/inspetor/libraries-docs/blob/master/backend/python/README.md">Python</a></li>
-</ul>
+<p>Note that the information that you provide in either environment will vary. In the frontend integrations, you can rely on our SDKs to automatically relay the majority of the information we use to make a decision. You can read more about integrating with our frontend SDKs <a href="https://inspetor.github.io/docs-frontend">here</a>.</p>
 <h2 id='testing-your-integration-with-inspetor'>Testing your integration with Inspetor</h2>
-<p>Integrating with Inspetor is meant to be easy--simply instantiate our library, call our tracking methods, and if there are no errors thrown within your code execution, data will appear within our database. However, for further validation, we also provide our customers with limited-access database credentials that allow the developer in charge of integrating Inspetor to inspect that data appears in our database. (Note that access is restricted such that your customer account will only be able to view data originating from your company&#39;s integration.) The Inspetor team will provide you with access credentials for this phase of validation.</p>
+<p>Integrating with Inspetor is meant to be easy--simply instantiate our library or hit our REST API with valid authentication, and ensure that you receive a <code>200 OK</code> response.</p>
 
-<p>, however, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific and it will involve coordinated effort from both the customer and the Inspetor integration team.</p>
-<h1 id='collection-api'>Collection API</h1>
 <aside class="notice">
-To access the following library functions, you will need an instance of the InspetorClient class. All functions are accessed through the client instance.
+Please ensure you are using your <b>sandbox API keys</b> when you are testing your integration; otherwise, Inspetor's models will interpret anything you send during dev testing as production data and train our fraud detection models accordingly.
 </aside>
 
+<p>However, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific and it will involve coordinated effort from both the customer and the Inspetor integration team.</p>
+<h1 id='collection-api'>Collection API</h1>
 <h2 id='account-activity'>Account Activity</h2>
 
-<p>The following functions will be used to relay actions associated with an account:</p>
-
-<ul>
-<li><a href="#account-creation">trackAccountCreation</a></li>
-<li><a href="#account-updates">trackAccountUpdate</a></li>
-<li><a href="#account-deletion">trackAccountDeletion</a></li>
-</ul>
-
-<p>All the functions for tracking account-related actions require an <a href="#inspetoraccount">InspetorAccount</a> object as an argument and return <code>true</code> upon successful execution. Otherwise, one of the following exceptions will be thrown:</p>
+<p>You can send account-related information to Inspetor via the REST API. The <code>/accounts</code> endpoint supports <code>POST</code> (create), <code>PUT</code> (update), and <code>DELETE</code> (delete) operations with the following arguments:</p>
 
 <table><thead>
 <tr>
-<th>Exception</th>
+<th>Property</th>
+<th>When is it required?</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong><a href="#inspetoraccountexception">AccountException</a></strong></td>
-<td>The Account object provided is not a valid Inspetor Account</td>
+<td>id</td>
+<td><code>POST</code>, <code>PUT</code>, <code>DELETE</code></td>
+<td>String</td>
+<td>Your unique identifier for this account in your platform</td>
 </tr>
 <tr>
-<td><strong><a href="#inspetoraddressexception">AddressException</a></strong></td>
-<td>The Address object provided as a property of the Account object invalid</td>
+<td>email</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The email associated with the account</td>
 </tr>
 <tr>
-<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
-<td>The timestamps passed as Account object properties are invalid</td>
+<td>document</td>
+<td></td>
+<td>String</td>
+<td>The Document number associated with the account.</td>
 </tr>
 <tr>
-<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occurred (<em>This should never happen</em>)</td>
+<td>document_type</td>
+<td></td>
+<td>String</td>
+<td>The Document type associated with the account&#39;s document number. Accpeted values are <code>cpf</code>, <code>passport</code>, and <code>rne</code>.</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td></td>
+<td>Integer</td>
+<td>The phone number associated with the account (numbers only; country code not included). Note: if phone_number is provided, phone_country_code is also required.</td>
+</tr>
+<tr>
+<td>phone_country_code</td>
+<td></td>
+<td>Integer</td>
+<td>The international country code associated with the phone number (numbers only). Note: if phone_country_code is provided, phone_number is also required.</td>
+</tr>
+<tr>
+<td>password_hash</td>
+<td></td>
+<td>String</td>
+<td>The <strong>secure</strong> (salted and hashed) password associated with the account</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td></td>
+<td>String</td>
+<td>The first name of the user</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td></td>
+<td>String</td>
+<td>The last name of the user</td>
+</tr>
+<tr>
+<td>address</td>
+<td></td>
+<td><a href="#addresses">Address</a></td>
+<td>The address associated with the account</td>
 </tr>
 </tbody></table>
 
-<p><h3 id='account-creation'>Account Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> 
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span> 
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span> 
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountCreation</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span> 
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_creation</span><span class="p">(</span><span class="n">account</span><span class="p">)</span>
-
+<p><h3 id='account-creation'>Account Creation</h3><pre class="highlight sh tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/account <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id":                  "12345",
+        "email":               "my_user@inspetor.com",
+        "document":            "123.456.789-10",
+        "document_type":       "cpf",
+        "phone_number":        11999123456,
+        "phone_country_code":  55,
+        "password_hash":       "effebbbeeabc123",
+        "first_name":          "john",
+        "last_name":           "fulano",
+        "address":             {
+            "street_name":       "Rua Fidalga",
+            "street_number":     "252",
+            "zip_code":          "05432-010",
+            "city":              "São Paulo",
+            "state":             "SP",
+            "country":           "BR"
+        }
+    }'</span>
 </code></pre>
 <p>Notify Inspetor any time a new user account is created.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>account</td>
-<td>Inspetor/Model/<a href="#inspetoraccount">InspetorAccount</a></td>
-<td>The Account that is being created</td>
-</tr>
-</tbody></table>
 </p>
 
-<p><h3 id='account-updates'>Account Updates</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountUpdate</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_update</span><span class="p">(</span><span class="n">account</span><span class="p">)</span>
-
+<p><h3 id='account-updates'>Account Updates</h3><pre class="highlight sh tab-shell"><code>curl -X PUT https://collection-prod.inspcdn.net/account <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id":            "12345",
+        "email":         "my_new_email@inspetor.com",
+        "address":       {
+            "street_name":   "Rua Novarua",
+            "street_number": "253",
+            "zip_code":      "05432-010",
+            "city":          "São Paulo",
+            "state":         "SP",
+            "country":       "BR"
+        }
+    }'</span>
 </code></pre>
-<p>Send information to Inspetor any time an account&#39;s information (email, address, name...) is altered.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>account</td>
-<td>Inspetor/Model/<a href="#inspetoraccount">InspetorAccount</a></td>
-<td>The Account that is being updated</td>
-</tr>
-</tbody></table>
+<p>Send information to Inspetor any time an account&#39;s information (email, address, name, password, etc...) is altered.</p>
 </p>
 
-<p><h3 id='account-deletion'>Account Deletion</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> 
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountDeletion</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span> 
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_deletion</span><span class="p">(</span><span class="n">account</span><span class="p">)</span>
-
+<p><h3 id='account-deletion'>Account Deletion</h3><pre class="highlight sh tab-shell"><code>curl -X DELETE https://collection-prod.inspcdn.net/account <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id": "12345"
+    }'</span>
 </code></pre>
 <p>Send information to Inspetor any time an account is deleted.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>account</td>
-<td>Inspetor/Model/<a href="#inspetoraccount">InspetorAccount</a></td>
-<td>The Account that is being deleted</td>
-</tr>
-</tbody></table>
 </p>
 
-<h2 id='authentication-activity'>Authentication Activity</h2>
-
-<p>The following functions provide Inspetor with information on when a user logs in our out of an account within your product:</p>
-
-<ul>
-<li><a href="#account-login">trackLogin</a></li>
-<li><a href="#account-logout">trackLogout</a></li>
-</ul>
-
-<p>All functions for tracking authentication activity require an <a href="#inspetorauth">InspetorAuth</a> object as an argument and return <code>true</code> upon successful execution. Otherwise, one of the following exceptions will be thrown:</p>
-
-<table><thead>
-<tr>
-<th>Exception</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong><a href="#inspetorauthexception">AuthException</a></strong></td>
-<td>The Auth object provided is invalid</td>
-</tr>
-<tr>
-<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
-<td>The timestamps passed as Auth object properties are invalid</td>
-</tr>
-<tr>
-<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occurred (<em>This should never happen</em>)</td>
-</tr>
-</tbody></table>
-
-<p><h3 id='account-login'>Account Login</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackLogin</span><span class="p">(</span><span class="nv">$auth</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_login</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
-
+<h2 id='authentication-activity'>Authentication Activity</h2><pre class="highlight shell tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/auth <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "account_id": "232550",
+        "action":     "login_failure"
+    }'</span>
 </code></pre>
-<p>Send information to Inspetor on every login attempt</p>
+<p>Account login/logout behavior is highly correlated with fraudulent activity. You can send information about successful or failed login attempts for an account (as well as logouts) via the <code>/auth</code> endpoint, which supports <code>POST</code> requests only.</p>
+
+<p>The following fields are required:</p>
 
 <table><thead>
 <tr>
-<th>Argument</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>auth</td>
-<td>Inspetor/Model/<a href="#inspetorauth">InspetorAuth</a></td>
-<td>The Auth object that describes the login</td>
+<td>account_id</td>
+<td>String</td>
+<td>The account ID that was (or was attempted to be) logged into</td>
+</tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>What type of authentication activity occurred. Accepted values are limited to <code>&#39;login_failure&#39;</code>, <code>&#39;login_success&#39;</code>, and <code>&#39;logout&#39;</code> (case-insensitive).</td>
 </tr>
 </tbody></table>
-</p>
 
-<p><h3 id='account-logout'>Account Logout</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackLogout</span><span class="p">(</span><span class="nv">$auth</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_logout</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
-
+<h2 id='password-activity'>Password Activity</h2><pre class="highlight shell tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/forgot-password <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "recovery_email": "badguy@yahoo.com",
+        "action":         "reset"
+    }'</span>
 </code></pre>
-<p>Send information to Inspetor every time an account (<em>e.g. user</em>) logs out.</p>
+<p>Unsurprisingly, there is a correlation between fraudulent activity on an account and password resets or password recovery. As such, Inspetor provides an endpoint where you should notify us of <em>any</em> behavior that involves a user resetting their password or initiating password recovery. You should send information to this endpoint when a user who is not logged in either resets or recovers their password.</p>
+
+<aside class="notice">
+This is different than when a logged-in user changes their password. You can notify Inspetor of such changes via the accounts endpoint. 
+</aside>
+
+<p>The <code>/forgot-password</code> endpoint accepts <code>POST</code> requests only and requires the following arguments</p>
 
 <table><thead>
 <tr>
-<th>Argument</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>auth</td>
-<td>Inspetor/Model/<a href="#inspetorauth">InspetorAuth</a></td>
-<td>The Auth object that describes the logout</td>
+<td>recovery_email</td>
+<td>String</td>
+<td>The email used to recover or reset the password</td>
+</tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>The type of user action that was taken. Accepted values are <code>&#39;recovery&#39;</code> and <code>&#39;reset&#39;</code> (case-insensitive)</td>
 </tr>
 </tbody></table>
-</p>
-
-<h2 id='password-activity'>Password Activity</h2>
-
-<p>The following functions notify Inspetor of password changes initiated by  users within your platform, independent of whether the user is logged in or not:</p>
-
-<ul>
-<li><a href="#password-reset">trackPasswordReset</a></li>
-<li><a href="#password-recovery">trackPasswordRecovery</a></li>
-</ul>
-
-<p>All functions for tracking authentication events require an <a href="#inspetorpassrecovery">InspetorPassRecovery</a> object as an argument and return <code>true</code> upon successful execution. Otherwise, one of the following exceptions will be thrown:</p>
-
-<table><thead>
-<tr>
-<th>Exception</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong><a href="#inspetorpassrecoveryexception">PassRecoveryException</a></strong></td>
-<td>The PassRecovery object provided is invalid</td>
-</tr>
-<tr>
-<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
-<td>The timestamps passed as PassRecovery object properties are invalid</td>
-</tr>
-<tr>
-<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occurred (<em>This should never happen</em>)</td>
-</tr>
-</tbody></table>
-
-<p><h3 id='password-reset'>Password Reset</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordReset</span><span class="p">(</span><span class="nv">$pass_recovery</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_password_reset</span><span class="p">(</span><span class="n">pass_recovery</span><span class="p">)</span>
-
-</code></pre>
-<p>Send information to Inspetor anytime a request to reset an account&#39;s password is made.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>pass_recovery</td>
-<td>Inspetor/Model/<a href="#inspetorpassrecovery">InspetorPassRecovery</a></td>
-<td>The PassRecovery object that describes the password reset request</td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h3 id='password-recovery'>Password Recovery</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordRecovery</span><span class="p">(</span><span class="nv">$pass_recovery</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_password_recovery</span><span class="p">(</span><span class="n">pass_recovery</span><span class="p">)</span>
-
-</code></pre>
-<p>Send information to Inspetor anytime a request is made to recover a password.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>pass_recovery</td>
-<td>Inspetor/Model/<a href="#inspetorpassrecovery">InspetorPassRecovery</a></td>
-<td>The PassRecovery object that describes the password recovery request</td>
-</tr>
-</tbody></table>
-</p>
 
 <h2 id='event-activity'>Event Activity</h2>
 
-<p>The following functions provide Inspetor with information regarding the events (<em>e.g. parties, shows...</em>) listed on your platform:</p>
-
-<ul>
-<li><a href="#event-creation">trackEventCreation</a></li>
-<li><a href="#event-updates">trackEventUpdate</a></li>
-<li><a href="#event-deletion">trackEventDeletion</a></li>
-</ul>
-
-<p>All functions for tracking event activity require an <a href="#inspetorevent">InspetorEvent</a> object as argument and return <code>true</code> upon successful execution. Otherwise, one of the following exceptions will be thrown:</p>
+<p>You can send event-related information to Inspetor via the REST API. The <code>/events</code> endpoint supports <code>POST</code> (create), <code>PUT</code> (update), and <code>DELETE</code> (delete) operations with the following arguments:</p>
 
 <table><thead>
 <tr>
-<th>Exception</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong><a href="#inspetoreventexception">EventException</a></strong></td>
-<td>The Event object provided is invalid</td>
-</tr>
-<tr>
-<td><strong><a href="#inspetoraddressexception">AddressException</a></strong></td>
-<td>The Address object provided as a property of the Event object is invalid</td>
-</tr>
-<tr>
-<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
-<td>The timestamps passed as Event object properties are invalid</td>
-</tr>
-<tr>
-<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occurred (<em>This should never happen</em>)</td>
-</tr>
-</tbody></table>
-
-<p><h3 id='event-creation'>Event Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventCreation</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_creation</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-
-</code></pre>
-<p>Send information to Inspetor anytime a new event (<em>e.g. pary, shows...</em>) is created in your platform</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
+<th>Property</th>
+<th>When is it required?</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>event</td>
-<td>Inspetor/Model/<a href="#inspetorevent">InspetorEvent</a></td>
-<td>The Event that is being created</td>
+<td>id</td>
+<td><code>POST</code>, <code>PUT</code>, <code>DELETE</code></td>
+<td>String</td>
+<td>The unique identifier of this event listing in your platform</td>
+</tr>
+<tr>
+<td>name</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The name of the event</td>
+</tr>
+<tr>
+<td>is_physical</td>
+<td><code>POST</code></td>
+<td>Bool</td>
+<td>It determines if it is a physical or digital event. <em>The default value is <code>true</code>.</em></td>
+</tr>
+<tr>
+<td>dates</td>
+<td><code>POST</code></td>
+<td>Array of Inspetor <a href="#event-datetimes">event datetimes</a></td>
+<td>All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.</td>
+</tr>
+<tr>
+<td>creator_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The id of the user who created the event</td>
+</tr>
+<tr>
+<td>admin_ids</td>
+<td><code>POST</code></td>
+<td>Array</td>
+<td>An array containing the ids of all users who can make changes to the event</td>
+</tr>
+<tr>
+<td>address</td>
+<td></td>
+<td><a href="#addresses">Address</a></td>
+<td>The address where the event is happening. <em>This field is only required if the type of the event is set to physical.</em></td>
+</tr>
+<tr>
+<td>status</td>
+<td></td>
+<td>String</td>
+<td>The status of the event. <em>Inspetor provides some pre-built statuses (<code>draft</code>, <code>private</code> and <code>published</code>) but you can provide a custom status if it does not fit with our status model.</em></td>
+</tr>
+<tr>
+<td>description</td>
+<td></td>
+<td>String</td>
+<td>A description of the event</td>
+</tr>
+<tr>
+<td>slug</td>
+<td></td>
+<td>String</td>
+<td>The slug of the event</td>
 </tr>
 </tbody></table>
+
+<p><h3 id='event-creation'>Event Creation</h3><pre class="highlight sh tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/event <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id":          "12345",
+        "name":        "Reveillon 2020",
+        "is_physical": true,
+        "dates":  [
+            {
+                "id":       "1",
+                "datetime": 1574210000
+            },
+            {
+                "id":       "2",
+                "datetime": 1574315000
+            }
+        ],
+        "creator_id":  "22342",
+        "admin_ids":   ["22342", "23536"],
+        "address":     {
+            "street_name":   "Rua Fidalga",
+            "street_number": "252",
+            "zip_code":      "05432-010",
+            "city":          "São Paulo",
+            "state":         "SP",
+            "country":       "BR"
+        },
+        "status":      "published",
+        "description": "Lorem Ipsum",
+        "slug":        "/reveillon_2020"
+    }'</span>
+</code></pre>
+<p>Send information to Inspetor anytime a new event (<em>e.g. party, shows...</em>) is created in your platform</p>
 </p>
 
-<p><h3 id='event-updates'>Event Updates</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventUpdate</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_update</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-
+<p><h3 id='event-updates'>Event Updates</h3><pre class="highlight sh tab-shell"><code>curl -X PUT https://collection-prod.inspcdn.net/event <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id":          "12345",
+        "name":        "Reveillon 2021",
+        "dates":  [
+            {
+                "id":       "1",
+                "datetime": 1594210000
+            },
+            {
+                "id":       "2",
+                "datetime": 1594315000
+            }
+        ],
+        "description": "We have postponed until next year",
+        "slug":        "/reveillon_2021"
+    }'</span>
 </code></pre>
 <p>Send information to Inspetor every time an event listing&#39;s information is updated (event title, location, etc.)</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>event</td>
-<td>Inspetor/Model/<a href="#inspetorevent">InspetorEvent</a></td>
-<td>The Event that is being updated</td>
-</tr>
-</tbody></table>
 </p>
 
-<p><h3 id='event-deletion'>Event Deletion</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventDeletion</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_deletion</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-
+<p><h3 id='event-deletion'>Event Deletion</h3><pre class="highlight sh tab-shell"><code>curl -X DELETE https://collection-prod.inspcdn.net/event <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id": "12345"
+    }'</span>
 </code></pre>
 <p>Send information to Inspetor every time an Event listing is deleted from your platform</p>
+</p>
+
+<p><h3 id='event-datetimes'>Event Datetimes</h3><pre class="highlight sh tab-shell"><code>    <span class="o">{</span>
+        <span class="s2">"id"</span>:       <span class="s2">"201"</span>,
+        <span class="s2">"datetime"</span>: 1594315000
+    <span class="o">}</span>
+</code></pre>
+<p>Our data model operates with the assumption that a single event listing could have multiple sessions (for example Lollapalooza may have multiple sessions, but all be considered the same event.) We refer to those sessions as &quot;event datetimes.&quot; Whenever you&#39;re creating an event, or even when you&#39;re selling tickets to an event, you should indicate which event datetime or datetimes should be correlated with that action. </p>
+
+<p>An event datetime requires the following information: </p>
 
 <table><thead>
 <tr>
-<th>Argument</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>event</td>
-<td>Inspetor/Model/<a href="#inspetorevent">InspetorEvent</a></td>
-<td>The Event that is being deleted</td>
+<td>id</td>
+<td>String</td>
+<td>The identifier for this event datetime in your platform. Event datetime IDs must be unique per-event (but event datetime ids can be the same if they are sessions of different events)</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>Integer</td>
+<td>The Unix-timestamp corresponding to the date and time of the event datetime</td>
 </tr>
 </tbody></table>
 </p>
 
 <h2 id='sale-activity'>Sale Activity</h2>
 
-<p>The following functions provide Inspetor with information on sales that happen within your platform. The main activities that we track are the following:</p>
-
-<ul>
-<li><a href="#sale-creation">trackSaleCreation</a></li>
-<li><a href="#sale-updates">trackSaleUpdate</a></li>
-</ul>
-
-<p>All functions for tracking Sales activity require a <a href="#inspetorsale">InspetorSale</a> object as an argument and return <code>true</code> upon successful execution. Otherwise, one of the following exceptions will be thrown:</p>
+<p>You can provide sale-related activity via the REST API. The <code>/sales</code> endpoint supports <code>POST</code> and <code>PUT</code> operations with the following arguments:</p>
 
 <table><thead>
 <tr>
-<th>Exception</th>
+<th>Property</th>
+<th>When is it required?</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong><a href="#inspetorsaleexception">SaleException</a></strong></td>
-<td>The Transfer object provided is not a valid one</td>
+<td>id</td>
+<td><code>POST</code>, <code>PUT</code></td>
+<td>String</td>
+<td>The unique identifier for the sale within your platform</td>
 </tr>
 <tr>
-<td><strong><a href="#inspetoritemexception">ItemException</a></strong></td>
-<td>The Item object provided on the Sale is not a valid one</td>
+<td>account_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The id of the user who is making the purchase</td>
 </tr>
 <tr>
-<td><strong><a href="#pinspetoraymentexception">PaymentException</a></strong></td>
-<td>The Payment object provided on the Sale is not a valid one</td>
+<td>status</td>
+<td><code>POST</code>,</td>
+<td>String</td>
+<td>The status of the sale. <em>The allowed values are: <code>approved</code>, <code>declined</code>, <code>pending</code>, <code>refunded</code>, and <code>manual_analysis</code></em></td>
 </tr>
 <tr>
-<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
-<td>The timestamps that you passed on the objects are not valid ones</td>
+<td>items</td>
+<td><code>POST</code></td>
+<td>Array of <a href="#sale-items">sale items</a></td>
+<td>The items (<em>e.g. tickets</em>) that are being bought</td>
 </tr>
 <tr>
-<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occurred <em>Hopefully this never happen</em></td>
+<td>payment</td>
+<td><code>POST</code></td>
+<td><a href="#sale-payment">Payment</a></td>
+<td>The payment used in this purchase</td>
+</tr>
+<tr>
+<td>currency</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The ISO-4217 code for the currency of the <code>total_value</code> of the sale</td>
+</tr>
+<tr>
+<td>total_value</td>
+<td><code>POST</code></td>
+<td>Float</td>
+<td>The total value of the sale</td>
 </tr>
 </tbody></table>
 
-<p><h3 id='sale-creation'>Sale Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleCreation</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_creation</span><span class="p">(</span><span class="n">sale</span><span class="p">)</span>
-
+<p><h3 id='sale-creation'>Sale Creation</h3><pre class="highlight shell tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/sale <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id":         "12345",
+        "account_id": "157421",
+        "status":     "pending",
+        "items": [
+            {
+                "id":                 "1",
+                "value":              25.00,
+                "event_id":           "23553",
+                "event_datetime_ids": ["101", "102"]
+            },
+            {
+                "id":                 "2",
+                "value":              25.00,
+                "event_id":           "23553",
+                "event_datetime_ids": ["101", "102"]
+            }
+        ],
+        "payment": 
+        {
+            "method":              "credit_card",
+            "installments":        1,
+            "first_six_digits_cc": "455326",
+            "last_four_digits_cc": "0012",
+            "holder_name":         "John Fulano",
+            "holder_cpf":          "741.112.235-53",
+            "billing_address": {
+                "street_name":     "Rua Fidalga",
+                "street_number":   "252",
+                "zip_code":        "05432-010",
+                "city":            "São Paulo",
+                "state":           "SP",
+                "country":         "BR"
+            }
+        },
+        "total_value": 54.26,
+        "currency":    "BRL"
+    }'</span>
 </code></pre>
 <p>Send information to Inspetor every time a new sale is created on your platform.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>sale</td>
-<td>Inspetor/Model/<a href="#inspetorsale">InspetorSale</a></td>
-<td>The Sale that is being created</td>
-</tr>
-</tbody></table>
 </p>
 
-<p><h3 id='sale-updates'>Sale Updates</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleUpdate</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_update</span><span class="p">(</span><span class="n">sale</span><span class="p">)</span>
-
+<p><h3 id='sale-updates'>Sale Updates</h3><pre class="highlight shell tab-shell"><code>curl -X PUT https://collection-prod.inspcdn.net/sale <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id":         "12345",
+        "status":     "approved"
+    }'</span>
 </code></pre>
-<p>Send information to Inspetor every time a sale&#39;s status is updated.
-<aside class="notice">
-You must call this function <b>any</b> time a sale&#39;s status is updated (including post-sale updates, such as refunds). Sale status is extremely crucial to Inspetor&#39;s prediction model.
-</aside></p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>sale</td>
-<td>Inspetor/Model/<a href="#inspetorsale">InspetorSale</a></td>
-<td>The Sale that is being updated</td>
-</tr>
-</tbody></table>
-</p>
-
-<h2 id='items-transfers'>Items Transfers</h2>
-
-<p>The following functions will be used to relay item (<em>e.g. ticket</em>) transfers between users (<em>e.g. accounts</em>) that happen within your platform:</p>
-
-<ul>
-<li><strong>Item Transfer Creation</strong> (<em>trackItemTransferCreation</em>)</li>
-<li><a href="#transfer-creation">trackTransferCreation</a></li>
-<li><a href="#transfer-updates">trackTransferUpdate</a></li>
-<li><strong>Item Transfer Update</strong> (<em>trackItemTransferUpdate</em>)</li>
-</ul>
-
-<p>All the functions for tracking transfer activity require a <a href="#inspetortransfer">InspetorTransfer</a> object as argument and return <code>true</code> if everything goes right. Otherwise, one of the the following exceptions will be thrown:</p>
-
-<table><thead>
-<tr>
-<th>Exception</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong><a href="#inspetortransferexception">TransferException</a></strong></td>
-<td>The Transfer object provided is not a valid one</td>
-</tr>
-<tr>
-<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
-<td>The timestamps that you passed on the objects are not valid ones</td>
-</tr>
-<tr>
-<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occurred <em>Hopefully this never happen</em></td>
-</tr>
-</tbody></table>
-
-<p><h3 id='transfer-creation'>Transfer Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferCreation</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_creation</span><span class="p">(</span><span class="n">transfer</span><span class="p">)</span>
-
-</code></pre>
-<p>This function is used to send information to Inspetor every time a new item (<em>e.g. ticket</em>) transfer is created on your platform.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>transfer</td>
-<td>Inspetor/Model/<a href="#inspetortransfer">InspetorTransfer</a></td>
-<td>The Transfer that is being created</td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h3 id='transfer-updates'>Transfer Updates</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferUpdate</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_update</span><span class="p">(</span><span class="n">transfer</span><span class="p">)</span>
-
-</code></pre>
-<p>This function is used to send information to Inspetor every time an item (<em>e.g. ticket</em>) transfer&#39;s status is updated.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>transfer</td>
-<td>Inspetor/Model/<a href="#inspetortransfer">InspetorTransfer</a></td>
-<td>The Transfer that is being updated</td>
-</tr>
-</tbody></table>
-</p>
-<h1 id='models'>Models</h1>
-<p>The Inspetor Library provides a set of classes that are used to structure the information required by our fraud prevention platform.</p>
-
-<p>In our current PHP implementation, we suggest using the pre-built <code>get</code> accessor methods that are available in the InspetorClient class to get an instance of a given class. Thus you can access every model without having to import every class.</p>
+<p>Send information to Inspetor every time a sale&#39;s attributes (in particular, its status) is updated.</p>
 
 <aside class="notice">
-Most models have some optional properties, but it's important that you try to send us as much information as you can. The more information our models have to work with, the better your results will be.
+You must call this function <b>any</b> time a sale's status is updated (including post-sale updates, such as refunds). Sale status is extremely crucial to Inspetor's prediction model.
 </aside>
+</p>
 
-<p><h2 id='inspetoraccount'>InspetorAccount</h2>
-<p>Information about a user&#39;s account.</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_account</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorAccount</span><span class="p">();</span>
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getId()
-</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s2">"Test Name"</span><span class="p">);</span> <span class="c1">//getName()
-</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getEmail()
-</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setDocument</span><span class="p">(</span><span class="s2">"07206094880"</span><span class="p">);</span> <span class="c1">//getDocument()
-</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setPhoneNumber</span><span class="p">(</span><span class="s2">"5511953891736"</span><span class="p">);</span> <span class="c1">//getPhoneNumber()
-</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setPasswordHash</span><span class="p">(</span><span class="s2">"225f958849172c1ce9c4898bf648f108"</span><span class="p">);</span> <span class="c1">//getPasswordHash()
-</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setAddress</span><span class="p">(</span><span class="nv">$inspetor_address</span><span class="p">);</span> <span class="c1">//getAddress()
-</span><span class="nv">$inspetor_account</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
-</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountCreation</span><span class="p">(</span><span class="nv">$inspetor_account</span><span class="p">);</span>
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountUpdate</span><span class="p">(</span><span class="nv">$inspetor_account</span><span class="p">);</span>
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountDeletion</span><span class="p">(</span><span class="nv">$inspetor_account</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_account</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_account</span><span class="p">()</span>
-
-<span class="c"># Filling model with account data</span>
-<span class="n">inspetor_account</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_account</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Test"</span>
-<span class="n">inspetor_account</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
-<span class="n">inspetor_account</span><span class="o">.</span><span class="n">document</span> <span class="o">=</span> <span class="s">"07206094880"</span>
-<span class="n">inspetor_account</span><span class="o">.</span><span class="n">phoneNumber</span> <span class="o">=</span> <span class="s">"5511953891736"</span>
-<span class="n">inspetor_account</span><span class="o">.</span><span class="n">passwordHash</span> <span class="o">=</span> <span class="s">"225f958849172c1ce9c4898bf648f108"</span>
-<span class="n">inspetor_account</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">inspetor_account_address</span>
-<span class="n">inspetor_account</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_creation</span><span class="p">(</span><span class="n">inspetor_account</span><span class="p">)</span>
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_update</span><span class="p">(</span><span class="n">inspetor_account</span><span class="p">)</span>
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_account_deletion</span><span class="p">(</span><span class="n">inspetor_account</span><span class="p">)</span>
+<p><h3 id='mark-sale-fraudulent'>Mark Sale Fraudulent</h3><pre class="highlight shell tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/sale/mark_fraudulent <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "sale_id":           "12345",
+        "fraud_signal_type": "chargeback"
+    }'</span>
 </code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>Additionally, there is a <code>/sales/mark_fraudulent</code> endpoint that you should use to update Inspetor when a sale has been rejected or refunded due to suspicion of fraud, or if a sale has resuled in a chargeback.</p>
+
+<p>If a sale is deemed fraudulent (either via your existing antifraud solution, manual analysis, acquirer rejection, or even if you receive a chargeback), it is extremely important that you relay this information to Inspetor. This is perhaps <em>the most valuable piece of information</em> you can send to us; all of our fraud prediction models are trained on this label. </p>
+
+<p>The <code>/sale/mark_fraudulent</code> endpoint supports the <code>POST</code> operation and requires the following arguments:</p>
 
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required For Creation</th>
-<th>Required For Update</th>
+<th>When is it required?</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>id</strong></td>
-<td>Yes</td>
-<td>Yes</td>
+<td>sale_id</td>
+<td><code>POST</code></td>
 <td>String</td>
-<td>Your unique identifier for this account in your platform</td>
+<td>The unique identifier for the sale within your platform</td>
 </tr>
 <tr>
-<td><strong>timestamp</strong></td>
-<td>Yes</td>
-<td>Yes</td>
+<td>fraud_signal_type</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The mechanism by which you identified the sale as fraudulent. Current accepted values are &#39;acquirer&#39;, other antifraud services such as <strong>&#39;horus&#39;</strong>, <strong>&#39;fraudnet&#39;</strong>, and <strong>&#39;sift&#39;</strong>, your company name (<strong>&#39;ingresse&#39;</strong>), or simply <strong>&#39;chargeback&#39;</strong>.</td>
+</tr>
+</tbody></table>
+
+<p>Note: it is expected that when marking a sale fraudulent, one would also make a corresponding call to the <code>/sales</code> endpoint to update a sale with a <code>rejected</code> status (unless the sale was marked fraudulent only after a chargeback was received). </p>
+</p>\
+
+<p><h3 id='sale-items'>Sale Items</h3><pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"id"</span>:                 <span class="s2">"101"</span>,
+    <span class="s2">"event_id"</span>:           <span class="s2">"23553"</span>,
+    <span class="s2">"event_datetime_ids"</span>: <span class="o">[</span><span class="s2">"101"</span>, <span class="s2">"102"</span><span class="o">]</span>
+    <span class="s2">"value"</span>:              25.00,
+<span class="o">}</span>
+</code></pre>
+<p>Our current collection API is built with certain assumptions about the ticketing industry. In particular, we assume that a sale will have one or more items (in the case of the ticketing industry, tickets) associated with it. We require some information about these items in order to reason about the sale:</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>When is it required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>POST</code>, <code>UPDATE</code></td>
+<td>String</td>
+<td>A consistent identifier for this item (<em>e.g. ticket</em>) within your platform</td>
+</tr>
+<tr>
+<td>event_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The unique identifier of the <a href="#event-activity">event</a> that the item is tied too</td>
+</tr>
+<tr>
+<td>event_datetime_ids</td>
+<td><code>POST</code></td>
+<td>Array</td>
+<td>The array of <a href="#event-datetimes">event datetime IDs</a> that the ticket is tied to</td>
+</tr>
+<tr>
+<td>value</td>
+<td><code>POST</code></td>
+<td>Double</td>
+<td>The price of the item. <em>It should only contain numbers, dots, or commas</em></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Any time you are updating one or more of the items associated with a sale, you must send <b>all</b> of the items associated with that sale (even the items that were not updated). Otherwise, the update request will be interpreted as having removed the omitted items from the sale.
+</aside>
+</p>
+
+<p><h3 id='sale-payment'>Sale Payment</h3><pre class="highlight shell tab-shell"><code>
+<span class="o">{</span>
+    <span class="s2">"method"</span>:              <span class="s2">"credit_card"</span>,
+    <span class="s2">"installments"</span>:        1,
+    <span class="s2">"first_six_digits_cc"</span>: <span class="s2">"455326"</span>,
+    <span class="s2">"last_four_digits_cc"</span>: <span class="s2">"0012"</span>,
+    <span class="s2">"holder_name"</span>:         <span class="s2">"John Fulano"</span>,
+    <span class="s2">"holder_cpf"</span>:          <span class="s2">"741.112.235-53"</span>,
+    <span class="s2">"billing_address"</span>: <span class="o">{</span>
+        <span class="s2">"street_name"</span>:     <span class="s2">"Rua Fidalga"</span>,
+        <span class="s2">"street_number"</span>:   <span class="s2">"252"</span>,
+        <span class="s2">"zip_code"</span>:        <span class="s2">"05432-010"</span>,
+        <span class="s2">"city"</span>:            <span class="s2">"São Paulo"</span>,
+        <span class="s2">"state"</span>:           <span class="s2">"SP"</span>,
+        <span class="s2">"country"</span>:         <span class="s2">"Brasil"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Inspetor has a standardized format for accepting payment information that is associated with a sale. You can find the accepted and required parameters below:</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>When is it required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The method of payment being used. <em>The allowed values are <code>credit_card</code>, <code>boleto</code>, and <code>other</code></em></td>
+</tr>
+<tr>
+<td>installments</td>
+<td><code>POST</code></td>
 <td>Integer</td>
-<td>The Unix-formatted datetime that the account was last updated</td>
+<td>The number of &quot;<em>parcelas</em>&quot; that the user will pay</td>
 </tr>
 <tr>
-<td><strong>email</strong></td>
-<td>Yes</td>
-<td>No</td>
+<td>first_six_digits_cc</td>
+<td><code>POST</code> (credit_card only)</td>
 <td>String</td>
-<td>The email associated with the account</td>
+<td>The first six digits of the credit card number (should be only digits)</td>
 </tr>
 <tr>
-<td><strong>document</strong></td>
-<td>Yes</td>
-<td>No</td>
+<td>last_four_digits_cc</td>
+<td><code>POST</code> (credit_card only)</td>
 <td>String</td>
-<td>The CPF number associated with the account. The expected format is only numbers, no dots and dashes.</td>
+<td>The last four digits of the credit card number (should be only digits)</td>
 </tr>
 <tr>
-<td><strong>phone_number</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>String</td>
-<td>The phone number associated with the account. The expected format is <code>Country Code+DDD+Number</code> (only numbers)</td>
-</tr>
-<tr>
-<td><strong>password_hash</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>String</td>
-<td>The hashed password associated with the account</td>
-</tr>
-<tr>
-<td><strong>name</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>String</td>
-<td>The name of the user</td>
-</tr>
-<tr>
-<td>address</td>
-<td>No</td>
-<td>No</td>
-<td><a href="#address">Address</a></td>
-<td>The address associated with the account</td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h2 id='inspetoraddress'>InspetorAddress</h2>
-<p>Residential or billing address information that is used in other models (<a href="#inspetoraccount">InspetorAccount</a>, <a href="#inspetorevent">InspetorEvent</a> and <a href="#inspetorcreditcard">InspetorCreditCard</a>).</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_address</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorAddress</span><span class="p">();</span>
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setStreet</span><span class="p">(</span><span class="s2">"Street Security"</span><span class="p">);</span>  <span class="c1">//getStreet()
-</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setNumber</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getNumber()
-</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setZipCode</span><span class="p">(</span><span class="s2">"05511010"</span><span class="p">);</span> <span class="c1">//getZipCode()
-</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setCity</span><span class="p">(</span><span class="s2">"Test City"</span><span class="p">);</span> <span class="c1">//getCity()
-</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setState</span><span class="p">(</span><span class="s2">"Test State"</span><span class="p">);</span> <span class="c1">//getState()
-</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setCountry</span><span class="p">(</span><span class="s2">"Test Country"</span><span class="p">);</span> <span class="c1">//getCountry()
-</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setLatitude</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getLatitude()
-</span><span class="nv">$inspetor_address</span><span class="o">-&gt;</span><span class="na">setLongitude</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getLongitude()
-</span>
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_address</span><span class="p">()</span>
-
-<span class="c"># Filling model with address data</span>
-<span class="n">inspetor_address</span><span class="o">.</span><span class="n">street</span> <span class="o">=</span> <span class="s">"Test Stree"</span>
-<span class="n">inspetor_address</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_address</span><span class="o">.</span><span class="n">zip_code</span> <span class="o">=</span> <span class="s">"123456"</span>
-<span class="n">inspetor_address</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="s">"Test City"</span>
-<span class="n">inspetor_address</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="s">"Test State"</span>
-<span class="n">inspetor_address</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="s">"Test Country"</span>
-<span class="n">inspetor_address</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_address</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="s">"123"</span>
-</code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Required For Creation</th>
-<th>Required For Update</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>street</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The street of the address</td>
-</tr>
-<tr>
-<td><strong>zip_code</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The zip code (<em>e.g. CEP</em>) of the address</td>
-</tr>
-<tr>
-<td><strong>city</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The city in which the address is located</td>
-</tr>
-<tr>
-<td><strong>state</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The state in which the address is located</td>
-</tr>
-<tr>
-<td><strong>country</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The country in which the address is located</td>
-</tr>
-<tr>
-<td>number</td>
-<td>No</td>
-<td>No</td>
-<td>String</td>
-<td>The street number of the address</td>
-</tr>
-<tr>
-<td>latitude</td>
-<td>No</td>
-<td>No</td>
-<td>String</td>
-<td>The exact latitude of the address</td>
-</tr>
-<tr>
-<td>longitude</td>
-<td>No</td>
-<td>No</td>
-<td>String</td>
-<td>The exact longitude of the address</td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h2 id='inspetorauth'>InspetorAuth</h2>
-<p>Login and logout event information in your platform</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_auth</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorAuth</span><span class="p">();</span> 
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setAccountEmail</span><span class="p">(</span><span class="s2">"login@email.com"</span><span class="p">);</span> <span class="c1">//getAccountEmail()
-</span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
-</span><span class="nv">$inspetor_auth</span><span class="o">-&gt;</span><span class="na">setAccountId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getAccountId()
-</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountLogin</span><span class="p">(</span><span class="nv">$inspetor_auth</span><span class="p">);</span>
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackAccountLogout</span><span class="p">(</span><span class="nv">$inspetor_auth</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_auth</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_auth</span><span class="p">()</span>
-
-<span class="c"># Filling model with auth data</span>
-<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">account_email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
-<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-<span class="n">inspetor_auth</span><span class="o">.</span><span class="n">account_id</span> <span class="o">=</span> <span class="s">"123"</span> 
-
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_login</span><span class="p">(</span><span class="n">inspetor_auth</span><span class="p">)</span>
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_logout</span><span class="p">(</span><span class="n">inspetor_auth</span><span class="p">)</span>
-</code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Required For Login</th>
-<th>Required For Logout</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>account_email</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The email of the user that is attempting to login or logout</td>
-</tr>
-<tr>
-<td><strong>timestamp</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Integer</td>
-<td>The unix format of the time and date that the authentication happend</td>
-</tr>
-<tr>
-<td><strong>account_id</strong></td>
-<td>No</td>
-<td>No</td>
-<td>String</td>
-<td>If set indicates that the login/logout attempt was successful. <strong>Although this is not a required property it should be passed everytime a user makes a succesful login or logout.</strong></td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h2 id='inspetorcategory'>InspetorCategory</h2>
-<p>Event categories that are used in the <a href="#inspetorevent">InspetorEvent</a> model.</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_category</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorCategory</span><span class="p">();</span>
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_category</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getId()
-</span><span class="nv">$inspetor_category</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s2">"Category"</span><span class="p">);</span> <span class="c1">//getName()
-</span>
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_category</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_category</span><span class="p">()</span>
-
-<span class="c"># Filling model with category data</span>
-<span class="n">category</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">category</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Cooltegory"</span>
-</code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Required For Creation</th>
-<th>Required For Update</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>id</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>Your unique identifier for this category in your platform</td>
-</tr>
-<tr>
-<td><strong>name</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The name of the category</td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h2 id='inspetorcreditcard'>InspetorCreditCard</h2>
-<p>Credit card information (used in <a href="#inspetorsale">InspetorSales</a> ).</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_cc</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorCreditCard</span><span class="p">();</span>
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setFirstSixDigits</span><span class="p">(</span><span class="s2">"123456"</span><span class="p">);</span> <span class="c1">//getFirstSixDigits()
-</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setLastFourDigits</span><span class="p">(</span><span class="s2">"1234"</span><span class="p">);</span> <span class="c1">//getLastFourDigits()
-</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setHolderName</span><span class="p">(</span><span class="s2">"Holder Name"</span><span class="p">);</span> <span class="c1">//getHolderName()
-</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setHolderCpf</span><span class="p">(</span><span class="s2">"07206094880"</span><span class="p">);</span> <span class="c1">//getHolderCpf()
-</span><span class="nv">$inspetor_cc</span><span class="o">-&gt;</span><span class="na">setBillingAddress</span><span class="p">(</span><span class="nv">$inspetor_address</span><span class="p">);</span> <span class="c1">//getBillingAddress
-</span>
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_cc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_card</span><span class="p">()</span>
-
-<span class="c"># Filling model with credit card data</span>
-<span class="n">credit_card</span><span class="o">.</span><span class="n">first_six_digits</span> <span class="o">=</span> <span class="s">"123456"</span>
-<span class="n">credit_card</span><span class="o">.</span><span class="n">last_four_digits</span> <span class="o">=</span> <span class="s">"1234"</span>
-<span class="n">credit_card</span><span class="o">.</span><span class="n">holder_name</span> <span class="o">=</span> <span class="s">"Holder Name Test"</span>
-<span class="n">credit_card</span><span class="o">.</span><span class="n">holder_cpf</span> <span class="o">=</span> <span class="s">"Holder CPF Test"</span>
-<span class="n">credit_card</span><span class="o">.</span><span class="n">billing_address</span> <span class="o">=</span> <span class="n">inspetor_billing_address</span>
-</code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Required For Creation</th>
-<th>Required For Update</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>first_six_digits</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The first six digits of the credit card number</td>
-</tr>
-<tr>
-<td><strong>last_four_digits</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Integer</td>
-<td>The last four digits of the credit card number</td>
-</tr>
-<tr>
-<td><strong>holder_name</strong></td>
-<td>Yes</td>
-<td>Yes</td>
+<td>holder_name</td>
+<td><code>POST</code> (credit_card only)</td>
 <td>String</td>
 <td>The full name of the owner of the credit card</td>
 </tr>
 <tr>
-<td><strong>holder_cpf</strong></td>
-<td>Yes</td>
-<td>Yes</td>
+<td>holder_cpf</td>
+<td><code>POST</code> (credit_card only)</td>
 <td>String</td>
-<td>The CPF of the owner of the credit card</td>
+<td>The CPF of the owner of the credit card. (Expected format is only numbers, with no dots or dashes)</td>
 </tr>
 <tr>
-<td><strong>billing_address</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td><a href="#inspetoraddress">InspetorAddress</a></td>
+<td>billing_address</td>
+<td><code>POST</code> (credit_card only)</td>
+<td><a href="#addresses">Address</a></td>
 <td>The billing address associated with this credit card</td>
 </tr>
 </tbody></table>
 </p>
 
-<p><h2 id='inspetorevent'>InspetorEvent</h2>
-<p>The Event Model will contain information about parties, shows, and events that are listed on your platform</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<h2 id='item-transfers'>Item Transfers</h2>
 
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_event</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorEvent</span><span class="p">();</span>
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"8000"</span><span class="p">);</span> <span class="c1">//getId()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s2">"Name Test"</span><span class="p">);</span> <span class="c1">//getName()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setDescription</span><span class="p">(</span><span class="s2">"Description Test"</span><span class="p">);</span> <span class="c1">//getDescription()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setSessions</span><span class="p">(</span><span class="nv">$inspetor_session</span><span class="p">);</span> <span class="c1">//getSession()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setStatus</span><span class="p">(</span><span class="s2">"private"</span><span class="p">);</span> <span class="c1">//getStatus()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setCategories</span><span class="p">([</span><span class="nv">$inspetor_category1</span><span class="p">,</span> <span class="nv">$inspetor_category2</span><span class="p">]);</span> <span class="c1">//getCategories()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setIsPhysical</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span> <span class="c1">//getIsPhysical()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setAddress</span><span class="p">(</span><span class="nv">$inspetor_address</span><span class="p">);</span> <span class="c1">//getAddress()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setSlug</span><span class="p">(</span><span class="s2">"cool-company-event"</span><span class="p">);</span> <span class="c1">//getSlug()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setCreatorId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getCreatorId()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setAdminsId</span><span class="p">([</span><span class="s2">"123"</span><span class="p">,</span> <span class="s2">"234"</span><span class="p">]);</span> <span class="c1">//getAdminsId()
-</span><span class="nv">$inspetor_event</span><span class="o">-&gt;</span><span class="na">setSeatingOptions</span><span class="p">([</span><span class="s2">"Pista"</span><span class="p">,</span> <span class="s2">"VIP"</span><span class="p">]);</span> <span class="c1">//getSeatingOptions()
-</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventCreation</span><span class="p">(</span><span class="nv">$inspetor_event</span><span class="p">);</span>
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventUpdate</span><span class="p">(</span><span class="nv">$inspetor_event</span><span class="p">);</span>
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventDeletion</span><span class="p">(</span><span class="nv">$inspetor_event</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_event</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_event</span><span class="p">()</span>
-
-<span class="c"># Filling model with event data</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Name Test"</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Description Test"</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">sessions</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">inspetor_event_session1</span><span class="p">,</span>
-    <span class="n">inspetor_event_session1</span>
-<span class="p">]</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"private"</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">slug</span> <span class="o">=</span> <span class="s">"slug-test"</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">creator_id</span> <span class="o">=</span> <span class="s">"124"</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">is_physical</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">categories</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">inspetor_event_category1</span><span class="p">,</span>
-    <span class="n">inspetor_event_category2</span>
-<span class="p">]</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">inspetor_event_address</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">admins_id</span> <span class="o">=</span> <span class="p">[</span><span class="s">"123"</span><span class="p">]</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">seating_options</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Seating Option"</span><span class="p">]</span>
-<span class="n">inspetor_event</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_creation</span><span class="p">(</span><span class="n">inspetor_event</span><span class="p">)</span>
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_update</span><span class="p">(</span><span class="n">inspetor_event</span><span class="p">)</span>
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_deletion</span><span class="p">(</span><span class="n">inspetor_event</span><span class="p">)</span>
-</code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
+<p>You can provide transfer-related activity via the REST API. The <code>/transfer</code> endpoint supports POST and PUT operations with the following required arguments:</p>
 
 <table><thead>
 <tr>
 <th>Property</th>
-<th>Required For Creation</th>
-<th>Required For Update</th>
+<th>When is it required?</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>id</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The unique identifier of this event listing in your platform</td>
-</tr>
-<tr>
-<td><strong>timestamp</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Integer</td>
-<td>The Unix-formatted datetime that the event was last updated</td>
-</tr>
-<tr>
-<td><strong>name</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>String</td>
-<td>The name of the event</td>
-</tr>
-<tr>
-<td><strong>is_physical</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>Bool</td>
-<td>It determines if it&#39;s a physical or digital event. <em>The default value is <code>true</code>.</em></td>
-</tr>
-<tr>
-<td><strong>sessions</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>Array of <a href="#inspetorsession">InspetorSession</a></td>
-<td>All available dates and times that the event occurs (if it has more than one) and a unique id for each date/time.</td>
-</tr>
-<tr>
-<td><strong>creator_id</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>String</td>
-<td>The id of the user who created the event</td>
-</tr>
-<tr>
-<td><strong>admins_id</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>Array</td>
-<td>An array containing the ids of all users who can make changes to the event</td>
-</tr>
-<tr>
-<td>address</td>
-<td>No</td>
-<td>No</td>
-<td><a href="#inspetoraddress">InspetorAddress</a></td>
-<td>The address where the event is happening. <em>This field is only required if the type of the event is set to physical.</em></td>
-</tr>
-<tr>
-<td>status</td>
-<td>No</td>
-<td>No</td>
-<td>String</td>
-<td>The status of the event. <em>Inspetor provides some pre-built statuses (draft, private and published) but you can provide a custom status if it does not fit with our status model.</em></td>
-</tr>
-<tr>
-<td>description</td>
-<td>No</td>
-<td>No</td>
-<td>String</td>
-<td>A description of the event</td>
-</tr>
-<tr>
-<td>seating_options</td>
-<td>No</td>
-<td>No</td>
-<td>Array</td>
-<td>An array containing all names of the different ticket types that can be bought for this event</td>
-</tr>
-<tr>
-<td>categories</td>
-<td>No</td>
-<td>No</td>
-<td>Array of <a href="#inspetorcategory">InspetorCategory</a></td>
-<td>An array of categories associated with the event listing</td>
-</tr>
-<tr>
-<td>slug</td>
-<td>No</td>
-<td>No</td>
-<td>String</td>
-<td>The slug of the event</td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h2 id='inspetoritem'>InspetorItem</h2>
-<p>Information about the item(s) (generally a ticket) associated with a <a href="#inspetorsale">InspetorSale</a>.</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_item</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorItem</span><span class="p">();</span>
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"9000"</span><span class="p">);</span> <span class="c1">//getId()
-</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setEventId</span><span class="p">(</span><span class="s2">"8000"</span><span class="p">);</span> <span class="c1">//getEventId()
-</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setSessionId</span><span class="p">(</span><span class="s2">"124"</span><span class="p">);</span> <span class="c1">//getSessionId()
-</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setPrice</span><span class="p">(</span><span class="mf">50.0</span><span class="p">);</span> <span class="c1">//getPrice()
-</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setSeatingOption</span><span class="p">(</span><span class="s2">"PISTA"</span><span class="p">);</span> <span class="c1">//getSeatingOption()
-</span><span class="nv">$inspetor_item</span><span class="o">-&gt;</span><span class="na">setQuantity</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//getQuantity()
-</span>
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_item</span><span class="p">()</span>
-
-<span class="c">#Filling model with item data</span>
-<span class="n">inspetor_item</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_item</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_item</span><span class="o">.</span><span class="n">session_id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_item</span><span class="o">.</span><span class="n">seating_option</span> <span class="o">=</span> <span class="s">"Seating Option Test"</span>
-<span class="n">inspetor_item</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="s">"10"</span>
-<span class="n">inspetor_item</span><span class="o">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="s">"123"</span>
-</code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Required For Creation</th>
-<th>Required For Update</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>id</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>A unique identifier for this item (<em>e.g. ticket</em>) within your platform</td>
-</tr>
-<tr>
-<td><strong>event_id</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The unique identifier of the event that the item is tied too</td>
-</tr>
-<tr>
-<td><strong>session_id</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The unique identifier of the event session (date and time) that the item is tied to</td>
-</tr>
-<tr>
-<td><strong>price</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Double</td>
-<td>The price of the item. <em>It should only contain numbers, dots and commas</em></td>
-</tr>
-<tr>
-<td><strong>quantity</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Integer</td>
-<td>The number of item of this type being bought.</td>
-</tr>
-<tr>
-<td>seating_option</td>
-<td>No</td>
-<td>Yes</td>
-<td>String</td>
-<td>The name of the type of item that is being bought</td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h2 id='inspetorpassrecovery'>InspetorPassRecovery</h2>
-<p>Information about password change requests or recoveries initiated by a user.</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_pass</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorPassRecovery</span><span class="p">();</span>
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_pass</span><span class="o">-&gt;</span><span class="na">setRecoveryEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getRecoveryEmail()
-</span><span class="nv">$inspetor_pass</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
-</span>
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordReset</span><span class="p">(</span><span class="nv">$inspetor_pass</span><span class="p">);</span>
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackPasswordRecovery</span><span class="p">(</span><span class="nv">$inspetor_pass</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_pass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_pass_recovery</span><span class="p">()</span>
-
-<span class="c"># Filling model with password recovery data</span>
-<span class="n">inspetor_pass</span><span class="o">.</span><span class="n">recovery_email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
-<span class="n">inspetor_pass</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_password_recovery</span><span class="p">(</span><span class="n">inspetor_pass</span><span class="p">)</span>
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_password_reset</span><span class="p">(</span><span class="n">inspetor_pass</span><span class="p">)</span>
-</code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Required For Creation</th>
-<th>Required For Update</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>recovery_email</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The email used to recover or reset the password</td>
-</tr>
-<tr>
-<td><strong>timestamp</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The Unix-formatted datetime when the action occurred.</td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h2 id='inspetorpayment'>InspetorPayment</h2>
-<p>Information about the payment associated with a <a href="#inspetorsale">InspetorSale</a>.</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_payment</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorPayment</span><span class="p">();</span>
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"12345"</span><span class="p">);</span> <span class="c1">//getId()
-</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="s2">"credit_card"</span><span class="p">);</span> <span class="c1">//getMethod()
-</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setInstallments</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//getInstallments()
-</span><span class="nv">$inspetor_payment</span><span class="o">-&gt;</span><span class="na">setCreditCard</span><span class="p">(</span><span class="nv">$inspetor_cc</span><span class="p">);</span> <span class="c1">//getCreditCard()
-</span>
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_payment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_payment</span><span class="p">()</span>
-
-<span class="c"># Filling model with payment data</span>
-<span class="n">payment</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">payment</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="s">"credit_card"</span>
-<span class="n">payment</span><span class="o">.</span><span class="n">installments</span> <span class="o">=</span> <span class="s">"1"</span>
-<span class="n">payment</span><span class="o">.</span><span class="n">credit_card</span> <span class="o">=</span> <span class="n">inspetor_credit_card</span>
-</code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Required For Creation</th>
-<th>Required For Update</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>id</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The id of the payment. This id should be the same as the one you send to the payment processor.</td>
-</tr>
-<tr>
-<td><strong>method</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The method of payment being used. <em>The allowed values are <code>credit_card</code>, <code>boleto</code>, and <code>other</code></em></td>
-</tr>
-<tr>
-<td><strong>installments</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Integer</td>
-<td>The number of &quot;<em>parcelas</em>&quot; that the user will pay</td>
-</tr>
-<tr>
-<td>credit_card</td>
-<td>No</td>
-<td>No</td>
-<td><a href="#inspetorcreditcard">InspetorCreditCard</a></td>
-<td>If the method is <em>credit_card</em> it should contains a credit card object</td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h2 id='inspetorsale'>InspetorSale</h2>
-<p>Information about a sale within your platform.</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_sale</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorSale</span><span class="p">();</span>
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"1234"</span><span class="p">);</span> <span class="c1">//getId()
-</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setAccountId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getAccountId()
-</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setStatus</span><span class="p">(</span><span class="s2">"pending"</span><span class="p">);</span> <span class="c1">//getStatus()
-</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setIsFraud</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span> <span class="c1">//getIsFraud()
-</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
-</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setItems</span><span class="p">([</span><span class="nv">$inspetor_item1</span><span class="p">,</span> <span class="nv">$inspetor_item2</span><span class="p">]);</span> <span class="c1">//getItems()
-</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setPayment</span><span class="p">(</span><span class="nv">$inspetor_payment</span><span class="p">);</span> <span class="c1">//getPayment()
-</span><span class="nv">$inspetor_sale</span><span class="o">-&gt;</span><span class="na">setAnalyzedBy</span><span class="p">(</span><span class="s2">"inspetor"</span><span class="p">);</span> <span class="c1">//getAnayzedBy()
-</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleCreation</span><span class="p">(</span><span class="nv">$inspetor_sale</span><span class="p">);</span>
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleUpdate</span><span class="p">(</span><span class="nv">$inspetor_sale</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_sale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_sale</span><span class="p">()</span>
-
-<span class="c"># Filling model with sale data</span>
-<span class="n">inspetor_sale</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">account_id</span> <span class="o">=</span> <span class="s">"456"</span>
-<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">total_value</span> <span class="o">=</span> <span class="s">"123,00"</span>
-<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"pending"</span>
-<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">get_default_item</span><span class="p">()</span>
-<span class="p">]</span>
-<span class="n">inspetor_sale</span><span class="o">.</span><span class="n">payment</span> <span class="o">=</span> <span class="n">inspetor_payment</span>
-
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_creation</span><span class="p">(</span><span class="n">inspetor_sale</span><span class="p">)</span>
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_update</span><span class="p">(</span><span class="n">inspetor_sale</span><span class="p">)</span>
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_deletion</span><span class="p">(</span><span class="n">inspetor_sale</span><span class="p">)</span>
-</code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Required For Creation</th>
-<th>Required For Update</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>id</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The unique identifier for the sale within your platform</td>
-</tr>
-<tr>
-<td><strong>timestamp</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Integer</td>
-<td>The unix format of the time and date that the action happend</td>
-</tr>
-<tr>
-<td><strong>account_id</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>String</td>
-<td>The id of the user who is making the purchase</td>
-</tr>
-<tr>
-<td><strong>status</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The status of the sale. <em>The allowed values are: <code>accepted</code>, <code>declined</code>, <code>pending</code>, <code>refunded</code>, and <code>manual_analysis</code></em></td>
-</tr>
-<tr>
-<td><strong>items</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>Array of <a href="#inspetoritem">InspetorItem</a></td>
-<td>The items (<em>e.g. tickets</em>) that are being bought</td>
-</tr>
-<tr>
-<td><strong>payment</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td><a href="#inspetorpayment">InspetorPayment</a></td>
-<td>The payment used in this purchase</td>
-</tr>
-<tr>
-<td><strong>is_fraud</strong></td>
-<td>No</td>
-<td>Yes</td>
-<td>Boolean</td>
-<td>Indicates if the sale was fradulent. This should only be <code>true</code> when a sale was declined or refunded by antifraud services, or if a chargeback was received for a processed transaction.</td>
-</tr>
-<tr>
-<td><strong>analyzed_by</strong></td>
-<td>No</td>
-<td>Yes</td>
-<td>String</td>
-<td>The name of the antifraud system that made the change on the sale. Even if it&#39;s us how made the change you should pass &quot;inspetor&quot;</td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h2 id='inspetorsession'>InspetorSession</h2>
-<p>Event session that are used in the <a href="#inspetorevent">InspetorEvent</a> model.</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_session</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorSession</span><span class="p">();</span>
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_session</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getId()
-</span><span class="nv">$inspetor_session</span><span class="o">-&gt;</span><span class="na">setDatetime</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span> <span class="c1">//getDatetime()
-</span>
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_session</span><span class="p">()</span>
-
-<span class="c"># Filling model with session data</span>
-<span class="n">inspetor_session</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_session</span><span class="o">.</span><span class="n">datetime</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1562934682</span><span class="p">)</span> <span class="o">//</span> <span class="n">it</span><span class="s">'s the date of that event session in unix timestamp format</span><span class="err">
-</span></code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Required For Creation</th>
-<th>Required For Update</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>id</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>Your unique identifier for this session in your platform</td>
-</tr>
-<tr>
-<td><strong>datetime</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>String</td>
-<td>The date and time of the event session</td>
-</tr>
-</tbody></table>
-</p>
-
-<p><h2 id='inspetortransfer'>InspetorTransfer</h2>
-<p>Information regarding the transfer of purchased <a href="#inspetoritem">InspetorItems</a> (<em>e.g. tickets</em>) within your platform.</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="c1">// Calling an instance of Model
-</span><span class="nv">$inspetor_transfer</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorTransfer</span><span class="p">();</span>
-
-<span class="c1">// Filling model with company data
-</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getId()
-</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
-</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setItemId</span><span class="p">(</span><span class="s2">"9000"</span><span class="p">);</span> <span class="c1">//getItemId()
-</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setSenderAccountId</span><span class="p">(</span><span class="s2">"124"</span><span class="p">);</span> <span class="c1">//getSenderAccountId()
-</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setReceiverEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getReceiverEmail()
-</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setStatus</span><span class="p">(</span><span class="s2">"pending"</span><span class="p">);</span> <span class="c1">//getStatus()
-</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferCreation</span><span class="p">(</span><span class="nv">$inspetor_transfer</span><span class="p">);</span>
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferUpdate</span><span class="p">(</span><span class="nv">$inspetor_transfer</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># Calling an instance of Model</span>
-<span class="n">inspetor_transfer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inspetor</span><span class="o">.</span><span class="n">get_inspetor_transfer</span><span class="p">()</span>
-
-<span class="c"># Filling model with transfer data</span>
-<span class="n">inspetor_transfer</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">item_id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">sender_account_id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">receiver_email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
-<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"pending"</span>
-
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_creation</span><span class="p">(</span><span class="n">inspetor_transger</span><span class="p">)</span>
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_update</span><span class="p">(</span><span class="n">inspetor_transger</span><span class="p">)</span>
-</code></pre>
-<p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Required For Creation</th>
-<th>Required For Update</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>id</strong></td>
-<td>Yes</td>
-<td>Yes</td>
+<td>id</td>
+<td><code>POST</code>, <code>UPDATE</code></td>
 <td>String</td>
 <td>Your platform-unique identifier for the transfer</td>
 </tr>
 <tr>
-<td><strong>timestamp</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Integer</td>
-<td>The Unix-formatted datetime that the action happend</td>
-</tr>
-<tr>
-<td><strong>item_id</strong></td>
-<td>Yes</td>
-<td>No</td>
+<td>sale_id</td>
+<td><code>POST</code></td>
 <td>String</td>
-<td>The id of the <a href="#inspetoritem">InspetorItem</a> (<em>e.g. ticket</em>) that is being transfered</td>
+<td>Your platform-unique identifier for the <strong>sale</strong> associated with the items being transfered</td>
 </tr>
 <tr>
-<td><strong>sender_account_id</strong></td>
-<td>Yes</td>
-<td>No</td>
+<td>sale_item_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The id of the <a href="#sale-items">sale item</a> (<em>e.g. ticket</em>) that is being transfered</td>
+</tr>
+<tr>
+<td>sender_account_id</td>
+<td><code>POST</code></td>
 <td>String</td>
 <td>The id of the account who is transferring the item (<em>e.g. ticket</em>)</td>
 </tr>
 <tr>
-<td><strong>receiver_email</strong></td>
-<td>Yes</td>
-<td>No</td>
+<td>recipient_email</td>
+<td><code>POST</code></td>
 <td>String</td>
-<td>The email of the user who is receiving the item (<em>e.g. ticket</em>)</td>
+<td>The email of the user who is receiving the item</td>
 </tr>
 <tr>
-<td><strong>status</strong></td>
-<td>Yes</td>
-<td>No</td>
+<td>recipient_account_id</td>
+<td></td>
 <td>String</td>
-<td>The status of the transfer. <em>The allowed values are: <code>accepted</code>, <code>rejected</code>, and <code>pending</code></em></td>
+<td>The id of the account (if available) who is receiving the item</td>
+</tr>
+<tr>
+<td>status</td>
+<td><code>POST</code>, <code>UPDATE</code></td>
+<td>String</td>
+<td>The status of the transfer. (Allowed values: <code>accepted</code>, <code>rejected</code>, <code>cancelled</code>, and <code>pending</code>)</td>
 </tr>
 </tbody></table>
+
+<p><h3 id='transfer-creation'>Transfer Creation</h3><pre class="highlight shell tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/transfer <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+            "id":                   "43262",
+            "sale_id":              "12345",
+            "sale_item_id":         "101",
+            "sender_account_id":    "25236",
+            "recipient_email":      "user_email@gmail.com",
+            "recipient_account_id": "212163",
+            "status":               "pending"
+    }'</span>      
+
+</code></pre>
+<p>This function is used to send information to Inspetor every time a new item (<em>e.g. ticket</em>) transfer is created on your platform.</p>
 </p>
-<h1 id='exceptions'>Exceptions</h1>
-<p>The Inspetor Client Library uses the following exceptions:</p>
+
+<p><h3 id='transfer-updates'>Transfer Updates</h3><pre class="highlight shell tab-shell"><code>curl -X PUT https://collection-prod.inspcdn.net/transfer <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id":     "43262",
+        "status": "accepted"
+    }'</span>      
+
+</code></pre>
+<p>This function is used to send information to Inspetor every time an item (<em>e.g. ticket</em>) transfer&#39;s status is updated.</p>
+</p>
+
+<p><h2 id='addresses'>Addresses</h2><pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">&quot;street_name&quot;</span>:   <span class="s2">&quot;Rua Fidalga&quot;</span>,
+    <span class="s2">&quot;street_number&quot;</span>: <span class="s2">&quot;252&quot;</span>,
+    <span class="s2">&quot;zip_code&quot;</span>:      <span class="s2">&quot;05432-010&quot;</span>,
+    <span class="s2">&quot;city&quot;</span>:          <span class="s2">&quot;São Paulo&quot;</span>,
+    <span class="s2">&quot;state&quot;</span>:         <span class="s2">&quot;SP&quot;</span>,
+    <span class="s2">&quot;country&quot;</span>:       <span class="s2">&quot;BR&quot;</span>,
+    <span class="s2">&quot;latitude&quot;</span>:      -43.2360,
+    <span class="s2">&quot;longitude&quot;</span>:     -23.5115
+<span class="o">}</span>
+</code></pre>
+<p>Numerous resources have associated location data: Sale payments have an associated billing address, events occur at a particular address, or an account may have a shipping address associated with it. Inspetor standardizes the format in which we collect this data as follows:</p></p>
 
 <table><thead>
 <tr>
-<th>Exception</th>
+<th>Property</th>
+<th>Required?</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><a href="#trackerexception">TrackerException</a></td>
-<td>An error occured when sending information to our trackers</td>
+<td>street_name</td>
+<td>Yes</td>
+<td>String</td>
+<td>The street of the address</td>
 </tr>
 <tr>
-<td><a href="#inspetorgeneralexception">InspetorGeneralException</a></td>
-<td>The provided timestamp was not in Unix format</td>
+<td>street_number</td>
+<td>Yes</td>
+<td>String</td>
+<td>The street number of the address</td>
 </tr>
 <tr>
-<td><a href="#inspetoraccountexception">InspetorAccountException</a></td>
-<td>The provided <a href="#inspetoraccount">InspetorAccount</a> object was invalid</td>
+<td>zip_code</td>
+<td>Yes</td>
+<td>String</td>
+<td>The zip code (<em>e.g. CEP</em>) of the address</td>
 </tr>
 <tr>
-<td><a href="#inspetoraddressexception">InspetorAddressException</a></td>
-<td>The provided <a href="#inspetoraddress">InspetorAddress</a> object was invalid</td>
+<td>city</td>
+<td>Yes</td>
+<td>String</td>
+<td>The city in which the address is located</td>
 </tr>
 <tr>
-<td><a href="#inspetorauthexception">InspetorAuthException</a></td>
-<td>The provided <a href="#inspetorauth">InspetorAuth</a> object was invalid</td>
+<td>state</td>
+<td>Yes</td>
+<td>String</td>
+<td>The two-character ISO 3166-2 abbreviation of the state in which the address is located</td>
 </tr>
 <tr>
-<td><a href="#inspetorcategoryexception">InspetorCategoryException</a></td>
-<td>The provided <a href="#inspetorcategory">InspetorCategory</a> object was invalid</td>
+<td>country</td>
+<td>Yes</td>
+<td>String</td>
+<td>The two-character ISO 3166-2 country code in which the address is located</td>
 </tr>
 <tr>
-<td><a href="#inspetorcreditcardexception">InspetorCreditCardException</a></td>
-<td>The provided <a href="#inspetorcreditcard">InspetorCreditCard</a> object was invalid</td>
+<td>latitude</td>
+<td>No</td>
+<td>Double</td>
+<td>The exact latitude of the address</td>
 </tr>
 <tr>
-<td><a href="#inspetoreventexception">InspetorEventException</a></td>
-<td>The provided <a href="#inspetorevent">InspetorEvent</a> object was invalid</td>
-</tr>
-<tr>
-<td><a href="#inspetoritemexception">InspetorItemException</a></td>
-<td>The provided <a href="#inspetoritem">InspetorItem</a> object was invalid</td>
-</tr>
-<tr>
-<td><a href="#inspetorpassrecoveryexception">InspetorPassRecoveryException</a></td>
-<td>The provided <a href="#inspetorpassrecovery">InspetorPassRecovery</a> object was invalid</td>
-</tr>
-<tr>
-<td><a href="#inspetorpaymentexception">InspetorPaymentException</a></td>
-<td>The provided <a href="#inspetorpayment">InspetorPayment</a> object was invalid</td>
-</tr>
-<tr>
-<td><a href="#inspetorsaleexception">InspetorSaleException</a></td>
-<td>The provided <a href="#inspetorsale">InspetorSale</a> object was invalid</td>
-</tr>
-<tr>
-<td><a href="#inspetorsessionexception">InspetorSessionException</a></td>
-<td>The provided <a href="#inspetorsession">InspetorSession</a> object was invalid</td>
-</tr>
-<tr>
-<td><a href="#inspetortransferexception">InspetorTransferException</a></td>
-<td>The provided <a href="#inspetortransfer">InspetorTransfer</a> object was invalid</td>
-</tr>
-</tbody></table>
-
-<h2 id='trackerexception'>TrackerException</h2>
-
-<p>This exception is thrown when an error occured while sending information via our trackers</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>9001</td>
-<td>AppId and trackerName are required parameters</td>
-</tr>
-<tr>
-<td>9002</td>
-<td>Invalid Context! Authentication valid contexts:  account_login, account_logout,</td>
-</tr>
-<tr>
-<td>9003</td>
-<td>Invalid Context! Account valid contexts: account_create, account_update, account_delete.</td>
-</tr>
-<tr>
-<td>9005</td>
-<td>Invalid Context! Sale valid contexts: sale_create, sale_update_status.</td>
-</tr>
-<tr>
-<td>9006</td>
-<td>Invalid Context! Tranfer valid contexts: transfer_create, transfer_update_status.</td>
-</tr>
-<tr>
-<td>9007</td>
-<td>Invalid Context! Password request valid contexts: password_reset, password_recovery.</td>
-</tr>
-<tr>
-<td>9008</td>
-<td>Invalid Context! Event request valid contexts: event_create, event_update, event_delete.</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetorgeneralexception'>InspetorGeneralException</h2>
-
-<p>This exception is thrown when you provide a non-Unix-formatted datetime as a timestamp property in a model</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>The timestamp should be an integer</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetoraccountexception'>InspetorAccountException</h2>
-
-<p>This exception is thrown when you provide an <a href="#inspetoraccount">InspetorAccount</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>id is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>email is a required property. It can&#39;t  be null on creation</td>
-</tr>
-<tr>
-<td>7003</td>
-<td>timestamp is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7004</td>
-<td>document is a required property. It can&#39;t be null on creation</td>
-</tr>
-<tr>
-<td>7005</td>
-<td>phone_number is a required property. It can&#39;t be null on creation</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetoraddressexception'>InspetorAddressException</h2>
-
-<p>This exception is thrown when you provide an <a href="#inspetoraddress">InspetorAddress</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>street is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>zip_code is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7003</td>
-<td>city is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7004</td>
-<td>state is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7005</td>
-<td>country is a required property. It can&#39;t  be null</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetorauthexception'>InspetorAuthException</h2>
-
-<p>This exception is thrown when you provide an <a href="#inspetorauth">InspetorAuth</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>account_email is a required property. It can&#39;t be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>timestamp is a required property. It can&#39;t  be null</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetorcategoryexception'>InspetorCategoryException</h2>
-
-<p>This exception is thrown when you provide an <a href="#inspetorcategory">InspetorCategory</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>id is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>name is a required property. It can&#39;t  be null</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetorcreditcardexception'>InspetorCreditCardException</h2>
-
-<p>This exception is thrown when you provide a <a href="#inspetorcreditcard">InspetorCreditCard</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>first_six_digits is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>last_four_digits is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7003</td>
-<td>holder_name is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7004</td>
-<td>holder_cpf is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7005</td>
-<td>billing_address is a required property. It can&#39;t be null</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetoreventexception'>InspetorEventException</h2>
-
-<p>This exception is thrown when you provide an <a href="#inspetorevent">InspetorEvent</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>id is a required property. It can&#39;t be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>name is a required property. It can&#39;t be null on creation</td>
-</tr>
-<tr>
-<td>7003</td>
-<td>timestamp is a required property. It can&#39;t be null</td>
-</tr>
-<tr>
-<td>7004</td>
-<td>creator_id is a required property. It can&#39;t be null on creation</td>
-</tr>
-<tr>
-<td>7005</td>
-<td>address is a required property when the event has physical place.  It can&#39;t be null on creation</td>
-</tr>
-<tr>
-<td>7006</td>
-<td>sessions is a required property. It can&#39;t be null neither an empty array on creation</td>
-</tr>
-<tr>
-<td>7007</td>
-<td>seating_options should be null or an array of strings</td>
-</tr>
-<tr>
-<td>7008</td>
-<td>categories should be null or an array of strings</td>
-</tr>
-<tr>
-<td>7009</td>
-<td>The status is not a valid one</td>
-</tr>
-<tr>
-<td>7010</td>
-<td>sessions should be an array of one or more sessions</td>
-</tr>
-<tr>
-<td>7011</td>
-<td>id and timestamp are required properties of a session</td>
-</tr>
-<tr>
-<td>7012</td>
-<td>admins_id should be an array of one or more users</td>
-</tr>
-<tr>
-<td>7013</td>
-<td>is_physical should be a boolean. It&#39;s true by default</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetoritemexception'>InspetorItemException</h2>
-
-<p>This exception is thrown when you provide an <a href="#inspetoritem">InspetorItem</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>id is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>event_id is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7003</td>
-<td>session_id is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7004</td>
-<td>price is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7005</td>
-<td>price is not valid. It must be a double value equals or greater than zero.</td>
-</tr>
-<tr>
-<td>7006</td>
-<td>quantity is a required property. It must be an integer greater than zero.</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetorpassrecoveryexception'>InspetorPassRecoveryException</h2>
-
-<p>This exception is thrown when you provide a <a href="#inspetorpassrecovery">InspetorPassRecovery</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>recovery_email is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>timestamp is a required property. It can&#39;t  be null</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetorpaymentexception'>InspetorPaymentException</h2>
-
-<p>This exception is thrown when you provide a <a href="#inspetorpayment">InspetorPayment</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>id is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>method is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7003</td>
-<td>installments is a required property. It should be an integer greater than zero.</td>
-</tr>
-<tr>
-<td>7004</td>
-<td>This payment method is not a valid one</td>
-</tr>
-<tr>
-<td>7005</td>
-<td>Credit card can&#39;t be null when method is credit_card</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetorsaleexception'>InspetorSaleException</h2>
-
-<p>This exception is thrown when you provide a <a href="#inspetorsale">InspetorSale</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>id is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>account_id is a required property. It can&#39;t  be null on creation</td>
-</tr>
-<tr>
-<td>7003</td>
-<td>status is a required property. It can&#39;t  be null on creation</td>
-</tr>
-<tr>
-<td>7004</td>
-<td>is_fraud is a required property. It can&#39;t be null on update.</td>
-</tr>
-<tr>
-<td>7005</td>
-<td>timestamp is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7006</td>
-<td>items is a required property. It can&#39;t  be null neither an empty array on creation</td>
-</tr>
-<tr>
-<td>7007</td>
-<td>payment is a required property. It can&#39;t  be null on creation</td>
-</tr>
-<tr>
-<td>7008</td>
-<td>The status is not a valid one</td>
-</tr>
-<tr>
-<td>7009</td>
-<td>One or more items have invalid price</td>
-</tr>
-<tr>
-<td>7010</td>
-<td>analyzed_by is a required property. It can&#39;t be null on update.</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetorsessionexception'>InspetorSessionException</h2>
-
-<p>This exception is thrown when you provide an <a href="#inspetorsession">InspetorSession</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>id is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>datetime is a required property. It can&#39;t  be null</td>
-</tr>
-</tbody></table>
-
-<h2 id='inspetortransferexception'>InspetorTransferException</h2>
-
-<p>This exception is thrown when you provide a <a href="#inspetortransfer">InspetorTransfer</a> object with invalid properties or missing required properties</p>
-
-<h3 id='types'>Types</h3>
-
-<table><thead>
-<tr>
-<th>Category</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>7001</td>
-<td>id is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7002</td>
-<td>timestamp is a required property. It can&#39;t  be null</td>
-</tr>
-<tr>
-<td>7003</td>
-<td>item_id is a required property. It can&#39;t  be null on creation</td>
-</tr>
-<tr>
-<td>7004</td>
-<td>sender_account_id is a required property. It can&#39;t  be null on creation</td>
-</tr>
-<tr>
-<td>7005</td>
-<td>receiver_email is a required property. It can&#39;t  be null on creation</td>
-</tr>
-<tr>
-<td>7006</td>
-<td>That&#39;s an invalid status</td>
+<td>longitude</td>
+<td>No</td>
+<td>Double</td>
+<td>The exact longitude of the address</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="php">php</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="sh">sh</a>
           </div>
       </div>
     </div>

@@ -1,13 +1,21 @@
 <h2 id='inspetortransfer'>InspetorTransfer</h2>
 <p>Information regarding the transfer of purchased <a href="#inspetoritem">InspetorItems</a> (<em>e.g. tickets</em>) within your platform.</p>
-<h3 id='properties'>Properties</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<h3 id='properties'>Properties</h3><pre class="highlight plaintext"><code>{
+    "transfer_id":             "43262",
+    "sale_id":                 "12345",
+    "sale_item_id":            "101",
+    "sender_account_id":       "25236",
+    "recipient_account_email": "user_email@gmail.com",
+    "recipient_account_id":    "212163",
+    "status":                  "pending"
+}
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
 <span class="c1">// Calling an instance of Model
 </span><span class="nv">$inspetor_transfer</span> <span class="o">=</span> <span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">getInspetorTransfer</span><span class="p">();</span>
 
 <span class="c1">// Filling model with company data
 </span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setId</span><span class="p">(</span><span class="s2">"123"</span><span class="p">);</span> <span class="c1">//getId()
-</span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nb">time</span><span class="p">());</span> <span class="c1">//getTimestamp()
 </span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setItemId</span><span class="p">(</span><span class="s2">"9000"</span><span class="p">);</span> <span class="c1">//getItemId()
 </span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setSenderAccountId</span><span class="p">(</span><span class="s2">"124"</span><span class="p">);</span> <span class="c1">//getSenderAccountId()
 </span><span class="nv">$inspetor_transfer</span><span class="o">-&gt;</span><span class="na">setReceiverEmail</span><span class="p">(</span><span class="s2">"test@email.com"</span><span class="p">);</span> <span class="c1">//getReceiverEmail()
@@ -23,15 +31,14 @@
 
 <span class="c"># Filling model with transfer data</span>
 <span class="n">inspetor_transfer</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="s">"123"</span>
-<span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
 <span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">item_id</span> <span class="o">=</span> <span class="s">"123"</span>
 <span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">sender_account_id</span> <span class="o">=</span> <span class="s">"123"</span>
 <span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">receiver_email</span> <span class="o">=</span> <span class="s">"test@email.com"</span>
 <span class="n">inspetor_transfer</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s">"pending"</span>
 
 
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_creation</span><span class="p">(</span><span class="n">inspetor_transger</span><span class="p">)</span>
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_update</span><span class="p">(</span><span class="n">inspetor_transger</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_creation</span><span class="p">(</span><span class="n">inspetor_transfer</span><span class="p">)</span>
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_update</span><span class="p">(</span><span class="n">inspetor_transfer</span><span class="p">)</span>
 </code></pre>
 <p>All properties can be accessed or defined via <code>get</code> and <code>set</code> accessor methods</p>
 
@@ -45,18 +52,18 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>id</strong></td>
+<td><strong>transfer_id</strong></td>
 <td>Yes</td>
 <td>Yes</td>
 <td>String</td>
 <td>Your platform-unique identifier for the transfer</td>
 </tr>
 <tr>
-<td><strong>timestamp</strong></td>
+<td><strong>sale_id</strong></td>
 <td>Yes</td>
 <td>Yes</td>
-<td>Integer</td>
-<td>The Unix-formatted datetime that the action happend</td>
+<td>String</td>
+<td>Your platform-unique identifier for the <strong>sale</strong> associated with the items being transfered</td>
 </tr>
 <tr>
 <td><strong>item_id</strong></td>
@@ -73,7 +80,7 @@
 <td>The id of the account who is transferring the item (<em>e.g. ticket</em>)</td>
 </tr>
 <tr>
-<td><strong>receiver_email</strong></td>
+<td><strong>recipient_email</strong></td>
 <td>Yes</td>
 <td>No</td>
 <td>String</td>

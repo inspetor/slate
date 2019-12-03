@@ -1,97 +1,81 @@
-<h2 id='items-transfers'>Items Transfers</h2>
-<p>The following functions will be used to relay item (<em>e.g. ticket</em>) transfers between users (<em>e.g. accounts</em>) that happen within your platform:</p>
-
-<ul>
-<li><strong>Item Transfer Creation</strong> (<em>trackItemTransferCreation</em>)</li>
-<li><a href="#transfer-creation">trackTransferCreation</a></li>
-<li><a href="#transfer-updates">trackTransferUpdate</a></li>
-<li><strong>Item Transfer Update</strong> (<em>trackItemTransferUpdate</em>)</li>
-</ul>
-
-<p>All the functions for tracking transfer activity require a <a href="#inspetortransfer">InspetorTransfer</a> object as argument and return <code>true</code> if everything goes right. Otherwise, one of the the following exceptions will be thrown:</p>
+<h2 id='item-transfers'>Item Transfers</h2>
+<p>You can provide transfer-related activity via the REST API. The <code>/transfer</code> endpoint supports POST and PUT operations with the following required arguments:</p>
 
 <table><thead>
 <tr>
-<th>Exception</th>
+<th>Property</th>
+<th>When is it required?</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong><a href="#inspetortransferexception">TransferException</a></strong></td>
-<td>The Transfer object provided is not a valid one</td>
+<td>id</td>
+<td><code>POST</code>, <code>UPDATE</code></td>
+<td>String</td>
+<td>Your platform-unique identifier for the transfer</td>
 </tr>
 <tr>
-<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
-<td>The timestamps that you passed on the objects are not valid ones</td>
+<td>sale_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>Your platform-unique identifier for the <strong>sale</strong> associated with the items being transfered</td>
 </tr>
 <tr>
-<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occurred <em>Hopefully this never happen</em></td>
+<td>sale_item_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The id of the <a href="#sale-items">sale item</a> (<em>e.g. ticket</em>) that is being transfered</td>
+</tr>
+<tr>
+<td>sender_account_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The id of the account who is transferring the item (<em>e.g. ticket</em>)</td>
+</tr>
+<tr>
+<td>recipient_email</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The email of the user who is receiving the item</td>
+</tr>
+<tr>
+<td>recipient_account_id</td>
+<td></td>
+<td>String</td>
+<td>The id of the account (if available) who is receiving the item</td>
+</tr>
+<tr>
+<td>status</td>
+<td><code>POST</code>, <code>UPDATE</code></td>
+<td>String</td>
+<td>The status of the transfer. (Allowed values: <code>accepted</code>, <code>rejected</code>, <code>cancelled</code>, and <code>pending</code>)</td>
 </tr>
 </tbody></table>
 
-<p><h3 id='transfer-creation'>Transfer Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferCreation</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_creation</span><span class="p">(</span><span class="n">transfer</span><span class="p">)</span>
+<p><h3 id='transfer-creation'>Transfer Creation</h3><pre class="highlight shell tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/transfer <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+            "id":                   "43262",
+            "sale_id":              "12345",
+            "sale_item_id":         "101",
+            "sender_account_id":    "25236",
+            "recipient_email":      "user_email@gmail.com",
+            "recipient_account_id": "212163",
+            "status":               "pending"
+    }'</span>      
 
 </code></pre>
 <p>This function is used to send information to Inspetor every time a new item (<em>e.g. ticket</em>) transfer is created on your platform.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>transfer</td>
-<td>Inspetor/Model/<a href="#inspetortransfer">InspetorTransfer</a></td>
-<td>The Transfer that is being created</td>
-</tr>
-</tbody></table>
 </p>
 
-<p><h3 id='transfer-updates'>Transfer Updates</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferUpdate</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_update</span><span class="p">(</span><span class="n">transfer</span><span class="p">)</span>
+<p><h3 id='transfer-updates'>Transfer Updates</h3><pre class="highlight shell tab-shell"><code>curl -X PUT https://collection-prod.inspcdn.net/transfer <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id":     "43262",
+        "status": "accepted"
+    }'</span>      
 
 </code></pre>
 <p>This function is used to send information to Inspetor every time an item (<em>e.g. ticket</em>) transfer&#39;s status is updated.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>transfer</td>
-<td>Inspetor/Model/<a href="#inspetortransfer">InspetorTransfer</a></td>
-<td>The Transfer that is being updated</td>
-</tr>
-</tbody></table>
 </p>

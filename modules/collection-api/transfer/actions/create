@@ -1,31 +1,14 @@
-<h3 id='transfer-creation'>Transfer Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackItemTransferCreation</span><span class="p">(</span><span class="nv">$transfer</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_transfer_creation</span><span class="p">(</span><span class="n">transfer</span><span class="p">)</span>
+<h3 id='transfer-creation'>Transfer Creation</h3><pre class="highlight shell tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/transfer <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+            "id":                   "43262",
+            "sale_id":              "12345",
+            "sale_item_id":         "101",
+            "sender_account_id":    "25236",
+            "recipient_email":      "user_email@gmail.com",
+            "recipient_account_id": "212163",
+            "status":               "pending"
+    }'</span>      
 
 </code></pre>
 <p>This function is used to send information to Inspetor every time a new item (<em>e.g. ticket</em>) transfer is created on your platform.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>transfer</td>
-<td>Inspetor/Model/<a href="#inspetortransfer">InspetorTransfer</a></td>
-<td>The Transfer that is being created</td>
-</tr>
-</tbody></table>

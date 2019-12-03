@@ -1,0 +1,36 @@
+<h3 id='mark-sale-fraudulent'>Mark Sale Fraudulent</h3><pre class="highlight shell tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/sale/mark_fraudulent <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "sale_id":           "12345",
+        "fraud_signal_type": "chargeback"
+    }'</span>
+</code></pre>
+<p>Additionally, there is a <code>/sales/mark_fraudulent</code> endpoint that you should use to update Inspetor when a sale has been rejected or refunded due to suspicion of fraud, or if a sale has resuled in a chargeback.</p>
+
+<p>If a sale is deemed fraudulent (either via your existing antifraud solution, manual analysis, acquirer rejection, or even if you receive a chargeback), it is extremely important that you relay this information to Inspetor. This is perhaps <em>the most valuable piece of information</em> you can send to us; all of our fraud prediction models are trained on this label. </p>
+
+<p>The <code>/sale/mark_fraudulent</code> endpoint supports the <code>POST</code> operation and requires the following arguments:</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>When is it required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sale_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The unique identifier for the sale within your platform</td>
+</tr>
+<tr>
+<td>fraud_signal_type</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The mechanism by which you identified the sale as fraudulent. Current accepted values are &#39;acquirer&#39;, other antifraud services such as <strong>&#39;horus&#39;</strong>, <strong>&#39;fraudnet&#39;</strong>, and <strong>&#39;sift&#39;</strong>, your company name (<strong>&#39;ingresse&#39;</strong>), or simply <strong>&#39;chargeback&#39;</strong>.</td>
+</tr>
+</tbody></table>
+
+<p>Note: it is expected that when marking a sale fraudulent, one would also make a corresponding call to the <code>/sales</code> endpoint to update a sale with a <code>rejected</code> status (unless the sale was marked fraudulent only after a chargeback was received). </p>

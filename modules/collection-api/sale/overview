@@ -1,106 +1,271 @@
 <h2 id='sale-activity'>Sale Activity</h2>
-<p>The following functions provide Inspetor with information on sales that happen within your platform. The main activities that we track are the following:</p>
-
-<ul>
-<li><a href="#sale-creation">trackSaleCreation</a></li>
-<li><a href="#sale-updates">trackSaleUpdate</a></li>
-</ul>
-
-<p>All functions for tracking Sales activity require a <a href="#inspetorsale">InspetorSale</a> object as an argument and return <code>true</code> upon successful execution. Otherwise, one of the following exceptions will be thrown:</p>
+<p>You can provide sale-related activity via the REST API. The <code>/sales</code> endpoint supports <code>POST</code> and <code>PUT</code> operations with the following arguments:</p>
 
 <table><thead>
 <tr>
-<th>Exception</th>
+<th>Property</th>
+<th>When is it required?</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong><a href="#inspetorsaleexception">SaleException</a></strong></td>
-<td>The Transfer object provided is not a valid one</td>
+<td>id</td>
+<td><code>POST</code>, <code>PUT</code></td>
+<td>String</td>
+<td>The unique identifier for the sale within your platform</td>
 </tr>
 <tr>
-<td><strong><a href="#inspetoritemexception">ItemException</a></strong></td>
-<td>The Item object provided on the Sale is not a valid one</td>
+<td>account_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The id of the user who is making the purchase</td>
 </tr>
 <tr>
-<td><strong><a href="#pinspetoraymentexception">PaymentException</a></strong></td>
-<td>The Payment object provided on the Sale is not a valid one</td>
+<td>status</td>
+<td><code>POST</code>,</td>
+<td>String</td>
+<td>The status of the sale. <em>The allowed values are: <code>approved</code>, <code>declined</code>, <code>pending</code>, <code>refunded</code>, and <code>manual_analysis</code></em></td>
 </tr>
 <tr>
-<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
-<td>The timestamps that you passed on the objects are not valid ones</td>
+<td>items</td>
+<td><code>POST</code></td>
+<td>Array of <a href="#sale-items">sale items</a></td>
+<td>The items (<em>e.g. tickets</em>) that are being bought</td>
 </tr>
 <tr>
-<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
-<td>An internal error occurred <em>Hopefully this never happen</em></td>
+<td>payment</td>
+<td><code>POST</code></td>
+<td><a href="#sale-payment">Payment</a></td>
+<td>The payment used in this purchase</td>
+</tr>
+<tr>
+<td>currency</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The ISO-4217 code for the currency of the <code>total_value</code> of the sale</td>
+</tr>
+<tr>
+<td>total_value</td>
+<td><code>POST</code></td>
+<td>Float</td>
+<td>The total value of the sale</td>
 </tr>
 </tbody></table>
 
-<p><h3 id='sale-creation'>Sale Creation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleCreation</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_creation</span><span class="p">(</span><span class="n">sale</span><span class="p">)</span>
-
+<p><h3 id='sale-creation'>Sale Creation</h3><pre class="highlight shell tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/sale <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id":         "12345",
+        "account_id": "157421",
+        "status":     "pending",
+        "items": [
+            {
+                "id":                 "1",
+                "value":              25.00,
+                "event_id":           "23553",
+                "event_datetime_ids": ["101", "102"]
+            },
+            {
+                "id":                 "2",
+                "value":              25.00,
+                "event_id":           "23553",
+                "event_datetime_ids": ["101", "102"]
+            }
+        ],
+        "payment": 
+        {
+            "method":              "credit_card",
+            "installments":        1,
+            "first_six_digits_cc": "455326",
+            "last_four_digits_cc": "0012",
+            "holder_name":         "John Fulano",
+            "holder_cpf":          "741.112.235-53",
+            "billing_address": {
+                "street_name":     "Rua Fidalga",
+                "street_number":   "252",
+                "zip_code":        "05432-010",
+                "city":            "São Paulo",
+                "state":           "SP",
+                "country":         "BR"
+            }
+        },
+        "total_value": 54.26,
+        "currency":    "BRL"
+    }'</span>
 </code></pre>
 <p>Send information to Inspetor every time a new sale is created on your platform.</p>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>sale</td>
-<td>Inspetor/Model/<a href="#inspetorsale">InspetorSale</a></td>
-<td>The Sale that is being created</td>
-</tr>
-</tbody></table>
 </p>
 
-<p><h3 id='sale-updates'>Sale Updates</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
-
-<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
-
-<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackSaleUpdate</span><span class="p">(</span><span class="nv">$sale</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
-
-<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
-
-<span class="n">inspetor</span><span class="o">.</span><span class="n">track_sale_update</span><span class="p">(</span><span class="n">sale</span><span class="p">)</span>
-
+<p><h3 id='sale-updates'>Sale Updates</h3><pre class="highlight shell tab-shell"><code>curl -X PUT https://collection-prod.inspcdn.net/sale <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "id":         "12345",
+        "status":     "approved"
+    }'</span>
 </code></pre>
-<p>Send information to Inspetor every time a sale&#39;s status is updated.
+<p>Send information to Inspetor every time a sale&#39;s attributes (in particular, its status) is updated.</p>
+
 <aside class="notice">
-You must call this function <b>any</b> time a sale&#39;s status is updated (including post-sale updates, such as refunds). Sale status is extremely crucial to Inspetor&#39;s prediction model.
-</aside></p>
+You must call this function <b>any</b> time a sale's status is updated (including post-sale updates, such as refunds). Sale status is extremely crucial to Inspetor's prediction model.
+</aside>
+</p>
+
+<p><h3 id='mark-sale-fraudulent'>Mark Sale Fraudulent</h3><pre class="highlight shell tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/sale/mark_fraudulent <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "sale_id":           "12345",
+        "fraud_signal_type": "chargeback"
+    }'</span>
+</code></pre>
+<p>Additionally, there is a <code>/sales/mark_fraudulent</code> endpoint that you should use to update Inspetor when a sale has been rejected or refunded due to suspicion of fraud, or if a sale has resuled in a chargeback.</p>
+
+<p>If a sale is deemed fraudulent (either via your existing antifraud solution, manual analysis, acquirer rejection, or even if you receive a chargeback), it is extremely important that you relay this information to Inspetor. This is perhaps <em>the most valuable piece of information</em> you can send to us; all of our fraud prediction models are trained on this label. </p>
+
+<p>The <code>/sale/mark_fraudulent</code> endpoint supports the <code>POST</code> operation and requires the following arguments:</p>
 
 <table><thead>
 <tr>
-<th>Argument</th>
+<th>Property</th>
+<th>When is it required?</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>sale</td>
-<td>Inspetor/Model/<a href="#inspetorsale">InspetorSale</a></td>
-<td>The Sale that is being updated</td>
+<td>sale_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The unique identifier for the sale within your platform</td>
+</tr>
+<tr>
+<td>fraud_signal_type</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The mechanism by which you identified the sale as fraudulent. Current accepted values are &#39;acquirer&#39;, other antifraud services such as <strong>&#39;horus&#39;</strong>, <strong>&#39;fraudnet&#39;</strong>, and <strong>&#39;sift&#39;</strong>, your company name (<strong>&#39;ingresse&#39;</strong>), or simply <strong>&#39;chargeback&#39;</strong>.</td>
+</tr>
+</tbody></table>
+
+<p>Note: it is expected that when marking a sale fraudulent, one would also make a corresponding call to the <code>/sales</code> endpoint to update a sale with a <code>rejected</code> status (unless the sale was marked fraudulent only after a chargeback was received). </p>
+</p>\
+
+<p><h3 id='sale-items'>Sale Items</h3><pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"id"</span>:                 <span class="s2">"101"</span>,
+    <span class="s2">"event_id"</span>:           <span class="s2">"23553"</span>,
+    <span class="s2">"event_datetime_ids"</span>: <span class="o">[</span><span class="s2">"101"</span>, <span class="s2">"102"</span><span class="o">]</span>
+    <span class="s2">"value"</span>:              25.00,
+<span class="o">}</span>
+</code></pre>
+<p>Our current collection API is built with certain assumptions about the ticketing industry. In particular, we assume that a sale will have one or more items (in the case of the ticketing industry, tickets) associated with it. We require some information about these items in order to reason about the sale:</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>When is it required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>POST</code>, <code>UPDATE</code></td>
+<td>String</td>
+<td>A consistent identifier for this item (<em>e.g. ticket</em>) within your platform</td>
+</tr>
+<tr>
+<td>event_id</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The unique identifier of the <a href="#event-activity">event</a> that the item is tied too</td>
+</tr>
+<tr>
+<td>event_datetime_ids</td>
+<td><code>POST</code></td>
+<td>Array</td>
+<td>The array of <a href="#event-datetimes">event datetime IDs</a> that the ticket is tied to</td>
+</tr>
+<tr>
+<td>value</td>
+<td><code>POST</code></td>
+<td>Double</td>
+<td>The price of the item. <em>It should only contain numbers, dots, or commas</em></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Any time you are updating one or more of the items associated with a sale, you must send <b>all</b> of the items associated with that sale (even the items that were not updated). Otherwise, the update request will be interpreted as having removed the omitted items from the sale.
+</aside>
+</p>
+
+<p><h3 id='sale-payment'>Sale Payment</h3><pre class="highlight shell tab-shell"><code>
+<span class="o">{</span>
+    <span class="s2">"method"</span>:              <span class="s2">"credit_card"</span>,
+    <span class="s2">"installments"</span>:        1,
+    <span class="s2">"first_six_digits_cc"</span>: <span class="s2">"455326"</span>,
+    <span class="s2">"last_four_digits_cc"</span>: <span class="s2">"0012"</span>,
+    <span class="s2">"holder_name"</span>:         <span class="s2">"John Fulano"</span>,
+    <span class="s2">"holder_cpf"</span>:          <span class="s2">"741.112.235-53"</span>,
+    <span class="s2">"billing_address"</span>: <span class="o">{</span>
+        <span class="s2">"street_name"</span>:     <span class="s2">"Rua Fidalga"</span>,
+        <span class="s2">"street_number"</span>:   <span class="s2">"252"</span>,
+        <span class="s2">"zip_code"</span>:        <span class="s2">"05432-010"</span>,
+        <span class="s2">"city"</span>:            <span class="s2">"São Paulo"</span>,
+        <span class="s2">"state"</span>:           <span class="s2">"SP"</span>,
+        <span class="s2">"country"</span>:         <span class="s2">"Brasil"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Inspetor has a standardized format for accepting payment information that is associated with a sale. You can find the accepted and required parameters below:</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>When is it required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The method of payment being used. <em>The allowed values are <code>credit_card</code>, <code>boleto</code>, and <code>other</code></em></td>
+</tr>
+<tr>
+<td>installments</td>
+<td><code>POST</code></td>
+<td>Integer</td>
+<td>The number of &quot;<em>parcelas</em>&quot; that the user will pay</td>
+</tr>
+<tr>
+<td>first_six_digits_cc</td>
+<td><code>POST</code> (credit_card only)</td>
+<td>String</td>
+<td>The first six digits of the credit card number (should be only digits)</td>
+</tr>
+<tr>
+<td>last_four_digits_cc</td>
+<td><code>POST</code> (credit_card only)</td>
+<td>String</td>
+<td>The last four digits of the credit card number (should be only digits)</td>
+</tr>
+<tr>
+<td>holder_name</td>
+<td><code>POST</code> (credit_card only)</td>
+<td>String</td>
+<td>The full name of the owner of the credit card</td>
+</tr>
+<tr>
+<td>holder_cpf</td>
+<td><code>POST</code> (credit_card only)</td>
+<td>String</td>
+<td>The CPF of the owner of the credit card. (Expected format is only numbers, with no dots or dashes)</td>
+</tr>
+<tr>
+<td>billing_address</td>
+<td><code>POST</code> (credit_card only)</td>
+<td><a href="#addresses">Address</a></td>
+<td>The billing address associated with this credit card</td>
 </tr>
 </tbody></table>
 </p>

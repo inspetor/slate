@@ -1,0 +1,27 @@
+<h3 id='event-datetimes'>Event Datetimes</h3><pre class="highlight sh tab-shell"><code>    <span class="o">{</span>
+        <span class="s2">"id"</span>:       <span class="s2">"201"</span>,
+        <span class="s2">"datetime"</span>: 1594315000
+    <span class="o">}</span>
+</code></pre>
+<p>Our data model operates with the assumption that a single event listing could have multiple sessions (for example Lollapalooza may have multiple sessions, but all be considered the same event.) We refer to those sessions as &quot;event datetimes.&quot; Whenever you&#39;re creating an event, or even when you&#39;re selling tickets to an event, you should indicate which event datetime or datetimes should be correlated with that action. </p>
+
+<p>An event datetime requires the following information: </p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>The identifier for this event datetime in your platform. Event datetime IDs must be unique per-event (but event datetime ids can be the same if they are sessions of different events)</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>Integer</td>
+<td>The Unix-timestamp corresponding to the date and time of the event datetime</td>
+</tr>
+</tbody></table>

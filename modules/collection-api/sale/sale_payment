@@ -1,0 +1,71 @@
+<h3 id='sale-payment'>Sale Payment</h3><pre class="highlight shell tab-shell"><code>
+<span class="o">{</span>
+    <span class="s2">"method"</span>:              <span class="s2">"credit_card"</span>,
+    <span class="s2">"installments"</span>:        1,
+    <span class="s2">"first_six_digits_cc"</span>: <span class="s2">"455326"</span>,
+    <span class="s2">"last_four_digits_cc"</span>: <span class="s2">"0012"</span>,
+    <span class="s2">"holder_name"</span>:         <span class="s2">"John Fulano"</span>,
+    <span class="s2">"holder_cpf"</span>:          <span class="s2">"741.112.235-53"</span>,
+    <span class="s2">"billing_address"</span>: <span class="o">{</span>
+        <span class="s2">"street_name"</span>:     <span class="s2">"Rua Fidalga"</span>,
+        <span class="s2">"street_number"</span>:   <span class="s2">"252"</span>,
+        <span class="s2">"zip_code"</span>:        <span class="s2">"05432-010"</span>,
+        <span class="s2">"city"</span>:            <span class="s2">"São Paulo"</span>,
+        <span class="s2">"state"</span>:           <span class="s2">"SP"</span>,
+        <span class="s2">"country"</span>:         <span class="s2">"Brasil"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Inspetor has a standardized format for accepting payment information that is associated with a sale. You can find the accepted and required parameters below:</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>When is it required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method</td>
+<td><code>POST</code></td>
+<td>String</td>
+<td>The method of payment being used. <em>The allowed values are <code>credit_card</code>, <code>boleto</code>, and <code>other</code></em></td>
+</tr>
+<tr>
+<td>installments</td>
+<td><code>POST</code></td>
+<td>Integer</td>
+<td>The number of &quot;<em>parcelas</em>&quot; that the user will pay</td>
+</tr>
+<tr>
+<td>first_six_digits_cc</td>
+<td><code>POST</code> (credit_card only)</td>
+<td>String</td>
+<td>The first six digits of the credit card number (should be only digits)</td>
+</tr>
+<tr>
+<td>last_four_digits_cc</td>
+<td><code>POST</code> (credit_card only)</td>
+<td>String</td>
+<td>The last four digits of the credit card number (should be only digits)</td>
+</tr>
+<tr>
+<td>holder_name</td>
+<td><code>POST</code> (credit_card only)</td>
+<td>String</td>
+<td>The full name of the owner of the credit card</td>
+</tr>
+<tr>
+<td>holder_cpf</td>
+<td><code>POST</code> (credit_card only)</td>
+<td>String</td>
+<td>The CPF of the owner of the credit card. (Expected format is only numbers, with no dots or dashes)</td>
+</tr>
+<tr>
+<td>billing_address</td>
+<td><code>POST</code> (credit_card only)</td>
+<td><a href="#addresses">Address</a></td>
+<td>The billing address associated with this credit card</td>
+</tr>
+</tbody></table>

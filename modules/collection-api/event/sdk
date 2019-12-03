@@ -1,0 +1,71 @@
+<h1 id='note-code-snippets-are-here-only-temporarily-they-should-be-moved-back-to-the-corresponding-action-page-when-the-sdk-properly-supports-these-actions'>Note: code snippets are here only temporarily; they should be moved back to the corresponding action page when the SDK properly supports these actions</h1><h3 id='create'>CREATE</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventCreation</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_creation</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+</code></pre><h3 id='delete'>DELETE</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventDeletion</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_deletion</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+</code></pre><h3 id='update'>UPDATE</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Inspetor</span><span class="p">;</span>
+
+<span class="nv">$inspetor</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getConfiguredInspetor</span><span class="p">();</span>
+
+<span class="nv">$inspetor</span><span class="o">-&gt;</span><span class="na">trackEventUpdate</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">inspetor</span>
+
+<span class="n">inspetor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguredInspetor</span><span class="p">()</span>
+
+<span class="n">inspetor</span><span class="o">.</span><span class="n">track_event_update</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+</code></pre>
+<p>If you are using the Python or PHP SDKs, the functions for tracking event-related actions require an <a href="#inspetorevent">InspetorEvent</a> object as argument and return <code>true</code> upon successful execution. Otherwise, one of the following exceptions will be thrown:</p>
+
+<table><thead>
+<tr>
+<th>Exception</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><a href="#inspetoreventexception">EventException</a></strong></td>
+<td>The Event object provided is invalid</td>
+</tr>
+<tr>
+<td><strong><a href="#inspetoraddressexception">AddressException</a></strong></td>
+<td>The Address object provided as a property of the Event object is invalid</td>
+</tr>
+<tr>
+<td><strong><a href="#inspetorgeneralexception">generalException</a></strong></td>
+<td>The timestamps passed as Event object properties are invalid</td>
+</tr>
+<tr>
+<td><strong><a href="#trackerexception">TrackerException</a></strong></td>
+<td>An internal error occurred (<em>This should never happen</em>)</td>
+</tr>
+</tbody></table>
