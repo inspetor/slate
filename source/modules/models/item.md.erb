@@ -13,10 +13,9 @@ $inspetor_item = $inspetor->getInspetorItem();
 // Filling model with company data
 $inspetor_item->setId("9000"); //getId()
 $inspetor_item->setEventId("8000"); //getEventId()
-$inspetor_item->setSessionId("124"); //getSessionId()
+$inspetor_item->setSessionIds([124]); //getSessionId()
 $inspetor_item->setPrice(50.0); //getPrice()
 $inspetor_item->setSeatingOption("PISTA"); //getSeatingOption()
-$inspetor_item->setQuantity(2); //getQuantity()
 
 ?>
 ```
@@ -28,18 +27,15 @@ inspetor_item = self.inspetor.get_inspetor_item()
 inspetor_item.id = "123"
 inspetor_item.event_id = "123"
 inspetor_item.session_id = "123"
-inspetor_item.seating_option = "Seating Option Test"
 inspetor_item.price = "10"
-inspetor_item.quantity = "123"
 ```
 
 All properties can be accessed or defined via `get` and `set` accessor methods
 
-Property | Required For Creation | Required For Update | Type | Description
--------- | --------------------- | ------------------- | ---- | -----------
-**id**         | Yes | Yes | String  | A unique identifier for this item (*e.g. ticket*) within your platform
-**event_id**   | Yes | Yes | String  | The unique identifier of the event that the item is tied too
-**session_id** | Yes | Yes | String  | The unique identifier of the event session (date and time) that the item is tied to
-**price**      | Yes | Yes | Double  | The price of the item. *It should only contain numbers, dots and commas*
-**quantity**   | Yes | Yes | Integer | The number of item of this type being bought.
-seating_option | No  | Yes | String  | The name of the type of item that is being bought
+Property               | Required For Creation | Required For Update | Type | Description
+--------               | --------------------- | ------------------- | ---- | -----------
+**id**                 | Yes                   | Yes                 | String  | A unique identifier for this item (*e.g. ticket*) within your platform
+**event_id**           | Yes                   | Yes                 | String  | The unique identifier of the event that the item is tied too
+**event_datetime_ids** | Yes                   | Yes                 | Array   | The array of event datetimes that the ticket is tied to
+**price**              | Yes                   | Yes                 | Double  | The price of the item. *It should only contain numbers, dots and commas*
+**quantity**           | Yes                   | Yes                 | Integer | The number of item of this type being bought.

@@ -4,6 +4,24 @@ Information about the payment associated with a [InspetorSale](#inspetorsale).
 
 ### Properties
 
+```json
+`{
+    "method":          "credit_card",
+    "installments":    1,
+    "ccard_first_six": 455326,
+    "ccard_last_four": 0012,
+    "holder_name":     "John Fulano",
+    "holder_cpf":      "741.112.235-53",
+    "billing_address": {
+        "street_name":   "Rua Fidalga",
+        "street_number": "252",
+        "zip_code":      "05432-010",
+        "city":          "São Paulo",
+        "state":         "SP",
+        "country":       "Brasil"
+    }
+}`
+```
 ```php
 <?php
 
@@ -11,7 +29,6 @@ Information about the payment associated with a [InspetorSale](#inspetorsale).
 $inspetor_payment = $inspetor->getInspetorPayment();
 
 // Filling model with company data
-$inspetor_payment->setId("12345"); //getId()
 $inspetor_payment->setMethod("credit_card"); //getMethod()
 $inspetor_payment->setInstallments(1); //getInstallments()
 $inspetor_payment->setCreditCard($inspetor_cc); //getCreditCard()
@@ -23,7 +40,6 @@ $inspetor_payment->setCreditCard($inspetor_cc); //getCreditCard()
 inspetor_payment = self.inspetor.get_inspetor_payment()
 
 # Filling model with payment data
-payment.id = "123"
 payment.method = "credit_card"
 payment.installments = "1"
 payment.credit_card = inspetor_credit_card
@@ -33,7 +49,6 @@ All properties can be accessed or defined via `get` and `set` accessor methods
 
 Property | Required For Creation | Required For Update | Type | Description
 -------- | --------------------- | ------------------- | ---- | -----------
-**id**           | Yes | Yes | String | The id of the payment. This id should be the same as the one you send to the payment processor.
 **method**       | Yes | Yes  | String | The method of payment being used. *The allowed values are `credit_card`, `boleto`, and `other`*
 **installments** | Yes | Yes  | Integer | The number of "*parcelas*" that the user will pay
 credit_card      | No  | No  | [InspetorCreditCard](#inspetorcreditcard) | If the method is *credit_card* it should contains a credit card object

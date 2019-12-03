@@ -1,27 +1,36 @@
 ### Event Creation
 
-```php
-<?php
-
-use Inspetor;
-
-$inspetor = $this->getConfiguredInspetor();
-
-$inspetor->trackEventCreation($event);
-
-?>
+```sh
+curl -X POST https://collection-prod.inspcdn.net/event \
+    -H "Authorization: Bearer $API_KEY" \
+    -d '{
+        "id":          "12345",
+        "name":        "Reveillon 2020",
+        "is_physical": true,
+        "dates":  [
+            {
+                "id":       "1",
+                "datetime": 1574210000
+            },
+            {
+                "id":       "2",
+                "datetime": 1574315000
+            }
+        ],
+        "creator_id":  "22342",
+        "admin_ids":   ["22342", "23536"],
+        "address":     {
+            "street_name":   "Rua Fidalga",
+            "street_number": "252",
+            "zip_code":      "05432-010",
+            "city":          "São Paulo",
+            "state":         "SP",
+            "country":       "BR"
+        },
+        "status":      "published",
+        "description": "Lorem Ipsum",
+        "slug":        "/reveillon_2020"
+    }'
 ```
-```python 
-import inspetor
 
-inspetor = self.getConfiguredInspetor()
-
-inspetor.track_event_creation(event)
-
-```
-
-Send information to Inspetor anytime a new event (*e.g. pary, shows...*) is created in your platform
-
-Argument | Type | Description
--------- | ---- | -----------
-event | Inspetor/Model/[InspetorEvent](#inspetorevent) | The Event that is being created
+Send information to Inspetor anytime a new event (*e.g. party, shows...*) is created in your platform

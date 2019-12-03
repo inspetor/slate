@@ -1,19 +1,22 @@
 ## Sale Activity
 
-The following functions provide Inspetor with information on sales that happen within your platform. The main activities that we track are the following:
+You can provide sale-related activity via the REST API. The `/sales` endpoint supports `POST` and `PUT` operations with the following arguments:
 
-- <a href="#sale-creation">trackSaleCreation</a>
-- <a href="#sale-updates">trackSaleUpdate</a>
 
-All functions for tracking Sales activity require a [InspetorSale](#inspetorsale) object as an argument and return `true` upon successful execution. Otherwise, one of the following exceptions will be thrown:
-
-Exception | Description
---------- | -----------
-**[SaleException](#inspetorsaleexception)**         | The Transfer object provided is not a valid one
-**[ItemException](#inspetoritemexception)**         | The Item object provided on the Sale is not a valid one
-**[PaymentException](#pinspetoraymentexception)**   | The Payment object provided on the Sale is not a valid one
-**[generalException](#inspetorgeneralexception)** | The timestamps that you passed on the objects are not valid ones
-**[TrackerException](#trackerexception)**   | An internal error occurred *Hopefully this never happen*
+Property       | When is it required?   | Type   | Description
+--------       | ---------------------  | ----   | -----------
+id             | `POST`, `PUT`          | String | The unique identifier for the sale within your platform
+account_id     | `POST`                 | String | The id of the user who is making the purchase
+status         | `POST`,                | String | The status of the sale. *The allowed values are: `approved`, `declined`, `pending`, `refunded`, and `manual_analysis`*
+items          | `POST`                 | Array of [sale items](#sale-items) | The items (*e.g. tickets*) that are being bought
+payment        | `POST`                 | [Payment](#sale-payment) | The payment used in this purchase
+currency       | `POST`                 | String | The ISO-4217 code for the currency of the `total_value` of the sale
+total_value    | `POST`                 | Float  | The total value of the sale
 
 <p><%= partial "modules/collection-api/sale/actions/create.md.erb" %></p>
 <p><%= partial "modules/collection-api/sale/actions/update.md.erb" %></p>
+
+<p><%= partial "modules/collection-api/sale/actions/mark_fraudulent.md.erb" %></p>\
+
+<p><%= partial "modules/collection-api/sale/sale_items.md.erb" %></p>
+<p><%= partial "modules/collection-api/sale/sale_payment.md.erb" %></p>

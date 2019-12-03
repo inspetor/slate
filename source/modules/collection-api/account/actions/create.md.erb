@@ -1,28 +1,26 @@
 ### Account Creation
-
-```php
-<?php 
-
-use Inspetor; 
-
-$inspetor = $this->getConfiguredInspetor(); 
-
-$inspetor->trackAccountCreation($account); 
-
-?>
+```sh
+curl -X POST https://collection-prod.inspcdn.net/account \
+    -H "Authorization: Bearer $API_KEY" \
+    -d '{
+        "id":                  "12345",
+        "email":               "my_user@inspetor.com",
+        "document":            "123.456.789-10",
+        "document_type":       "cpf",
+        "phone_number":        11999123456,
+        "phone_country_code":  55,
+        "password_hash":       "effebbbeeabc123",
+        "first_name":          "john",
+        "last_name":           "fulano",
+        "address":             {
+            "street_name":       "Rua Fidalga",
+            "street_number":     "252",
+            "zip_code":          "05432-010",
+            "city":              "São Paulo",
+            "state":             "SP",
+            "country":           "BR"
+        }
+    }'
 ```
-```python 
-import inspetor
-
-inspetor = self.getConfiguredInspetor()
-
-inspetor.track_account_creation(account)
-
-```
-
 
 Notify Inspetor any time a new user account is created.
-
-Argument | Type | Description
--------- | ---- | -----------
-account  | Inspetor/Model/[InspetorAccount](#inspetoraccount) | The Account that is being created

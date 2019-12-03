@@ -3,7 +3,17 @@
 Information regarding the transfer of purchased [InspetorItems](#inspetoritem) (*e.g. tickets*) within your platform.
 
 ### Properties
-
+```JSON
+{
+    "transfer_id":             "43262",
+    "sale_id":                 "12345",
+    "sale_item_id":            "101",
+    "sender_account_id":       "25236",
+    "recipient_account_email": "user_email@gmail.com",
+    "recipient_account_id":    "212163",
+    "status":                  "pending"
+}
+```
 ```php
 <?php
 
@@ -12,7 +22,6 @@ $inspetor_transfer = $inspetor->getInspetorTransfer();
 
 // Filling model with company data
 $inspetor_transfer->setId("123"); //getId()
-$inspetor_transfer->setTimestamp(time()); //getTimestamp()
 $inspetor_transfer->setItemId("9000"); //getItemId()
 $inspetor_transfer->setSenderAccountId("124"); //getSenderAccountId()
 $inspetor_transfer->setReceiverEmail("test@email.com"); //getReceiverEmail()
@@ -30,15 +39,14 @@ inspetor_transfer = self.inspetor.get_inspetor_transfer()
 
 # Filling model with transfer data
 inspetor_transfer.id = "123"
-inspetor_transfer.timestamp = datetime.timestamp(datetime.now())
 inspetor_transfer.item_id = "123"
 inspetor_transfer.sender_account_id = "123"
 inspetor_transfer.receiver_email = "test@email.com"
 inspetor_transfer.status = "pending"
 
 
-inspetor.track_transfer_creation(inspetor_transger)
-inspetor.track_transfer_update(inspetor_transger)
+inspetor.track_transfer_creation(inspetor_transfer)
+inspetor.track_transfer_update(inspetor_transfer)
 ```
 
 
@@ -46,9 +54,9 @@ All properties can be accessed or defined via `get` and `set` accessor methods
 
 Property | Required For Creation | Required For Update | Type | Description
 -------- | --------------------- | ------------------- | ---- | -----------
-**id**                | Yes | Yes | String | Your platform-unique identifier for the transfer
-**timestamp**         | Yes | Yes | Integer | The Unix-formatted datetime that the action happend
-**item_id**           | Yes | No  | String | The id of the [InspetorItem](#inspetoritem) (*e.g. ticket*) that is being transfered
-**sender_account_id** | Yes | No  | String | The id of the account who is transferring the item (*e.g. ticket*)
-**receiver_email**    | Yes | No  | String | The email of the user who is receiving the item (*e.g. ticket*)
-**status**            | Yes | No  | String | The status of the transfer. *The allowed values are: `accepted`, `rejected`, and `pending`*
+**transfer_id**       | Yes | Yes | String  | Your platform-unique identifier for the transfer
+**sale_id**           | Yes | Yes | String  | Your platform-unique identifier for the **sale** associated with the items being transfered
+**item_id**           | Yes | No  | String  | The id of the [InspetorItem](#inspetoritem) (*e.g. ticket*) that is being transfered
+**sender_account_id** | Yes | No  | String  | The id of the account who is transferring the item (*e.g. ticket*)
+**recipient_email**   | Yes | No  | String  | The email of the user who is receiving the item (*e.g. ticket*)
+**status**            | Yes | No  | String  | The status of the transfer. *The allowed values are: `accepted`, `rejected`, and `pending`*
