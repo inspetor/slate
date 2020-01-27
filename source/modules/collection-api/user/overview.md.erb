@@ -1,0 +1,23 @@
+## Account Activity
+
+You can send user-related information to Inspetor via the REST API. The `/user` endpoint supports `POST` (create), `PUT` (update), and `DELETE` (delete) operations with the following arguments:
+
+Property               | When is it required?   | Type                  | Description
+---------------------- | ---------------------  | --------------------- | -----------
+id                     | `POST`, `PUT`, `DELETE`| String                | Your unique identifier for this user in your platform
+email                  | `POST`                 | String                | The email associated with the user
+document               |                        | String                | The Document number associated with the user.
+document_type          |                        | String                | The Document type associated with the user's document number. Accpeted values are `cpf`, `cnpj`, `passport`, `rg`, and `other`.
+phone_number           |                        | Integer               | The phone number associated with the user (numbers only; country code not included). Note: if phone_number is provided, phone_country_code is also required.
+phone_country_code     |                        | Integer               | The international country code associated with the phone number (numbers only). Note: if phone_country_code is provided, phone_number is also required.
+password_hash          |                        | String                | The **secure** (salted and hashed) password associated with the user 
+name                   |                        | String                | The user first and last name
+aliases                |                        | String                | Other names that the user may have in the platform. For instance, it could be the user customs username
+gender                 |                        | String                | The user gender. Accepted values are: `male`, `female`, `other` and `undisclosed`
+user_type              |                        | String                | The type of the user in your platform. Accepted values are: `final_user`, `service_provider`
+address                |                        | [Address](#addresses) | The address associated with the user
+
+
+<p><%= partial "modules/collection-api/account/actions/create.md.erb" %></p>
+<p><%= partial "modules/collection-api/account/actions/update.md.erb" %></p>
+<p><%= partial "modules/collection-api/account/actions/delete.md.erb" %></p>

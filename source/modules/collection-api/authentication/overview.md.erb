@@ -3,8 +3,8 @@
 curl -X POST https://collection-prod.inspcdn.net/auth \
     -H "Authorization: Bearer $API_KEY" \
     -d '{
-        "account_id": "232550",
-        "action":     "login_failure"
+        "user_id":     "232550",
+        "action_type": "login_failure"
     }'
 ```
 
@@ -14,5 +14,5 @@ The following fields are required:
 
 Property    | Type   | Description
 --------    | ----   | -----------
-account_id  | String | The account ID that was (or was attempted to be) logged into
-action      | String | What type of authentication activity occurred. Accepted values are limited to `'login_failure'`, `'login_success'`, and `'logout'` (case-insensitive).
+user_id     | String | The user ID that was (or was attempted to be) logged into
+action_type      | String | What type of authentication activity occurred. Accepted values are limited to `'login_failure'`, `'login_success'`, and `'logout'` (case-insensitive).
