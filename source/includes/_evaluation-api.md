@@ -18,3 +18,5 @@ holder_cpf                      | String  | The card holder's CPF
 All of these fields are required - we cannot evaluate a sale that has any of these missing.
 
 [*] Even though a sale might have more than one event datetime id associated to it, at this moment, we only require the main one associated to the sale in this endpoint. That is, even if there might be multiple tickets, corresponding to multiple event datetime ids in a single sale, we only ask for a single event datetime id.
+
+The success response for this resource is a json such as `{"inspetor_decision": "<our decision>"}`; where our decision is either `approve`, `reject` or `manual`.
