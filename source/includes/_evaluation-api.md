@@ -1,4 +1,18 @@
 # Evaluation API
+```shell
+curl -X POST https://collection-prod.inspcdn.net/evaluation \
+    -H "Authorization: Bearer $API_KEY" \
+    -d '{
+        "sale_id": "12345",
+        "account_id": "157421",
+        "sale_datetime": 1579792758,
+        "event_date_id": "23553",
+        "sale_total_value": 54.26,
+        "first_six_digits_cc": "455326",
+        "last_four_digits_cc": "0012",
+        "holder_cpf": "741.112.235-53"
+    }'
+```
 
 Our evaluation API consists of a single resource: `/evaluation`. This resource should get used whenever you have a Sale that you would like to get evaluated by Inspetor.
 
@@ -13,7 +27,7 @@ event_date_id <sup>[*]</sup>    | String  | The event datetime id associated to 
 sale_total_value                | Float   | The total monetary value of the sale
 first_six_digits_cc             | String  | The first six digits of the credit card associated to the sale
 last_four_digits_cc             | String  | The last four digits of the credit card associated to the sale
-holder_cpf                      | String  | The card holder's CPF
+holder_cpf                      | String  | The card holder's CPF. It may contain dots and dashes but it's not required.
 
 All of these fields are required - we cannot evaluate a sale that has any of these missing.
 
