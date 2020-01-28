@@ -2,6 +2,7 @@
 ```shell
 curl -X POST https://collection-prod.inspcdn.net/evaluation \
     -H "Authorization: Bearer $API_KEY" \
+    -H "Content-Type: application/json" \
     -d '{
         "sale_id": "12345",
         "account_id": "157421",
