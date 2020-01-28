@@ -7,13 +7,13 @@ Property               | When is it required?   | Type                  | Descri
 id                     | `POST`, `PUT`, `DELETE`| String                | Your unique identifier for this user in your platform
 email                  | `POST`                 | String                | The email associated with the user
 document               |                        | String                | The document number associated with the user
-document_type          |                        | String                | The document type associated with the user's document number. Accpeted values are `cpf`, `cnpj`, `passport`, `rg`, and `other`
+document_type          |                        | String                | The document type associated with the user's document number. Accpeted values are `'cpf'`, `'cnpj'`, `'passport'`, `'rg'`, `'rne'`, and `'other'`
 phone_number           |                        | Integer               | The phone number associated with the user (numbers only; country code not included). Note: if phone_number is provided, phone_country_code is also required
 phone_country_code     |                        | Integer               | The international country code associated with the phone number (numbers only). Note: if phone_country_code is provided, phone_number is also required
 password_hash          |                        | String                | The **secure** (salted and hashed) password associated with the user 
 name                   |                        | String                | The user's full name
 gender                 |                        | String                | The user gender. Accepted values are: `'male'`, `'female'`, `'other'` and `'undisclosed'`
-user_type              |                        | String                | The type of the user in your platform. Accepted values are: `'end_user'`, `'service_provider'`
+user_type              |                        | String                | The type of the user in your platform. Accepted values are: `'consumer'`, `'service_provider'`
 address                |                        | [Address](#addresses) | The address associated with the user
 
 
