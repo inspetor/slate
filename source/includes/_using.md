@@ -20,7 +20,7 @@ In order to protect your company from fraudsters, our decision models need to be
 
 At a high level, our decision model understands the e-commerce world in the following primary terms:
 
-- <a href="#account-activity">**Accounts**</a>
+- <a href="#user-activity">**Users**</a>
 - <a href="#event-activity">**Events**</a>
 - <a href="#sale-activity">**Sales**</a>
 - <a href="#sale-items">**Sale Items** (e.g. tickets)</a>
@@ -30,13 +30,13 @@ You can think of the relationship between those entities something like this:
 If a user purchases tickets for a show on your site, Inspetor interprets the action as:
 
 - the creation of a new <a href="#sale-activity">*Sale*</a>
-- the association of that Sale with an existing <a href="#account-activity">*Account*</a>
+- the association of that Sale with an existing <a href="#user-activity">*User*</a>
 - the association of that Sale with one or more <a href="#sale-items">*Items*</a>
 - the association of that Item with an existing <a href="#event-activity">*Event*</a>
 
 There are some additional behaviors that are also relevant to assessing potentially fraudulent behavior:
 
-- <a href="#authentication-activity">Attempted and successful logins or logouts of a user account</a>
+- <a href="#authentication-activity">Attempted and successful logins or logouts of a user</a>
 - <a href="#password-activity">Password recovery or reset</a>
 - <a href="#item-transfers">Ticket transfers</a>
 
@@ -63,10 +63,10 @@ It is <b>extremely important</b> that you provide us with updated information at
 
 The Inspetor Client Library provides methods for you to relay state changes to primary entities in any of the following instances:
 
-### Account
-- When an account is <a href="#account-creation">created</a>
-- When an account is <a href="#account-updates">updated</a>
-- When an account is <a href="#account-deletion">deleted</a>
+### User
+- When an user is <a href="#user-creation">created</a>
+- When an user is <a href="#user-updates">updated</a>
+- When an user is <a href="#accouusernt-deletion">deleted</a>
 
 ### Event
 - When an event is <a href="#event-creation">created</a>
@@ -85,8 +85,8 @@ The Inspetor Client Library provides methods for you to relay state changes to p
 Inspetor provides additional methods to allow you to inform us about meaningful user activity, such as:
 
 ### Login/Logout
-- When a user attempts to <a href="#account-login">log in to an account</a>
-- When a user attempts to <a href="#account-logout">log out of an account</a>
+- When a user attempts to <a href="#account-login">log in</a>
+- When a user attempts to <a href="#account-logout">log out</a>
 
 ### Password Activities
 - When a user requests to <a href="#password-activity">recover</a> their password
@@ -111,4 +111,4 @@ Integrating with Inspetor is meant to be easy--simply instantiate our library or
 Please ensure you are using your <b>sandbox API keys</b> when you are testing your integration; otherwise, Inspetor's models will interpret anything you send during dev testing as production data and train our fraud detection models accordingly.
 </aside>
 
-However, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or accounts) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, accounts, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific and it will involve coordinated effort from both the customer and the Inspetor integration team.
+However, ensuring that some data is making its way into our database is not sufficient for validating an Inspetor integration. We need to ensure that our understanding of state updates to primary entities (such as sales or users) remains accurate over time. This means that after the initial integration of our client library into your production code, we will need to periodically validate that our representation of sales, users, etc. corresponds to the true state of those entities (as represented in the customer database). This phase of validation is highly customer-specific and it will involve coordinated effort from both the customer and the Inspetor integration team.
