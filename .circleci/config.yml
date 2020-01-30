@@ -6,10 +6,10 @@ jobs:
       - image: circleci/ruby:2.4.2-jessie-node
     steps:
       - checkout
-      # - run:
-      #     name: Set the new node.js version as default
-      #     command: |
-      #       nvm alias default stable
+      - run:
+          name: Bundle install
+          command: |
+            bundle install
       # - run:
       #     name: Set Python 3.7
       #     command: |
