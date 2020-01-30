@@ -147,7 +147,7 @@ You must call this function <b>any</b> time a sale's status is updated (includin
 </tbody></table>
 
 <p>Note: it is expected that when marking a sale fraudulent, one would also make a corresponding call to the <code>/sales</code> endpoint to update a sale with a <code>rejected</code> status (unless the sale was marked fraudulent only after a chargeback was received). </p>
-</p>\
+</p>
 
 <p><h3 id='sale-items'>Sale Items</h3><pre class="highlight shell tab-shell"><code><span class="o">{</span>
     <span class="s2">"id"</span>:                 <span class="s2">"101"</span>,

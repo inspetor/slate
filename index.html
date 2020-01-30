@@ -340,13 +340,16 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#evaluation-api" class="toc-h1 toc-link" data-title="Evaluation API">Evaluation API</a>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Inspetor protects your company from losses due to fraud and chargebacks, all while maximizing revenue from valid purchases and maintaining the simple payment flow that your customers love. We accomplish this by making predictions based on past and present user behavior to evaluate the likelihood that a transaction is fraudulent. </p>
+<p>Inspetor protects your company from losses due to fraud and chargebacks, all while maximizing revenue from valid purchases and maintaining the simple payment flow that your customers love. We accomplish this by making predictions based on past and present user behavior to evaluate the likelihood that a transaction is fraudulent.</p>
 
 <p>But we can&#39;t collect this information on our own--we need <em>you</em>, the user, to integrate our library into your code base so we can capture sufficient information to train our models. The more information we receive, the better the decision we can make, and the better we can protect your platform from fraud. Events like logins, profile updates, or even unrelated purchases on the same account all contribute to our assessment of a given transaction.</p>
 
@@ -976,7 +979,7 @@ You must call this function <b>any</b> time a sale's status is updated (includin
 </tbody></table>
 
 <p>Note: it is expected that when marking a sale fraudulent, one would also make a corresponding call to the <code>/sales</code> endpoint to update a sale with a <code>rejected</code> status (unless the sale was marked fraudulent only after a chargeback was received). </p>
-</p>\
+</p>
 
 <p><h3 id='sale-items'>Sale Items</h3><pre class="highlight shell tab-shell"><code><span class="o">{</span>
     <span class="s2">"id"</span>:                 <span class="s2">"101"</span>,
@@ -1252,6 +1255,80 @@ Any time you are updating one or more of the items associated with a sale, you m
 <td>The exact longitude of the address</td>
 </tr>
 </tbody></table>
+<h1 id='evaluation-api'>Evaluation API</h1><pre class="highlight shell tab-shell"><code>curl -X POST https://collection-prod.inspcdn.net/evaluation <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">"</span> <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "sale_id": "12345",
+        "account_id": "157421",
+        "sale_datetime": 1579792758,
+        "event_date_id": "23553",
+        "sale_total_value": 54.26,
+        "first_six_digits_cc": "455326",
+        "last_four_digits_cc": "0012",
+        "holder_cpf": "741.112.235-53"
+    }'</span>
+</code></pre>
+<p>Our evaluation API consists of a single resource: <code>/evaluation</code>. This resource should be used whenever you have a Sale that you would like to get evaluated by Inspetor.</p>
+
+<p>It is a <code>POST</code> endpoint, and the fields it accepts are as follows:</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sale_id</td>
+<td>String</td>
+<td>The unique identifier for the sale within your platform</td>
+</tr>
+<tr>
+<td>account_id</td>
+<td>String</td>
+<td>The ID of the account attempting the purchase</td>
+</tr>
+<tr>
+<td>sale_datetime</td>
+<td>Integer</td>
+<td>The Unix-timestamp corresponding to the date and time of the sale</td>
+</tr>
+<tr>
+<td>event_date_id <sup>[*]</sup></td>
+<td>String</td>
+<td>The event datetime id associated to the sale</td>
+</tr>
+<tr>
+<td>sale_total_value</td>
+<td>Float</td>
+<td>The total monetary value of the sale</td>
+</tr>
+<tr>
+<td>first_six_digits_cc</td>
+<td>String</td>
+<td>The first six digits of the credit card associated to the sale</td>
+</tr>
+<tr>
+<td>last_four_digits_cc</td>
+<td>String</td>
+<td>The last four digits of the credit card associated to the sale</td>
+</tr>
+<tr>
+<td>holder_cpf</td>
+<td>String</td>
+<td>The card holder&#39;s CPF. It may contain dots and dashes but it&#39;s not required</td>
+</tr>
+</tbody></table>
+
+<p><strong>All of these fields are required - we cannot evaluate a sale that has any of these missing.</strong></p>
+
+<p>This is a synchronous endpoint, so you&#39;ll receive our decision regarding the sale as the response for it (be aware that it might take up to 20 seconds for the HTTP response to come back). The success response for this resource is a JSON such as <code>{&quot;inspetor_decision&quot;: &quot;&lt;our decision&gt;&quot;}</code>; where our decision is either <code>approve</code>, <code>reject</code> or <code>manual</code>.</p>
+
+<aside class="notice">
+[*] Even though a sale might have more than one event datetime id associated to it, at this moment, we only require the main one associated to the sale in this endpoint. That is, even if there might be multiple tickets, corresponding to multiple event datetime ids, in a single sale, we only ask for a single event datetime id (usually the event_date_id that will be in your sales table).
+</aside>
 
       </div>
       <div class="dark-box">
