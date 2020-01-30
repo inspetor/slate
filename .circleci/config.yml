@@ -2,14 +2,10 @@ version: 2.1
 
 jobs:
   deploy:
-    machine:
-      image: ubuntu-1604:201903-01
+    docker:
+      - image: circleci/ruby:2.4.2-jessie-node
     steps:
       - checkout
-      # - run:
-      #     name: Update node.js
-      #     command: |
-      #       nvm install stable
       # - run:
       #     name: Set the new node.js version as default
       #     command: |
