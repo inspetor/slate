@@ -7,6 +7,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Update gem
+          command: |
+            gem update --system
+      - run:
           name: Bundle install
           command: |
             bundle install
