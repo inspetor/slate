@@ -1,0 +1,38 @@
+version: 2.1
+
+jobs:
+  deploy:
+    docker:
+      - image: circleci/ruby:2.4.2-jessie-node
+        environment:
+          BUNDLER_VERSION: 2.0.1
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "08:ed:d6:c1:6e:7e:39:bf:22:f9:aa:b2:97:3b:be:f1"
+      - run:
+          name: Set Git creds for deploying
+          command: |
+            git config --global user.email circleci@circleci && git config --global user.name CircleCI
+      - run:
+          name: Set up bundler
+          command: |
+            sudo gem update --system
+      - run:
+          name: Bundle install
+          command: |
+            bundle install
+      - run:
+          name: Deploy new documentation
+          command: |
+             ./deploy.sh
+
+workflows:
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
