@@ -7,9 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Update gem
+          name: Set up bundler
           command: |
-            gem update --system
+            gem update --system && gem install bundler && bundler update --bundler
       - run:
           name: Bundle install
           command: |
