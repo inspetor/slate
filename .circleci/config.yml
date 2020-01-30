@@ -1,0 +1,46 @@
+orbs:
+  docker: circleci/docker@0.5.13
+
+version: 2.1
+
+jobs:
+  deploy:
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+      - checkout
+      # - run:
+      #     name: Update node.js
+      #     command: |
+      #       nvm install stable
+      # - run:
+      #     name: Set the new node.js version as default
+      #     command: |
+      #       nvm alias default stable
+      # - run:
+      #     name: Set Python 3.7
+      #     command: |
+      #       pyenv versions
+      #       pyenv global 3.7.0
+      # - run:
+      #     name: Install serverless
+      #     command: |
+      #       npm install -g serverless
+      # - run:
+      #     name: Install request-eval-txn serverless plugins
+      #     command: |
+      #       npm install
+      - run:
+          name: Deploy new documentation
+          command: |
+             ./deploy.sh
+
+workflows:
+  deploy:
+    jobs:
+      - deploy
+      # :
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master
