@@ -9,24 +9,11 @@ jobs:
       - run:
           name: Set up bundler
           command: |
-            gem update --system && gem install bundler && bundler update --bundler
+            gem update --system && sudo gem install bundler
       - run:
           name: Bundle install
           command: |
             bundle install
-      # - run:
-      #     name: Set Python 3.7
-      #     command: |
-      #       pyenv versions
-      #       pyenv global 3.7.0
-      # - run:
-      #     name: Install serverless
-      #     command: |
-      #       npm install -g serverless
-      # - run:
-      #     name: Install request-eval-txn serverless plugins
-      #     command: |
-      #       npm install
       - run:
           name: Deploy new documentation
           command: |
