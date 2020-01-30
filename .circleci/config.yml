@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Set up bundler
           command: |
-            gem update --system
+            sudo gem update --system
       - run:
           name: Bundle install
           command: |
